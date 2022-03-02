@@ -1,0 +1,352 @@
+.section {
+  min-height: 100vh;
+  position: sticky;
+  top: 0;
+}
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15em 0;
+  position: relative;
+  z-index: 1;
+}
+
+.circle-icon {
+  padding: 15em 0;
+}
+
+.icon {
+  color: #f7941e;
+  transition: all 0.7s ease-out !important;
+}
+
+.icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.hero {
+  z-index: 1000;
+  align-items: center;
+  position: relative;
+}
+
+.hero h1 {
+  color: #fff;
+  max-width: 100%;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+//  Statement
+
+.statement {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+}
+
+.statement h1,
+.statement p {
+  color: #232730;
+  padding: 0.5em 0;
+}
+
+.statement p {
+  text-align: center;
+}
+
+//  Nexus
+
+.nexus {
+  display: flex;
+  align-items: center;
+  background: url(../../img/backgrounds/01.png) no-repeat center center fixed;
+  background-size: cover;
+  padding: 5em;
+}
+
+.nexus__stats {
+  justify-content: space-between;
+}
+
+.nexus__stats h2 {
+  padding: 0.5em 0;
+  color: #ffffff;
+}
+
+.nexus__stats p {
+  color: #ffffff;
+}
+
+.nexus hr {
+  color: #fff;
+  margin: 2em 0;
+  border-style: solid;
+}
+
+.nexus__points,
+.nexus p {
+  color: #ffffff;
+}
+
+.nexus__points svg {
+  margin: 1em 0;
+}
+
+//  Enhance
+.enhance {
+  display: flex;
+  align-items: center;
+  padding: 5em 0;
+  background-color: #ffffff;
+}
+
+.enhance h2 {
+  color: #232730;
+  padding-bottom: 1em;
+}
+
+.enhance h2::after {
+  content: "";
+  border-bottom: 5px solid #131313;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 30px;
+}
+
+.enhance__content {
+  justify-content: flex-end;
+}
+
+.enhance__content a[role="button"] {
+  color: #131313;
+  border: 1px solid black;
+  margin: 1em 0;
+}
+
+.enhance__content a[role="button"]:hover {
+  background-color: black;
+  color: white;
+}
+
+.enhance p {
+  padding: 1em 0;
+}
+
+//  impact
+
+.impact {
+  display: flex;
+  align-items: center;
+  background-color: #232730;
+}
+
+.impact h2 {
+  color: #ffffff;
+}
+
+.impact__title {
+  display: flex;
+  justify-content: center;
+  padding: 3em 0;
+}
+
+.impact__container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.impact__container-item {
+  position: relative;
+  padding: 8em;
+  margin: 1em 0;
+  color: #ffffff;
+}
+
+.impact__container-item:hover {
+  cursor: pointer;
+}
+
+.impact__container-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1em;
+}
+
+.impact__microsoft {
+  background-image: url(../../img/companies/microsoft.png);
+  background-position: center center;
+}
+
+.impact__hr {
+  background-image: url(../../img/companies/hr.png);
+  background-position: center center;
+}
+
+.impact__raytheon {
+  background-image: url(../../img/companies/raytheon.png);
+  background-position: center center;
+}
+
+.impact__navy {
+  background-image: url(../../img/companies/navy.png);
+  background-position: center center;
+}
+
+.statement2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../img/backgrounds/02.png) no-repeat center center;
+  background-size: cover;
+}
+
+.statement2 h3,
+.statement2 p {
+  color: #ffffff;
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+.statement2 h3 {
+  max-width: 40ch;
+}
+
+.statement2__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.statement2__button {
+  padding: 3em 0;
+  display: flex;
+  justify-content: center;
+}
+
+.statement2__button:hover {
+  color: black;
+}
+
+.news {
+  background-color: #ffffff;
+  background-image: url(../../img/backgrounds/mesh.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.news__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.news__container {
+  align-items: center;
+  justify-content: center;
+}
+
+.news__layout {
+}
+
+.news__layout-featured {
+  justify-content: space-between;
+}
+
+.news__layout-list {
+  align-items: space-evenly;
+}
+
+.news__layout-item {
+  padding: 8em;
+  margin: 1em 0;
+  background-color: #232730;
+  position: relative;
+}
+
+.news__layout-item-content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 1em;
+}
+
+.news__layout-item-content h5 {
+  color: white;
+  max-width: 30ch;
+  font-size: 1.2em;
+}
+
+.news__layout-item-content a,
+.news__layout-item-content p {
+  color: white;
+}
+
+@keyframes zoomies {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 150%;
+  }
+}
+
+@media only screen and (min-width: 75em) {
+  .nexus {
+    display: flex;
+    align-items: center;
+    background: url(../../img/backgrounds/01.png) no-repeat center center fixed;
+    background-size: 100%;
+    animation-name: zoomies;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+
+  .enhance {
+    display: flex;
+    align-items: center;
+    padding: 5em 0;
+    background-color: #ffffff;
+    background-image: url(../../img/backgrounds/logo_image.svg);
+    background-repeat: no-repeat;
+    background-size: 40%;
+    background-position-y: 70%;
+    background-position-x: -5%;
+  }
+
+  .statement2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(../../img/backgrounds/02.png) no-repeat center center fixed;
+    background-size: cover;
+    animation-name: zoomies;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+}
