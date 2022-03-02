@@ -1,15 +1,16 @@
 import Nav from '../components/navigation';
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 const Layout = ({ children }) => {
-	const [activeBackground, setActiveBackground] = useState(undefined);
+	const [navColor, setNavColor] = useState(undefined);
+	const backgroundRef = useRef();
 
 	return (
 		<div>
-			<Nav activeBackground={activeBackground} />
+			<Nav navColor={navColor} />
 			{React.cloneElement(children, {
-				setActiveBackground,
-				activeBackground,
+				setNavColor,
+				navColor,
 			})}
 		</div>
 	);

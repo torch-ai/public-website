@@ -5,13 +5,14 @@ import Head from 'next/head';
 import style from '../styles/modules/style.module.scss';
 import Grid from '../styles/modules/grid.module.scss';
 import Landing from '../styles/modules/landing.module.scss';
+import { InView } from 'react-intersection-observer';
 
-const Index = ({ setActiveBackground, activeBackground }) => {
-	useEffect(() => {
-		if (!activeBackground) {
-			setActiveBackground(['white', 'black', 'white', 'black']);
-		}
-	}, [activeBackground, setActiveBackground]);
+const Index = ({ setNavColor }) => {
+	// useEffect(() => {
+	// 	if (!activeBackground) {
+	// 		setActiveBackground(['white', 'black', 'white', 'black']);
+	// 	}
+	// }, [activeBackground, setActiveBackground]);
 
 	return (
 		<>
@@ -20,7 +21,7 @@ const Index = ({ setActiveBackground, activeBackground }) => {
 			</Head>
 			<ReactFullpage
 				navigation
-				sectionsColor={activeBackground}
+				// sectionsColor={activeBackground}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
@@ -54,14 +55,16 @@ const Index = ({ setActiveBackground, activeBackground }) => {
 									<source src='./videos/hero.mp4' type='video/mp4' />
 								</video>
 							</div>
-							<div
-								onMouseLeave={() => setActiveBackground('white')}
-								className={`${style['test2']} section`}>
-								<h1>HELLO MONDAY</h1>
+
+							<div id='test' className={`${style['test2']} section`}>
+								<InView
+									as='div'
+									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
+									<h1>{}</h1>
+								</InView>
 							</div>
-							<div
-								// onMouseLeave={() => setActiveBackground('black')}
-								className={`${style['test3']} section`}>
+
+							<div className={`${style['test3']} section`}>
 								<h1>HELLO TUESDAY</h1>
 							</div>
 						</ReactFullpage.Wrapper>

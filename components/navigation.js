@@ -7,21 +7,16 @@ import Grid from '../styles/modules/grid.module.scss';
 import Image from 'next/image';
 import logo from '../img/logo.svg';
 
-const Navigation = ({ activeBackground }) => {
+const Navigation = ({ navColor }) => {
 	const buttonRef = useRef();
 	const navRef = useRef();
 	const router = useRouter();
-	const [color, setColor] = useState(undefined);
+	const [color, setColor] = useState('white');
 
 	useEffect(() => {
 		buttonRef.current.addEventListener('click', toggle);
-	}, []);
-
-	useEffect(() => {
-		if (!color) {
-			setColor('white');
-		}
-	}, [setColor]);
+		setColor(navColor);
+	}, [navColor]);
 
 	function toggle(event) {
 		const visibilty = navRef.current.getAttribute('data-visible');
