@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
@@ -6,23 +6,30 @@ import style from '../styles/modules/style.module.scss';
 import Grid from '../styles/modules/grid.module.scss';
 import Landing from '../styles/modules/landing.module.scss';
 
-const Index = () => {
+const Index = ({ setActiveBackground, activeBackground }) => {
+	useEffect(() => {
+		if (!activeBackground) {
+			setActiveBackground(['white', 'black', 'white', 'black']);
+		}
+	}, [activeBackground, setActiveBackground]);
+
 	return (
 		<>
 			<Head>
-				<title>My styled page</title>
+				<title>Torch AI</title>
 			</Head>
 			<ReactFullpage
 				navigation
-				render={() =>
-					console.log('render prop change') || (
+				sectionsColor={activeBackground}
+				render={(props) => {
+					return (
 						<ReactFullpage.Wrapper>
 							<div className={`${style['test']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col_xs_8 col_lg_8']} ${Landing['content-center']}`}>
-										{/* <h1>Unlock Human Potential.</h1> */}
+										<h1>Unlock Human Potential.</h1>
 										<div className={`${Landing['circle-icon']}`}>
-											{/* <svg
+											<svg
 												width='50'
 												height='50'
 												viewBox='0 0 80 80'
@@ -34,7 +41,7 @@ const Index = () => {
 													fill='white'
 													stroke='white'
 												/>
-											</svg> */}
+											</svg>
 										</div>
 									</div>
 								</div>
@@ -47,15 +54,19 @@ const Index = () => {
 									<source src='./videos/hero.mp4' type='video/mp4' />
 								</video>
 							</div>
-							<div className={`${style['test2']} section`}>
+							<div
+								onMouseLeave={() => setActiveBackground('white')}
+								className={`${style['test2']} section`}>
 								<h1>HELLO MONDAY</h1>
 							</div>
-							<div className={`${style['test3']} section`}>
+							<div
+								// onMouseLeave={() => setActiveBackground('black')}
+								className={`${style['test3']} section`}>
 								<h1>HELLO TUESDAY</h1>
 							</div>
 						</ReactFullpage.Wrapper>
-					)
-				}
+					);
+				}}
 			/>
 		</>
 	);
