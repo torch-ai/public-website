@@ -1,12 +1,186 @@
-* {
-    padding: 0;
-    margin: 0;
+@use "/styles/colors";
+@use "/styles/fonts";
+
+:root {
+    @include colors.colors;
+    @include fonts.fonts;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
     box-sizing: border-box;
 }
 
+::selection {
+    color: #fee715ff;
+    background: #101820ff;
+    padding: 0.2em;
+}
+
+/* Remove default margin */
 body,
-html,
-#__next {
+h1,
+h2,
+h3,
+h4,
+h5,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul,
+ol,
+ul[role="list"],
+ol[role="list"] {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+body,
+#__next,
+html {
     height: 100%;
-    scroll-behavior: smooth;
+    text-rendering: optimizeSpeed;
+    font-smooth: antialiased;
+    background-color: var(--color-dark);
+    margin: 0;
+}
+
+.flow > * + * {
+    margin-top: var(--flow-space, 1em);
+}
+
+.post {
+    --flow-space: var(--h3);
+    width: 90vw;
+    width: clamp(16rem, 90vw, 70rem);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.fp-section.fp-table,
+.fp-slide.fp-table {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.fp-tableCell {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+Image {
+    max-width: min(55rem, 100%);
+    display: block;
+}
+
+figcaption {
+    font-size: var(--h3);
+    font-style: italic;
+    margin-top: 1rem;
+}
+
+blockquote {
+    padding-left: var(--h4);
+    border-left: 5px solid;
+    font-style: italic;
+}
+
+main:focus {
+    outline: none;
+}
+
+[href]:hover {
+    text-decoration: none;
+}
+
+a[role="button"] {
+    color: #fafafa;
+    border: 1px solid #ffffff;
+    padding: 0.8em 2em;
+    border-radius: 8em;
+    display: inline-block;
+}
+
+a[role="button"]:hover {
+    background-color: #ffffff;
+    border: 1px solid #ffffff;
+    color: #131313;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease-in-out !important;
+}
+
+div[class*="span_"] {
+    padding: 1em;
+}
+
+footer {
+    background-color: #1b1c1e;
+    padding: 1em;
+}
+
+footer h3,
+footer h4,
+footer p,
+footer ul li {
+    color: #ffffff;
+}
+
+footer a {
+    color: var(--pri-clr-midnight);
+}
+
+footer .row {
+    align-items: center;
+}
+
+@media (min-width: 600px) {
+    :root {
+        --type-scale: 1.25;
+    }
+    .container {
+        width: 600px;
+    }
+}
+@media (min-width: 900px) {
+    :root {
+        --type-scale: 1.33;
+    }
+    .container {
+        width: 900px;
+    }
+}
+@media (min-width: 1200px) {
+    :root {
+        --type-scale: 1.414;
+    }
+    .container {
+        width: 1200px;
+    }
 }

@@ -1,0 +1,180 @@
+@use "/styles/colors";
+
+.content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15em 0;
+    position: relative;
+    z-index: 1;
+}
+
+.circle-icon {
+    padding: 3em 0;
+}
+
+.icon {
+    color: #f7941e;
+    transition: all 0.7s ease-out !important;
+}
+
+.icon:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+// HERO
+
+.hero {
+    z-index: 1000;
+    position: relative;
+    align-items: center;
+    background: url(../../img/backgrounds/10.png);
+    background-size: cover;
+}
+
+.hero h1 {
+    color: #fff;
+    max-width: 50ch;
+}
+
+.hero p {
+    color: #fff;
+    padding: 2em 0;
+    max-width: 50ch;
+}
+
+.background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+}
+
+//  Value
+
+.value {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    background-image: url(../../img/backgrounds/mesh.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+
+.value__content {
+    justify-content: space-between;
+}
+
+.value__content h2 {
+    padding: 1em 0;
+    max-width: 100%;
+}
+
+.value__content h2::after {
+    content: "";
+    border-bottom: 5px solid #131313;
+    padding-bottom: 0.8em;
+    display: block;
+    bottom: 0;
+    width: 2em;
+    left: 0;
+}
+
+.benefitsPartners {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-color: #ffffff;
+}
+
+.benefitsPartners h2 {
+    max-width: 100%;
+    padding: 1em 0;
+}
+
+.benefitsPartners__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.benefitsPartners__content {
+    justify-content: space-between;
+}
+
+.benefitsPartners__content h4 {
+    padding: 1em 0;
+}
+
+.benefitsPartners__content h4::after {
+    content: "";
+    border-bottom: 5px solid black;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.change {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../img/backgrounds/11.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.change__title {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.change__title h2 {
+    max-width: 100%;
+    padding: 1em 0;
+}
+
+.change__title h2,
+.change__title p {
+    color: #ffffff;
+}
+
+@keyframes zoomies {
+    from {
+        background-size: 100%;
+    }
+    to {
+        background-size: 150%;
+    }
+}
+
+@media only screen and (min-width: 75em) {
+    .change {
+        animation-name: zoomies;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+
+    .hero {
+        animation-name: zoomies;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+}

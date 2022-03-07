@@ -1,0 +1,233 @@
+@use "/styles/colors";
+
+.content-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 15em 0;
+  position: relative;
+  z-index: 1;
+}
+
+.circle-icon {
+  padding: 15em 0;
+}
+
+.icon {
+  color: #f7941e;
+  transition: all 0.7s ease-out !important;
+}
+
+.icon:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+// HERO
+
+.hero {
+  z-index: 1000;
+  position: relative;
+  align-items: center;
+  background: url("../../img/backgrounds/03.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.hero h2 {
+  color: #fff;
+  max-width: 50ch;
+}
+
+.hero p {
+  color: #fff;
+  padding: 2em 0;
+  max-width: 50ch;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+}
+
+//  Statement
+
+.engines {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5em 0;
+}
+.engines h3 {
+  max-width: 50ch;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.engines__models {
+  justify-content: space-between;
+  margin: 1em 0;
+}
+.engines__models h4 {
+  padding: 1em 0;
+}
+
+.engines__models h4::after {
+  content: "";
+  border-bottom: 5px solid #131313;
+  padding-bottom: 0.8em;
+  display: block;
+  bottom: 0;
+  width: 2em;
+  left: 0;
+  height: 30px;
+}
+
+.engines__models p {
+  max-width: 100%;
+  font-size: 0.8em;
+  padding: 2em 0;
+}
+
+.datalake {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../../img/backgrounds/04.png);
+  background-size: cover;
+  padding: 5em 0;
+}
+
+.datalake__content h3 {
+  padding: 1em 0;
+  color: white;
+}
+
+.datalake__content p {
+  color: #ffffff;
+}
+
+.datalake__title {
+  padding: 2em 0;
+  color: white;
+}
+
+.datalake__bold {
+  font-weight: bolder;
+  font-family: "DINPro-Bold", sans-serif;
+}
+
+.code {
+  display: flex;
+  justify-content: center;
+  padding: 10em 0;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+.code h2 {
+  padding: 1em 0;
+}
+
+.code h2::after {
+  content: "";
+  border-bottom: 5px solid #131313;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
+}
+
+.code p {
+  padding: 1em 0;
+}
+
+.benefits {
+  background: url(../../img/backgrounds/05.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 5em 0;
+}
+
+.benefits {
+  color: #ffffff;
+}
+
+.benefits h2 {
+  padding: 1em 0;
+}
+
+.benefits h2::after {
+  content: "";
+  border-bottom: 5px solid #ffffff;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
+}
+
+.benefits h5 {
+  padding: 1em 0;
+}
+
+@keyframes zoomies {
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 150%;
+  }
+}
+
+@media only screen and (min-width: 75em) {
+  .hero {
+    z-index: 1000;
+    position: relative;
+    align-items: center;
+    background: url("../../img/backgrounds/03.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    animation-name: zoomies;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+
+  .datalake {
+    padding: 5em 0;
+    animation-name: zoomies;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+
+  .code {
+    background-image: url(../../img/backgrounds/code-laptop.gif);
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center right -80%;
+    background-color: #ffffff;
+  }
+
+  .benefits {
+    animation-name: zoomies;
+    animation-duration: 30s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-direction: alternate;
+  }
+}

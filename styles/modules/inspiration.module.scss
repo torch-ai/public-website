@@ -1,0 +1,525 @@
+@use "/styles/colors";
+
+.content-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10em 0;
+    position: relative;
+    z-index: 1;
+}
+
+.circle-icon {
+    padding: 3em 0;
+}
+
+.icon {
+    color: #f7941e;
+    transition: all 0.7s ease-out !important;
+}
+
+.icon:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+// HERO
+
+.hero {
+    z-index: 1000;
+    position: relative;
+    align-items: center;
+    background: url(../../img/backgrounds/23.png);
+}
+
+.hero h2 {
+    color: white;
+    max-width: 50ch;
+}
+
+.hero p {
+    color: #fff;
+    padding: 2em 0;
+    max-width: 50ch;
+}
+
+//  Gallery
+.gallery {
+    padding: 5em 0;
+}
+
+.gallery-item {
+    padding: 8em;
+    margin: 1em 4em;
+    position: relative;
+    background-color: rgb(128, 128, 128);
+}
+
+.gallery-item:hover {
+    opacity: 0.8;
+}
+
+.gallery__label {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: white;
+}
+
+.gallery__label h5 {
+    font-size: 1.2em;
+    text-align: center;
+    word-wrap: break-word;
+}
+
+.gallery-logistics {
+    background: url(../../img/gallery/logistics.png) center center no-repeat;
+    background-size: cover;
+}
+
+.gallery-defense {
+    background: url(../../img/gallery/defense.png) center center no-repeat;
+    background-size: cover;
+}
+
+.gallery-insurance {
+    background: url(../../img/gallery/insurance.png) center center no-repeat;
+    background-size: cover;
+}
+
+.gallery-publicSector {
+    background: url(../../img/gallery/publicsector.png) center center no-repeat;
+    background-size: cover;
+}
+
+.gallery-manufacture {
+    background: url(../../img/gallery/manufacturing.png) center center no-repeat;
+    background-size: cover;
+}
+.gallery-financial {
+    background: url(../../img/gallery/finance.png) center center no-repeat;
+    background-size: cover;
+}
+
+.gallery-marketing {
+    background: url(../../img/gallery/marketing.png) center center no-repeat;
+    background-size: cover;
+}
+
+.gallery-healthcare {
+    background: url(../../img/gallery/healthcare.png) center center no-repeat;
+    background-size: cover;
+}
+
+.logistics {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background: url(../../img/backgrounds/06.png);
+    background-size: cover;
+}
+
+.logistics__content {
+}
+
+.logistics__content h2 {
+    padding: 1em 0;
+    color: #fff;
+}
+
+.logistics__content h2::after {
+    content: "";
+    border-bottom: 5px solid #ffffff;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.logistics__content p {
+    padding: 1em 0;
+    color: #fff;
+}
+
+// Defense
+
+.defense {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-color: #ffffff;
+}
+
+.defenses__content {
+}
+
+.defenses__content h2 {
+    padding: 1em 0;
+    color: black;
+    max-width: 15ch;
+}
+
+.defenses__content h2::after {
+    content: "";
+    border-bottom: 5px solid black;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.defenses__content p {
+    padding: 1em 0;
+    color: black;
+}
+
+.defenses__content a[role="button"] {
+    color: black;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.defenses__content a[role="button"]:hover {
+    background-color: black;
+    color: white;
+}
+
+// insurace
+
+.insurance {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    color: white;
+    background-color: var(--color-dark);
+}
+
+.insurance__content {
+}
+
+.insurance__content h2 {
+    padding: 1em 0;
+    color: white;
+}
+
+.insurance__content h2::after {
+    content: "";
+    border-bottom: 5px solid white;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.insurance__content p {
+    padding: 1em 0;
+    color: white;
+}
+
+.insurance__content a[role="button"] {
+    color: white;
+    border: 1px solid white;
+    margin-top: 1em;
+}
+
+.insurance__content a[role="button"]:hover {
+    background-color: white;
+    color: black;
+}
+
+// marketing
+
+.marketing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-image: url(../../img/backgrounds/07.png);
+    background-size: cover;
+}
+
+.marketing__content {
+}
+
+.marketing__content h2 {
+    padding: 1em 0;
+    color: #fff;
+}
+
+.marketing__content h2::after {
+    content: "";
+    border-bottom: 5px solid #ffffff;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.marketing__content p {
+    padding: 1em 0;
+    color: #fff;
+}
+
+// Manufacturing
+
+.manufacturing {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-color: #ffffff;
+}
+
+.manufacturing__content {
+    justify-content: end;
+}
+
+.manufacturing__content h2 {
+    padding: 1em 0;
+    color: black;
+}
+
+.manufacturing__content h2::after {
+    content: "";
+    border-bottom: 5px solid black;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.manufacturing__content p {
+    padding: 1em 0;
+    color: black;
+}
+
+.manufacturing__content a[role="button"] {
+    color: black;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.manufacturing__content a[role="button"]:hover {
+    background-color: black;
+    color: white;
+}
+
+// financial
+
+.financial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background: var(--color-dark);
+}
+
+.financial__content h2 {
+    padding: 1em 0;
+    color: white;
+}
+
+.financial__content h2::after {
+    content: "";
+    border-bottom: 5px solid white;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.financial__content p {
+    padding: 1em 0;
+    color: white;
+}
+
+.financial__content a[role="button"] {
+    color: white;
+    border: 1px solid white;
+    margin-top: 1em;
+}
+
+.financial__content a[role="button"]:hover {
+    background-color: white;
+    color: black;
+}
+
+// publicSector
+
+.publicSector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-image: url(../../img/backgrounds/08.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.publicSector__content h2 {
+    padding: 1em 0;
+    color: #fff;
+}
+
+.publicSector__content h2::after {
+    content: "";
+    border-bottom: 5px solid #ffffff;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.publicSector__content p {
+    padding: 1em 0;
+    color: #fff;
+}
+
+// Healthcare
+
+.healthcare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-color: #ffffff;
+}
+
+.healthcare__content h2 {
+    padding: 1em 0;
+    color: black;
+}
+
+.healthcare__content h2::after {
+    content: "";
+    border-bottom: 5px solid black;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.healthcare__content p {
+    padding: 1em 0;
+    color: black;
+}
+
+.healthcare__content a[role="button"] {
+    color: black;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.healthcare__content a[role="button"]:hover {
+    background-color: black;
+    color: white;
+}
+
+@keyframes zoomies {
+    from {
+        background-size: 100%;
+    }
+    to {
+        background-size: 150%;
+    }
+}
+
+@media only screen and (min-width: 75em) {
+    .gallery-item {
+        margin: 0.5em 0;
+    }
+
+    .hero {
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: contain;
+        animation-name: zoomies;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+
+    .healthcare {
+        background-image: url(../../img/backgrounds/twin.png);
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: contain;
+    }
+
+    .financial {
+        background-image: url(../../img/backgrounds/finance.png);
+        background-repeat: no-repeat;
+        background-position: center right -10%;
+        background-size: contain;
+    }
+
+    .manufacturing {
+        background-image: url(../../img/backgrounds/half.png);
+        background-repeat: no-repeat;
+        background-position: center left -10%;
+        background-size: contain;
+    }
+
+    .insurance {
+        background-image: url(../../img/backgrounds/laptop.png);
+        background-repeat: no-repeat;
+        background-position: center right -30%;
+        background-size: 50%;
+    }
+
+    .defense {
+        background-image: url(../../img/backgrounds/helicoptor.png);
+        background-repeat: no-repeat;
+        background-position: center right;
+        background-size: contain;
+    }
+
+    .publicSector {
+        animation-name: zoomies;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+
+    .marketing {
+        animation-name: zoomies;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+
+    .logistics {
+        animation-name: zoomies;
+        animation-duration: 30s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        animation-direction: alternate;
+    }
+}

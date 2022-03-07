@@ -1,9 +1,3 @@
-.section {
-  min-height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
 .content-center {
   display: flex;
   flex-direction: column;
@@ -73,7 +67,7 @@
 .nexus {
   display: flex;
   align-items: center;
-  background: url(../../img/backgrounds/01.png) no-repeat center center fixed;
+  background: url(../../img/backgrounds/01.png) no-repeat center center;
   background-size: cover;
   padding: 5em;
 }
@@ -316,7 +310,7 @@
   .nexus {
     display: flex;
     align-items: center;
-    background: url(../../img/backgrounds/01.png) no-repeat center center fixed;
+    background: url(../../img/backgrounds/01.png) no-repeat center center;
     background-size: 100%;
     animation-name: zoomies;
     animation-duration: 30s;
@@ -341,7 +335,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url(../../img/backgrounds/02.png) no-repeat center center fixed;
+    background: url(../../img/backgrounds/02.png) no-repeat center center;
     background-size: cover;
     animation-name: zoomies;
     animation-duration: 30s;

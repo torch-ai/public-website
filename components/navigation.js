@@ -16,7 +16,7 @@ const Navigation = ({ navColor }) => {
 	useEffect(() => {
 		buttonRef.current.addEventListener('click', toggle);
 		setColor(navColor);
-	}, [navColor]);
+	}, [navColor, setColor]);
 
 	function toggle(event) {
 		const visibilty = navRef.current.getAttribute('data-visible');
@@ -148,9 +148,13 @@ const Navigation = ({ navColor }) => {
 						</li>
 
 						<li>
-							<a style={{ color: color }} href='#contact'>
-								Contact
-							</a>
+							<Link href='/contact'>
+								<a
+									style={{ color: color }}
+									className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+									Contact
+								</a>
+							</Link>
 						</li>
 					</ul>
 				</nav>
