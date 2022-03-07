@@ -173,7 +173,8 @@ const Index = ({ setNavColor, news }) => {
 
 															<p>Accelerates processing times and reduces operational costs.</p>
 														</div>
-														<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+														<div
+															className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['extra']}`}>
 															<svg
 																width='52'
 																height='54'

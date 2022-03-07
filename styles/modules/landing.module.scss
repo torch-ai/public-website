@@ -168,7 +168,7 @@
 
 .impact__container-item {
   position: relative;
-  padding: 8em;
+  padding: 2em;
   margin: 1em 0;
   color: #ffffff;
 }
@@ -317,6 +317,10 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-direction: alternate;
+
+    .extra {
+      display: none;
+    }
   }
 
   .enhance {
@@ -342,5 +346,9 @@
     animation-iteration-count: infinite;
     animation-timing-function: linear;
     animation-direction: alternate;
+  }
+
+  .impact__container-item {
+    padding: 8em;
   }
 }
