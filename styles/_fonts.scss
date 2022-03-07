@@ -21,7 +21,7 @@
 @mixin fonts {
   --font-primary: "DINPro-Bold", sans-serif;
   --font-copy: "Quasimoda", sans-serif;
-  --base-size: 0.8rem; // 16px
+  --base-size: 1.2rem; // 16px
   --type-scale: 1.2;
   --h5: calc(var(--base-size) * var(--type-scale));
   --h4: calc(var(--h5) * var(--type-scale));
