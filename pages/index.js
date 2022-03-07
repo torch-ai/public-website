@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
@@ -6,6 +6,7 @@ import style from '../styles/modules/style.module.scss';
 import Grid from '../styles/modules/grid.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { gsap } from 'gsap';
 import Landing from '../styles/modules/landing.module.scss';
 import News from '../components/news';
 import { InView } from 'react-intersection-observer';
@@ -28,6 +29,25 @@ export async function getStaticProps() {
 
 const Index = ({ setNavColor, news }) => {
 	const router = useRouter();
+	const fadeRef = useRef();
+	const buttonRef = useRef();
+
+	useEffect(() => {
+		gsap.fromTo(
+			fadeRef.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 24.5 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 25 }
+		);
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -41,8 +61,8 @@ const Index = ({ setNavColor, news }) => {
 							<div className={`${Landing['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col_xs_8 col_lg_8']} ${Landing['content-center']}`}>
-										<h1>Unlock Human Potential.</h1>
-										<div className={`${Landing['circle-icon']}`}>
+										<h1 ref={fadeRef}>Unlock Human Potential.</h1>
+										<div ref={buttonRef} className={`${Landing['circle-icon']}`}>
 											<svg
 												width='50'
 												height='50'
