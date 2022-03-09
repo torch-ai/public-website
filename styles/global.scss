@@ -68,20 +68,9 @@ html {
     padding-right: 1.5rem;
 }
 
-.fp-section.fp-table,
-.fp-slide.fp-table {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.fp-tableCell {
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100%;
+.section {
+    min-height: 100vh !important;
+    height: auto !important;
 }
 
 /* A elements that don't have a class get default styles */

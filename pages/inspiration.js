@@ -154,7 +154,7 @@ const Index = ({ setNavColor }) => {
 													<a
 														role='button'
 														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-														Learn More
+														Request Brief
 													</a>
 												</Link>
 											</div>
@@ -183,7 +183,7 @@ const Index = ({ setNavColor }) => {
 													<a
 														role='button'
 														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-														Request Impact Study
+														Request Brief
 													</a>
 												</Link>
 											</div>
@@ -213,7 +213,7 @@ const Index = ({ setNavColor }) => {
 													<a
 														role='button'
 														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-														Request Whitepaper
+														Request Brief
 													</a>
 												</Link>
 											</div>
@@ -243,7 +243,7 @@ const Index = ({ setNavColor }) => {
 														<a
 															role='button'
 															className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-															Find Out More
+															Request Brief
 														</a>
 													</Link>
 												</div>
@@ -303,7 +303,7 @@ const Index = ({ setNavColor }) => {
 												<a
 													role='button'
 													className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-													Learn More
+													Request Brief
 												</a>
 											</Link>
 										</div>
@@ -333,7 +333,7 @@ const Index = ({ setNavColor }) => {
 													<a
 														role='button'
 														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-														Request Whitepaper
+														Request Brief
 													</a>
 												</Link>
 											</div>

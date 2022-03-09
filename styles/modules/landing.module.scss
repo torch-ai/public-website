@@ -67,9 +67,9 @@
 .nexus {
   display: flex;
   align-items: center;
+  padding: 5em;
   background: url(../../img/backgrounds/01.png) no-repeat center center;
   background-size: cover;
-  padding: 5em;
 }
 
 .nexus__stats {
@@ -308,19 +308,12 @@
 
 @media only screen and (min-width: 75em) {
   .nexus {
-    display: flex;
-    align-items: center;
-    background: url(../../img/backgrounds/01.png) no-repeat center center;
-    background-size: 100%;
     animation-name: zoomies;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
+    animation-duration: 50s;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
-    animation-direction: alternate;
-
-    .extra {
-      display: none;
-    }
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
   }
 
   .enhance {
@@ -342,10 +335,11 @@
     background: url(../../img/backgrounds/02.png) no-repeat center center;
     background-size: cover;
     animation-name: zoomies;
-    animation-duration: 30s;
-    animation-iteration-count: infinite;
+    animation-duration: 50s;
+    animation-iteration-count: 1;
     animation-timing-function: linear;
-    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
   }
 
   .impact__container-item {

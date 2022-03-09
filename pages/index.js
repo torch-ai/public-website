@@ -34,17 +34,17 @@ const Index = ({ setNavColor, news }) => {
 
 	useEffect(() => {
 		gsap.fromTo(
-			fadeRef.current,
-			{ opacity: 0, y: '-100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 0.5, delay: 24.5 }
+			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 25 }
 		);
 	}, []);
 
 	useEffect(() => {
 		gsap.fromTo(
-			buttonRef.current,
-			{ opacity: 0, y: '100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 1, delay: 25 }
+			fadeRef.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 24.5 }
 		);
 	}, []);
 
@@ -54,15 +54,23 @@ const Index = ({ setNavColor, news }) => {
 				<title>Torch.AI</title>
 			</Head>
 			<ReactFullpage
+				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
+				verticalCentered={false}
+				responsiveSlides={true}
+				responsiveHeight={900}
+				scrollOverflowReset={true}
+				parallax={true}
+				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
+				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
-							<div className={`${Landing['hero']} section`}>
+							<div className={`${Landing['hero']} fp-auto-height-responsive section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col_xs_8 col_lg_8']} ${Landing['content-center']}`}>
-										<h1 ref={fadeRef}>Unlock Human Potential.</h1>
-										<div ref={buttonRef} className={`${Landing['circle-icon']}`}>
+										<h1>Unlock Human Potential.</h1>
+										<div className={`${Landing['circle-icon']}`}>
 											<svg
 												width='50'
 												height='50'
@@ -89,7 +97,7 @@ const Index = ({ setNavColor, news }) => {
 								</video>
 							</div>
 
-							<div className={`${Landing['statement']} section`}>
+							<div className={`${Landing['statement']}  section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
@@ -105,7 +113,8 @@ const Index = ({ setNavColor, news }) => {
 								</InView>
 							</div>
 
-							<div className={`${Landing['nexus']} section`}>
+							<div className={`${Landing['nexus']}  section`}>
+								<div className='fp-bg'></div>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']}`}>
@@ -249,7 +258,7 @@ const Index = ({ setNavColor, news }) => {
 								</div>
 							</div>
 
-							<div className={`${Landing['enhance']} section`}>
+							<div className={`${Landing['enhance']}  section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
@@ -278,7 +287,7 @@ const Index = ({ setNavColor, news }) => {
 								</InView>
 							</div>
 
-							<div className={`${Landing['impact']} section`}>
+							<div className={`${Landing['impact']}  section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} `}>
 										<div className={`${Grid['col_xs_8']} ${Landing['impact__title']}`}>
@@ -318,7 +327,7 @@ const Index = ({ setNavColor, news }) => {
 								</div>
 							</div>
 
-							<div className={`${Landing['statement2']} section`}>
+							<div className={`${Landing['statement2']}  section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
 										<div className={`${Grid['col_xs_8']} ${Landing['statement2__content']}`}>
@@ -340,7 +349,7 @@ const Index = ({ setNavColor, news }) => {
 									</div>
 								</div>
 							</div>
-							<div className={`${Landing['news']} section`}>
+							<div className={`${Landing['news']}  section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>

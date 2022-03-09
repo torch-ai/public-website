@@ -15,6 +15,9 @@ const Navigation = ({ navColor }) => {
 
 	useEffect(() => {
 		buttonRef.current.addEventListener('click', toggle);
+	}, [buttonRef]);
+
+	useEffect(() => {
 		setColor(navColor);
 	}, [navColor, setColor]);
 
@@ -32,7 +35,7 @@ const Navigation = ({ navColor }) => {
 	return (
 		<header className={`${Nav.header}`}>
 			<div
-				className={`${Grid.row} ${Nav['Nav__container']} ${Grid.margin_center} ${Grid.container} ${Grid.between_lg}  ${Grid.between_xs}`}>
+				className={`${Grid.row} ${Nav['Nav__container']} ${Grid['margin_center']} ${Grid['container']} ${Grid['between-lg']}  ${Grid['between-xs']}`}>
 				<div className={`${Nav.Logo}`}>
 					<Link href='/'>
 						<a>
@@ -114,7 +117,7 @@ const Navigation = ({ navColor }) => {
 								<a
 									style={{ color: color }}
 									className={router.pathname == '/inspiration' ? `${Nav.active}` : ''}>
-									Inspiration
+									Impact
 								</a>
 							</Link>
 						</li>

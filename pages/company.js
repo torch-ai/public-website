@@ -50,7 +50,15 @@ const Index = ({ setNavColor, news }) => {
 				<title>Company | Torch AI</title>
 			</Head>
 			<ReactFullpage
+				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
+				verticalCentered={false}
+				responsiveSlides={true}
+				responsiveHeight={900}
+				scrollOverflowReset={true}
+				parallax={true}
+				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
+				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
