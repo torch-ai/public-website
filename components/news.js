@@ -18,19 +18,19 @@ const News = ({ news, topNews }) => {
 		<>
 			<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 				<div className={`${Grid['row']}`}>
-					<div className={`${Grid['col_xs_8']}  ${Landing['news__title']}`}>
+					<div className={`${Grid['col-xs-8']}  ${Landing['news__title']}`}>
 						<h2>Latest News.</h2>
 					</div>
 				</div>
 				<div className={`${Grid['row']} ${Landing['news__container']}`}>
-					<div className={`${Grid['col_xs_8']} ${Landing['news__layout']}`}>
+					<div className={`${Grid['col-xs-8']} ${Landing['news__layout']}`}>
 						<div className={`${Grid['row']} ${Landing['news__layout-featured']} `}>
 							<div
-								className={`${Grid['col_lg_4']} ${Grid['col_xs_8']} ${Landing['news__layout-item']}`}>
-								<Image
+								className={`${Grid['col-lg-7']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								{/* <Image
 									src={'http:' + topNews[0].fields.fullSizeImage.fields.file.url}
 									layout='fill'
-								/>
+								/> */}
 								<div className={`${Landing['news__layout-item-content']}`}>
 									<p>{displayCurrentTime(topNews[0])}</p>
 									<h5>{topNews[0].fields.title}</h5>
@@ -40,11 +40,11 @@ const News = ({ news, topNews }) => {
 								</div>
 							</div>
 							<div
-								className={`${Grid['col_lg_4']} ${Grid['col_xs_8']} ${Landing['news__layout-item']}`}>
-								<Image
+								className={`${Grid['col-lg-4']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								{/* <Image
 									src={'http:' + topNews[1].fields.fullSizeImage.fields.file.url}
 									layout='fill'
-								/>
+								/> */}
 								<div className={`${Landing['news__layout-item-content']}`}>
 									<p>{displayCurrentTime(topNews[1])}</p>
 									<h5>{topNews[1].fields.title}</h5>
@@ -54,13 +54,13 @@ const News = ({ news, topNews }) => {
 								</div>
 							</div>
 						</div>
-						<div className={`${Grid['row']} ${Landing['news__layout-list']}`}>
+						<div className={`${Grid['row']} ${Grid['between-lg']} ${Landing['news__layout-list']}`}>
 							<div
-								className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['news__layout-item']}`}>
-								<Image
+								className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								{/* <Image
 									src={'http:' + topNews[2].fields.fullSizeImage.fields.file.url}
 									layout='fill'
-								/>
+								/> */}
 								<div className={`${Landing['news__layout-item-content']}`}>
 									<p>{displayCurrentTime(topNews[2])}</p>
 									<h5>{topNews[2].fields.title}</h5>
@@ -70,11 +70,11 @@ const News = ({ news, topNews }) => {
 								</div>
 							</div>
 							<div
-								className={`${Grid['col_lg_4']} ${Grid['col_xs_8']}  ${Landing['news__layout-item']}`}>
-								<Image
+								className={`${Grid['col-lg-3']} ${Grid['col-xs-12']}  ${Landing['news__layout-item']}`}>
+								{/* <Image
 									src={'http:' + topNews[3].fields.fullSizeImage.fields.file.url}
 									layout='fill'
-								/>
+								/> */}
 								<div className={`${Landing['news__layout-item-content']}`}>
 									<p>{displayCurrentTime(topNews[3])}</p>
 									<h5>{topNews[3].fields.title}</h5>
@@ -84,11 +84,11 @@ const News = ({ news, topNews }) => {
 								</div>
 							</div>
 							<div
-								className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['news__layout-item']}`}>
-								<Image
+								className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								{/* <Image
 									src={'http:' + topNews[4].fields.fullSizeImage.fields.file.url}
 									layout='fill'
-								/>
+								/> */}
 								<div className={`${Landing['news__layout-item-content']}`}>
 									<p>{displayCurrentTime(topNews[4])}</p>
 									<h5>{topNews[4].fields.title}</h5>

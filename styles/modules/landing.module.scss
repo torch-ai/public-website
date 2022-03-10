@@ -33,6 +33,7 @@
 .hero h1 {
   color: #fff;
   max-width: 100%;
+  padding-bottom: 2em;
 }
 
 .background-video {
@@ -168,7 +169,7 @@
 
 .impact__container-item {
   position: relative;
-  padding: 2em;
+  padding: 5em;
   margin: 1em 0;
   color: #ffffff;
 }
@@ -215,7 +216,6 @@
 .statement2 h3,
 .statement2 p {
   color: #ffffff;
-  text-align: center;
   padding: 0.5em 0;
 }
 
@@ -226,14 +226,11 @@
 .statement2__content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .statement2__button {
   padding: 3em 0;
   display: flex;
-  justify-content: center;
 }
 
 .statement2__button:hover {
@@ -343,6 +340,6 @@
   }
 
   .impact__container-item {
-    padding: 8em;
+    padding: 10em;
   }
 }

@@ -57,8 +57,6 @@ const Index = ({ setNavColor, news }) => {
 				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
 				verticalCentered={false}
-				responsiveSlides={true}
-				responsiveHeight={900}
 				scrollOverflowReset={true}
 				parallax={true}
 				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
@@ -66,9 +64,9 @@ const Index = ({ setNavColor, news }) => {
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
-							<div className={`${Landing['hero']} fp-auto-height-responsive section`}>
+							<div className={`${Landing['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['col_xs_8 col_lg_8']} ${Landing['content-center']}`}>
+									<div className={`${Grid['col-xs-12']} ${Landing['content-center']}`}>
 										<h1>Unlock Human Potential.</h1>
 										<div className={`${Landing['circle-icon']}`}>
 											<svg
@@ -98,19 +96,19 @@ const Index = ({ setNavColor, news }) => {
 							</div>
 
 							<div className={`${Landing['statement']}  section`}>
-								<InView
-									as='div'
-									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
-									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-										<div className={`${Grid['col_xs_8 col_lg_8']} ${Landing['content-center']}`}>
+								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
+									<InView
+										as='span'
+										onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
+										<div className={`${Grid['row']} ${Landing['content-center']}`}>
 											<h1>We build AI that makes data easier to use.</h1>
 											<p>
 												Torch.AI's Nexus™ unlocks value from data and provides knowledge needed for
 												humans and machines to be more productive.
 											</p>
 										</div>
-									</div>
-								</InView>
+									</InView>
+								</div>
 							</div>
 
 							<div className={`${Landing['nexus']}  section`}>
@@ -118,27 +116,30 @@ const Index = ({ setNavColor, news }) => {
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']}`}>
-											<div className={`${Grid['col_xs_8']}`}>
+											<div className={`${Grid['col-xs-12']}`}>
 												<div className={`${Grid['row']} ${Landing['nexus__stats']}`}>
-													<div className={`${Grid['col_lg_6']} ${Grid['col_xs_8']}`}>
-														<h2>Introducing Nexus™</h2>
+													<div className={`${Grid['col-lg-9']} ${Grid['col-xs-12']}`}>
+														<h2>
+															Introducing Nexus <sup className='small'>TM</sup>
+														</h2>
 														<p>
 															Nexus instantly makes your data totally available, usable, and
 															valuable.
 														</p>
 													</div>
-													<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+													<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
 														<h2>10.7x</h2>
 														<p>Faster compute performance.</p>
 													</div>
 												</div>
 												<hr />
 												<div className={`${Grid['row']}`}>
-													<div className={`${Grid['col_xs_8 col_lg_8']}`}>
+													<div className={`${Grid['col-xs-12']}`}>
 														<p>Simply put:</p>
 													</div>
-													<div className={`${Grid['row']} ${Landing['nexus__points']}`}>
-														<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+													<div
+														className={`${Grid['row']} ${Grid['between-lg']} ${Landing['nexus__points']}`}>
+														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
 															<svg
 																width='52'
 																height='52'
@@ -172,7 +173,7 @@ const Index = ({ setNavColor, news }) => {
 															</svg>
 															<p>Highest performance data processing platform ever built.</p>
 														</div>
-														<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
 															<svg
 																width='48'
 																height='55'
@@ -187,7 +188,7 @@ const Index = ({ setNavColor, news }) => {
 
 															<p>Radically simplifies how companies extract value from data.</p>
 														</div>
-														<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
 															<svg
 																width='52'
 																height='52'
@@ -202,8 +203,7 @@ const Index = ({ setNavColor, news }) => {
 
 															<p>Accelerates processing times and reduces operational costs.</p>
 														</div>
-														<div
-															className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['extra']}`}>
+														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} `}>
 															<svg
 																width='52'
 																height='54'
@@ -264,23 +264,12 @@ const Index = ({ setNavColor, news }) => {
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']} ${Landing['enhance__content']}`}>
-											<div className={`${Grid['col_xs_8']} ${Grid['col_lg_5']}`}>
-												<h2>Benefits of Nexus.</h2>
-												<p>Operationalize data faster and more efficiently.</p>
-												<p>Connect to all your data sources.</p>
-												<p>Gain access to deep insights.</p>
+											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-5']}`}>
+												<h2>We build AI that makes data easier to use.</h2>
 												<p>
-													Pay only for the data that drives outcomes with a consumption-based model.
+													Torch.AI’s Nexus™ software instantly unlocks value from data and provides
+													information needed for humans and machines to be more productive.
 												</p>
-											</div>
-											<div className={`${Grid['col_xs_8']} ${Grid['col_lg_5']}`}>
-												<Link href='/contact'>
-													<a
-														role='button'
-														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-														Learn More
-													</a>
-												</Link>
 											</div>
 										</div>
 									</div>
@@ -290,37 +279,37 @@ const Index = ({ setNavColor, news }) => {
 							<div className={`${Landing['impact']}  section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} `}>
-										<div className={`${Grid['col_xs_8']} ${Landing['impact__title']}`}>
+										<div className={`${Grid['col-xs-12']} ${Landing['impact__title']}`}>
 											<h2>Impact Studies.</h2>
 										</div>
 									</div>
 									<div className={`${Grid['row']} ${Landing['impact__container']}`}>
 										<div
-											className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['impact__container-item']} ${Landing['impact__microsoft']}`}>
+											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__microsoft']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
-												<p>Company</p>
-												<h5>Microsoft</h5>
+												<p>MARKETING</p>
+												<h4>Microsoft</h4>
 											</div>
 										</div>
 										<div
-											className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['impact__container-item']} ${Landing['impact__hr']}`}>
+											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__hr']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
-												<p>Company</p>
-												<h5>H&R Block</h5>
+												<p>FINANCIAL SERVICES</p>
+												<h4>H&R Block</h4>
 											</div>
 										</div>
 										<div
-											className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['impact__container-item']} ${Landing['impact__raytheon']}`}>
+											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__raytheon']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
-												<p>Company</p>
-												<h5>Raytheon</h5>
+												<p>LOGISTICS</p>
+												<h4>Raytheon</h4>
 											</div>
 										</div>
 										<div
-											className={`${Grid['col_lg_2']} ${Grid['col_xs_8']} ${Landing['impact__container-item']} ${Landing['impact__navy']}`}>
+											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__navy']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
-												<p>Company</p>
-												<h5>U.S. Navy</h5>
+												<p>DEFENSE & INTELLIGENCE</p>
+												<h4>U.S. Navy</h4>
 											</div>
 										</div>
 									</div>
@@ -329,27 +318,35 @@ const Index = ({ setNavColor, news }) => {
 
 							<div className={`${Landing['statement2']}  section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col_xs_8']} ${Landing['statement2__content']}`}>
+									<div className={`${Grid['row']} `}>
+										<div className={`${Grid['col-xs-6']} ${Landing['statement2__content']}`}>
 											<h3>
-												Human productivity is stifled by the ocean of data that's growing in volume
-												and complexity faster than our ability to process it.
+												Human productivity is stifled by the ocean of data growing faster than our
+												ability to process it.
 											</h3>
-											<p>See how Nexus unleashes human potential.</p>
+											<p>
+												Unleash your potential. Imagine if instead of working for our data, it
+												worked for us.
+											</p>
+											<div className={`${Landing['statement2__button']}`}>
+												<Link href='/contact'>
+													<a
+														role='button'
+														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+														Learn More
+													</a>
+												</Link>
+											</div>
 										</div>
-										<div className={`${Grid['col_xs_8']} ${Landing['statement2__button']}`}>
-											<Link href='/contact'>
-												<a
-													role='button'
-													className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-													Learn More
-												</a>
-											</Link>
+										<div className={`${Grid['col-xs-6']} ${Landing['statement2__content']}`}>
+											<video data-keepplaying id='background-video' autoPlay muted>
+												<source src='./videos/hero.mp4' type='video/mp4' />
+											</video>
 										</div>
 									</div>
 								</div>
 							</div>
-							<div className={`${Landing['news']}  section`}>
+							<div className={`${Landing['news']} section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
