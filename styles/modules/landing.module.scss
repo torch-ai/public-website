@@ -25,9 +25,12 @@
 
 .hero {
   z-index: 1000;
-  align-items: center;
   position: relative;
   background-color: #131313;
+
+  .container {
+    justify-content: center;
+  }
 }
 
 .hero h1 {

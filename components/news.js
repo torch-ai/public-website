@@ -26,7 +26,7 @@ const News = ({ news, topNews }) => {
 					<div className={`${Grid['col-xs-8']} ${Landing['news__layout']}`}>
 						<div className={`${Grid['row']} ${Landing['news__layout-featured']} `}>
 							<div
-								className={`${Grid['col-lg-7']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								className={`${Grid['col-lg-8']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
 								{/* <Image
 									src={'http:' + topNews[0].fields.fullSizeImage.fields.file.url}
 									layout='fill'
@@ -56,7 +56,7 @@ const News = ({ news, topNews }) => {
 						</div>
 						<div className={`${Grid['row']} ${Grid['between-lg']} ${Landing['news__layout-list']}`}>
 							<div
-								className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								className={`${Grid['col-lg-4']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
 								{/* <Image
 									src={'http:' + topNews[2].fields.fullSizeImage.fields.file.url}
 									layout='fill'
@@ -70,7 +70,7 @@ const News = ({ news, topNews }) => {
 								</div>
 							</div>
 							<div
-								className={`${Grid['col-lg-3']} ${Grid['col-xs-12']}  ${Landing['news__layout-item']}`}>
+								className={`${Grid['col-lg-4']} ${Grid['col-xs-12']}  ${Landing['news__layout-item']}`}>
 								{/* <Image
 									src={'http:' + topNews[3].fields.fullSizeImage.fields.file.url}
 									layout='fill'
@@ -84,7 +84,7 @@ const News = ({ news, topNews }) => {
 								</div>
 							</div>
 							<div
-								className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
+								className={`${Grid['col-lg-4']} ${Grid['col-xs-12']} ${Landing['news__layout-item']}`}>
 								{/* <Image
 									src={'http:' + topNews[4].fields.fullSizeImage.fields.file.url}
 									layout='fill'
