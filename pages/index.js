@@ -120,7 +120,7 @@ const Index = ({ setNavColor, news }) => {
 												<div className={`${Grid['row']} ${Landing['nexus__stats']}`}>
 													<div className={`${Grid['col-lg-9']} ${Grid['col-xs-12']}`}>
 														<h2>
-															Introducing Nexus <sup className='small'>TM</sup>
+															Introducing Nexus <sup>TM</sup>
 														</h2>
 														<p>
 															Nexus instantly makes your data totally available, usable, and
@@ -285,28 +285,28 @@ const Index = ({ setNavColor, news }) => {
 									</div>
 									<div className={`${Grid['row']} ${Landing['impact__container']}`}>
 										<div
-											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__microsoft']}`}>
+											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__microsoft']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>MARKETING</p>
 												<h4>Microsoft</h4>
 											</div>
 										</div>
 										<div
-											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__hr']}`}>
+											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__hr']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>FINANCIAL SERVICES</p>
 												<h4>H&R Block</h4>
 											</div>
 										</div>
 										<div
-											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__raytheon']}`}>
+											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__raytheon']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>LOGISTICS</p>
 												<h4>Raytheon</h4>
 											</div>
 										</div>
 										<div
-											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__navy']}`}>
+											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__navy']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>DEFENSE & INTELLIGENCE</p>
 												<h4>U.S. Navy</h4>
@@ -318,8 +318,8 @@ const Index = ({ setNavColor, news }) => {
 
 							<div className={`${Landing['statement2']}  section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['row']} `}>
-										<div className={`${Grid['col-xs-6']} ${Landing['statement2__content']}`}>
+									<div className={`${Grid['row']}`}>
+										<div className={`${Grid['col-lg-6']} ${Landing['statement2__content']}`}>
 											<h3>
 												Human productivity is stifled by the ocean of data growing faster than our
 												ability to process it.
@@ -338,9 +338,9 @@ const Index = ({ setNavColor, news }) => {
 												</Link>
 											</div>
 										</div>
-										<div className={`${Grid['col-xs-6']} ${Landing['statement2__content']}`}>
-											<video data-keepplaying id='background-video' autoPlay muted>
-												<source src='./videos/hero.mp4' type='video/mp4' />
+										<div className={`${Grid['col-lg-6']}`}>
+											<video controls poster='./bryanPreview.png' id='background-video'>
+												<source src='./videos/bryan.mp4' type='video/mp4' />
 											</video>
 										</div>
 									</div>
