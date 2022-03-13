@@ -50,12 +50,12 @@
     padding: 5em 0;
     background-color: #ffffff;
 }
-.culture h2 {
+.culture h3 {
     color: #232730;
     padding: 1em 0;
 }
 
-.culture h2::after {
+.culture h3::after {
     content: "";
     border-bottom: 5px solid black;
     padding-bottom: 0.5em;
@@ -83,12 +83,12 @@
     background-repeat: no-repeat;
 }
 
-.leadership h2 {
+.leadership h3 {
     padding: 1em 0;
     color: #ffffff;
 }
 
-.leadership h2::after {
+.leadership h3::after {
     content: "";
     border-bottom: 5px solid #ffffff;
     padding-bottom: 0.5em;
@@ -119,13 +119,27 @@
     align-items: center;
     padding: 2em 0;
 }
-.gallery__title h2 {
+.gallery__title h3 {
     padding: 1em 0;
 }
 
 .gallery__title p {
     text-align: center;
-    max-width: 70ch;
+    max-width: 60ch;
+    font-size: 1em;
+    padding: 0.5em 0;
+}
+
+.gallery__layout-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h5 {
+        font-size: 1.2em;
+        padding-top: 1em;
+    }
 }
 
 .careers {
@@ -187,7 +201,6 @@
         background-image: url(../../img/backgrounds/gallerypic.png);
         background-repeat: no-repeat;
         background-size: contain;
-        background-position-x: -20%;
     }
 
     .culture {

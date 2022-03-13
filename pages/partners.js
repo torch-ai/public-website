@@ -19,14 +19,20 @@ const Index = ({ setNavColor }) => {
 				<title>Partners | Torch AI</title>
 			</Head>
 			<ReactFullpage
+				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
+				verticalCentered={false}
+				scrollOverflowReset={true}
+				parallax={true}
+				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
+				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
 							<div className={`${Style['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col_xs_8']} ${Style['content-center']}`}>
+										<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
 											<h1>Welcome to the future.</h1>
 											<p>
 												Torch.AI's partners build long-term relationships for mutually beneficial
@@ -39,7 +45,7 @@ const Index = ({ setNavColor }) => {
 							<div className={`${Style['value']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['value__content']}`}>
-										<div className={`${Grid['col_xs_8']}`}>
+										<div className={`${Grid['col-xs-12']}`}>
 											<h2>We value our friends. This is more than business for us.</h2>
 											<p>
 												Torch.AI's strong partner ecosystem is foundational to our mission of
@@ -50,7 +56,7 @@ const Index = ({ setNavColor }) => {
 										</div>
 									</div>
 									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col_xs_8']} ${Grid['col_lg_8']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
 											<a href='#' role='button'>
 												Request Whitepaper
 											</a>
@@ -64,7 +70,7 @@ const Index = ({ setNavColor }) => {
 										<h2>Benefits for our partners.</h2>
 									</div>
 									<div className={`${Grid['row']} ${Style['benefitsPartners__content']}`}>
-										<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-4']}`}>
 											<div>
 												<Image src={traning} />
 											</div>
@@ -74,7 +80,7 @@ const Index = ({ setNavColor }) => {
 												our Solution Architects to guarantee success of your program.
 											</p>
 										</div>
-										<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-4']}`}>
 											<div>
 												<Image src={opportunities} />
 											</div>
@@ -84,7 +90,7 @@ const Index = ({ setNavColor }) => {
 												to their core competencies.
 											</p>
 										</div>
-										<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-4']}`}>
 											<div>
 												<Image src={tools} />
 											</div>
@@ -100,10 +106,12 @@ const Index = ({ setNavColor }) => {
 							<div className={`${Style['change']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col_xs_8']} ${Style['change__title']}`}>
+										<div className={`${Grid['col-xs-12']} ${Style['change__title']}`}>
 											<h2>Help us change the world.</h2>
 											<p>Interested in becoming a partner?</p>
-											<p>Contact us for more information partners@torch.ai</p>
+											<p>
+												Contact us for more information <a href='#'> partners@torch.ai </a>
+											</p>
 										</div>
 									</div>
 								</div>

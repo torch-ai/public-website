@@ -20,13 +20,19 @@ const Index = ({ setNavColor }) => {
 				<title>Platform | Torch AI</title>
 			</Head>
 			<ReactFullpage
+				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
+				verticalCentered={false}
+				scrollOverflowReset={true}
+				parallax={true}
+				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
+				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
 							<div className={` ${Style['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['col_xs_8']} ${Style['content-center']}`}>
+									<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
 										<h2>Nexus™. The highest-performance data processing platform ever built.</h2>
 										<div className={`${Style['circle-icon']}`}>
 											<svg
@@ -53,7 +59,7 @@ const Index = ({ setNavColor }) => {
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']}`}>
 											<div
-												className={`${Grid['col_lg_8']} ${Grid['col_xs_8']} ${Grid['margin_center']}`}>
+												className={`${Grid['col-lg-12']} ${Grid['col-xs-12']} ${Grid['margin_center']}`}>
 												<h3>
 													Nexus™ is a transparent and composable software bridging three powerful
 													capabilities:
@@ -61,49 +67,44 @@ const Index = ({ setNavColor }) => {
 											</div>
 										</div>
 										<div className={`${Grid['row']} ${Style['engines__models']}`}>
-											<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+											<div className={`${Grid['col-lg-4']} ${Grid['col-xs-12']}`}>
 												<div>
 													<Image src={datamodel1} />
 												</div>
 												<div>
 													<h4>Ingest</h4>
 													<p>
-														The Nexus Ingest capability extracts meaningful content from structured,
-														semi-structured, and unstructured input files. It supports any type of
-														data, any format, any system, any structure, in the cloud or on
-														premises. Nexus leverages machine learning algorithms to process data
-														instantly, before it's stored anywhere.
+														Extract meaningful content from any type of data, any format, any
+														system, any structure, in the cloud or on premises.  Nexus leverages
+														machine learning algorithms to process data instantly, before it’s
+														stored anywhere.
 													</p>
 												</div>
 											</div>
-											<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+											<div className={`${Grid['col-lg-4']} ${Grid['col-xs-12']}`}>
 												<div>
 													<Image src={datamodel2} />
 												</div>
 												<div>
 													<h4>Link</h4>
 													<p>
-														The Nexus Link capability securely connects your data sources and
-														business systems to enhance productivity. It seamlessly plugs into your
-														systems via composable microservices, so your investments in
-														infrastructure don’t go to waste. Nexus enriches your data, by bringing
-														information from external sources—like social media and geography.
+														Secure connect your data sources and business systems, so your
+														investments in infrastructure don’t go to waste. Nexus unlocks your
+														proprietary data by fusing it with additional, public data sources—like
+														social media and geography.
 													</p>
 												</div>
 											</div>
-											<div className={`${Grid['col_lg_2']} ${Grid['col_xs_8']}`}>
+											<div className={`${Grid['col-lg-4']} ${Grid['col-xs-12']}`}>
 												<div>
 													<Image src={datamodel3} />
 												</div>
 												<div>
 													<h4>Illuminate</h4>
 													<p>
-														The Nexus Illuminate capability graphs the relationships between all the
-														atomic units in your data, creating a layer of knowledge that brings
-														hidden context and correlations into view.  It retains attribution and
-														lineage to the authoritative data for secure, governed, and trusted data
-														discovery. This capability provides a deeper, ontological understanding
-														of your data.
+														Extract intelligence from your data in new and novel ways. Surface
+														hidden context and correlations through a deeper, ontological
+														understanding of your data.
 													</p>
 												</div>
 											</div>
@@ -114,7 +115,7 @@ const Index = ({ setNavColor }) => {
 							<div className={`${Style['datalake']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['datalake__content']}`}>
-										<div className={`${Grid['col_lg_4']} ${Grid['col_xs_8']}`}>
+										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
 											<h3>Your uncle's large scale data processor just became obsolete.</h3>
 											<p>
 												Nexus software's ground-breaking compute performance, up to 10.7x faster
@@ -122,20 +123,24 @@ const Index = ({ setNavColor }) => {
 												directly with the entirety of your authoritative data.
 											</p>
 										</div>
-										<div className={`${Grid['col_lg_4']} ${Grid['col_xs_8']}`}>
+										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
 											<div className={`${Style['datalake__title']}`}>
-												<h4>Up to </h4>
+												<p>Up to </p>
 												<h1>10.7x</h1>
-												<h4>faster compute performance.</h4>
+												<h4>Faster compute performance.</h4>
 											</div>
-											<p>
-												<span className={`${Style['datalake__bold']}`}>Nexus:</span>&nbsp; 3.78 GB
-												per 1 second 32-core CPU
-											</p>
-											<p>
-												<span className={`${Style['datalake__bold']}`}>Nearest peer:</span>
-												&nbsp; 0.345 GB per 1 second 32-core CPU (built on Apache Spark)
-											</p>
+											<div>
+												<table>
+													<tr>
+														<td>Nexus: </td>
+														<td>3.78 GB per 1 second 32-core CPU</td>
+													</tr>
+													<tr>
+														<td>Nearest peer:</td>
+														<td>0.345 GB per 1 second 32-core CPU (built on Apache Spark)</td>
+													</tr>
+												</table>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -146,16 +151,16 @@ const Index = ({ setNavColor }) => {
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']}`}>
-											<div className={`${Grid['col_lg_5']}${Grid['col_xs_8']}`}>
+											<div className={`${Grid['col-lg-1']}${Grid['col-xs-8']}`}>
 												<h2>As Code</h2>
-												<p>
-													Securely provision and orchestrate multiple _____ (data pipes) at any
-													scale.
+												<p className={`${Grid['col-lg-1']}${Grid['col-xs-8']}`}>
+													The engineer-friendly approach
 												</p>
 												<p>
-													Composable microservices simplify the building, deployment, and management
-													of cross-organizational computing services.
+													Composable microservices invoked as code, simplifying integration with
+													existing data infrastructure.
 												</p>
+												<p>Securely provision and orchestrate multiple services at any scale.</p>
 												<p>
 													Rapid deployment provides your customers value within a matter of hours.
 												</p>
@@ -167,13 +172,51 @@ const Index = ({ setNavColor }) => {
 							<div className={`${Style['benefits']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col_lg_4']} ${Grid['col_xs_8']}`}>
-											<h2>Features</h2>
-											<Features />
+										<div className={`${Grid['col-lg-12']} ${Grid['col-xs-12']}`}>
+											<h2>Features and benefits</h2>
 										</div>
-										<div className={`${Grid['col_lg_4']} ${Grid['col_xs_8']}`}>
-											<h2>Benefits</h2>
-											<Benefits />
+									</div>
+									<div className={`${Grid['row']}`}>
+										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
+											<h5>Real-Time Data Transformation</h5>
+											<ul>
+												<li>Analyze data in flight in real time.</li>
+												<li>Does not replicate authoritative data.</li>
+												<li>Reduces infrastructure costs.</li>
+											</ul>
+										</div>
+										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
+											<h5>Unstructured Data Processing and Fusion</h5>
+											<ul>
+												<li>Analyze data in flight in real time.</li>
+												<li>Does not replicate authoritative data.</li>
+												<li>Reduces infrastructure costs.</li>
+											</ul>
+										</div>
+									</div>
+									<div className={`${Grid['row']}`}>
+										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
+											<h5>Semantic Stitching</h5>
+											<ul>
+												<li>
+													Semantic Stitching. Proprietary no-code data retrieval system. Use
+													business-friendly data requests instead of technical queries. Semantically
+													understand the wealth of enterprise data
+												</li>
+											</ul>
+										</div>
+										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
+											<h5>Composability</h5>
+											<ul>
+												<li>Engages easily within existing architecture.</li>
+												<li>
+													Comprised of packaged business capabilities and pluggable microservices
+												</li>
+												<li>
+													Provides class-leading pre-trained models as well support for Bring Your
+													Own Model (BYOM).
+												</li>
+											</ul>
 										</div>
 									</div>
 								</div>

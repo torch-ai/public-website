@@ -16,24 +16,21 @@ const Contact = ({ jobs }) => {
 			<section className={`${Style['contact__container']}`}>
 				<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 					<div className={`${Grid['row']}`}>
-						<div className={`${Grid['col_xs_8']} ${Style['contact__title']}`}>
+						<div className={`${Grid['col-xs-12']} ${Style['contact__title']}`}>
 							<h2>Contact Us.</h2>
 
 							<p>Let's talk about how we can unlock your team's productivity.</p>
 						</div>
 					</div>
 					<div className={`${Grid['row']}`}>
-						<div className={`${Grid['col_xs_8']}`}>
+						<div className={`${Grid['col-xs-12']}`}>
 							<form
 								className={`${Style['contact__form']}`}
 								action='https://formspree.io/f/mvolablv'
 								method='POST'>
 								<div>
 									<label className={`${Style['contact__names']}`}>
-										<input type='text' name='firstName' placeholder='First Name' required />
-									</label>
-									<label>
-										<input type='text' name='lastName' placeholder='Last Name' required />
+										<input type='text' name='name' placeholder='Full Name' required />
 									</label>
 								</div>
 								<div>
