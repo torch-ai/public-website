@@ -25,20 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/company": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/company.js"
-    ],
-    "/inspiration": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/inspiration.js"
-    ],
     "/partners": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
       "static/chunks/pages/partners.js"
+    ],
+    "/platform": [
+      "static/chunks/webpack.js",
+      "static/chunks/main.js",
+      "static/chunks/pages/platform.js"
     ]
   },
   "ampFirstPages": []

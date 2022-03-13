@@ -45,8 +45,8 @@ const Index = ({ setNavColor }) => {
 							<div className={`${Style['value']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['value__content']}`}>
-										<div className={`${Grid['col-xs-12']}`}>
-											<h2>We value our friends. This is more than business for us.</h2>
+										<div className={`${Grid['col-lg-offset-3']} ${Grid['col-xs-12']}`}>
+											<h3>We value our friends. This is more than business for us.</h3>
 											<p>
 												Torch.AI's strong partner ecosystem is foundational to our mission of
 												“Transforming the potential of data for good.” Often, we co-invest in
@@ -67,34 +67,34 @@ const Index = ({ setNavColor }) => {
 							<div className={`${Style['benefitsPartners']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['benefitsPartners__title']}`}>
-										<h2>Benefits for our partners.</h2>
+										<h3>Benefits for our partners.</h3>
 									</div>
 									<div className={`${Grid['row']} ${Style['benefitsPartners__content']}`}>
-										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-4']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-3']}`}>
 											<div>
 												<Image src={traning} />
 											</div>
-											<h4>Training.</h4>
+											<h5>Training.</h5>
 											<p>
 												Access a robust set of training and enablement content. Get friendly with
 												our Solution Architects to guarantee success of your program.
 											</p>
 										</div>
-										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-4']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-3']}`}>
 											<div>
 												<Image src={opportunities} />
 											</div>
-											<h4>Customer Opportunities.</h4>
+											<h5>Customer Opportunities.</h5>
 											<p>
 												Our partners enjoy new sales opportunities, sourced by Torch.AI, and aligned
 												to their core competencies.
 											</p>
 										</div>
-										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-4']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-3']}`}>
 											<div>
 												<Image src={tools} />
 											</div>
-											<h4>Tools.</h4>
+											<h5>Tools.</h5>
 											<p>
 												Access a wide variety of bespoke sales, marketing, ML modeling, and other
 												technical tools.
@@ -110,7 +110,8 @@ const Index = ({ setNavColor }) => {
 											<h2>Help us change the world.</h2>
 											<p>Interested in becoming a partner?</p>
 											<p>
-												Contact us for more information <a href='#'> partners@torch.ai </a>
+												Contact us for more information{' '}
+												<a href='mailto:partners@torch.ai'> partners@torch.ai </a>
 											</p>
 										</div>
 									</div>
