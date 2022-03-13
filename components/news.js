@@ -18,8 +18,8 @@ const News = ({ news, topNews }) => {
 		<>
 			<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 				<div className={`${Grid['row']}`}>
-					<div className={`${Grid['col-xs-8']}  ${Landing['news__title']}`}>
-						<h2>Latest News.</h2>
+					<div className={`${Grid['col-xs-12']}  ${Landing['news__title']}`}>
+						<h3>Latest News.</h3>
 					</div>
 				</div>
 				<div className={`${Grid['row']} ${Landing['news__container']}`}>

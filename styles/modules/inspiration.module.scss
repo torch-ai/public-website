@@ -28,10 +28,13 @@
 // HERO
 
 .hero {
-    z-index: 1000;
-    position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background: url(../../img/backgrounds/23.png);
+
+    h2 {
+        margin: 0 auto;
+    }
 }
 
 .hero h2 {
@@ -47,39 +50,51 @@
 
 //  Gallery
 .gallery {
-    padding: 5em 0;
+    display: flex;
+    align-items: center;
+    background-color: #232730;
 }
 
-.gallery-item {
-    padding: 8em;
-    margin: 1em 4em;
+.gallery h2 {
+    color: #ffffff;
+}
+
+.gallery__title {
+    display: flex;
+    justify-content: center;
+    padding: 3em 0;
+    color: #ffffff;
+}
+
+.gallery__container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.gallery__container-item {
     position: relative;
-    background-color: rgb(128, 128, 128);
+    padding: 5em;
+    margin: 1em 0;
+    color: #ffffff;
 }
 
-.gallery-item:hover {
-    opacity: 0.8;
+.gallery__container-item:hover {
+    cursor: pointer;
 }
 
-.gallery__label {
+.gallery__container-content {
     position: absolute;
-    margin-left: auto;
-    margin-right: auto;
+    top: 2em;
     left: 0;
-    right: 0;
+    width: 100%;
     text-align: center;
-    color: white;
-}
-
-.gallery__label h5 {
-    font-size: 1.2em;
-    text-align: center;
-    word-wrap: break-word;
+    min-height: 100%;
 }
 
 .gallery-logistics {
     background: url(../../img/gallery/logistics.png) center center no-repeat;
     background-size: cover;
+    background-position: center center;
 }
 
 .gallery-defense {
@@ -202,8 +217,8 @@
     justify-content: center;
     align-items: center;
     padding: 5em 0;
-    color: white;
-    background-color: var(--color-dark);
+    color: black;
+    background-color: white;
 }
 
 .insurance__content {
@@ -211,12 +226,12 @@
 
 .insurance__content h2 {
     padding: 1em 0;
-    color: white;
+    color: black;
 }
 
 .insurance__content h2::after {
     content: "";
-    border-bottom: 5px solid white;
+    border-bottom: 5px solid black;
     padding-bottom: 0.5em;
     display: block;
     bottom: 0;
@@ -227,18 +242,18 @@
 
 .insurance__content p {
     padding: 1em 0;
-    color: white;
+    color: black;
 }
 
 .insurance__content a[role="button"] {
-    color: white;
-    border: 1px solid white;
+    color: black;
+    border: 1px solid black;
     margin-top: 1em;
 }
 
 .insurance__content a[role="button"]:hover {
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
 }
 
 // marketing
@@ -292,52 +307,10 @@
 
 .manufacturing__content h2 {
     padding: 1em 0;
-    color: black;
+    color: white;
 }
 
 .manufacturing__content h2::after {
-    content: "";
-    border-bottom: 5px solid black;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
-}
-
-.manufacturing__content p {
-    padding: 1em 0;
-    color: black;
-}
-
-.manufacturing__content a[role="button"] {
-    color: black;
-    border: 1px solid black;
-    margin-top: 1em;
-}
-
-.manufacturing__content a[role="button"]:hover {
-    background-color: black;
-    color: white;
-}
-
-// financial
-
-.financial {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background: var(--color-dark);
-}
-
-.financial__content h2 {
-    padding: 1em 0;
-    color: white;
-}
-
-.financial__content h2::after {
     content: "";
     border-bottom: 5px solid white;
     padding-bottom: 0.5em;
@@ -348,20 +321,62 @@
     height: 10px;
 }
 
-.financial__content p {
+.manufacturing__content p {
     padding: 1em 0;
     color: white;
 }
 
-.financial__content a[role="button"] {
+.manufacturing__content a[role="button"] {
     color: white;
     border: 1px solid white;
     margin-top: 1em;
 }
 
-.financial__content a[role="button"]:hover {
+.manufacturing__content a[role="button"]:hover {
     background-color: white;
     color: black;
+}
+
+// financial
+
+.financial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background: white;
+}
+
+.financial__content h2 {
+    padding: 1em 0;
+    color: black;
+}
+
+.financial__content h2::after {
+    content: "";
+    border-bottom: 5px solid black;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.financial__content p {
+    padding: 1em 0;
+    color: black;
+}
+
+.financial__content a[role="button"] {
+    color: black;
+    border: 1px solid black;
+    margin-top: 1em;
+}
+
+.financial__content a[role="button"]:hover {
+    background-color: black;
+    color: white;
 }
 
 // publicSector
@@ -395,6 +410,46 @@
 .publicSector__content p {
     padding: 1em 0;
     color: #fff;
+}
+
+.cta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5em 0;
+    background-color: white;
+}
+
+.cta__content h3 {
+    padding-bottom: 0.5em;
+    color: black;
+}
+
+.cta__content h3::after {
+    content: "";
+    border-bottom: 5px solid black;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 10px;
+}
+
+.cta__content p {
+    padding: 1em 0;
+    color: black;
+}
+
+.cta [role="button"] {
+    margin: 1em 0;
+    color: black;
+    border: 1px solid black;
+}
+
+.cta [role="button"]:hover {
+    background-color: black;
+    color: white;
 }
 
 // Healthcare
@@ -453,17 +508,6 @@
         margin: 0.5em 0;
     }
 
-    .hero {
-        background-repeat: no-repeat;
-        background-position: center right;
-        background-size: contain;
-        animation-name: zoomies;
-        animation-duration: 30s;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-        animation-direction: alternate;
-    }
-
     .healthcare {
         background-image: url(../../img/backgrounds/twin.png);
         background-repeat: no-repeat;
@@ -478,17 +522,24 @@
         background-size: contain;
     }
 
-    .manufacturing {
-        background-image: url(../../img/backgrounds/half.png);
+    .cta {
+        background-image: url(../../img/backgrounds/27.png);
         background-repeat: no-repeat;
-        background-position: center left -10%;
+        background-position: center left -5%;
         background-size: contain;
     }
 
-    .insurance {
-        background-image: url(../../img/backgrounds/laptop.png);
+    .manufacturing {
+        background-image: url(../../img/backgrounds/26.png);
         background-repeat: no-repeat;
-        background-position: center right -30%;
+        background-position: center left -10%;
+        background-size: cover;
+    }
+
+    .insurance {
+        background-image: url(../../img/backgrounds/insurance.png);
+        background-repeat: no-repeat;
+        background-position: center right -22.5%;
         background-size: 50%;
     }
 

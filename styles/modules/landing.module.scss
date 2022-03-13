@@ -54,16 +54,49 @@
   background-color: #fff;
   display: flex;
   align-items: center;
-}
 
-.statement h1,
-.statement p {
-  color: #232730;
-  padding: 0.5em 0;
-}
+  h3 {
+    padding-bottom: 0.5em;
+    font-size: 3em;
+    max-width: 15ch;
+  }
 
-.statement p {
-  text-align: center;
+  h3::after {
+    content: "";
+    border-bottom: 5px solid #131313;
+    padding-bottom: 0.2em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 30px;
+  }
+  p {
+    padding: 0.5em 0;
+  }
+
+  svg {
+    margin: 1em 0;
+  }
+
+  .statement-item {
+    padding: 0.5em 0;
+  }
+
+  a[role="button"] {
+    color: black;
+    border: 1px solid black;
+    padding: 0.8em 2em;
+    border-radius: 8em;
+    display: inline-block;
+    margin: 0.5em 0;
+  }
+
+  a[role="button"]:hover {
+    background-color: black;
+    border: 1px solid black;
+    color: white;
+  }
 }
 
 //  Nexus
@@ -78,10 +111,14 @@
 
 .nexus__stats {
   justify-content: space-between;
+
+  .large {
+    font-size: 7em;
+  }
 }
 
 .nexus__stats h2 {
-  padding: 0.5em 0;
+  padding: 0.2em 0;
   color: #ffffff;
 }
 
@@ -254,6 +291,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 1em 0;
 }
 
 .news__container {
@@ -274,7 +312,7 @@
 
 .news__layout-item {
   padding: 8em;
-  margin: 1em 0;
+  margin: 0.5em 0;
   background-color: #232730;
   position: relative;
 }
@@ -289,7 +327,8 @@
 .news__layout-item-content h5 {
   color: white;
   max-width: 30ch;
-  font-size: 1.2em;
+  font-size: 1em;
+  padding: 1em 0;
 }
 
 .news__layout-item-content a,
