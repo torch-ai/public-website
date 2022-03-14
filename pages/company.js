@@ -8,6 +8,7 @@ import { createClient } from 'contentful';
 import Image from 'next/image';
 import Style from '../styles/modules/company.module.scss';
 import News from '../components/news';
+import Footer from '../components/footer';
 import { InView } from 'react-intersection-observer';
 
 import BrainWeaver from '../img/dotArt/BrainWeaver.png';
@@ -347,6 +348,7 @@ const Index = ({ setNavColor, news }) => {
 							<div className={`${Landing['news']} section`}>
 								<News topNews={news.slice(0, 5)} news={news} />
 							</div>
+							<Footer />
 						</ReactFullpage.Wrapper>
 					);
 				}}

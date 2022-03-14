@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Style from '../styles/modules/inspiration.module.scss';
 import { InView } from 'react-intersection-observer';
+import Footer from '../components/footer';
 
 const Index = ({ setNavColor }) => {
 	const router = useRouter();
@@ -337,6 +338,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</InView>
 							</div>
+							<Footer />
 						</ReactFullpage.Wrapper>
 					);
 				}}

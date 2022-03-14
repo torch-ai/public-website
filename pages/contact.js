@@ -60,6 +60,7 @@ const Contact = ({ jobs }) => {
 					</div>
 				</div>
 			</section>
+			<Footer />
 		</>
 	);
 };

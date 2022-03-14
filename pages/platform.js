@@ -8,6 +8,7 @@ import Benefits from '../components/benefits';
 import Features from '../components/features';
 import Style from '../styles/modules/platform.module.scss';
 import { InView } from 'react-intersection-observer';
+import Footer from '../components/footer';
 
 import datamodel1 from '../img/datamodel1.svg';
 import datamodel2 from '../img/datamodel2.svg';
@@ -221,6 +222,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</div>
 							</div>
+							<Footer />
 						</ReactFullpage.Wrapper>
 					);
 				}}
