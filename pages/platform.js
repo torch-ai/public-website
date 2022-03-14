@@ -25,6 +25,7 @@ const Index = ({ setNavColor }) => {
 				navigation
 				verticalCentered={false}
 				scrollOverflowReset={true}
+				responsiveWidth={400}
 				parallax={true}
 				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
 				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}

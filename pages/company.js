@@ -78,7 +78,7 @@ const Index = ({ setNavColor, news }) => {
 									</div>
 								</div>
 							</div>
-							<div className={`${Style['culture']} section`}>
+							<div data-anchor='culture' className={`${Style['culture']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['culture__content']}`}>
 										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
