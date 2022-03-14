@@ -84,7 +84,6 @@
 }
 
 .leadership h3 {
-    padding: 1em 0;
     color: #ffffff;
 }
 
@@ -111,6 +110,9 @@
     padding: 5em 0;
     background-color: #ffffff;
 }
+.gallery__container {
+    padding: 1em 0;
+}
 
 .gallery__title {
     display: flex;
@@ -119,9 +121,8 @@
     align-items: center;
     padding: 2em 0;
 }
-.gallery__title h3 {
-    padding: 1em 0;
-}
+// .gallery__title h3 {
+// }
 
 .gallery__title p {
     text-align: center;
