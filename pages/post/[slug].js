@@ -4,6 +4,7 @@ import Static from '../../styles/modules/static.module.scss';
 import { createClient } from 'contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Footer from '../../components/footer';
+import { InView } from 'react-intersection-observer';
 import Head from 'next/head';
 
 const client = createClient({
@@ -39,7 +40,7 @@ export async function getStaticProps({ params }) {
 	};
 }
 
-const slug = ({ news }) => {
+const slug = ({ news, setNavColor }) => {
 	const { content } = news.fields;
 	return (
 		<>
@@ -47,21 +48,29 @@ const slug = ({ news }) => {
 				<title>{news.fields.title} | Torch.AI</title>
 			</Head>
 			<section>
-				<Navigation />
-				<div className={`${Static['service']} ${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
-					<div className={`${Static['content']} ${Grid.row}`}>
-						<div className={`${Grid.col_xs_8} ${Grid.col_lg_8} post flow`}>
-							<h3>{news.fields.title}.</h3>
-							<p> {news.fields.summary} </p>
+				<header className={`${Static['service-header']}`}>
+					<InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'white' : 'black')}>
+						<div
+							className={`${Static['service']} ${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
+							<div className={`${Static['content']} ${Grid.row}`}>
+								<div className={`${Grid.col_xs_8} ${Grid.col_lg_8} post flow`}>
+									<h3>{news.fields.title}.</h3>
+									<p> {news.fields.summary} </p>
+								</div>
+							</div>
 						</div>
-					</div>
-
+					</InView>
+				</header>
+				{/* <InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}> */}
+				<div
+					className={`${Static['service-content']} ${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
 					<div className={`${Grid.row}`}>
 						<div className={` ${Static['content']} ${Grid.col_xs_8} ${Grid.col_lg_8} post flow`}>
 							<p>{documentToReactComponents(content)}</p>
 						</div>
 					</div>
 				</div>
+				{/* </InView> */}
 			</section>
 			<Footer />
 		</>
