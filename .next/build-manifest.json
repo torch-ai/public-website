@@ -30,15 +30,10 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/impact": [
+    "/careers": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/impact.js"
-    ],
-    "/platform": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/platform.js"
+      "static/chunks/pages/careers.js"
     ]
   },
   "ampFirstPages": []
