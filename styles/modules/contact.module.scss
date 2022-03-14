@@ -1,6 +1,6 @@
 .contact__container {
     padding: 15em 0;
-    color: white;
+    color: black;
 
     p {
         padding: 1em 0;
@@ -22,15 +22,15 @@
     input {
         padding: 1.2em;
         border-style: none;
-        color: white;
+        color: black;
         font-size: 1.2em;
         width: 40%;
         background-color: transparent;
-        border-bottom: 1px solid white;
+        border-bottom: 1px solid black;
         font-family: var(--font-copy);
     }
     input::placeholder {
-        color: white;
+        color: black;
         font-size: 1.2em;
     }
 
@@ -38,16 +38,16 @@
         width: 80%;
         min-height: 200px;
         border-radius: 5px;
-        color: white;
+        color: black;
         font-size: 1.2em;
         background-color: transparent;
-        border: 1px solid white;
+        border: 1px solid black;
         padding: 2em;
         font-family: var(--font-copy);
     }
 
     textarea::placeholder {
-        color: white;
+        color: black;
         font-size: 1.2em;
     }
 
@@ -60,17 +60,17 @@
         border-radius: 8em;
         background-color: transparent;
         border-style: none;
-        border: 1px solid white;
-        color: white;
+        border: 1px solid black;
+        color: black;
         cursor: pointer;
         transition: all 0.3s ease-in-out;
     }
     button:hover {
         color: black;
-        background-color: white;
+        background-color: black;
     }
 }
 
 .contact__information {
-    background: white;
+    background: black;
 }
