@@ -12,6 +12,7 @@ import { gsap } from 'gsap';
 const Index = ({ setNavColor }) => {
 	const router = useRouter();
 	const fadeRef = useRef();
+	const fadeRef2 = useRef();
 	const buttonRef = useRef();
 
 	useEffect(() => {
@@ -26,7 +27,15 @@ const Index = ({ setNavColor }) => {
 		gsap.fromTo(
 			fadeRef.current,
 			{ opacity: 0, y: '-100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 0.5, delay: 1.5 }
+			{ opacity: 1, y: 0, duration: 0.5, delay: 2 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			fadeRef2.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 2 }
 		);
 	}, []);
 
@@ -51,15 +60,17 @@ const Index = ({ setNavColor }) => {
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} `}>
 										<div className={`${Grid['col-xs-12']} ${Style['gallery__title']}`}>
-											<h3>Make your impact.</h3>
+											<h3 ref={buttonRef}>Make your impact.</h3>
 										</div>
 									</div>
-									<div className={`${Grid['row']} ${Style['gallery__container']}`}>
+									<div ref={fadeRef} className={`${Grid['row']} ${Style['gallery__container']}`}>
 										<div
 											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Style['gallery__container-item']} ${Style['gallery-defense']}`}>
-											<div className={`${Style['gallery__container-content']}`}>
-												<p>Defense & Intelligence</p>
-											</div>
+											<a href='#defense'>
+												<div className={`${Style['gallery__container-content']}`}>
+													<p>Defense & Intelligence</p>
+												</div>
+											</a>
 										</div>
 										<div
 											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Style['gallery__container-item']} ${Style['gallery-logistics']}`}>
@@ -80,7 +91,7 @@ const Index = ({ setNavColor }) => {
 											</div>
 										</div>
 									</div>
-									<div className={`${Grid['row']} ${Style['gallery__container']}`}>
+									<div ref={fadeRef2} className={`${Grid['row']} ${Style['gallery__container']}`}>
 										<div
 											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Style['gallery__container-item']} ${Style['gallery-financial']}`}>
 											<div className={`${Style['gallery__container-content']}`}>

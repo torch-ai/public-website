@@ -96,7 +96,7 @@ const Index = ({ setNavColor, news }) => {
 									id='background-video'
 									autoPlay
 									muted>
-									<source src='./videos/hero-movie.mp4' type='video/mp4' />
+									<source src='./videos/heroMovie.mp4' type='video/mp4' />
 								</video>
 							</div>
 							<div className={`${Landing['enhance']}  section`}>
@@ -108,7 +108,7 @@ const Index = ({ setNavColor, news }) => {
 											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-5']}`}>
 												<h2>We build AI that makes data easier to use.</h2>
 												<p>
-													Torch.AI’s Nexus™ software instantly unlocks value from data and provides
+													Torch.AI's Nexus™ software instantly unlocks value from data and provides
 													information needed for humans and machines to be more productive.
 												</p>
 											</div>
@@ -250,10 +250,10 @@ const Index = ({ setNavColor, news }) => {
 										<div className={`${Grid['row']}`}>
 											<div
 												className={`${Grid['col-xs-10']} ${Grid['col-lg-10']} ${Grid['margin_center']}`}>
-												<Link href='/contact'>
+												<Link href='/platform'>
 													<a
 														role='button'
-														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+														className={router.pathname == '/platform' ? `${Nav.active}` : ''}>
 														Learn More
 													</a>
 												</Link>
@@ -595,10 +595,10 @@ const Index = ({ setNavColor, news }) => {
 														<p>Operationalize data faster and efficiently</p>
 													</div>
 												</div>
-												<Link href='/contact'>
+												<Link href='/solutions'>
 													<a
 														role='button'
-														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+														className={router.pathname == '/solutions' ? `${Nav.active}` : ''}>
 														Learn More
 													</a>
 												</Link>
@@ -621,7 +621,7 @@ const Index = ({ setNavColor, news }) => {
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>MARKETING</p>
 												<h4>Microsoft</h4>
-												<Link href='/impact#marketing'>
+												<Link href='/impact'>
 													<a>Learn More</a>
 												</Link>
 											</div>
@@ -631,7 +631,7 @@ const Index = ({ setNavColor, news }) => {
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>FINANCIAL SERVICES</p>
 												<h4>H&R Block</h4>
-												<Link href='/impact#financial'>
+												<Link href='/impact'>
 													<a>Learn More</a>
 												</Link>
 											</div>
@@ -641,7 +641,7 @@ const Index = ({ setNavColor, news }) => {
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>LOGISTICS</p>
 												<h4>Raytheon</h4>
-												<Link href='/impact#logistics'>
+												<Link href='/impact'>
 													<a>Learn More</a>
 												</Link>
 											</div>
@@ -651,7 +651,7 @@ const Index = ({ setNavColor, news }) => {
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>DEFENSE & INTELLIGENCE</p>
 												<h4>U.S. Navy</h4>
-												<Link href='/impact#defense'>
+												<Link href='/impact'>
 													<a>Learn More</a>
 												</Link>
 											</div>
