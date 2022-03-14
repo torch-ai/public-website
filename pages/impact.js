@@ -12,7 +12,7 @@ const Index = ({ setNavColor }) => {
 	return (
 		<>
 			<Head>
-				<title>Inspiration | Torch AI</title>
+				<title>What Impact Can Nexus Have in the World? | Torch.AI</title>
 			</Head>
 			<ReactFullpage
 				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}

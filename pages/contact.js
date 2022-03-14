@@ -8,11 +8,15 @@ import Static from '../styles/modules/static.module.scss';
 import { createClient } from 'contentful';
 import JobCard from '../components/JobCard';
 import Footer from '../components/footer';
+import Head from 'next/head';
 import Link from 'next/link';
 
 const Contact = ({ jobs }) => {
 	return (
 		<>
+			<Head>
+				<title>Contact Us | Unlock Your Potential | Talk to Us | Torch.AI</title>
+			</Head>
 			<section className={`${Style['contact__container']}`}>
 				<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 					<div className={`${Grid['row']}`}>
@@ -56,34 +60,6 @@ const Contact = ({ jobs }) => {
 					</div>
 				</div>
 			</section>
-			{/* <section className={`${Style['contact__information']}`}>
-				<div>
-					<ul>
-						<li>
-							<Link href='/termsofservice'>
-								<a> Terms of Service </a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/privacypolicy'>
-								<a>Privacy Policy </a>
-							</Link>
-						</li>
-						<li>
-							<Link href='/careers'>
-								<a>Careers </a>
-							</Link>
-						</li>
-					</ul>
-				</div>
-				<div>
-					<ul>
-						<li>5250 W 116TH Pl Suite 200</li>
-						<li>Leawood​, KS, 66211</li>
-						<li>+1 (202) 570-7169</li>
-					</ul>
-				</div>
-			</section> */}
 		</>
 	);
 };

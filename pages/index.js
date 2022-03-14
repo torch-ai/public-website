@@ -54,7 +54,7 @@ const Index = ({ setNavColor, news }) => {
 	return (
 		<>
 			<Head>
-				<title>Torch.AI</title>
+				<title>World's Most Trusted AI Platform | Unlock Human Potential | Torch.AI</title>
 			</Head>
 			<ReactFullpage
 				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}

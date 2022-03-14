@@ -27,6 +27,7 @@
         width: 40%;
         background-color: transparent;
         border-bottom: 1px solid white;
+        font-family: var(--font-copy);
     }
     input::placeholder {
         color: white;
@@ -42,10 +43,12 @@
         background-color: transparent;
         border: 1px solid white;
         padding: 2em;
+        font-family: var(--font-copy);
     }
 
     textarea::placeholder {
         color: white;
+        font-size: 1.2em;
     }
 
     div {

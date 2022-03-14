@@ -4,6 +4,7 @@ import Static from '../../styles/modules/static.module.scss';
 import { createClient } from 'contentful';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Footer from '../../components/footer';
+import Head from 'next/head';
 
 const client = createClient({
 	space: process.env.CONTENTFUL_SPACE_ID,
@@ -42,6 +43,9 @@ const slug = ({ news }) => {
 	const { content } = news.fields;
 	return (
 		<>
+			<Head>
+				<title>{news.fields.title} | Torch.AI</title>
+			</Head>
 			<section>
 				<Navigation />
 				<div className={`${Static['service']} ${Grid.row} ${Grid.margin_center} ${Grid.container}`}>

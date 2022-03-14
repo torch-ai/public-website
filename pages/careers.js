@@ -8,6 +8,7 @@ import Careers from '../styles/modules/careers.module.scss';
 import { createClient } from 'contentful';
 import JobCard from '../components/JobCard';
 import Footer from '../components/footer';
+import Head from 'next/head';
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -27,6 +28,9 @@ export async function getStaticProps() {
 const commercial = ({ jobs }) => {
 	return (
 		<>
+			<Head>
+				<title>AI and Machine Learning Jobs | Current Openings | Torch.AI</title>
+			</Head>
 			<section className={`${Careers['intro']}`}>
 				<Navigation />
 				<div

@@ -47,7 +47,9 @@ const Index = ({ setNavColor, news }) => {
 	return (
 		<>
 			<Head>
-				<title>Company | Torch AI</title>
+				<title>
+					Kansas City's Next Great Company | Unmatched Environment for Innovation | Torch.AI
+				</title>
 			</Head>
 			<ReactFullpage
 				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
