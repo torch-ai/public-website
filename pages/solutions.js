@@ -13,7 +13,7 @@ const Solutions = ({ setNavColor }) => {
 	return (
 		<>
 			<Head>
-				<title>Solution | Torch AI</title>
+				<title>Drive Value from Data with a System of Intelligence | Torch.AI</title>
 			</Head>
 			<ReactFullpage
 				navigation

@@ -111,16 +111,6 @@ const Navigation = ({ navColor }) => {
 								</a>
 							</Link>
 						</li>
-
-						<li>
-							<Link href='/inspiration'>
-								<a
-									style={{ color: color }}
-									className={router.pathname == '/inspiration' ? `${Nav.active}` : ''}>
-									Impact
-								</a>
-							</Link>
-						</li>
 						<li>
 							<Link href='/solutions'>
 								<a
@@ -130,6 +120,16 @@ const Navigation = ({ navColor }) => {
 								</a>
 							</Link>
 						</li>
+						<li>
+							<Link href='/impact'>
+								<a
+									style={{ color: color }}
+									className={router.pathname == '/impact' ? `${Nav.active}` : ''}>
+									Impact
+								</a>
+							</Link>
+						</li>
+
 						<li>
 							<Link href='/company'>
 								<a

@@ -174,17 +174,19 @@
 @media only screen and (min-width: 75em) {
     .change {
         animation-name: zoomies;
-        animation-duration: 30s;
-        animation-iteration-count: infinite;
+        animation-duration: 50s;
+        animation-iteration-count: 1;
         animation-timing-function: linear;
-        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
     }
 
     .hero {
         animation-name: zoomies;
-        animation-duration: 30s;
-        animation-iteration-count: infinite;
+        animation-duration: 50s;
+        animation-iteration-count: 1;
         animation-timing-function: linear;
-        animation-direction: alternate;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
     }
 }
