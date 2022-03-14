@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/contact": [
+    "/company": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/contact.js"
+      "static/chunks/pages/company.js"
     ],
-    "/partners": [
+    "/impact": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/partners.js"
+      "static/chunks/pages/impact.js"
     ]
   },
   "ampFirstPages": []

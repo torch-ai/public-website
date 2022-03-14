@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
@@ -9,6 +9,7 @@ import Image from 'next/image';
 import Style from '../styles/modules/company.module.scss';
 import News from '../components/news';
 import Footer from '../components/footer';
+import { gsap } from 'gsap';
 import { InView } from 'react-intersection-observer';
 
 import BrainWeaver from '../img/dotArt/BrainWeaver.png';
@@ -44,7 +45,24 @@ export async function getStaticProps() {
 }
 
 const Index = ({ setNavColor, news }) => {
-	setNavColor('black');
+	const fadeRef = useRef();
+	const buttonRef = useRef();
+
+	useEffect(() => {
+		gsap.fromTo(
+			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 1 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			fadeRef.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 2 }
+		);
+	}, []);
 	return (
 		<>
 			<Head>
@@ -57,7 +75,7 @@ const Index = ({ setNavColor, news }) => {
 				navigation
 				verticalCentered={false}
 				responsiveSlides={true}
-				responsiveHeight={900}
+				responsiveWidth={400}
 				scrollOverflowReset={true}
 				parallax={true}
 				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
@@ -67,15 +85,19 @@ const Index = ({ setNavColor, news }) => {
 						<ReactFullpage.Wrapper>
 							<div className={`${Style['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
-											<h2>We're building Kansas City's next great company.</h2>
-											<p>
-												The world's hardest problems. The world's greatest minds. An unmatched
-												environment for innovation.
-											</p>
+									<InView
+										as='div'
+										onChange={(inView, entry) => setNavColor(inView ? 'white' : 'black')}>
+										<div className={`${Grid['row']}`}>
+											<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
+												<h2 ref={buttonRef}>We're building Kansas City's next great company.</h2>
+												<p ref={fadeRef}>
+													The world's hardest problems. The world's greatest minds. An unmatched
+													environment for innovation.
+												</p>
+											</div>
 										</div>
-									</div>
+									</InView>
 								</div>
 							</div>
 							<div data-anchor='culture' className={`${Style['culture']} section`}>
@@ -129,14 +151,6 @@ const Index = ({ setNavColor, news }) => {
 									<div className={`${Grid['row']}`}>
 										<div className={`${Grid['col-xs-12']}  ${Style['gallery__title']}`}>
 											<h3>Leadership.</h3>
-											<p>
-												We prioritize people and an entrepreneurial spirit at Torch.AI. You, and our
-												relationship with you, is of utmost importance. At the same time, the drive
-												to improve your life and the lives of those around you, this Torch.AI
-												entrepreneurial spirit, is one of our most important priorities. Our
-												customers appreciate the world class technology, talent, and passion we
-												bring each day.
-											</p>
 										</div>
 									</div>
 									<div className={`${Grid['row']} ${Style['gallery__container']}`}>
@@ -175,15 +189,6 @@ const Index = ({ setNavColor, news }) => {
 													</div>
 												</div>
 											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div className={`${Style['gallery']} section`}>
-								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col-xs-12']}  ${Style['gallery__title']}`}>
-											<h3>Leadership Cont.</h3>
 										</div>
 									</div>
 									<div className={`${Grid['row']} ${Style['gallery__container']}`}>
