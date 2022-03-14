@@ -25,15 +25,15 @@
       "static/chunks/main.js",
       "static/chunks/pages/_error.js"
     ],
-    "/careers": [
+    "/contact": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/careers.js"
+      "static/chunks/pages/contact.js"
     ],
-    "/privacypolicy": [
+    "/partners": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",
-      "static/chunks/pages/privacypolicy.js"
+      "static/chunks/pages/partners.js"
     ]
   },
   "ampFirstPages": []
