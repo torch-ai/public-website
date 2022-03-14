@@ -18,25 +18,23 @@ const JobCard = ({ job }) => {
 		<>
 			<div className={`${Careers['job-card']}`}>
 				<div className={`${Grid['row']}`}>
-					<div className={`${Grid['col_xs_8']}`}>
+					<div className={`${Grid['col-xs-8']}`}>
 						<h4>{title}</h4>
 					</div>
 				</div>
 				<div className={`${Grid['row']}`}>
-					<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
+					<div className={`${Grid['col-xs-8']} ${Grid['col-lg-4']}`}>
 						<p>{displayCurrentTime()}</p>
-					</div>
-					<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
 						<p>{location}</p>
 					</div>
 				</div>
 				<div className={`${Grid['row']}`}>
-					<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
+					<div className={`${Grid['col-xs-8']} ${Grid['col-lg-4']}`}>
 						<p>{jobDescription}</p>
 					</div>
 				</div>
 				<div className={`${Grid['row']}`}>
-					<div className={`${Grid['col_xs_8']} ${Grid['col_lg_2']}`}>
+					<div className={`${Grid['col-xs-8']} ${Grid['col-lg-4']}`}>
 						<a href={url} role='button' target='_blank'>
 							Learn More
 						</a>

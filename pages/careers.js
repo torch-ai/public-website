@@ -35,7 +35,7 @@ const commercial = ({ jobs }) => {
 				<Navigation />
 				<div
 					className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers['carrers__content']}`}>
-					<div className={`${Grid.col_xs_8}`}>
+					<div className={`${Grid['col-xs-12']}`}>
 						<h1> Careers. </h1>
 						<p>
 							At Torch.AI, we are passionate about building software that solves some of the world's
@@ -54,7 +54,7 @@ const commercial = ({ jobs }) => {
 					</div>
 					<div className={`${Grid['row']}`}>
 						{jobs.map((job) => (
-							<div className={`${Grid['col_xs_8']}`}>
+							<div className={`${Grid['col-xs-12']}`}>
 								<JobCard key={job.sys.id} job={job} />
 							</div>
 						))}

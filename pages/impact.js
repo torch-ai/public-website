@@ -20,6 +20,7 @@ const Index = ({ setNavColor }) => {
 				navigation
 				verticalCentered={false}
 				scrollOverflowReset={true}
+				responsiveWidth={400}
 				parallax={true}
 				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
 				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
@@ -87,7 +88,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</div>
 							</div>
-							<div className={`${Style['defense']} section`}>
+							<div data-anchor='defense' className={`${Style['defense']} section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
@@ -117,7 +118,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</InView>
 							</div>
-							<div className={`${Style['logistics']} section`}>
+							<div data-anchor='logistics' className={`${Style['logistics']} section`}>
 								<div id='logistics' className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['logistics__content']}`}>
 										<div className={`${Grid['col_xs_8']}`}>
@@ -144,7 +145,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</div>
 							</div>
-							<div className={`${Style['insurance']} section`}>
+							<div data-anchor='insurance' className={`${Style['insurance']} section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
@@ -173,7 +174,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</InView>
 							</div>
-							<div className={`${Style['marketing']} section`}>
+							<div data-anchor='marketing' className={`${Style['marketing']} section`}>
 								<div id='marketing' className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['marketing__content']}`}>
 										<div className={`${Grid['col-xs-12']}`}>
@@ -199,7 +200,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</div>
 							</div>
-							<div className={`${Style['financial']} section`}>
+							<div data-anchor='financial' className={`${Style['financial']} section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
@@ -229,7 +230,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</InView>
 							</div>
-							<div className={`${Style['manufacturing']} section`}>
+							<div data-anchor='manufacturing' className={`${Style['manufacturing']} section`}>
 								<div id='manufacturing' className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row-reverse']} ${Style['manufacturing__content']}`}>
 										<div className={`${Grid['col-lg-5']} ${Grid['col-xs-12']}`}>
@@ -254,7 +255,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</div>
 							</div>
-							<div className={`${Style['healthcare']} section`}>
+							<div data-anchor='healthcare' className={`${Style['healthcare']} section`}>
 								<InView
 									as='div'
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
@@ -285,7 +286,7 @@ const Index = ({ setNavColor }) => {
 									</div>
 								</InView>
 							</div>
-							<div className={`${Style['publicSector']} section`}>
+							<div data-anchor='publicSector' className={`${Style['publicSector']} section`}>
 								<div id='public' className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['publicSector__content']}`}>
 										<div className={`${Grid['col-xs-12']}`}>
