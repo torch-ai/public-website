@@ -32,7 +32,6 @@ const commercial = ({ jobs }) => {
 				<title>AI and Machine Learning Jobs | Current Openings | Torch.AI</title>
 			</Head>
 			<section className={`${Careers['intro']}`}>
-				<Navigation />
 				<div
 					className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers['carrers__content']}`}>
 					<div className={`${Grid['col-xs-12']}`}>
@@ -54,7 +53,7 @@ const commercial = ({ jobs }) => {
 					</div>
 					<div className={`${Grid['row']}`}>
 						{jobs.map((job) => (
-							<div className={`${Grid['col-xs-12']}`}>
+							<div className={`${Grid['col-xs-9']}`}>
 								<JobCard key={job.sys.id} job={job} />
 							</div>
 						))}
