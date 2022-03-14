@@ -11,7 +11,7 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const Footer = () => {
 	return (
-		<footer id='contact' className={`${Template.footer}`}>
+		<footer id='contact' className={`${Template.footer} section`}>
 			<div
 				className={`${Grid.margin_center} ${Grid.container} ${Grid.row}  ${Template.footer__title}`}>
 				<h3>Get in Touch With Us.</h3>

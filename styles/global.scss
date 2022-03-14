@@ -68,7 +68,7 @@ html {
     padding-right: 1.5rem;
 }
 
-.section {
+.section:not(footer) {
     min-height: 100vh !important;
     height: auto !important;
 }
@@ -131,6 +131,11 @@ div[class*="span_"] {
 
 footer {
     background-color: #1b1c1e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto !important;
+    flex-direction: column;
     padding: 1em;
 }
 

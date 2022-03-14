@@ -12,6 +12,7 @@ import News from '../components/news';
 import { InView } from 'react-intersection-observer';
 import { createClient } from 'contentful';
 import Image from 'next/image';
+import Footer from '../components/footer';
 
 import imac from '../img/iMac.gif';
 
@@ -39,7 +40,7 @@ const Index = ({ setNavColor, news }) => {
 		gsap.fromTo(
 			buttonRef.current,
 			{ opacity: 0, y: '100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 1, delay: 25 }
+			{ opacity: 1, y: 0, duration: 1, delay: 37 }
 		);
 	}, []);
 
@@ -47,7 +48,7 @@ const Index = ({ setNavColor, news }) => {
 		gsap.fromTo(
 			fadeRef.current,
 			{ opacity: 0, y: '-100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 0.5, delay: 24.5 }
+			{ opacity: 1, y: 0, duration: 0.5, delay: 36.5 }
 		);
 	}, []);
 
@@ -61,6 +62,7 @@ const Index = ({ setNavColor, news }) => {
 				navigation
 				verticalCentered={false}
 				scrollOverflowReset={true}
+				responsiveWidth={800}
 				parallax={true}
 				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
 				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
@@ -94,7 +96,7 @@ const Index = ({ setNavColor, news }) => {
 									id='background-video'
 									autoPlay
 									muted>
-									<source src='./videos/hero.mp4' type='video/mp4' />
+									<source src='./videos/hero-movie.mp4' type='video/mp4' />
 								</video>
 							</div>
 							<div className={`${Landing['enhance']}  section`}>
@@ -682,6 +684,7 @@ const Index = ({ setNavColor, news }) => {
 									</div>
 								</div>
 							</div>
+							<Footer />
 						</ReactFullpage.Wrapper>
 					);
 				}}
