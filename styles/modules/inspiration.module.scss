@@ -85,11 +85,15 @@
 
 .gallery__container-content {
     position: absolute;
-    top: 2em;
+    top: 0;
     left: 0;
     width: 100%;
     text-align: center;
     min-height: 100%;
+
+    p {
+        margin: 1.5em 0;
+    }
 }
 
 .gallery-logistics {
@@ -299,7 +303,9 @@
     justify-content: center;
     align-items: center;
     padding: 5em 0;
-    background-color: #ffffff;
+    background-image: url(../../img/backgrounds/26.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .manufacturing__content {
@@ -531,10 +537,12 @@
     }
 
     .manufacturing {
-        background-image: url(../../img/backgrounds/26.png);
-        background-repeat: no-repeat;
-        background-position: center left -10%;
-        background-size: cover;
+        animation-name: zoomies;
+        animation-duration: 65s;
+        animation-iteration-count: 1;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        -webkit-animation-fill-mode: forwards;
     }
 
     .insurance {
@@ -553,7 +561,7 @@
 
     .publicSector {
         animation-name: zoomies;
-        animation-duration: 50s;
+        animation-duration: 65s;
         animation-iteration-count: 1;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
@@ -562,7 +570,7 @@
 
     .marketing {
         animation-name: zoomies;
-        animation-duration: 50s;
+        animation-duration: 65s;
         animation-iteration-count: 1;
         animation-timing-function: linear;
         animation-fill-mode: forwards;
@@ -571,7 +579,7 @@
 
     .logistics {
         animation-name: zoomies;
-        animation-duration: 50s;
+        animation-duration: 65s;
         animation-iteration-count: 1;
         animation-timing-function: linear;
         animation-fill-mode: forwards;

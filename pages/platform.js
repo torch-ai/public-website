@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
 import Grid from '../styles/modules/grid.module.scss';
@@ -9,12 +9,32 @@ import Features from '../components/features';
 import Style from '../styles/modules/platform.module.scss';
 import { InView } from 'react-intersection-observer';
 import Footer from '../components/footer';
+import { gsap } from 'gsap';
 
 import datamodel1 from '../img/datamodel1.svg';
 import datamodel2 from '../img/datamodel2.svg';
 import datamodel3 from '../img/datamodel3.svg';
 
 const Index = ({ setNavColor }) => {
+	const fadeRef = useRef();
+	const buttonRef = useRef();
+
+	useEffect(() => {
+		gsap.fromTo(
+			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 1 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			fadeRef.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 2 }
+		);
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -35,8 +55,10 @@ const Index = ({ setNavColor }) => {
 							<div className={` ${Style['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
-										<h2>Nexus™. The highest-performance data processing platform ever built.</h2>
-										<div className={`${Style['circle-icon']}`}>
+										<h2 ref={buttonRef}>
+											Nexus™. The highest-performance data processing platform ever built.
+										</h2>
+										<div ref={fadeRef} className={`${Style['circle-icon']}`}>
 											<svg
 												width='50'
 												height='50'
