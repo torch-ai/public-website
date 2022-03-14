@@ -173,34 +173,30 @@ const Index = ({ setNavColor }) => {
 								</InView>
 							</div>
 							<div className={`${Style['marketing']} section`}>
-								<InView
-									as='div'
-									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
-									<div id='marketing' className={`${Grid['container']} ${Grid['margin_center']}`}>
-										<div className={`${Grid['row']} ${Style['marketing__content']}`}>
-											<div className={`${Grid['col-xs-12']}`}>
-												<h2>Marketing.</h2>
-												<p>
-													Customer engagement and loyalty are imperative for sustainable success,
-													yet for the consumer, the noise from digital marketing overwhelms. Get
-													through the noise with targeted and tailored interactions. Nexus applies
-													machine learning and recommendation mechanisms to keep you ahead.
-												</p>
-											</div>
-										</div>
-										<div className={`${Grid['row']}`}>
-											<div className={`${Grid['col-xs-12']} ${Grid['col_lg_8']}`}>
-												<Link href='/contact'>
-													<a
-														role='button'
-														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-														Request Brief
-													</a>
-												</Link>
-											</div>
+								<div id='marketing' className={`${Grid['container']} ${Grid['margin_center']}`}>
+									<div className={`${Grid['row']} ${Style['marketing__content']}`}>
+										<div className={`${Grid['col-xs-12']}`}>
+											<h2>Marketing.</h2>
+											<p>
+												Customer engagement and loyalty are imperative for sustainable success, yet
+												for the consumer, the noise from digital marketing overwhelms. Get through
+												the noise with targeted and tailored interactions. Nexus applies machine
+												learning and recommendation mechanisms to keep you ahead.
+											</p>
 										</div>
 									</div>
-								</InView>
+									<div className={`${Grid['row']}`}>
+										<div className={`${Grid['col-xs-12']} ${Grid['col_lg_8']}`}>
+											<Link href='/contact'>
+												<a
+													role='button'
+													className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+													Request Brief
+												</a>
+											</Link>
+										</div>
+									</div>
+								</div>
 							</div>
 							<div className={`${Style['financial']} section`}>
 								<InView
@@ -233,35 +229,29 @@ const Index = ({ setNavColor }) => {
 								</InView>
 							</div>
 							<div className={`${Style['manufacturing']} section`}>
-								<InView
-									as='div'
-									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
-									<div
-										id='manufacturing'
-										className={`${Grid['container']} ${Grid['margin_center']}`}>
-										<div className={`${Grid['row-reverse']} ${Style['manufacturing__content']}`}>
-											<div className={`${Grid['col-lg-5']} ${Grid['col-xs-12']}`}>
-												<h2>Manufacturing.</h2>
-												<p>
-													With supply chains operating on a global scale, intelligence must be
-													aggregated across language, cultural, and national security barriers.
-													Nexus implements AI to deploy risk measures across the supply chain,
-													including financial distress, foreign influence, sole-source supplier, and
-													economic threat.
-												</p>
-												<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
-													<Link href='/contact'>
-														<a
-															role='button'
-															className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-															Request Brief
-														</a>
-													</Link>
-												</div>
+								<div id='manufacturing' className={`${Grid['container']} ${Grid['margin_center']}`}>
+									<div className={`${Grid['row-reverse']} ${Style['manufacturing__content']}`}>
+										<div className={`${Grid['col-lg-5']} ${Grid['col-xs-12']}`}>
+											<h2>Manufacturing.</h2>
+											<p>
+												With supply chains operating on a global scale, intelligence must be
+												aggregated across language, cultural, and national security barriers. Nexus
+												implements AI to deploy risk measures across the supply chain, including
+												financial distress, foreign influence, sole-source supplier, and economic
+												threat.
+											</p>
+											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
+												<Link href='/contact'>
+													<a
+														role='button'
+														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+														Request Brief
+													</a>
+												</Link>
 											</div>
 										</div>
 									</div>
-								</InView>
+								</div>
 							</div>
 							<div className={`${Style['healthcare']} section`}>
 								<InView
@@ -323,25 +313,29 @@ const Index = ({ setNavColor }) => {
 								</div>
 							</div>
 							<div className={`${Style['cta']} section`}>
-								<div id='public' className={`${Grid['container']} ${Grid['margin_center']}`}>
-									<div className={`${Grid['row']} ${Style['cta__content']}`}>
-										<div className={`${Grid['col-lg-offset-6']} ${Grid['col-xs-12']}`}>
-											<h3>Let us help you make data easier to use.</h3>
-											<p>It's time to unleash your potential.</p>
+								<InView
+									as='div'
+									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
+									<div id='public' className={`${Grid['container']} ${Grid['margin_center']}`}>
+										<div className={`${Grid['row']} ${Style['cta__content']}`}>
+											<div className={`${Grid['col-lg-offset-6']} ${Grid['col-xs-12']}`}>
+												<h3>Let us help you make data easier to use.</h3>
+												<p>It's time to unleash your potential.</p>
+											</div>
+										</div>
+										<div className={`${Grid['row']}`}>
+											<div className={`${Grid['col-lg-offset-6']} ${Grid['col-lg-12']}`}>
+												<Link href='/contact'>
+													<a
+														role='button'
+														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
+														Let's be friends
+													</a>
+												</Link>
+											</div>
 										</div>
 									</div>
-									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col-lg-offset-6']} ${Grid['col-lg-12']}`}>
-											<Link href='/contact'>
-												<a
-													role='button'
-													className={router.pathname == '/contact' ? `${Nav.active}` : ''}>
-													Let's be friends
-												</a>
-											</Link>
-										</div>
-									</div>
-								</div>
+								</InView>
 							</div>
 						</ReactFullpage.Wrapper>
 					);
