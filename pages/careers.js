@@ -9,6 +9,7 @@ import { createClient } from 'contentful';
 import JobCard from '../components/JobCard';
 import Footer from '../components/footer';
 import Head from 'next/head';
+import { InView } from 'react-intersection-observer';
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -25,25 +26,27 @@ export async function getStaticProps() {
 	};
 }
 
-const commercial = ({ jobs }) => {
+const commercial = ({ jobs, setNavColor }) => {
 	return (
 		<>
 			<Head>
 				<title>AI and Machine Learning Jobs | Current Openings | Torch.AI</title>
 			</Head>
 			<section className={`${Careers['intro']}`}>
-				<div
-					className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers['carrers__content']}`}>
-					<div className={`${Grid['col-xs-12']}`}>
-						<h1> Careers. </h1>
-						<p>
-							At Torch.AI, we are passionate about building software that solves some of the world's
-							most challenging problems. On the leading edge for AI for National Security clients
-							and beyond, we partner with some of the most influential organizations to transform
-							how they define success using data and technology.
-						</p>
+				<InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'white' : 'black')}>
+					<div
+						className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers['carrers__content']}`}>
+						<div className={`${Grid['col-xs-12']}`}>
+							<h1> Careers. </h1>
+							<p>
+								At Torch.AI, we are passionate about building software that solves some of the
+								world's most challenging problems. On the leading edge for AI for National Security
+								clients and beyond, we partner with some of the most influential organizations to
+								transform how they define success using data and technology.
+							</p>
+						</div>
 					</div>
-				</div>
+				</InView>
 			</section>
 
 			<section className={`${Careers['job-list']} ${Careers['section']}`}>
