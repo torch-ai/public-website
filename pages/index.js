@@ -40,7 +40,7 @@ const Index = ({ setNavColor, news }) => {
 		gsap.fromTo(
 			buttonRef.current,
 			{ opacity: 0, y: '100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 1, delay: 37 }
+			{ opacity: 1, y: 0, duration: 1, delay: 39 }
 		);
 	}, []);
 
@@ -48,7 +48,7 @@ const Index = ({ setNavColor, news }) => {
 		gsap.fromTo(
 			fadeRef.current,
 			{ opacity: 0, y: '-100%', ease: 'power1' },
-			{ opacity: 1, y: 0, duration: 0.5, delay: 36.5 }
+			{ opacity: 1, y: 0, duration: 0.5, delay: 38.5 }
 		);
 	}, []);
 
