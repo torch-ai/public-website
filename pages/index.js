@@ -679,7 +679,7 @@ const Index = ({ setNavColor, news }) => {
 												worked for us.
 											</p>
 											<div className={`${Landing['statement2__button']}`}>
-												<Link href='/company#culture'>
+												<Link href='/contact'>
 													<a
 														role='button'
 														className={router.pathname == '/contact' ? `${Nav.active}` : ''}>

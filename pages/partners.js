@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
@@ -8,12 +8,32 @@ import Image from 'next/image';
 import Style from '../styles/modules/partners.module.scss';
 import Footer from '../components/footer';
 import { InView } from 'react-intersection-observer';
+import { gsap } from 'gsap';
 
 import traning from '../img/training.png';
 import opportunities from '../img/oppertunities.png';
 import tools from '../img/tools.png';
 
 const Index = ({ setNavColor }) => {
+	const buttonRef = useRef();
+	const fadeRef = useRef();
+
+	useEffect(() => {
+		gsap.fromTo(
+			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 1 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			fadeRef.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 1.5 }
+		);
+	}, []);
+
 	return (
 		<>
 			<Head>
@@ -37,8 +57,8 @@ const Index = ({ setNavColor }) => {
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
 										<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
-											<h1>Welcome to the future.</h1>
-											<p>
+											<h1 ref={buttonRef}>Welcome to the future.</h1>
+											<p ref={fadeRef}>
 												Torch.AI's partners build long-term relationships for mutually beneficial
 												opportunities.
 											</p>

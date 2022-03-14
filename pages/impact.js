@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
 import Grid from '../styles/modules/grid.module.scss';
@@ -7,9 +7,29 @@ import { useRouter } from 'next/router';
 import Style from '../styles/modules/inspiration.module.scss';
 import { InView } from 'react-intersection-observer';
 import Footer from '../components/footer';
+import { gsap } from 'gsap';
 
 const Index = ({ setNavColor }) => {
 	const router = useRouter();
+	const fadeRef = useRef();
+	const buttonRef = useRef();
+
+	useEffect(() => {
+		gsap.fromTo(
+			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 1 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			fadeRef.current,
+			{ opacity: 0, y: '-100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 0.5, delay: 1.5 }
+		);
+	}, []);
+
 	return (
 		<>
 			<Head>
