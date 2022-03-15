@@ -1,145 +1,64 @@
 @use "/styles/colors";
 
-.background {
-    color: white;
-    p {
-        padding: 1em 0;
-        max-width: 50ch;
-    }
-
-    h2 {
-        padding: 1em 0;
-    }
-
-    &:first-child {
-        background: url("../../img/backgrounds/12.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
-    &:nth-child(2) {
-        background: url("../../img/backgrounds/05.png");
-    }
-    &:nth-child(3) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(4) {
-        background: url("../../img/backgrounds/13.png");
-    }
-    &:nth-child(5) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(6) {
-        background: url("../../img/backgrounds/14.png");
-    }
-    &:nth-child(7) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(8) {
-        background: url("../../img/backgrounds/15.png");
-    }
-    &:nth-child(9) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(10) {
-        background: url("../../img/backgrounds/16.png");
-    }
-    &:nth-child(11) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(12) {
-        background: url("../../img/backgrounds/17.png");
-    }
-    &:nth-child(13) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(14) {
-        background: url("../../img/backgrounds/18.png");
-    }
-    &:nth-child(15) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(16) {
-        background: url("../../img/backgrounds/19.png");
-    }
-    &:nth-child(17) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(18) {
-        background: url("../../img/backgrounds/20.png");
-    }
-    &:nth-child(20) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(21) {
-        background: url("../../img/backgrounds/21.png");
-    }
-    &:nth-child(22) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(23) {
-        background: url("../../img/backgrounds/22.png");
-    }
-    &:nth-child(24) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(25) {
-        background: url("../../img/backgrounds/23.png");
-    }
-    &:nth-child(26) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(27) {
-        background: url("../../img/backgrounds/24.png");
-    }
-    &:nth-child(28) {
-        background: hsl(220, 16%, 11%);
-    }
-    &:nth-child(29) {
-        background: url("../../img/backgrounds/25.png");
-    }
+.container {
+    width: min(90%, 1200px);
+    margin-inline: auto;
 }
 
-.content-center {
+.sol-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding: 15em 0;
-    position: relative;
-    z-index: 1;
-}
-
-.circle-icon {
-    padding: 2em 0;
-}
-
-.icon {
-    color: #f7941e;
-    transition: all 0.7s ease-out !important;
-}
-
-.icon:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-.hero h2 {
-    color: #fff;
-    max-width: 50ch;
-}
-
-.hero p {
-    color: #fff;
-    padding: 2em 0;
-    max-width: 50ch;
-}
-
-@keyframes zoomies {
-    from {
-        background-size: 100%;
+    p {
+        padding: max(2rem, 1rem) 0;
+        max-width: 100%;
     }
-    to {
-        background-size: 150%;
+    h2 {
+        width: min(20ch, 100%);
+        margin-inline: auto;
+    }
+}
+
+.sol-subtitle {
+    display: flex;
+
+    align-items: center;
+    height: 100%;
+    justify-content: flex-start;
+
+    p {
+        padding: max(2rem, 1rem) 0;
+        width: min(45ch, 100%);
+    }
+}
+
+.sol-content {
+    .container {
+        display: flex;
+        flex-direction: column;
+        width: min(90%, 800px);
+        margin-left: auto;
+        margin-right: 0;
+    }
+
+    p {
+        padding: max(0.5rem, 1rem) 0;
+        width: min(45ch, 100%);
+    }
+}
+
+.desktop-only {
+    display: none;
+}
+
+@media (min-width: "1200px") {
+    .mobile-only {
+        display: none;
+    }
+
+    .desktop-only {
+        display: flex;
     }
 }
