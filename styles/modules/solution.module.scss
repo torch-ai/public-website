@@ -5,40 +5,96 @@
     margin-inline: auto;
 }
 
+.wrapper {
+    background-color: #131313;
+}
+
 .sol-title {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    animation: fadeInAnimation ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
     p {
         padding: max(2rem, 1rem) 0;
         max-width: 100%;
+        color: white;
     }
     h2 {
-        width: min(20ch, 100%);
+        max-width: 100%;
         margin-inline: auto;
+        background: linear-gradient(
+            45deg,
+            hsl(15deg 83% 54%) 0%,
+            hsl(15deg 81% 53%) 13%,
+            hsl(16deg 79% 53%) 25%,
+            hsl(17deg 76% 52%) 37%,
+            hsl(18deg 74% 51%) 50%,
+            hsl(22deg 80% 52%) 63%,
+            hsl(26deg 85% 53%) 75%,
+            hsl(30deg 89% 53%) 87%,
+            hsl(33deg 93% 54%) 100%
+        );
+        background-size: 400% 400%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        -webkit-animation: AnimationName 30s ease infinite;
+        -moz-animation: AnimationName 30s ease infinite;
+        animation: AnimationName 30s ease infinite;
     }
 }
 
 .sol-subtitle {
     display: flex;
-
     align-items: center;
     height: 100%;
     justify-content: flex-start;
+    color: white;
 
     p {
         padding: max(2rem, 1rem) 0;
         width: min(45ch, 100%);
     }
+
+    h3::after {
+        content: "";
+        background: linear-gradient(
+            45deg,
+            hsl(15deg 83% 54%) 0%,
+            hsl(15deg 81% 53%) 13%,
+            hsl(16deg 79% 53%) 25%,
+            hsl(17deg 76% 52%) 37%,
+            hsl(18deg 74% 51%) 50%,
+            hsl(22deg 80% 52%) 63%,
+            hsl(26deg 85% 53%) 75%,
+            hsl(30deg 89% 53%) 87%,
+            hsl(33deg 93% 54%) 100%
+        );
+        background-size: 400% 400%;
+        padding-bottom: 0.09em;
+        margin: 0.3em 0;
+        display: block;
+        bottom: 0;
+        width: 1em;
+        left: 0;
+        height: 2px;
+        -webkit-animation: AnimationName 10s ease infinite;
+        -moz-animation: AnimationName 10s ease infinite;
+        animation: AnimationName 10s ease infinite;
+    }
 }
 
 .sol-content {
-    background-color: red;
+    background-color: #131313d8;
+
     .container {
         display: flex;
+        justify-content: center;
         flex-direction: column;
+        height: 100%;
         width: min(90%, 800px);
         margin-left: auto;
         margin-right: 0;
@@ -47,6 +103,29 @@
     p {
         padding: max(0.5rem, 1rem) 0;
         width: min(45ch, 100%);
+        color: white;
+    }
+
+    h3 {
+        color: white;
+    }
+
+    .sub-content-title {
+        p {
+            color: hsl(33deg 93% 54%);
+        }
+    }
+}
+
+.sub-content-accent {
+    color: rgb(211, 151, 79);
+}
+
+.sol-background {
+    background: url(../../img/backgrounds/26.png);
+
+    &:nth-child(2) {
+        background: url(../../img/backgrounds/23.png);
     }
 }
 
@@ -61,5 +140,48 @@
 
     .desktop-only {
         display: flex;
+    }
+}
+
+@-webkit-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@-moz-keyframes AnimationName {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+@keyframes AnimationName {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }

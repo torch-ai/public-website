@@ -6,7 +6,7 @@ import style from '../styles/modules/style.module.scss';
 import Grid from '../styles/modules/grid.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { gsap } from 'gsap';
+import { gsap } from 'gsap/dist/gsap';
 import Landing from '../styles/modules/landing.module.scss';
 import News from '../components/news';
 import { InView } from 'react-intersection-observer';
