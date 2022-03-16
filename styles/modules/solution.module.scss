@@ -97,7 +97,9 @@
         height: 100%;
         width: min(90%, 800px);
         margin-left: auto;
-        margin-right: 0;
+        margin-right: 5%;
+        padding: 5em;
+        background-color: #2b2b2b;
     }
 
     p {
@@ -122,10 +124,10 @@
 }
 
 .sol-background {
-    background: url(../../img/backgrounds/26.png);
+    background: #3f3f3f;
 
     &:nth-child(2) {
-        background: url(../../img/backgrounds/23.png);
+        background: purple;
     }
 }
 
@@ -183,5 +185,14 @@
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes zoomies {
+    from {
+        background-size: 100%;
+    }
+    to {
+        background-size: 150%;
     }
 }
