@@ -295,13 +295,11 @@ const Index = ({ setNavColor }) => {
 											<div className={`${Grid['col-xs-12']}`}>
 												<h2>Healthcare.</h2>
 												<p>
-													The key to intelligence is gathering, synthesizing, and analyzing
-													disparate types of data. In order for analysts to make informed decisions,
-													they need access to the right data at the right time. Nexus enables the
-													ingestion of vast amounts of data and has the ability to tag data upon
-													ingest for further analysis. Our machine learning models build out network
-													analyses and help the analyst drill down into the web of information to
-													extract pertinent information.
+													Artificial Intelligence is revolutionizing healthcare, from diagnosing
+													conditions using computer vision in imagery to illuminating risk in a
+													medical parts supply chain. Nexus can integrate data across all your
+													systems, providing an enhanced patient profile for intelligent
+													decisioning.
 												</p>
 											</div>
 											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
