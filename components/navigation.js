@@ -117,7 +117,7 @@ const Navigation = ({ navColor }) => {
 								</a>
 							</Link>
 						</li>
-						<li>
+						<li className={`${Nav['dropdown']}`}>
 							<Link href='/solutions'>
 								<a
 									style={{ color: color }}
