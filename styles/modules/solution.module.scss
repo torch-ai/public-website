@@ -18,6 +18,7 @@
     animation: fadeInAnimation ease 3s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+
     p {
         padding: max(2rem, 1rem) 0;
         max-width: 100%;
@@ -26,18 +27,7 @@
     h2 {
         max-width: 100%;
         margin-inline: auto;
-        background: linear-gradient(
-            45deg,
-            hsl(15deg 83% 54%) 0%,
-            hsl(15deg 81% 53%) 13%,
-            hsl(16deg 79% 53%) 25%,
-            hsl(17deg 76% 52%) 37%,
-            hsl(18deg 74% 51%) 50%,
-            hsl(22deg 80% 52%) 63%,
-            hsl(26deg 85% 53%) 75%,
-            hsl(30deg 89% 53%) 87%,
-            hsl(33deg 93% 54%) 100%
-        );
+        background: white;
         background-size: 400% 400%;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
@@ -54,37 +44,34 @@
     justify-content: flex-start;
     color: white;
 
-    p {
-        padding: max(2rem, 1rem) 0;
-        width: min(45ch, 100%);
+    .container {
+        p {
+            padding: max(2rem, 1rem) 0;
+            width: min(45ch, 100%);
+        }
+
+        h3::after {
+            content: "";
+
+            background: white;
+            background-size: 400% 400%;
+            padding-bottom: 0.09em;
+            margin: 0.3em 0;
+            display: block;
+            bottom: 0;
+            width: 1em;
+            left: 0;
+            height: 2px;
+            -webkit-animation: AnimationName 10s ease infinite;
+            -moz-animation: AnimationName 10s ease infinite;
+            animation: AnimationName 10s ease infinite;
+        }
     }
 
-    h3::after {
-        content: "";
-        background: linear-gradient(
-            45deg,
-            hsl(15deg 83% 54%) 0%,
-            hsl(15deg 81% 53%) 13%,
-            hsl(16deg 79% 53%) 25%,
-            hsl(17deg 76% 52%) 37%,
-            hsl(18deg 74% 51%) 50%,
-            hsl(22deg 80% 52%) 63%,
-            hsl(26deg 85% 53%) 75%,
-            hsl(30deg 89% 53%) 87%,
-            hsl(33deg 93% 54%) 100%
-        );
-        background-size: 400% 400%;
-        padding-bottom: 0.09em;
-        margin: 0.3em 0;
-        display: block;
-        bottom: 0;
-        width: 1em;
-        left: 0;
-        height: 2px;
-        -webkit-animation: AnimationName 10s ease infinite;
-        -moz-animation: AnimationName 10s ease infinite;
-        animation: AnimationName 10s ease infinite;
-    }
+    // .title-infra {
+    //     background-image: url(../../img/icons/graph.svg);
+    //     background-repeat: no-repeat;
+    // }
 }
 
 .sol-content {
@@ -98,7 +85,7 @@
         width: min(90%, 800px);
         margin-left: auto;
         margin-right: 5%;
-        padding: 5em;
+        padding: 2em 5em;
         background-color: #2b2b2b;
     }
 
@@ -123,13 +110,13 @@
     color: rgb(211, 151, 79);
 }
 
-.sol-background {
-    background: #3f3f3f;
+// .sol-background {
+//     // background: #3f3f3f;
 
-    &:nth-child(2) {
-        background: purple;
-    }
-}
+//     &:nth-child(2) {
+//         background: purple;
+//     }
+// }
 
 .desktop-only {
     display: none;
