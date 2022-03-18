@@ -316,7 +316,6 @@ const Solutions = ({ setNavColor }) => {
 
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
-							id='analytics'
 							offset={10}
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
@@ -488,7 +487,6 @@ const Solutions = ({ setNavColor }) => {
 
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
-							id='machine'
 							offset={10}
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
@@ -742,7 +740,6 @@ const Solutions = ({ setNavColor }) => {
 
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
-							id='enterprise'
 							offset={26}
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
@@ -955,7 +952,6 @@ const Solutions = ({ setNavColor }) => {
 
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
-							id='openSource'
 							offset={34}
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
@@ -1115,7 +1111,6 @@ const Solutions = ({ setNavColor }) => {
 
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
-							id='dataApis'
 							offset={40}
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
