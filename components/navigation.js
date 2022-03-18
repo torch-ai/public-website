@@ -21,6 +21,12 @@ const Navigation = ({ navColor }) => {
 		setColor(navColor);
 	}, [navColor, setColor]);
 
+	// useEffect(() => {
+	// 	setTimeout(() => {
+	// 		router.replace(window.location.href);
+	// 	}, [window.location.hash]);
+	// });
+
 	function toggle(event) {
 		const visibilty = navRef.current.getAttribute('data-visible');
 		if (visibilty === 'false') {
@@ -119,6 +125,26 @@ const Navigation = ({ navColor }) => {
 									Solutions
 								</a>
 							</Link>
+							<div className={`${Nav['dropdown-content']}`}>
+								<Link href='/solutions#infrastructure' scroll={false}>
+									<a style={{ color: color }}>Infrastructure</a>
+								</Link>
+								<Link href='/solutions#analytics' scroll={false}>
+									<a style={{ color: color }}>Analytics</a>
+								</Link>
+								<Link href='/solutions#machine' scroll={false}>
+									<a style={{ color: color }}>Machine learning</a>
+								</Link>
+								<Link href='/solutions#enterprise' scroll={false}>
+									<a style={{ color: color }}>Enterprise</a>
+								</Link>
+								<Link href='/solutions#openSource' scroll={false}>
+									<a style={{ color: color }}>Open Source</a>
+								</Link>
+								<Link href='/solutions#dataApis' scroll={false}>
+									<a style={{ color: color }}>Data APIs</a>
+								</Link>
+							</div>
 						</li>
 						<li>
 							<Link href='/impact'>
