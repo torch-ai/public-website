@@ -344,7 +344,7 @@ const Index = ({ setNavColor, news }) => {
 																</clipPath>
 															</defs>
 														</svg>
-														<p>Operationalize data faster and efficiently</p>
+														<p>Reduce costs in your technology stack</p>
 													</div>
 													<div
 														className={`${Grid['col-lg-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>

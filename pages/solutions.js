@@ -43,6 +43,39 @@ const Solutions = ({ setNavColor }) => {
 							<div className={`${Style['container']}`}>
 								<h2>A system of intelligence across your organization. </h2>
 								<p>Drive value from data across all enterprise functions.</p>
+
+								<div className={`${Style['index']}`}>
+									<div className={`${Style['index-item']}`}>
+										<a href='#infrastructure' className={`${Style['index-content']}`}>
+											<h5>Infrastructure</h5>
+										</a>
+									</div>
+									<div className={`${Style['index-item']}`}>
+										<a href='#analytics' className={`${Style['index-content']}`}>
+											<h5>Analytics</h5>
+										</a>
+									</div>
+									<div className={`${Style['index-item']}`}>
+										<a href='#machine' className={`${Style['index-content']}`}>
+											<h5>Machine learning & AI</h5>
+										</a>
+									</div>
+									<div className={`${Style['index-item']}`}>
+										<a href='#enterprise' className={`${Style['index-content']}`}>
+											<h5>Enterprise Applications</h5>
+										</a>
+									</div>
+									<div className={`${Style['index-item']}`}>
+										<a href='#openSource' className={`${Style['index-content']}`}>
+											<h5>Open Source</h5>
+										</a>
+									</div>
+									<div className={`${Style['index-item']}`}>
+										<a href='#dataApis' className={`${Style['index-content']}`}>
+											<h5>Data APIs</h5>
+										</a>
+									</div>
+								</div>
 							</div>
 						</ParallaxLayer>
 
