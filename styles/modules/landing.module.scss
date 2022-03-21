@@ -214,10 +214,6 @@
   color: #ffffff;
 }
 
-.impact__container-item:hover {
-  cursor: pointer;
-}
-
 .impact__container-content {
   position: absolute;
   left: 0;
@@ -226,6 +222,10 @@
 
   a {
     color: white;
+    transition: all 0.7s ease-out !important;
+  }
+  a:hover {
+    border-bottom: 1px solid white;
   }
 }
 

@@ -2,19 +2,20 @@ import { useEffect, useState, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import Head from 'next/head';
-import style from '../styles/modules/style.module.scss';
 import Grid from '../styles/modules/grid.module.scss';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { gsap } from 'gsap/dist/gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import Landing from '../styles/modules/landing.module.scss';
 import News from '../components/news';
 import { InView } from 'react-intersection-observer';
 import { createClient } from 'contentful';
 import Image from 'next/image';
 import Footer from '../components/footer';
-
 import imac from '../img/iMac.gif';
+
+gsap.registerPlugin(ScrollTrigger);
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -35,6 +36,8 @@ const Index = ({ setNavColor, news }) => {
 	const router = useRouter();
 	const fadeRef = useRef();
 	const buttonRef = useRef();
+	const enhance = useRef();
+	const nexus = useRef();
 
 	useEffect(() => {
 		gsap.fromTo(
@@ -105,7 +108,7 @@ const Index = ({ setNavColor, news }) => {
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']} ${Landing['enhance__content']}`}>
-											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-5']}`}>
+											<div ref={enhance} className={`${Grid['col-xs-12']} ${Grid['col-lg-5']}`}>
 												<h2>We build AI that makes data easier to use.</h2>
 												<p>
 													Torch.AI's Nexus™ software instantly unlocks value from data and provides
@@ -138,7 +141,7 @@ const Index = ({ setNavColor, news }) => {
 													</div>
 												</div>
 												<hr />
-												<div className={`${Grid['row']}`}>
+												<div ref={nexus} className={`${Grid['row']}`}>
 													<div className={`${Grid['col-xs-10']}`}>
 														<p>Simply put:</p>
 													</div>

@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Nav from '../styles/modules/nav.module.scss';
-import style from '../styles/modules/style.module.scss';
 import Grid from '../styles/modules/grid.module.scss';
 import Image from 'next/image';
 import logo from '../img/logo.svg';
