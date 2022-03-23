@@ -120,7 +120,7 @@ const Index = ({ setNavColor, news }) => {
 										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-8']}`}>
 											<h5>Curious & Innovative</h5>
 											<p>
-												We are always interested in finding new and better ways to do things–and
+												We are always interested in finding new and better ways to do things and
 												never satisfied with what we have. We wonder constantly about “what could
 												be” and how we might “solve the unsolvable.”
 											</p>
@@ -167,9 +167,9 @@ const Index = ({ setNavColor, news }) => {
 												<div
 													className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Style['gallery__layout-item']}`}>
 													<div className={`${Style['gallery__layout-item-content']}`}>
-														<Image src={JonKramer} />
-														<h5>Jon Kramer</h5>
-														<p>Chief Technology Officer</p>
+														<Image src={AmyBradshaw} />
+														<h5>Amy Bradshaw</h5>
+														<p>Chief Financial Officer</p>
 													</div>
 												</div>
 												<div
@@ -213,9 +213,9 @@ const Index = ({ setNavColor, news }) => {
 												<div
 													className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Style['gallery__layout-item']}`}>
 													<div className={`${Style['gallery__layout-item-content']}`}>
-														<Image src={AmyBradshaw} />
-														<h5>Amy Bradshaw</h5>
-														<p>Chief Financial Officer</p>
+														<Image src={JonKramer} />
+														<h5>Jon Kramer</h5>
+														<p>Chief Technology Officer</p>
 													</div>
 												</div>
 												<div

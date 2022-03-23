@@ -344,7 +344,7 @@ const Index = ({ setNavColor, news }) => {
 																</clipPath>
 															</defs>
 														</svg>
-														<p>Reduce costs in your technology stack</p>
+														<p>Operationalize data faster and efficiently</p>
 													</div>
 													<div
 														className={`${Grid['col-lg-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
@@ -595,7 +595,7 @@ const Index = ({ setNavColor, news }) => {
 																</clipPath>
 															</defs>
 														</svg>
-														<p>Operationalize data faster and efficiently</p>
+														<p>Reduce costs in your technology stack</p>
 													</div>
 												</div>
 												<Link href='/solutions'>
@@ -677,10 +677,6 @@ const Index = ({ setNavColor, news }) => {
 												Human productivity is stifled by the ocean of data growing faster than our
 												ability to process it.
 											</h3>
-											<p>
-												Unleash your potential. Imagine if instead of working for our data, it
-												worked for us.
-											</p>
 											<div className={`${Landing['statement2__button']}`}>
 												<Link href='/contact'>
 													<a

@@ -57,11 +57,8 @@ const Index = ({ setNavColor }) => {
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
 										<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
-											<h1 ref={buttonRef}>Welcome to the future.</h1>
-											<p ref={fadeRef}>
-												Torch.AI's partners build long-term relationships for mutually beneficial
-												opportunities.
-											</p>
+											<h1 ref={buttonRef}>Be a hero for your customers.</h1>
+											<p ref={fadeRef}>Deploy Nexus to solve your customers problems.</p>
 										</div>
 									</div>
 								</div>
@@ -124,8 +121,8 @@ const Index = ({ setNavColor }) => {
 											</div>
 											<h5>Tools.</h5>
 											<p>
-												Access a wide variety of bespoke sales, marketing, ML modeling, and other
-												technical tools.
+												Access a wide variety of sales, marketing, ML modeling, and other technical
+												tools.
 											</p>
 										</div>
 									</div>
