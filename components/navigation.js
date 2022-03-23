@@ -176,6 +176,16 @@ const Navigation = ({ navColor }) => {
 						</li>
 
 						<li>
+							<Link href='/careers'>
+								<a
+									style={{ color: color }}
+									className={router.pathname == '/careers' ? `${Nav.active}` : ''}>
+									Careers
+								</a>
+							</Link>
+						</li>
+
+						<li>
 							<Link href='/contact'>
 								<a
 									style={{ color: color }}

@@ -56,7 +56,7 @@ const Index = ({ setNavColor }) => {
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col-xs-12']} ${Style['content-center']}`}>
 										<h2 ref={buttonRef}>
-											Nexus™. The highest-performance data processing platform ever built.
+											Nexus<sup>™</sup> The highest-performance data processing platform ever built.
 										</h2>
 										<div ref={fadeRef} className={`${Style['circle-icon']}`}>
 											<svg
@@ -85,8 +85,8 @@ const Index = ({ setNavColor }) => {
 											<div
 												className={`${Grid['col-lg-12']} ${Grid['col-xs-12']} ${Grid['margin_center']}`}>
 												<h3>
-													Nexus™ is a transparent and composable software bridging three powerful
-													capabilities:
+													Nexus<sup>™</sup> is a transparent and composable platform software
+													bridging three powerful capabilities:
 												</h3>
 											</div>
 										</div>
@@ -140,7 +140,7 @@ const Index = ({ setNavColor }) => {
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']} ${Style['datalake__content']}`}>
 										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
-											<h3>Your uncle's large scale data processor just became obsolete.</h3>
+											<h3>Your large scale data processor just became obsolete.</h3>
 											<p>
 												Nexus software's ground-breaking compute performance, up to 10.7x faster
 												than the leading data lake software, enables your organization to interact
@@ -212,9 +212,9 @@ const Index = ({ setNavColor }) => {
 										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
 											<h5>Unstructured Data Processing and Fusion</h5>
 											<ul>
-												<li>Analyze data in flight in real time.</li>
-												<li>Does not replicate authoritative data.</li>
-												<li>Reduces infrastructure costs.</li>
+												<li>Unleash new insights from unstructured data.</li>
+												<li>Holistic view of entire data ecosystem.</li>
+												<li>Enrich enterprise data with third-party data.</li>
 											</ul>
 										</div>
 									</div>
@@ -225,7 +225,7 @@ const Index = ({ setNavColor }) => {
 												<li>
 													Semantic Stitching. Proprietary no-code data retrieval system. Use
 													business-friendly data requests instead of technical queries. Semantically
-													understand the wealth of enterprise data
+													understand's the wealth of enterprise data.
 												</li>
 											</ul>
 										</div>
