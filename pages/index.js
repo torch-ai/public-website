@@ -64,19 +64,15 @@ const Index = ({ setNavColor, news }) => {
 				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
 				verticalCentered={false}
-				scrollOverflowReset={true}
-				responsiveWidth={400}
-				parallax={true}
-				parallaxKey={'EF2EC031-21464D53-B55BDB11-5FA39137'}
-				parallaxOptions={{ type: 'cover', percentage: 62, property: 'background' }}
+				responsiveWidth={600}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
 							<div className={`${Landing['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col-xs-12']} ${Landing['content-center']}`}>
-										<h1 ref={fadeRef}>Unlock Human Potential.</h1>
-										<div ref={buttonRef} className={`${Landing['circle-icon']}`}>
+										<h1>Unlock Human Potential.</h1>
+										<div className={`${Landing['circle-icon']}`}>
 											<svg
 												width='50'
 												height='50'
@@ -108,7 +104,14 @@ const Index = ({ setNavColor, news }) => {
 									onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 									<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 										<div className={`${Grid['row']} ${Landing['enhance__content']}`}>
-											<div ref={enhance} className={`${Grid['col-xs-12']} ${Grid['col-lg-5']}`}>
+											<div
+												ref={enhance}
+												className={`
+												 ${Grid['col-xs-12']}
+												 ${Grid['col-sm-7']}
+												 ${Grid['col-md-4']}
+												 ${Grid['col-lg-4']} 
+												 ${Grid['col-xl-5']}`}>
 												<h2>We build AI that makes data easier to use.</h2>
 												<p>
 													Torch.AI's Nexus™ software instantly unlocks value from data and provides
@@ -126,7 +129,7 @@ const Index = ({ setNavColor, news }) => {
 										<div className={`${Grid['row']}`}>
 											<div className={`${Grid['col-xs-10']} ${Grid['margin_center']}`}>
 												<div className={`${Grid['row']} ${Landing['nexus__stats']}`}>
-													<div className={`${Grid['col-lg-8']} ${Grid['col-xs-9']}`}>
+													<div className={`${Grid['col-xl-8']} ${Grid['col-xs-9']}`}>
 														<h2>
 															Introducing Nexus <sup>TM</sup>
 														</h2>
@@ -135,7 +138,7 @@ const Index = ({ setNavColor, news }) => {
 															valuable.
 														</p>
 													</div>
-													<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
+													<div className={`${Grid['col-xl-2']} ${Grid['col-xs-12']}`}>
 														<h2 className={`${Landing['large']}`}>10.7x</h2>
 														<p>Faster compute performance.</p>
 													</div>
@@ -146,8 +149,8 @@ const Index = ({ setNavColor, news }) => {
 														<p>Simply put:</p>
 													</div>
 													<div
-														className={`${Grid['row']} ${Grid['between-lg']} ${Landing['nexus__points']}`}>
-														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
+														className={`${Grid['row']} ${Grid['between-xl']} ${Landing['nexus__points']}`}>
+														<div className={`${Grid['col-xl-2']} ${Grid['col-xs-12']}`}>
 															<svg
 																width='52'
 																height='52'
@@ -181,7 +184,7 @@ const Index = ({ setNavColor, news }) => {
 															</svg>
 															<p>Highest performance data processing platform ever built.</p>
 														</div>
-														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
+														<div className={`${Grid['col-xl-2']} ${Grid['col-xs-12']}`}>
 															<svg
 																width='48'
 																height='55'
@@ -196,7 +199,7 @@ const Index = ({ setNavColor, news }) => {
 
 															<p>Radically simplifies how companies extract value from data.</p>
 														</div>
-														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']}`}>
+														<div className={`${Grid['col-xl-2']} ${Grid['col-xs-12']}`}>
 															<svg
 																width='52'
 																height='52'
@@ -211,7 +214,7 @@ const Index = ({ setNavColor, news }) => {
 
 															<p>Accelerates processing times and reduces operational costs.</p>
 														</div>
-														<div className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} `}>
+														<div className={`${Grid['col-xl-2']} ${Grid['col-xs-12']} `}>
 															<svg
 																width='52'
 																height='54'
@@ -252,7 +255,7 @@ const Index = ({ setNavColor, news }) => {
 										</div>
 										<div className={`${Grid['row']}`}>
 											<div
-												className={`${Grid['col-xs-10']} ${Grid['col-lg-10']} ${Grid['margin_center']}`}>
+												className={`${Grid['col-xs-10']} ${Grid['col-xl-10']} ${Grid['margin_center']}`}>
 												<Link href='/platform'>
 													<a
 														role='button'
@@ -272,14 +275,15 @@ const Index = ({ setNavColor, news }) => {
 										as='span'
 										onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 										<div className={`${Grid['row']}`}>
-											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-5']}`}>
+											<div
+												className={`${Grid['col-xs-12']} ${Grid['col-xl-5']} ${Landing['statement__image']}`}>
 												<Image src={imac} />
 											</div>
-											<div className={`${Grid['col-lg-6']}`}>
+											<div className={`${Grid['col-xl-6']} ${Grid['col-xs-12']}`}>
 												<h3>Make Data Work for You.</h3>
 												<div className={`${Grid['row']}`}>
 													<div
-														className={`${Grid['col-lg-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
+														className={`${Grid['col-xl-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
 														<svg
 															width='58'
 															height='58'
@@ -347,7 +351,7 @@ const Index = ({ setNavColor, news }) => {
 														<p>Operationalize data faster and efficiently</p>
 													</div>
 													<div
-														className={`${Grid['col-lg-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
+														className={`${Grid['col-xl-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
 														<svg
 															width='61'
 															height='58'
@@ -407,7 +411,7 @@ const Index = ({ setNavColor, news }) => {
 												</div>
 												<div className={`${Grid['row']}`}>
 													<div
-														className={`${Grid['col-lg-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
+														className={`${Grid['col-xl-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
 														<svg
 															width='125'
 															height='58'
@@ -528,7 +532,7 @@ const Index = ({ setNavColor, news }) => {
 														<p>Gain access to deep insights</p>
 													</div>
 													<div
-														className={`${Grid['col-lg-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
+														className={`${Grid['col-xl-6']} ${Grid['col-xs-12']} ${Landing['statement-item']}`}>
 														<svg
 															width='99'
 															height='58'
@@ -620,7 +624,7 @@ const Index = ({ setNavColor, news }) => {
 									</div>
 									<div className={`${Grid['row']} ${Landing['impact__container']}`}>
 										<div
-											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__microsoft']}`}>
+											className={`${Grid['col-xl-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__microsoft']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>MARKETING</p>
 												<h4>Microsoft</h4>
@@ -630,7 +634,7 @@ const Index = ({ setNavColor, news }) => {
 											</div>
 										</div>
 										<div
-											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__hr']}`}>
+											className={`${Grid['col-xl-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__hr']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>FINANCIAL SERVICES</p>
 												<h4>H&R Block</h4>
@@ -640,7 +644,7 @@ const Index = ({ setNavColor, news }) => {
 											</div>
 										</div>
 										<div
-											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__raytheon']}`}>
+											className={`${Grid['col-xl-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__raytheon']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>LOGISTICS</p>
 												<h4>Raytheon</h4>
@@ -650,7 +654,7 @@ const Index = ({ setNavColor, news }) => {
 											</div>
 										</div>
 										<div
-											className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__navy']}`}>
+											className={`${Grid['col-xl-3']} ${Grid['col-xs-12']} ${Landing['impact__container-item']} ${Landing['impact__navy']}`}>
 											<div className={`${Landing['impact__container-content']}`}>
 												<p>DEFENSE & INTELLIGENCE</p>
 												<h4>U.S. Navy</h4>
@@ -672,7 +676,7 @@ const Index = ({ setNavColor, news }) => {
 							<div className={`${Landing['statement2']}  section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['row']}`}>
-										<div className={`${Grid['col-lg-6']} ${Landing['statement2__content']}`}>
+										<div className={`${Grid['col-xl-6']} ${Landing['statement2__content']}`}>
 											<h3>
 												Human productivity is stifled by the ocean of data growing faster than our
 												ability to process it.
@@ -687,7 +691,7 @@ const Index = ({ setNavColor, news }) => {
 												</Link>
 											</div>
 										</div>
-										<div className={`${Grid['col-lg-6']}`}>
+										<div className={`${Grid['col-xl-6']}`}>
 											<video controls poster='./bryanPreview.png' id='background-video'>
 												<source src='./videos/bryan.mp4' type='video/mp4' />
 											</video>
