@@ -128,6 +128,11 @@ div[class*="span_"] {
     padding: 1em;
 }
 
+.fullpage-wrapper {
+    display: inline-block;
+    overflow-x: hidden;
+}
+
 footer {
     background-color: #1b1c1e;
     display: flex;
@@ -164,13 +169,28 @@ footer .row {
     .container {
         width: 600px;
     }
+
+    .fullpage-wrapper {
+        display: block;
+    }
 }
+
+@media (min-width: 500px) {
+    .fullpage-wrapper {
+        display: block;
+    }
+}
+
 @media (min-width: 900px) {
     :root {
         --type-scale: 1.33;
     }
     .container {
         width: 900px;
+    }
+
+    .fullpage-wrapper {
+        display: block;
     }
 }
 @media (min-width: 1200px) {
@@ -179,5 +199,9 @@ footer .row {
     }
     .container {
         width: 1200px;
+    }
+
+    .fullpage-wrapper {
+        display: block;
     }
 }

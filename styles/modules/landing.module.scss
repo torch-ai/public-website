@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 15em 0;
   position: relative;
   z-index: 1;
 }
@@ -35,8 +34,8 @@
 
 .hero h1 {
   color: #fff;
-  max-width: 100%;
-  padding-bottom: 2em;
+  padding-top: 6em;
+  padding-bottom: 1em;
 }
 
 .background-video {
@@ -54,6 +53,11 @@
   background-color: #fff;
   display: flex;
   align-items: center;
+  text-align: center;
+
+  .statement__image {
+    display: none;
+  }
 
   h3 {
     padding-bottom: 0.5em;
@@ -61,16 +65,6 @@
     max-width: 15ch;
   }
 
-  h3::after {
-    content: "";
-    border-bottom: 5px solid #131313;
-    padding-bottom: 0.2em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 30px;
-  }
   p {
     padding: 0.5em 0;
   }
@@ -81,6 +75,7 @@
 
   .statement-item {
     padding: 0.5em 0;
+    text-align: center;
   }
 
   a[role="button"] {
@@ -135,16 +130,18 @@
 .nexus__points,
 .nexus p {
   color: #ffffff;
+  padding: 1em 0;
 }
 
 .nexus__points svg {
-  margin: 1em 0;
+  display: none;
 }
 
 //  Enhance
 .enhance {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 5em 0;
   background-color: #ffffff;
 }
@@ -152,17 +149,6 @@
 .enhance h2 {
   color: #232730;
   padding-bottom: 1em;
-}
-
-.enhance h2::after {
-  content: "";
-  border-bottom: 5px solid #131313;
-  padding-bottom: 0.5em;
-  display: block;
-  bottom: 0;
-  width: 1em;
-  left: 0;
-  height: 30px;
 }
 
 .enhance__content {
@@ -361,7 +347,9 @@
   }
 }
 
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: 64em) {
+}
+@media only screen and (min-width: 76em) {
   .nexus {
     animation-name: zoomies;
     animation-duration: 65s;
@@ -378,7 +366,7 @@
     background-color: #ffffff;
     background-image: url(../../img/backgrounds/logo_image.svg);
     background-repeat: no-repeat;
-    background-size: 40%;
+    background-size: contain;
     background-position-y: 70%;
     background-position-x: -5%;
   }
@@ -399,5 +387,58 @@
 
   .impact__container-item {
     padding: 10em;
+  }
+}
+@media only screen and (min-width: 100em) {
+  .hero h1 {
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+
+  .enhance {
+    justify-content: stretch;
+  }
+
+  .enhance h2 {
+    color: #232730;
+    padding-bottom: 1em;
+  }
+
+  .enhance h2::after {
+    content: "";
+    border-bottom: 5px solid #131313;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 30px;
+  }
+  .nexus__points svg {
+    margin: 1em 0;
+    display: block;
+  }
+
+  .statement {
+    text-align: left;
+
+    .statement__image {
+      display: block;
+    }
+
+    .statement-item {
+      text-align: left;
+    }
+
+    h3::after {
+      content: "";
+      border-bottom: 5px solid #131313;
+      padding-bottom: 0.2em;
+      display: block;
+      bottom: 0;
+      width: 1em;
+      left: 0;
+      height: 30px;
+    }
   }
 }
