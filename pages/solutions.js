@@ -520,7 +520,7 @@ const Solutions = ({ setNavColor }) => {
 
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
-							offset={10}
+							offset={16}
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
 								<h3 className={`${Style['title-machine']}`}>Machine learning & AI</h3>
