@@ -69,6 +69,14 @@
     background-size: cover;
 }
 
+.value h3 {
+    text-align: center;
+}
+
+.value p {
+    text-align: center;
+}
+
 .value__content {
     justify-content: space-between;
 }
@@ -76,16 +84,6 @@
 .value__content h3 {
     padding: 1em 0;
     max-width: 28ch;
-}
-
-.value__content h3::after {
-    content: "";
-    border-bottom: 5px solid #131313;
-    padding-bottom: 0.8em;
-    display: block;
-    bottom: 0;
-    width: 2em;
-    left: 0;
 }
 
 .benefitsPartners {
@@ -189,5 +187,20 @@
         animation-timing-function: linear;
         animation-fill-mode: forwards;
         -webkit-animation-fill-mode: forwards;
+    }
+}
+
+@media only screen and (min-width: 64em) {
+}
+
+@media only screen and (min-width: 100em) {
+    .value__content h3::after {
+        content: "";
+        border-bottom: 5px solid #131313;
+        padding-bottom: 0.8em;
+        display: block;
+        bottom: 0;
+        width: 2em;
+        left: 0;
     }
 }
