@@ -50,10 +50,9 @@ const slug = ({ news, setNavColor }) => {
 			<section>
 				<header className={`${Static['service-header']}`}>
 					<InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'white' : 'black')}>
-						<div
-							className={`${Static['service']} ${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
-							<div className={`${Static['content']} ${Grid.row}`}>
-								<div className={`${Grid.col_xs_8} ${Grid.col_lg_8} post flow`}>
+						<div className={`${Static['service']}`}>
+							<div className={`${Static['content']}`}>
+								<div className={`post flow`}>
 									<h3>{news.fields.title}.</h3>
 									<p> {news.fields.summary} </p>
 								</div>
@@ -62,10 +61,9 @@ const slug = ({ news, setNavColor }) => {
 					</InView>
 				</header>
 				{/* <InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}> */}
-				<div
-					className={`${Static['service-content']} ${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
-					<div className={`${Grid.row}`}>
-						<div className={` ${Static['content']} ${Grid.col_xs_8} ${Grid.col_lg_8} post flow`}>
+				<div className={`${Static['service-content']}`}>
+					<div>
+						<div className={` ${Static['content']} post flow`}>
 							<p>{documentToReactComponents(content)}</p>
 						</div>
 					</div>

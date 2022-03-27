@@ -54,17 +54,11 @@ html {
     margin: 0;
 }
 
-div {
-    display: block;
-}
-
 .flow > * + * {
     margin-top: var(--flow-space, 1em);
 }
 
 .post {
-    --flow-space: var(--h3);
-    width: 90vw;
     width: clamp(16rem, 90vw, 70rem);
     margin-left: auto;
     margin-right: auto;

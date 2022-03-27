@@ -71,8 +71,8 @@ const Index = ({ setNavColor, news }) => {
 							<div className={`${Landing['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col-xs-12']} ${Landing['content-center']}`}>
-										<h1>Unlock Human Potential.</h1>
-										<div className={`${Landing['circle-icon']}`}>
+										<h1 ref={fadeRef}>Unlock Human Potential.</h1>
+										<div ref={buttonRef} className={`${Landing['circle-icon']}`}>
 											<svg
 												width='50'
 												height='50'
@@ -108,9 +108,9 @@ const Index = ({ setNavColor, news }) => {
 												ref={enhance}
 												className={`
 												 ${Grid['col-xs-12']}
-												 ${Grid['col-sm-7']}
-												 ${Grid['col-md-4']}
-												 ${Grid['col-lg-4']} 
+												 ${Grid['col-sm-10']}
+												 ${Grid['col-md-10']}
+												 ${Grid['col-lg-10']} 
 												 ${Grid['col-xl-5']}`}>
 												<h2>We build AI that makes data easier to use.</h2>
 												<p>

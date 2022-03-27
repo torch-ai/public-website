@@ -54,6 +54,7 @@
   display: flex;
   align-items: center;
   text-align: center;
+  padding: 5em 0;
 
   .statement__image {
     display: none;
@@ -75,7 +76,6 @@
 
   .statement-item {
     padding: 0.5em 0;
-    text-align: center;
   }
 
   a[role="button"] {
@@ -99,7 +99,7 @@
 .nexus {
   display: flex;
   align-items: center;
-  padding: 5em;
+  padding: 5em 0;
   background: url(../../img/backgrounds/01.png) no-repeat center center;
   background-size: cover;
 }
@@ -176,6 +176,7 @@
   display: flex;
   align-items: center;
   background-color: #232730;
+  padding: 5em 0;
 }
 
 .impact h2 {
@@ -385,9 +386,61 @@
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
   }
-
   .impact__container-item {
     padding: 10em;
+  }
+
+  .hero h1 {
+    padding-top: 2em;
+    padding-bottom: 1em;
+  }
+
+  .enhance {
+    justify-content: stretch;
+    padding: 3em 0;
+  }
+
+  .enhance h2 {
+    color: #232730;
+    padding-bottom: 1em;
+  }
+
+  .enhance h2::after {
+    content: "";
+    border-bottom: 5px solid #131313;
+    padding-bottom: 0.5em;
+    display: block;
+    bottom: 0;
+    width: 1em;
+    left: 0;
+    height: 30px;
+  }
+  .nexus__points svg {
+    margin: 1em 0;
+    display: block;
+  }
+
+  .statement {
+    text-align: left;
+
+    .statement__image {
+      display: block;
+    }
+
+    .statement-item {
+      text-align: left;
+    }
+
+    h3::after {
+      content: "";
+      border-bottom: 5px solid #131313;
+      padding-bottom: 0.2em;
+      display: block;
+      bottom: 0;
+      width: 1em;
+      left: 0;
+      height: 30px;
+    }
   }
 }
 @media only screen and (min-width: 100em) {
