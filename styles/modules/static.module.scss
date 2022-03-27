@@ -1,9 +1,3 @@
-.service {
-    padding-top: 10em;
-    width: 1200px;
-    max-width: 90%;
-}
-
 .service-header {
     background-color: hsl(220, 16%, 11%);
     padding: 5em 0;
@@ -15,11 +9,6 @@
 }
 
 .service-content {
-    padding: 2em 0;
-    width: 1200px;
-    max-width: 90%;
-    // width: clamp(16rem, 90vw, 70rem);
-
     color: black;
 }
 
