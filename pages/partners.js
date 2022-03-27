@@ -91,7 +91,8 @@ const Index = ({ setNavColor }) => {
 										<h3>Benefits for our partners.</h3>
 									</div>
 									<div className={`${Grid['row']} ${Style['benefitsPartners__content']}`}>
-										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-3']}`}>
+										<div
+											className={`${Grid['col-xs-12']} ${Grid['col-lg-3']} ${Style['benefitsPartners-item']}`}>
 											<div>
 												<Image src={traning} />
 											</div>
@@ -101,7 +102,8 @@ const Index = ({ setNavColor }) => {
 												our Solution Architects to guarantee success of your program.
 											</p>
 										</div>
-										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-3']}`}>
+										<div
+											className={`${Grid['col-xs-12']} ${Grid['col-lg-3']} ${Style['benefitsPartners-item']}`}>
 											<div>
 												<Image src={opportunities} />
 											</div>
@@ -111,7 +113,8 @@ const Index = ({ setNavColor }) => {
 												to their core competencies.
 											</p>
 										</div>
-										<div className={`${Grid['col-xs-12']} ${Grid['col-lg-3']}`}>
+										<div
+											className={`${Grid['col-xs-12']} ${Grid['col-lg-3']} ${Style['benefitsPartners-item']}`}>
 											<div>
 												<Image src={tools} />
 											</div>

@@ -36,7 +36,7 @@ const Solutions = ({ setNavColor }) => {
 			<Head>
 				<title>Drive Value from Data with a System of Intelligence | Torch.AI</title>
 			</Head>
-			<section>
+			<section className={`${Style['wrap']}`}>
 				<InView as='span' onChange={(inView, entry) => setNavColor(inView ? 'white' : 'white')}>
 					<Parallax pages={46} className={`${Style['wrapper']}`}>
 						<ParallaxLayer className={`${Style['sol-title']}`} offset={0} speed={2.5}>
