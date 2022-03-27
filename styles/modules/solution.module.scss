@@ -11,7 +11,7 @@
 }
 
 .sol-title {
-    padding-top: 25em;
+    padding-top: 40em;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -28,14 +28,7 @@
     }
     h2 {
         max-width: 100%;
-        margin-inline: auto;
-        background: white;
-        background-size: 400% 400%;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        -webkit-animation: AnimationName 30s ease infinite;
-        -moz-animation: AnimationName 30s ease infinite;
-        animation: AnimationName 30s ease infinite;
+        color: white;
     }
 }
 
@@ -80,7 +73,7 @@
         width: min(90%, 800px);
         margin-left: auto;
         margin-right: 5%;
-        padding: 2em 5em;
+        padding: 2em 0;
         background-color: transparent;
     }
 
@@ -241,5 +234,9 @@
             padding: 2em 5em;
             background-color: #2f303f;
         }
+    }
+
+    .sol-title {
+        padding-top: 30em;
     }
 }
