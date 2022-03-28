@@ -8,16 +8,27 @@ import Style from '../styles/modules/inspiration.module.scss';
 import { InView } from 'react-intersection-observer';
 import Footer from '../components/footer';
 import { gsap } from 'gsap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAdd, faArrowAltCircleDown } from '@fortawesome/free-solid-svg-icons';
 
 const Index = ({ setNavColor }) => {
 	const router = useRouter();
 	const fadeRef = useRef();
 	const fadeRef2 = useRef();
+	const pFade = useRef();
 	const buttonRef = useRef();
 
 	useEffect(() => {
 		gsap.fromTo(
 			buttonRef.current,
+			{ opacity: 0, y: '100%', ease: 'power1' },
+			{ opacity: 1, y: 0, duration: 1, delay: 1 }
+		);
+	}, []);
+
+	useEffect(() => {
+		gsap.fromTo(
+			pFade.current,
 			{ opacity: 0, y: '100%', ease: 'power1' },
 			{ opacity: 1, y: 0, duration: 1, delay: 1 }
 		);
@@ -62,11 +73,9 @@ const Index = ({ setNavColor }) => {
 									<div ref={fadeRef} className={`${Grid['row']} ${Style['gallery__container']}`}>
 										<div
 											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Style['gallery__container-item']} ${Style['gallery-defense']}`}>
-											<a href='#defense'>
-												<div className={`${Style['gallery__container-content']}`}>
-													<p>Defense & Intelligence</p>
-												</div>
-											</a>
+											<div className={`${Style['gallery__container-content']}`}>
+												<p>Defense & Intelligence</p>
+											</div>
 										</div>
 										<div
 											className={`${Grid['col-lg-2']} ${Grid['col-xs-12']} ${Style['gallery__container-item']} ${Style['gallery-logistics']}`}>
@@ -112,6 +121,10 @@ const Index = ({ setNavColor }) => {
 												<p>Public Sector</p>
 											</div>
 										</div>
+									</div>
+									<div className={`${Grid['col-xs-12']} ${Style['gallery__title']}`}>
+										<p ref={pFade}>Find your passion below:</p>
+										<FontAwesomeIcon icon={faArrowAltCircleDown} size='2x' />
 									</div>
 								</div>
 							</div>

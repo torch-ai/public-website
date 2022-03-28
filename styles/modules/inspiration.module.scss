@@ -63,6 +63,8 @@
 
 .gallery__title {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding: 3em 0;
     color: #ffffff;
@@ -78,10 +80,6 @@
     padding: 5em;
     margin: 1em 0;
     color: #ffffff;
-}
-
-.gallery__container-item:hover {
-    cursor: pointer;
 }
 
 .gallery__container-content {
@@ -590,6 +588,6 @@
 
 @media only screen and (min-width: 100em) {
     .hero {
-        padding-top: 4;
+        padding-top: 2em;
     }
 }
