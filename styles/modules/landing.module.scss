@@ -442,8 +442,7 @@
       height: 30px;
     }
   }
-}
-@media only screen and (min-width: 100em) {
+
   .hero h1 {
     padding-top: 2em;
     padding-bottom: 1em;
@@ -499,4 +498,6 @@
   .news {
     padding: 0;
   }
+}
+@media only screen and (min-width: 100em) {
 }
