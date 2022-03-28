@@ -56,7 +56,7 @@ const commercial = ({ jobs, setNavColor }) => {
 					</div>
 					<div className={`${Grid['row']}`}>
 						{jobs.map((job) => (
-							<div className={`${Grid['col-xs-9']}`}>
+							<div className={`${Grid['col-xs-12']}`}>
 								<JobCard key={job.sys.id} job={job} />
 							</div>
 						))}

@@ -23,16 +23,11 @@
 
     .job-card {
         color: hsl(220, 16%, 11%);
-        border: 1px solid hsl(220, 16%, 11%);
+        // border-top: 1px solid hsl(220, 16%, 11%);
         display: flex;
         justify-content: center;
-        align-self: center;
         flex-direction: column;
-        border-radius: 5px;
-        margin: 1em 0;
-        padding: 2em;
-        color: white;
-        background: hsl(222, 14%, 15%);
+        padding: 2em 0;
 
         p {
             padding: 0.5em 0;
@@ -40,14 +35,14 @@
     }
 
     a[role="button"] {
-        margin: 1em 0;
-        color: white;
-        border: 1px solid white;
+        margin-top: 1em;
+        color: hsl(220, 16%, 11%);
+        border: 1px solid hsl(220, 16%, 11%);
         padding: 0.8em 1em;
         font-size: 1em;
     }
     a[role="button"]:hover {
-        background-color: white;
-        color: hsl(220, 16%, 11%);
+        background-color: hsl(220, 16%, 11%);
+        color: white;
     }
 }
