@@ -14,6 +14,7 @@ import Footer from '../components/footer';
 const Solutions = ({ setNavColor }) => {
 	const fadeRef = useRef();
 	const buttonRef = useRef();
+	const ref = useRef();
 
 	useEffect(() => {
 		gsap.fromTo(
