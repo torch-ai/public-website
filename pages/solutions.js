@@ -104,7 +104,7 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']}`}
 							offset={1}
-							id='infrastructure'
+							// id='infrastructure'
 							speed={0.5}>
 							<div className={`${Style['container']} ${Style['mobile-only']}`}>
 								<h3 className={`${Style['title-infra']}`}>Infrastructure</h3>
@@ -355,7 +355,7 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
 							offset={10}
-							id='analytics'
+							// id='analytics'
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
 								<h3 className={`${Style['title-analytics']}`}>Analytics</h3>
@@ -527,7 +527,7 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
 							offset={16}
-							id='machine'
+							// id='machine'
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
 								<h3 className={`${Style['title-machine']}`}>Machine learning & AI</h3>
@@ -781,7 +781,7 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
 							offset={26}
-							id='enterprise'
+							// id='enterprise'
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
 								<h3 className={`${Style['title-machine']}`}>Enterprise Applications</h3>
@@ -994,7 +994,7 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
 							offset={34}
-							id='openSource'
+							// id='openSource'
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
 								<h3 className={`${Style['title-openSource']}`}>Open Source</h3>
@@ -1154,7 +1154,7 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer
 							className={`${Style['sol-subtitle']} ${Style['mobile-only']}`}
 							offset={40}
-							id='dataApis'
+							// id='dataApis'
 							speed={0.5}>
 							<div className={`${Style['container']}`}>
 								<h3 className={`${Style['title-openSource']}`}>Data APIs</h3>
