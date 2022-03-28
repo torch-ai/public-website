@@ -18,7 +18,7 @@ const TermsofService = ({ setNavColor }) => {
 	});
 	return (
 		<>
-			<section className={`${Static['service']}`}>
+			<section className={`${Static['service']} post`}>
 				<InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 					<div className={`${Static['content']}`}>
 						<h1>Terms and Conditions</h1>
