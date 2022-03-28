@@ -32,6 +32,7 @@
     justify-content: center;
     align-items: center;
     background-color: var(--color-dark);
+    padding-top: 10em;
 
     h2 {
         margin: 0 auto;
@@ -584,5 +585,11 @@
         animation-timing-function: linear;
         animation-fill-mode: forwards;
         -webkit-animation-fill-mode: forwards;
+    }
+}
+
+@media only screen and (min-width: 100em) {
+    .hero {
+        padding-top: 4;
     }
 }
