@@ -137,12 +137,12 @@ const Index = ({ setNavColor }) => {
 											<div className={`${Grid['col-xs-12']}`}>
 												<h2>Defense & Intelligence.</h2>
 												<p>
-													The defense industry contends with many data challenges to include
-													countless data, sources, and a myriad of data types. The Nexus platform is
-													data agnostic and allows for the ingestion of all data types while also
-													allowing each data type to confer with each other. This allows the
-													military access to the right data at the right time and informs quick
-													tactical and strategic decisions.
+													The national security enterprise is awash with vast quantities of data
+													sources, types, and structures, across multiple domains. The Nexus
+													platform enables our government customers to rapidly access valuable
+													information, strengthening our position against our adversaries. Deploying
+													Nexus truly supports our warfighters and intelligence professionals in
+													their mission to bolster the defense of our nation.
 												</p>
 											</div>
 											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
@@ -164,10 +164,12 @@ const Index = ({ setNavColor }) => {
 										<div className={`${Grid['col_xs_8']}`}>
 											<h2>Logistics.</h2>
 											<p>
-												Everyday banking operations such as loan processing require countless
-												full-time resources to review, interpret, and extract relevant information
-												from various documents—a slow and expensive process. Nexus automates
-												business processes with higher speed and accuracy than otherwise possible.
+												Modern logistics requires the ability to orchestrate massive pipelines of
+												information in real-time to move critical products and supplies across the
+												globe. Nexus enhances your logistics processes by fusing together previously
+												unrelated sets of information, optimizing your supply chain, delivery
+												mechanisms and distribution. Nexus leaves its mark by providing immediate
+												bottom-line results
 											</p>
 										</div>
 									</div>
@@ -194,11 +196,13 @@ const Index = ({ setNavColor }) => {
 											<div className={`${Grid['col-xs-12']}`}>
 												<h2>Insurance.</h2>
 												<p>
-													Creating new policies or even certificates of insurance (COIs) require
-													human labor to review, interpret, and extract relevant information from
-													various documents—a slow, error prone, and expensive process. Nexus solves
-													this problem by extracting intelligence from unstructured information in
-													real time.
+													Creating new policies or certificates of insurance (COIs) require human
+													labor to review, interpret, and extract relevant information from various
+													documents—a slow, error prone, and expensive process. Nexus solves this
+													problem by automating the data extraction process resulting in a simple
+													and efficient solution that helps insurance companies generate new
+													policies and COIs at an average speed of 9.8 milliseconds per page and
+													with over 96% accuracy for data extraction.
 												</p>
 											</div>
 											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
@@ -220,10 +224,13 @@ const Index = ({ setNavColor }) => {
 										<div className={`${Grid['col-xs-12']}`}>
 											<h2>Marketing.</h2>
 											<p>
-												Customer engagement and loyalty are imperative for sustainable success, yet
-												for the consumer, the noise from digital marketing overwhelms. Get through
-												the noise with targeted and tailored interactions. Nexus applies machine
-												learning and recommendation mechanisms to keep you ahead.
+												Innovative marketers understand the trends and inclinations of customers by
+												sifting through piles of data, attempting to filter the noise. Staying at
+												the forefront of markets requires keen insight, correlating information from
+												disparate sources to drive decision making. Nexus applies its machine
+												learning to associate features hidden from the human eye, ensuring marketers
+												pick up tendencies before the masses, honing appropriate messaging and
+												driving increased sales.
 											</p>
 										</div>
 									</div>
@@ -249,12 +256,12 @@ const Index = ({ setNavColor }) => {
 											<div className={`${Grid['col-xs-12']}`}>
 												<h2>Financial Services.</h2>
 												<p>
-													Financial firms must acquire deep insights into their customers and
-													prospects. Analysts must ingest a vast amount of disparate information to
-													understand current and future customer needs. Building this intelligence
-													base requires countless manual processes to integrate information from a
-													wide variety of sources, both internal and external. Nexus can perform
-													this work for you.
+													Financial service organizations seek to fully engage their customers and
+													prospects with their growing list of products and services. Analysts and
+													advisors are currently forced to sift through vast amounts of disparate
+													information to understand current and future needs. By integrating Nexus,
+													surfacing only the most valuable and actionable information can happen in
+													an instant.
 												</p>
 											</div>
 											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
@@ -280,7 +287,7 @@ const Index = ({ setNavColor }) => {
 												aggregated across language, cultural, and national security barriers. Nexus
 												implements AI to deploy risk measures across the supply chain, including
 												financial distress, foreign influence, sole-source supplier, and economic
-												threat.
+												threat, mitigating perilous activity.
 											</p>
 											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
 												<Link href='/contact'>
@@ -330,12 +337,15 @@ const Index = ({ setNavColor }) => {
 										<div className={`${Grid['col-xs-12']}`}>
 											<h2>Public Sector.</h2>
 											<p>
-												Government agencies are charged with serving citizens while also protecting
-												data privacy. Many government IT systems contain vast amounts of personally
-												identifiable information (PII), and agencies must protect the
-												confidentiality, integrity, and availability of this information. Nexus is
-												uniquely positioned to tackle government agencies’ data needs while also
-												allowing for platform auditability.
+												Governments exist to strengthen the lives of their constituents. Federal,
+												State and Local agencies are hyper focused on providing better services for
+												their citizens, constantly searching for ways to protect and enhance our
+												critical infrastructure, increase the quality of public services and
+												mitigating fraud, waste and abuse. As a platform that has been proven to
+												tackle the largest and most complex data challenges, Nexus is uniquely
+												positioned to support public sector agencies by maintaining technical
+												credentials that allow for data & decision auditability, traceability,
+												scalability and security.
 											</p>
 										</div>
 									</div>
