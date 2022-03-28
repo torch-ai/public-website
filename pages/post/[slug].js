@@ -54,7 +54,9 @@ const slug = ({ news, setNavColor }) => {
 							<div className={`${Static['content']}`}>
 								<div className={`post flow`}>
 									<h3>{news.fields.title}.</h3>
-									<p> {news.fields.summary} </p>
+									<p>
+										<em>{news.fields.summary} </em>
+									</p>
 								</div>
 							</div>
 						</div>

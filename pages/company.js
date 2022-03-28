@@ -281,10 +281,11 @@ const Index = ({ setNavColor, news }) => {
 										<div className={`${Grid['col-xs-12']}  ${Style['gallery__title']}`}>
 											<h3>Board of Advisors</h3>
 											<p>
-												Torch.AI's board members have vast domain, technology, product, and business
-												experience, and are helping us create one of our country's great companies.
-												We endeavor to make the world a better place by advancing the use of AI to
-												change how data is put to use.
+												Torch.AI's board of advisors have vast domain, technology, product, and
+												business experience, and are helping create one of our country's great
+												companies. Their unique backgrounds and experience allow us to make the
+												world a better place by advancing the use of AI to change how data is put to
+												use.
 											</p>
 										</div>
 									</div>

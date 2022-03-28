@@ -20,7 +20,7 @@ const Footer = () => {
 				className={`${Grid.margin_center} ${Grid.container} ${Grid.row} ${Grid['gap']} ${Template.footer__content}`}>
 				<div className={`${Template['footer__form-container']} flow`}>
 					<div className={`${Template.footer__text}`}>
-						<p>Let's talk about how we can unlock your team's productivity.</p>
+						<p>Find out how Nexus can unlock your productivity.</p>
 					</div>
 
 					<form
