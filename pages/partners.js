@@ -75,13 +75,6 @@ const Index = ({ setNavColor }) => {
 												</p>
 											</div>
 										</div>
-										<div className={`${Grid['row']}`}>
-											<div className={`${Grid['col-xs-12']} ${Grid['col-lg-12']}`}>
-												<a href='#' role='button'>
-													Request Whitepaper
-												</a>
-											</div>
-										</div>
 									</InView>
 								</div>
 							</div>
