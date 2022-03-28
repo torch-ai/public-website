@@ -25,7 +25,7 @@ const Contact = ({ jobs, setNavColor }) => {
 							<div className={`${Grid['col-xs-12']} ${Style['contact__title']}`}>
 								<h2>Contact Us.</h2>
 
-								<p>Let's talk about how we can unlock your team's productivity.</p>
+								<p>Find out how Nexus can unlock your productivity.</p>
 							</div>
 						</div>
 						<div className={`${Grid['row']}`}>

@@ -66,7 +66,7 @@ const Index = ({ setNavColor }) => {
 										onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}>
 										<div className={`${Grid['row']} ${Style['value__content']}`}>
 											<div className={`${Grid['col-lg-offset-3']} ${Grid['col-xs-12']}`}>
-												<h3>We value our friends. This is m ore than business for us.</h3>
+												<h3>We value our friends. This is more than business for us.</h3>
 												<p>
 													Torch.AI's strong partner ecosystem is foundational to our mission of
 													“Transforming the potential of data for good.” Often, we co-invest in
