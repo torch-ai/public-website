@@ -208,9 +208,15 @@ const Index = ({ setNavColor }) => {
 										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
 											<h5>Unstructured Data Processing and Fusion</h5>
 											<ul>
-												<li>Unleash new insights from unstructured data.</li>
-												<li>Holistic view of entire data ecosystem.</li>
-												<li>Enrich enterprise data with third-party data.</li>
+												<li>Instantly make your data totally available, usable, and valuable.</li>
+												<li>
+													Utilizes AI to determine additional data objects to add to further enrich
+													existing data.
+												</li>
+												<li>
+													Autotunes the optimal representations of data to continuously improve ML
+													performance and accuracy.
+												</li>
 											</ul>
 										</div>
 									</div>
