@@ -26,6 +26,8 @@
   z-index: 1000;
   position: relative;
   background-color: #131313;
+  background: url(../../img/backgrounds/hero_mobile.png) center center;
+  background-size: cover;
 
   .container {
     justify-content: center;
@@ -34,7 +36,7 @@
 
 .hero h1 {
   color: #fff;
-  padding-top: 6em;
+  padding-top: 3em;
   padding-bottom: 1em;
 }
 
@@ -46,6 +48,7 @@
   height: 100%;
   object-fit: cover;
   opacity: 0.3;
+  display: none;
 }
 
 //  Statement
@@ -500,4 +503,24 @@
   }
 }
 @media only screen and (min-width: 100em) {
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.3;
+    display: block;
+  }
+
+  .hero {
+    z-index: 1000;
+    position: relative;
+    background: #131313;
+
+    .container {
+      justify-content: center;
+    }
+  }
 }
