@@ -146,7 +146,6 @@ const Index = ({ setNavColor }) => {
 										</div>
 										<div className={`${Grid['col-lg-6']} ${Grid['col-xs-12']}`}>
 											<div className={`${Style['datalake__title']}`}>
-												<p>Up to </p>
 												<h1>10.7x</h1>
 												<h4>Faster compute performance.</h4>
 											</div>
