@@ -43,7 +43,9 @@ const Solutions = ({ setNavColor }) => {
 						<ParallaxLayer className={`${Style['sol-title']}`} offset={0} speed={2.5}>
 							<div className={`${Style['container']}`}>
 								<h2>A system of intelligence across your organization. </h2>
-								<p>Drive value from data across all enterprise functions.</p>
+								<p>
+									Drive value from data across all enterprise functions using Nexus' microservices.
+								</p>
 
 								<div className={`${Style['index']}`}>
 									<div className={`${Style['index-item']}`}>
