@@ -82,7 +82,7 @@ const Index = ({ setNavColor }) => {
 											<div
 												className={`${Grid['col-lg-12']} ${Grid['col-xs-12']} ${Grid['margin_center']}`}>
 												<h3>
-													Nexus<sup>™</sup>. is a transparent and composable software platform
+													Nexus<sup>™</sup> is a transparent and composable software platform
 													bridging three powerful capabilities:
 												</h3>
 											</div>
