@@ -522,5 +522,34 @@
     .container {
       justify-content: center;
     }
+
+    h1 {
+      animation-duration: 2s;
+      animation-delay: 38.5s;
+      animation-name: slidein;
+      opacity: 0;
+      animation-fill-mode: forwards;
+      -webkit-animation-fill-mode: forwards;
+    }
+  }
+
+  .circle-icon {
+    padding: 5em 0;
+    animation-duration: 2s;
+    animation-delay: 39s;
+    animation-name: slidein;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
+}
+
+@keyframes slidein {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
   }
 }
