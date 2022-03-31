@@ -71,8 +71,8 @@ const Index = ({ setNavColor, news }) => {
 							<div className={`${Landing['hero']} section`}>
 								<div className={`${Grid['container']} ${Grid['margin_center']}`}>
 									<div className={`${Grid['col-xs-12']} ${Landing['content-center']}`}>
-										<h1 ref={fadeRef}>Unlock Human Potential.</h1>
-										<div ref={buttonRef} className={`${Landing['circle-icon']}`}>
+										<h1>Unlock Human Potential.</h1>
+										<div className={`${Landing['circle-icon']}`}>
 											<svg
 												width='50'
 												height='50'
