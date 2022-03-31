@@ -38,7 +38,7 @@ const Index = ({ setNavColor }) => {
 		<>
 			<Head>
 				<title>
-					Torch.AI Partnerships | Transoforming the Potential of Data for Good | Torch.AI
+					Torch.AI Partnerships | Transforming the Potential of Data for Good | Torch.AI
 				</title>
 			</Head>
 			<ReactFullpage
