@@ -155,7 +155,7 @@ const Index = ({ setNavColor, news }) => {
 													className={`${Grid['col-lg-3']} ${Grid['col-xs-12']} ${Style['gallery__layout-item']}`}>
 													<div className={`${Style['gallery__layout-item-content']}`}>
 														<Image src={BrainWeaver} />
-														<h5>Brain Weaver</h5>
+														<h5>Brian Weaver</h5>
 														<p>Chief Executive Officer</p>
 													</div>
 												</div>
