@@ -12,6 +12,18 @@
 .Nav__container {
 }
 
+.event {
+  background-color: hsl(220, 16%, 11%);
+  color: white;
+  display: flex;
+  padding: 0.5em;
+  justify-content: center;
+
+  p {
+    max-width: 100%;
+  }
+}
+
 .dropdown-content {
   display: none;
   position: absolute;

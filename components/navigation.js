@@ -39,6 +39,12 @@ const Navigation = ({ navColor }) => {
 
 	return (
 		<header className={`${Nav.header}`}>
+			<div className={`${Nav.event}`}>
+				<p>
+					Torch.AI is proud to have been named one of America’s Best Startup Employers by Forbes
+					magazine.
+				</p>
+			</div>
 			<div
 				className={`${Grid.row} ${Nav['Nav__container']} ${Grid['margin_center']} ${Grid['container']} ${Grid['between-lg']}  ${Grid['between-xs']}`}>
 				<div className={`${Nav.Logo}`}>
