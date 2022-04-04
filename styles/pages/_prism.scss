@@ -90,6 +90,28 @@
 
     .prismVideo{
         padding-block: 10em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        button{
+            width: max-content;
+            margin-top: 10em;
+            padding: 1.5em 5em;
+            border-radius: 0.5em;
+            background-color: transparent;
+            border-style: none;
+            border: 1px solid hsl(219, 33%, 92%);
+            color: hsl(219, 33%, 92%);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button:hover {
+            color: black;
+            background-color: hsl(219, 33%, 92%);
+        }
     }
 
     background-color: hsl(223, 13%, 27%) ;
@@ -160,8 +182,8 @@
 
         button {
             margin-block: 2em;
-            padding: 1.5em 3em;
-            border-radius: 8em;
+            padding: 1.5em 5em;
+            border-radius: 0.5em;
             background-color: transparent;
             border-style: none;
             border: 1px solid hsl(219, 33%, 92%);

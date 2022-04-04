@@ -38,9 +38,9 @@ const Prism = ({ setNavColor }) => {
             <video controls poster="./bryanPreview.png">
               <source src="./videos/bryan.mp4" type="video/mp4" />
             </video>
+            <button> Download PDF</button>
           </div>
           <div className="prismFeatures">
-            <h2>Features</h2>
             <ul className="prismFeatures-list">
               <li>
                 <h5>
@@ -52,7 +52,7 @@ const Prism = ({ setNavColor }) => {
               <li>
                 <h5>
                   <span className="prismAccent"> Risk handling </span> and
-                  operational{" "}
+                  operational
                   <span className="prismAccent">process automation </span> for
                   improved employee productivity.
                 </h5>
