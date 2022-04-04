@@ -13,15 +13,7 @@
 }
 
 .event {
-  background-color: hsl(220, 16%, 11%);
-  color: white;
-  display: flex;
-  padding: 0.5em;
-  justify-content: center;
-
-  p {
-    max-width: 100%;
-  }
+  display: none;
 }
 
 .dropdown-content {
@@ -148,4 +140,18 @@
   overflow: hidden;
   white-space: nowrap;
   width: 1px;
+}
+
+@media (min-width: 75em) {
+  .event {
+    display: flex;
+    background-color: hsl(220, 16%, 11%);
+    color: white;
+    padding: 0.5em;
+    justify-content: center;
+
+    p {
+      max-width: 100%;
+    }
+  }
 }
