@@ -20,12 +20,6 @@ const Navigation = ({ navColor }) => {
 		setColor(navColor);
 	}, [navColor, setColor]);
 
-	// useEffect(() => {
-	// 	setTimeout(() => {
-	// 		router.replace(window.location.href);
-	// 	}, [window.location.hash]);
-	// });
-
 	function toggle(event) {
 		const visibilty = navRef.current.getAttribute('data-visible');
 		if (visibilty === 'false') {
@@ -41,7 +35,7 @@ const Navigation = ({ navColor }) => {
 		<header className={`${Nav.header}`}>
 			<div className={`${Nav.event}`}>
 				<p>
-					Torch.AI is proud to have been named one of America’s Best Startup Employers by Forbes
+					Torch.AI is proud to have been named one of America's Best Startup Employers by Forbes
 					magazine.
 				</p>
 			</div>
