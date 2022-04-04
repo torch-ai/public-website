@@ -1,0 +1,184 @@
+.prismHero{
+    padding-top: 12.5em; // 6.25 the height of the navigation
+    padding-bottom: 5em;
+    background-color: hsl(219, 33%, 92%);
+
+    h1{
+        color: #3C414E;
+        text-align: center;
+        padding-block: 0.5em;
+    }
+
+    h4{
+        font-weight: 300;
+        color: #3C414E;
+    }
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.prismAboutTorch{
+    padding-block: 10em;
+    background-color: hsl(219, 33%, 92%);
+
+
+
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h5{
+            font-family: "Quasimoda";
+            font-weight: 300;
+            max-width: 80%;
+            width: 45ch;
+            line-height: 1.5;
+
+            strong{
+                font-weight: bold;
+            }
+
+        }
+
+        
+
+    }
+}
+
+.prismIntro{
+    padding-block: 10em;
+    .container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .prismFeatures{
+            li {
+                list-style-type: circle;
+                padding-block: 1em;
+                color: hsl(219, 33%, 92%);
+            }
+
+            h5{
+                font-family: "Quasimoda";
+                text-align: left;
+                font-weight: 300;
+            }
+        }
+
+        h2{
+            text-align: center;
+            padding-block: 1em;
+            color:  hsl(219, 33%, 92%);
+        }
+
+        h5{
+            color:  hsl(219, 33%, 92%);
+            text-align: center;
+        }
+    }
+
+
+
+    .prismVideo{
+        padding-block: 10em;
+    }
+
+    background-color: hsl(223, 13%, 27%) ;
+}
+
+.prismLearnMore {
+    padding-block: 10em;
+    background-color: hsl(223, 13%, 27%) ;
+
+    .container{
+        display: flex;
+        flex-direction: column;
+    
+
+        h3{
+            
+            color:  hsl(219, 33%, 92%);
+            max-width: 25ch;
+            padding-block: 1em;
+        }
+    }
+
+
+    form {
+        display: flex;
+        flex-direction: column;
+    
+        label {
+            padding: 1em 0;
+        }
+        label + label {
+            margin-left: 1em;
+        }
+    
+        input {
+            margin-block: 2em ;
+            padding-block: 1.2em;
+            border-style: none;
+            color: hsl(219, 33%, 92%);
+            font-size: 1.2em;
+            width: 60%;
+            background-color: transparent;
+            border-bottom: 1px solid hsl(219, 33%, 92%);
+            font-family: var(--font-copy);
+        }
+        input::placeholder {
+            color: hsl(219, 33%, 92%);
+            font-size: 1.2em;
+        }
+    
+        textarea {
+            margin-block: 2em ;
+            width: 60%;
+            min-height: 200px;
+            border-radius: 5px;
+            color: hsl(219, 33%, 92%);
+            font-size: 1.2em;
+            background-color: transparent;
+            border: 1px solid hsl(219, 33%, 92%);
+            padding: 2em;
+            font-family: var(--font-copy);
+        }
+    
+        textarea::placeholder {
+            color: hsl(219, 33%, 92%);
+            font-size: 1.2em;
+        }
+
+        button {
+            margin-block: 2em;
+            padding: 1.5em 3em;
+            border-radius: 8em;
+            background-color: transparent;
+            border-style: none;
+            border: 1px solid hsl(219, 33%, 92%);
+            color: hsl(219, 33%, 92%);
+            cursor: pointer;
+            transition: all 0.3s ease-in-out;
+        }
+        button:hover {
+            color: black;
+            background-color: hsl(219, 33%, 92%);
+        }
+    }
+
+}
+
+.prismAccent{
+    color: #FDBB43;
+}
+
+
