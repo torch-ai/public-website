@@ -1,5 +1,6 @@
 @use "/styles/colors";
 @use "/styles/fonts";
+@use "/styles/pages/prism";
 
 :root {
     @include colors.colors;
@@ -69,6 +70,11 @@ html {
 .section:not(footer) {
     min-height: 100vh !important;
     height: auto !important;
+}
+
+.container {
+    max-width: 400px;
+    margin-inline: auto;
 }
 
 /* A elements that don't have a class get default styles */
@@ -166,7 +172,8 @@ footer .row {
         --type-scale: 1.25;
     }
     .container {
-        width: 600px;
+        max-width: 600px;
+        margin-inline: auto;
     }
 
     .fullpage-wrapper {
@@ -191,7 +198,7 @@ footer .row {
         --type-scale: 1.33;
     }
     .container {
-        width: 900px;
+        max-width: 900px;
     }
 
     .fullpage-wrapper {
@@ -203,7 +210,7 @@ footer .row {
         --type-scale: 1.414;
     }
     .container {
-        width: 1200px;
+        max-width: 1200px;
     }
 
     .fullpage-wrapper {
