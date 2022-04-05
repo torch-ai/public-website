@@ -106,7 +106,9 @@ const Footer = () => {
 						<li>Leawood​, KS, 66211</li>
 						<li>+1 (202) 570-7169</li>
 						<li>
-							<Image src={forbes} />
+							<a href='https://www.forbes.com/lists/americas-best-startup-employers/?'>
+								<Image src={forbes} />
+							</a>
 						</li>
 					</ul>
 				</div>
@@ -115,6 +117,7 @@ const Footer = () => {
 			<div
 				className={`${Template['footer__copy']} ${Grid.margin_center} ${Grid.container} ${Grid['between_xs']} ${Grid.row}`}>
 				<Image className={`${Template.logo}`} src={logo} alt='The logo of Torch.ai' />
+
 				<p>Copyright © 2022 Torch.AI</p>
 			</div>
 		</footer>
