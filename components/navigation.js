@@ -154,7 +154,15 @@ const Navigation = ({ navColor }) => {
 								</a>
 							</Link>
 						</li>
-
+						<li>
+							<Link href='/company'>
+								<a
+									style={{ color: color }}
+									className={router.pathname == '/company' ? `${Nav.active}` : ''}>
+									Company
+								</a>
+							</Link>
+						</li>
 						<li>
 							<Link href='/partners'>
 								<a
