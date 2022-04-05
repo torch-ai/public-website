@@ -59,7 +59,7 @@ const Index = ({ setNavColor }) => {
 				licenseKey={'A33F98B7-1BF24B82-AB8933EF-A1EC533E'}
 				navigation
 				verticalCentered={false}
-				responsiveWidth={600}
+				responsiveWidth={1500}
 				render={(props) => {
 					return (
 						<ReactFullpage.Wrapper>
