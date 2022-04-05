@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Link from 'next/link';
 
 import logo from '../img/logo.svg';
+import forbes from '../img/forbes.png';
 
 import { faLinkedinIn, faTwitter } from '@fortawesome/free-brands-svg-icons';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons';
@@ -104,6 +105,9 @@ const Footer = () => {
 						<li>5250 W 116TH Pl Suite 200</li>
 						<li>Leawood​, KS, 66211</li>
 						<li>+1 (202) 570-7169</li>
+						<li>
+							<Image src={forbes} />
+						</li>
 					</ul>
 				</div>
 			</div>
