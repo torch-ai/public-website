@@ -10,6 +10,7 @@ import JobCard from '../components/JobCard';
 import Footer from '../components/footer';
 import Head from 'next/head';
 import { InView } from 'react-intersection-observer';
+import forbes from '../img/forbes.png';
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -44,6 +45,13 @@ const commercial = ({ jobs, setNavColor }) => {
 								clients and beyond, we partner with some of the most influential organizations to
 								transform how they define success using data and technology.
 							</p>
+						</div>
+						<div className={`${Grid['col-xs-12']}`}>
+							<p>
+								We are honored to be included on the Forbes America's best startup employers award
+								list.
+							</p>
+							<Image src={forbes} />
 						</div>
 					</div>
 				</InView>

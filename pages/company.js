@@ -28,6 +28,7 @@ import ChristanSchnedler from '../img/dotArt/ChristanSchnedler.png';
 import WilliamBeyer from '../img/dotArt/WilliamBeyer.png';
 import MarkPerrin from '../img/dotArt/MarkPerrin.png';
 import KevinMarcus from '../img/dotArt/KevinMarcus.png';
+import forbes from '../img/forbes.png';
 
 export async function getStaticProps() {
 	const client = createClient({
@@ -90,6 +91,9 @@ const Index = ({ setNavColor, news }) => {
 													The world's hardest problems. The world's greatest minds. An unmatched
 													environment for innovation.
 												</p>
+												<div className={`${Style['forbes']}`}>
+													<Image className={`${Style['forbes-img']}`} src={forbes} />
+												</div>
 											</div>
 										</div>
 									</InView>

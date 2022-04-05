@@ -1,4 +1,5 @@
 import { InView } from 'react-intersection-observer';
+import ReactPlayer from 'react-player';
 import Footer from '../components/footer';
 
 const Prism = ({ setNavColor }) => {
@@ -31,10 +32,13 @@ const Prism = ({ setNavColor }) => {
 					</h2>
 					<h5>Make your data totally available, usable, valuable.</h5>
 					<div className='prismVideo'>
-						<video controls poster='./bryanPreview.png'>
-							<source src='./videos/bryan.mp4' type='video/mp4' />
-						</video>
-						<button> Download PDF</button>
+						<ReactPlayer
+							controls='true'
+							url='https://vimeo.com/695913201'
+							className='react-player'
+						/>
+
+						{/* <button> Download PDF</button> */}
 					</div>
 					<div className='prismFeatures'>
 						<ul className='prismFeatures-list'>
