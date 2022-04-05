@@ -150,8 +150,13 @@
     padding: 0.5em;
     justify-content: center;
 
-    p {
+    a {
       max-width: 100%;
+      color: black;
+    }
+
+    a:hover {
+      border-bottom: 1px solid black;
     }
   }
 }
