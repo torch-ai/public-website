@@ -55,16 +55,28 @@
         align-items: center;
 
         .prismFeatures {
+            padding-top: 10em;
+            
+            .prismFeatures-list{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1em;
+                justify-content: center;
+            }
+
             li {
-                list-style-type: circle;
-                padding-block: 1em;
                 color: hsl(219, 33%, 92%);
+               
+                
             }
 
             h5 {
                 font-family: "Quasimoda";
                 text-align: left;
                 font-weight: 300;
+                font-size: 1.2em;
+                width: 28ch;
+                text-align: left;
             }
         }
 
@@ -205,10 +217,45 @@
     .react-player {
         width: 750px !important;
     }
+
+    .prismFeatures-list{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: center;
+
+        li{
+            list-style-type: circle;
+        }
+
+    }
 }
 
-@media (min-width: 75em) {
+@media (min-width: 74em) {
     .react-player {
         width: 850px !important;
+    }
+
+
+}
+
+@media (min-width: 80em) {
+    .react-player {
+        width: 850px !important;
+    }
+
+    .prismFeatures-list{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1em;
+        justify-content: center;
+
+
+        li{
+            list-style-type: none;
+        }
+
     }
 }
