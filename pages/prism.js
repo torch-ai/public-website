@@ -105,6 +105,10 @@ const Prism = ({ setNavColor }) => {
                           Automate & accelerate document processing times.
                         </li>
                         <li>
+                          Rely on military-grade, AI document intelligence
+                          technology.
+                        </li>
+                        <li>
                           Achieve a seamless experience for your teams. Enable
                           trust for your clients.
                         </li>
