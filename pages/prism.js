@@ -42,8 +42,8 @@ const Prism = ({ setNavColor }) => {
                     </h3>
                     <p>
                       Prism powers that mission, simplifying how you achieve
-                      instant value from critical document data-faster, cheaper,
-                      more accurate than anyone. else.
+                      instant value from critical document data: faster,
+                      cheaper, more accurate than anyone else.
                     </p>
                   </div>
                 </InView>
@@ -67,7 +67,7 @@ const Prism = ({ setNavColor }) => {
                       <h5>It's not productive.</h5>
                       <p>
                         >60% of teams are manually copying and pasting document
-                        data
+                        data.
                       </p>
                     </div>
                     <div className="prismFeature-item">
