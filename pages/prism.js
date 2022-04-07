@@ -89,24 +89,37 @@ const Prism = ({ setNavColor }) => {
               </section>
 
               <section className={`section win`}>
-                <div className="container">
-                  <div className="winPoints">
-                    <h3>Win with Prism</h3>
-                    <ul>
-                      <li>Reduce operational cost.</li>
-                      <li>Automate & accelerate document processing times.</li>
-                      <li>
-                        Achieve a seamless experience for your teams. Enable
-                        trust for your clients.
-                      </li>
-                    </ul>
+                <InView
+                  as="div"
+                  className="checking"
+                  onChange={(inView, entry) =>
+                    setNavColor(inView ? "black" : "white")
+                  }
+                >
+                  <div className="container">
+                    <div className="winPoints">
+                      <h3>Win with Prism</h3>
+                      <ul>
+                        <li>Reduce operational cost.</li>
+                        <li>
+                          Automate & accelerate document processing times.
+                        </li>
+                        <li>
+                          Achieve a seamless experience for your teams. Enable
+                          trust for your clients.
+                        </li>
+                      </ul>
+                    </div>
+                    <div className="prismVideo">
+                      <video controls poster="./thumbnail.jpg">
+                        <source
+                          src="./videos/prismVideo.mp4"
+                          type="video/mp4"
+                        />
+                      </video>
+                    </div>
                   </div>
-                  <div className="prismVideo">
-                    <video controls poster="./thumbnail.jpg">
-                      <source src="./videos/prismVideo.mp4" type="video/mp4" />
-                    </video>
-                  </div>
-                </div>
+                </InView>
               </section>
               <section className={`section contact`}>
                 <div className="container">
