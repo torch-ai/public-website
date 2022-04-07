@@ -10,14 +10,18 @@ const Navigation = ({ navColor }) => {
 	const buttonRef = useRef();
 	const navRef = useRef();
 	const router = useRouter();
-	const [color, setColor] = useState('white');
+	const [color, setColor] = useState(null);
 
 	useEffect(() => {
 		buttonRef.current.addEventListener('click', toggle);
 	}, [buttonRef]);
 
 	useEffect(() => {
+		if (navColor === undefined) {
+			navColor = 'white';
+		}
 		setColor(navColor);
+		console.log(navColor);
 	}, [navColor, setColor]);
 
 	function toggle(event) {
