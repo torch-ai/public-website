@@ -232,7 +232,7 @@
     background-image: url(../../img/backgrounds/torch_logoPrism.png);
     background-repeat: no-repeat;
     background-size: contain;
-    justify-content: end;
+    justify-content: flex-end;
     background-position: -25%;
 
     .container {
@@ -284,7 +284,7 @@
 
   .prismVideo {
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
     video {
       max-width: 80%;
     }
