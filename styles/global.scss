@@ -3,21 +3,21 @@
 @use "/styles/pages/prism";
 
 :root {
-    @include colors.colors;
-    @include fonts.fonts;
+  @include colors.colors;
+  @include fonts.fonts;
 }
 
 /* Box sizing rules */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ::selection {
-    color: #fee715ff;
-    background: #101820ff;
-    padding: 0.2em;
+  color: #fee715ff;
+  background: #101820ff;
+  padding: 0.2em;
 }
 
 /* Remove default margin */
@@ -32,8 +32,8 @@ figure,
 blockquote,
 dl,
 dd {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
@@ -41,174 +41,178 @@ ul,
 ol,
 ul[role="list"],
 ol[role="list"] {
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 
 body,
 #__next,
 html {
-    height: 100%;
-    text-rendering: optimizeSpeed;
-    font-smooth: antialiased;
-    margin: 0;
+  height: 100%;
+  text-rendering: optimizeSpeed;
+  font-smooth: antialiased;
+  margin: 0;
 }
 
 .flow > * + * {
-    margin-top: var(--flow-space, 1em);
+  margin-top: var(--flow-space, 1em);
 }
 
 .post {
-    width: clamp(16rem, 90vw, 70rem);
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  width: clamp(16rem, 90vw, 70rem);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .section:not(footer) {
-    min-height: 100vh !important;
-    height: auto !important;
+  min-height: 100vh !important;
+  height: auto !important;
 }
 
 .container {
-    max-width: 400px;
-    margin-inline: auto;
+  width: 400px;
+  margin-inline: auto;
+  max-width: 90%;
 }
 
 /* A elements that don't have a class get default styles */
 a:not([class]) {
-    text-decoration-skip-ink: auto;
+  text-decoration-skip-ink: auto;
 }
 
 /* Make images easier to work with */
 img,
 picture,
 Image {
-    max-width: min(55rem, 100%);
-    display: block;
+  max-width: min(55rem, 100%);
+  display: block;
 }
 
 figcaption {
-    font-size: var(--h3);
-    font-style: italic;
-    margin-top: 1rem;
+  font-size: var(--h3);
+  font-style: italic;
+  margin-top: 1rem;
 }
 
 blockquote {
-    padding-left: var(--h4);
-    border-left: 5px solid;
-    font-style: italic;
+  padding-left: var(--h4);
+  border-left: 5px solid;
+  font-style: italic;
 }
 
 main:focus {
-    outline: none;
+  outline: none;
 }
 
 [href]:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a[role="button"] {
-    color: #fafafa;
-    border: 1px solid #ffffff;
-    padding: 0.8em 2em;
-    border-radius: 8em;
-    display: inline-block;
+  color: #fafafa;
+  border: 1px solid #ffffff;
+  padding: 0.8em 2em;
+  border-radius: 8em;
+  display: inline-block;
 }
 
 a[role="button"]:hover {
-    background-color: #ffffff;
-    border: 1px solid #ffffff;
-    color: #131313;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  color: #131313;
 }
 
 a {
-    text-decoration: none;
-    transition: all 0.3s ease-in-out !important;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out !important;
 }
 
 div[class*="span_"] {
-    padding: 1em;
+  padding: 1em;
 }
 
 .fullpage-wrapper {
-    display: inline-block;
-    overflow-x: hidden;
+  display: inline-block;
+  overflow-x: hidden;
 }
 
 footer {
-    background-color: #1b1c1e;
-    height: auto !important;
+  background-color: #1b1c1e;
+  height: auto !important;
 }
 
 footer h3,
 footer h4,
 footer p,
 footer ul li {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 video {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 footer a {
-    color: var(--pri-clr-midnight);
+  color: var(--pri-clr-midnight);
 }
 
 footer .row {
-    align-items: center;
+  align-items: center;
 }
 
 @media (min-width: 600px) {
-    :root {
-        --type-scale: 1.25;
-    }
-    .container {
-        max-width: 600px;
-        margin-inline: auto;
-    }
+  :root {
+    --type-scale: 1.25;
+  }
+  .container {
+    width: 600px;
+    max-width: 90%;
+    margin-inline: auto;
+  }
 
-    .fullpage-wrapper {
-        display: block;
-    }
+  .fullpage-wrapper {
+    display: block;
+  }
 }
 
 @media (min-width: 500px) {
-    .fullpage-wrapper {
-        display: block;
-    }
+  .fullpage-wrapper {
+    display: block;
+  }
 }
 
 @media (min-width: 400px) {
-    .fullpage-wrapper {
-        display: block;
-    }
+  .fullpage-wrapper {
+    display: block;
+  }
 }
 
 @media (min-width: 900px) {
-    :root {
-        --type-scale: 1.33;
-    }
-    .container {
-        max-width: 900px;
-    }
+  :root {
+    --type-scale: 1.33;
+  }
+  .container {
+    width: 900px;
+    max-width: 90%;
+  }
 
-    .fullpage-wrapper {
-        display: block;
-    }
+  .fullpage-wrapper {
+    display: block;
+  }
 }
 @media (min-width: 1200px) {
-    :root {
-        --type-scale: 1.414;
-    }
-    .container {
-        max-width: 1200px;
-    }
+  :root {
+    --type-scale: 1.414;
+  }
+  .container {
+    width: 1200px;
+    max-width: 90%;
+  }
 
-    .fullpage-wrapper {
-        display: block;
-    }
+  .fullpage-wrapper {
+    display: block;
+  }
 }
