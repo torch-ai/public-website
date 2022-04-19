@@ -36,7 +36,7 @@ const JobCard = ({ job }) => {
         </div>
         <div className={`${Grid["row"]}`}>
           <div className={`${Grid["col-xs-8"]} ${Grid["col-lg-4"]}`}>
-            <a href={url} role="button" target="_blank">
+            <a href={url} role="button" target="_blank" rel="noreferrer">
               Apply for Position
             </a>
           </div>

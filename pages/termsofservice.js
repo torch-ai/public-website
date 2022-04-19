@@ -98,7 +98,7 @@ const TermsofService = ({ setNavColor }) => {
                   <strong>Website</strong> refers to Torch.AI, accessible from{" "}
                   <a
                     href="https://torch.ai"
-                    rel="external nofollow noopener"
+                    rel="external nofollow noopener noreferrer"
                     target="_blank"
                   >
                     https://torch.ai

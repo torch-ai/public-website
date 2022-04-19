@@ -114,7 +114,7 @@ const Privacy = ({ jobs, setNavColor }) => {
                   <strong>Website</strong> refers to Torch.AI, accessible from{" "}
                   <a
                     href="https://torch.ai"
-                    rel="external nofollow noopener"
+                    rel="external nofollow noopener noreferrer"
                     target="_blank"
                   >
                     https://torch.ai
@@ -206,7 +206,7 @@ const Privacy = ({ jobs, setNavColor }) => {
                 objects?&quot; available at{" "}
                 <a
                   href="https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_"
-                  rel="external nofollow noopener"
+                  rel="external nofollow noopener noreferrer"
                   target="_blank"
                 >
                   https://helpx.adobe.com/flash-player/kb/disable-local-shared-objects-flash.html#main_Where_can_I_change_the_settings_for_disabling__or_deleting_local_shared_objects_
@@ -232,6 +232,7 @@ const Privacy = ({ jobs, setNavColor }) => {
               <a
                 href="https://www.termsfeed.com/privacy-policy-generator/#faq-8"
                 target="_blank"
+                rel="noreferrer"
               >
                 Cookies by TermsFeed Generator
               </a>

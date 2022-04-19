@@ -11,7 +11,7 @@ const Benefits = () => {
             id="b1"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="b1" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="b1" className={`${Style["accordian__label"]}`}>
             Cost effective.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -30,7 +30,7 @@ const Benefits = () => {
             id="b2"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="b2" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="b2" className={`${Style["accordian__label"]}`}>
             Increase data value.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -49,7 +49,7 @@ const Benefits = () => {
             id="b3"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="b3" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="b3" className={`${Style["accordian__label"]}`}>
             Reduce risk.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -69,7 +69,7 @@ const Benefits = () => {
             id="b5"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="b5" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="b5" className={`${Style["accordian__label"]}`}>
             Seamless integration.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -89,7 +89,7 @@ const Benefits = () => {
             id="b6"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="b6" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="b6" className={`${Style["accordian__label"]}`}>
             Third-party data.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -109,7 +109,7 @@ const Benefits = () => {
             id="b7"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="b7" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="b7" className={`${Style["accordian__label"]}`}>
             Best-in-class security.
           </label>
           <div className={`${Style["accordian__content"]}`}>
