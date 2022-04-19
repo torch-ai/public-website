@@ -1,4 +1,3 @@
-import next from "next";
 import React from "react";
 import Grid from "../styles/modules/grid.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
