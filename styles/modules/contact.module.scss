@@ -1,76 +1,76 @@
 .contact__container {
-    padding: 15em 0;
-    color: black;
+  padding: 15em 0;
+  color: black;
 
-    p {
-        padding: 1em 0;
-        font-size: 1.2em;
-    }
+  p {
+    padding: 1em 0;
+    font-size: 1.2em;
+  }
 }
 
 .contact__form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    label {
-        padding: 1em 0;
-    }
-    label + label {
-        margin-left: 1em;
-    }
+  label {
+    padding: 1em 0;
+  }
+  label + label {
+    margin-left: 1em;
+  }
 
-    input {
-        padding: 1.2em;
-        border-style: none;
-        color: black;
-        font-size: 1.2em;
-        width: 60%;
-        background-color: transparent;
-        border-bottom: 1px solid black;
-        font-family: var(--font-copy);
-    }
-    input::placeholder {
-        color: black;
-        font-size: 1.2em;
-    }
+  input {
+    padding: 1.2em;
+    border-style: none;
+    color: black;
+    font-size: 1.2em;
+    width: 60%;
+    background-color: transparent;
+    border-bottom: 1px solid black;
+    font-family: var(--font-copy);
+  }
+  input::placeholder {
+    color: black;
+    font-size: 1.2em;
+  }
 
-    textarea {
-        width: 60%;
-        min-height: 200px;
-        border-radius: 5px;
-        color: black;
-        font-size: 1.2em;
-        background-color: transparent;
-        border: 1px solid black;
-        padding: 2em;
-        font-family: var(--font-copy);
-    }
+  textarea {
+    width: 60%;
+    min-height: 200px;
+    border-radius: 5px;
+    color: black;
+    font-size: 1.2em;
+    background-color: transparent;
+    border: 1px solid black;
+    padding: 2em;
+    font-family: var(--font-copy);
+  }
 
-    textarea::placeholder {
-        color: black;
-        font-size: 1.2em;
-    }
+  textarea::placeholder {
+    color: black;
+    font-size: 1.2em;
+  }
 
-    div {
-        padding: 1.5em 0;
-    }
+  div {
+    padding: 1.5em 0;
+  }
 
-    button {
-        padding: 1.2em 3em;
-        border-radius: 8em;
-        background-color: transparent;
-        border-style: none;
-        border: 1px solid black;
-        color: black;
-        cursor: pointer;
-        transition: all 0.3s ease-in-out;
-    }
-    button:hover {
-        color: white;
-        background-color: black;
-    }
+  button {
+    padding: 1.2em 3em;
+    border-radius: 8em;
+    background-color: transparent;
+    border-style: none;
+    border: 1px solid black;
+    color: black;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  button:hover {
+    color: white;
+    background-color: black;
+  }
 }
 
 .contact__information {
-    background: black;
+  background: black;
 }

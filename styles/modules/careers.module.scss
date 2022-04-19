@@ -1,48 +1,48 @@
 .intro {
-    background-color: hsl(220, 16%, 11%);
+  background-color: hsl(220, 16%, 11%);
 }
 
 .carrers__content {
-    padding: 5em 0;
-    color: white;
+  padding: 5em 0;
+  color: white;
 }
 
 .carrers__content p {
-    padding: 1em 0;
-    max-width: 50ch;
-    line-height: 2;
+  padding: 1em 0;
+  max-width: 50ch;
+  line-height: 2;
 }
 
 .job-list {
-    padding: 5em 0;
+  padding: 5em 0;
 
-    h2 {
-        padding: 1em 0;
-        color: hsl(220, 16%, 11%);
-    }
+  h2 {
+    padding: 1em 0;
+    color: hsl(220, 16%, 11%);
+  }
 
-    .job-card {
-        color: hsl(220, 16%, 11%);
-        // border-top: 1px solid hsl(220, 16%, 11%);
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 2em 0;
+  .job-card {
+    color: hsl(220, 16%, 11%);
+    // border-top: 1px solid hsl(220, 16%, 11%);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2em 0;
 
-        p {
-            padding: 0.5em 0;
-        }
+    p {
+      padding: 0.5em 0;
     }
+  }
 
-    a[role="button"] {
-        margin-top: 1em;
-        color: hsl(220, 16%, 11%);
-        border: 1px solid hsl(220, 16%, 11%);
-        padding: 0.8em 1em;
-        font-size: 1em;
-    }
-    a[role="button"]:hover {
-        background-color: hsl(220, 16%, 11%);
-        color: white;
-    }
+  a[role="button"] {
+    margin-top: 1em;
+    color: hsl(220, 16%, 11%);
+    border: 1px solid hsl(220, 16%, 11%);
+    padding: 0.8em 1em;
+    font-size: 1em;
+  }
+  a[role="button"]:hover {
+    background-color: hsl(220, 16%, 11%);
+    color: white;
+  }
 }
