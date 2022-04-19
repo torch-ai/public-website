@@ -1,8 +1,7 @@
 import "../styles/global.scss";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import Layout from "../components/layout";
 import Head from "next/head";
-import Loader from "../components/loader";
 
 const MyApp = ({ Component, pageProps }) => {
   // TODO add preloader to website.
