@@ -1,17 +1,11 @@
 import React from "react";
-import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
-import Navigation from "../components/navigation";
 import Style from "../styles/modules/contact.module.scss";
-import Static from "../styles/modules/static.module.scss";
-import { createClient } from "contentful";
-import JobCard from "../components/JobCard";
 import Footer from "../components/footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
-import Link from "next/link";
 
-const Contact = ({ jobs, setNavColor }) => {
+const Contact = ({ setNavColor }) => {
   return (
     <>
       <Head>
@@ -22,7 +16,7 @@ const Contact = ({ jobs, setNavColor }) => {
       <section className={`${Style["contact__container"]}`}>
         <InView
           as="div"
-          onChange={(inView, entry) => setNavColor(inView ? "black" : "white")}
+          onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
           <div className={`${Grid["container"]} ${Grid["margin_center"]}`}>
             <div className={`${Grid["row"]}`}>

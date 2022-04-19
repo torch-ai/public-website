@@ -1,8 +1,8 @@
-import React, { useRef, useEffect } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import React from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
-import Navigation from "../components/navigation";
-import Landing from "../styles/modules/landing.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
 import { createClient } from "contentful";
 import JobCard from "../components/JobCard";
@@ -37,7 +37,7 @@ const commercial = ({ jobs, setNavColor }) => {
       <section className={`${Careers["intro"]}`}>
         <InView
           as="div"
-          onChange={(inView, entry) => setNavColor(inView ? "white" : "black")}
+          onChange={(inView) => setNavColor(inView ? "white" : "black")}
         >
           <div
             className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers["carrers__content"]}`}

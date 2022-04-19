@@ -31,8 +31,7 @@
   z-index: 1000;
   position: relative;
   align-items: center;
-  background: url("../../img/backgrounds/03.png");
-  background-repeat: no-repeat;
+  background: url("../../img/backgrounds/03.png") no-repeat;
   background-size: cover;
 }
 
@@ -156,8 +155,7 @@
 }
 
 .benefits {
-  background: url(../../img/backgrounds/05.png);
-  background-repeat: no-repeat;
+  background: url(../../img/backgrounds/05.png) no-repeat;
   background-size: cover;
   padding: 4em 0;
   color: white;
@@ -194,8 +192,7 @@
     z-index: 1000;
     position: relative;
     align-items: center;
-    background: url("../../img/backgrounds/03.png");
-    background-repeat: no-repeat;
+    background: url("../../img/backgrounds/03.png") no-repeat;
     background-size: cover;
     animation-name: zoomies;
     animation-duration: 50s;

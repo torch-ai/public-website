@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "../styles/modules/nav.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
-import Image from "next/image";
-import logo from "../img/logo.svg";
 
 const Navigation = ({ navColor }) => {
   const buttonRef = useRef();
@@ -24,7 +22,7 @@ const Navigation = ({ navColor }) => {
     console.log(navColor);
   }, [navColor, setColor]);
 
-  function toggle(event) {
+  function toggle() {
     const visibilty = navRef.current.getAttribute("data-visible");
     if (visibilty === "false") {
       navRef.current.setAttribute("data-visible", true);

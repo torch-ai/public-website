@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
-import Landing from "../styles/modules/landing.module.scss";
 import Image from "next/image";
 import Style from "../styles/modules/partners.module.scss";
 import Footer from "../components/footer";
@@ -47,7 +47,7 @@ const Index = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={`${Style["hero"]} section`}>
@@ -72,7 +72,7 @@ const Index = ({ setNavColor }) => {
                 >
                   <InView
                     as="div"
-                    onChange={(inView, entry) =>
+                    onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >

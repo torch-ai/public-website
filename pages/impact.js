@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -9,7 +11,7 @@ import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAdd, faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 
 const Index = ({ setNavColor }) => {
   const router = useRouter();
@@ -60,7 +62,7 @@ const Index = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={`${Style["hero"]} section`}>
@@ -154,9 +156,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="defense"
@@ -247,9 +247,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="insurance"
@@ -340,9 +338,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="financial"
@@ -432,9 +428,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="healthcare"
@@ -524,9 +518,7 @@ const Index = ({ setNavColor }) => {
               <div className={`${Style["cta"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="public"

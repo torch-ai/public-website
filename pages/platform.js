@@ -1,11 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
-import Landing from "../styles/modules/landing.module.scss";
 import Image from "next/image";
-import Benefits from "../components/benefits";
-import Features from "../components/features";
 import Style from "../styles/modules/platform.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
@@ -48,7 +47,7 @@ const Index = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={` ${Style["hero"]} section`}>
@@ -84,9 +83,7 @@ const Index = ({ setNavColor }) => {
               <div className={`${Style["engines"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     className={`${Grid["container"]} ${Grid["margin_center"]}`}
@@ -204,9 +201,7 @@ const Index = ({ setNavColor }) => {
               <div className={`${Style["code"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     className={`${Grid["container"]} ${Grid["margin_center"]}`}

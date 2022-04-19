@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react";
-import ReactDOM from "react-dom";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -67,7 +68,7 @@ const Index = ({ setNavColor, news }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={`${Landing["hero"]} section`}>
@@ -109,9 +110,7 @@ const Index = ({ setNavColor, news }) => {
               <div className={`${Landing["enhance"]}  section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     className={`${Grid["container"]} ${Grid["margin_center"]}`}
@@ -337,7 +336,7 @@ const Index = ({ setNavColor, news }) => {
                 >
                   <InView
                     as="span"
-                    onChange={(inView, entry) =>
+                    onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
@@ -778,9 +777,7 @@ const Index = ({ setNavColor, news }) => {
               <div className={`${Landing["news"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <News topNews={news.slice(0, 5)} news={news} />
                 </InView>

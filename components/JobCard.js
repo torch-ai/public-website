@@ -3,8 +3,7 @@ import Grid from "../styles/modules/grid.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
 
 const JobCard = ({ job }) => {
-  const { title, location, publishDate, remote, jobDescription, url } =
-    job.fields;
+  const { title, location, publishDate, jobDescription, url } = job.fields;
 
   const displayCurrentTime = () => {
     const date = new Date(publishDate);
