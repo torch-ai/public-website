@@ -1,9 +1,10 @@
 {
   "scripts": {
-    "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "dev": "next dev",
+    "lint": "next lint",
+    "prepare": "husky install",
+    "start": "next start"
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^15.11.1",
@@ -28,6 +29,19 @@
   "devDependencies": {
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0"
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.3"
+  },
+  "lint-staged": {
+    "components/**/*.{js,jsx,ts,tsx,json,css,scss,md,graphql}": [
+      "prettier --write"
+    ],
+    "pages/**/*.{js,jsx,ts,tsx,json,css,scss,md,graphql}": [
+      "prettier --write"
+    ],
+    "styles/**/*.{js,jsx,ts,tsx,json,css,scss,md,graphql}": [
+      "prettier --write"
+    ]
   }
 }
