@@ -25,7 +25,7 @@ const TermsofService = ({ setNavColor }) => {
             <p>Last updated: March 22, 2022</p>
           </div>
           <div className={`${Static["content"]}`}>
-            <h3>NEXUS™-as-a-Service (NaaS) – Terms of Service</h3>
+            <h3>NEXUS&trade;-as-a-Service (NaaS) – Terms of Service</h3>
             <p>
               TORCH.AI NaaS Terms of Service can be TORCH.AI owns the NEXUS™
               software suite, through which it provides certain software
