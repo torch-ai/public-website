@@ -12,7 +12,7 @@ const Features = () => {
             id="f1"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="f1" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="f1" className={`${Style["accordian__label"]}`}>
             Real-Time Data Transformation.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -32,7 +32,7 @@ const Features = () => {
             id="f2"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="f2" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="f2" className={`${Style["accordian__label"]}`}>
             Unstructured Data Processing and Fusion.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -53,7 +53,7 @@ const Features = () => {
             id="f3"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="f3" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="f3" className={`${Style["accordian__label"]}`}>
             Semantic Stitching.
           </label>
           <div className={`${Style["accordian__content"]}`}>
@@ -74,7 +74,7 @@ const Features = () => {
             id="f4"
             className={`${Style["accordian__input"]}`}
           />
-          <label for="f4" className={`${Style["accordian__label"]}`}>
+          <label htmlFor="f4" className={`${Style["accordian__label"]}`}>
             Composability.
           </label>
           <div className={`${Style["accordian__content"]}`}>

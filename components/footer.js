@@ -84,10 +84,15 @@ const Footer = () => {
                 <a
                   href="https://www.linkedin.com/company/torchai"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <FontAwesomeIcon icon={faLinkedinIn} size="2x" />
                 </a>
-                <a href="https://twitter.com/torch_ai" target="_blank">
+                <a
+                  href="https://twitter.com/torch_ai"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
               </div>
