@@ -66,9 +66,7 @@ const News = ({ news, topNews }) => {
                 </div>
               </div>
             </div>
-            <div
-              className={`${Grid["row"]} ${Grid["between-lg"]} ${Landing["news__layout-list"]}`}
-            >
+            <div className={`${Grid["row"]} ${Grid["between-lg"]}`}>
               <div
                 className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]} ${Landing["news__layout-item"]}`}
                 style={{ position: "relative" }}
