@@ -113,8 +113,8 @@
   .mobile_nav_toggle {
     position: absolute;
     display: block;
-    background: url("https://img.icons8.com/material-rounded/24/000000/menu--v1.png");
-    background-repeat: no-repeat;
+    background: url("https://img.icons8.com/material-rounded/24/000000/menu--v1.png")
+      no-repeat;
     z-index: 9999;
     width: 1.5rem;
     border: 0;
@@ -125,8 +125,8 @@
   }
 
   .mobile_nav_toggle[aria-expanded="true"] {
-    background: url("https://img.icons8.com/ios-glyphs/25/ffffff/multiply.png");
-    background-repeat: no-repeat;
+    background: url("https://img.icons8.com/ios-glyphs/25/ffffff/multiply.png")
+      no-repeat;
     width: 1.5rem;
   }
 }

@@ -106,9 +106,8 @@
 
 .index-item {
   padding: 8em 1em;
-  background-color: white;
   position: relative;
-  background: url(../../img/backgrounds/14.png);
+  background: white url(../../img/backgrounds/14.png);
   background-size: cover;
 
   &:nth-child(2) {
