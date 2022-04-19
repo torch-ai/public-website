@@ -62,7 +62,7 @@ const Index = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={`${Style["hero"]} section`}>
@@ -156,9 +156,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="defense"
@@ -249,9 +247,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="insurance"
@@ -342,9 +338,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="financial"
@@ -434,9 +428,7 @@ const Index = ({ setNavColor }) => {
               >
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="healthcare"
@@ -526,9 +518,7 @@ const Index = ({ setNavColor }) => {
               <div className={`${Style["cta"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     id="public"

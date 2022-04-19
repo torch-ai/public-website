@@ -5,7 +5,7 @@ import Footer from "../components/footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 
-const Contact = ({ jobs, setNavColor }) => {
+const Contact = ({ setNavColor }) => {
   return (
     <>
       <Head>
@@ -16,7 +16,7 @@ const Contact = ({ jobs, setNavColor }) => {
       <section className={`${Style["contact__container"]}`}>
         <InView
           as="div"
-          onChange={(inView, entry) => setNavColor(inView ? "black" : "white")}
+          onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
           <div className={`${Grid["container"]} ${Grid["margin_center"]}`}>
             <div className={`${Grid["row"]}`}>

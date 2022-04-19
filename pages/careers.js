@@ -37,7 +37,7 @@ const commercial = ({ jobs, setNavColor }) => {
       <section className={`${Careers["intro"]}`}>
         <InView
           as="div"
-          onChange={(inView, entry) => setNavColor(inView ? "white" : "black")}
+          onChange={(inView) => setNavColor(inView ? "white" : "black")}
         >
           <div
             className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers["carrers__content"]}`}

@@ -18,7 +18,7 @@ const TermsofService = ({ setNavColor }) => {
       <section className={`${Static["service"]} post`}>
         <InView
           as="div"
-          onChange={(inView, entry) => setNavColor(inView ? "black" : "white")}
+          onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
           <div className={`${Static["content"]}`}>
             <h2>Torch.AI Standard Terms & Agreements.</h2>

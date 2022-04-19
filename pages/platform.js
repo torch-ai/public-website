@@ -47,7 +47,7 @@ const Index = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={` ${Style["hero"]} section`}>
@@ -83,9 +83,7 @@ const Index = ({ setNavColor }) => {
               <div className={`${Style["engines"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     className={`${Grid["container"]} ${Grid["margin_center"]}`}
@@ -203,9 +201,7 @@ const Index = ({ setNavColor }) => {
               <div className={`${Style["code"]} section`}>
                 <InView
                   as="div"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div
                     className={`${Grid["container"]} ${Grid["margin_center"]}`}

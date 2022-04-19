@@ -11,7 +11,7 @@ import Footer from "../components/footer";
 const Solutions = ({ setNavColor }) => {
   const fadeRef = useRef();
   const buttonRef = useRef();
-  const ref = useRef();
+  useRef();
 
   useEffect(() => {
     gsap.fromTo(
@@ -39,7 +39,7 @@ const Solutions = ({ setNavColor }) => {
       <section className={`${Style["wrap"]}`}>
         <InView
           as="span"
-          onChange={(inView, entry) => setNavColor(inView ? "white" : "white")}
+          onChange={(inView) => setNavColor(inView ? "white" : "white")}
         >
           <Parallax pages={46} className={`${Style["wrapper"]}`}>
             <ParallaxLayer

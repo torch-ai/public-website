@@ -4,7 +4,7 @@ import Grid from "../styles/modules/grid.module.scss";
 import Landing from "../styles/modules/landing.module.scss";
 import Link from "next/link";
 
-const News = ({ news, topNews }) => {
+const News = ({ topNews }) => {
   const displayCurrentTime = (data) => {
     let api = data.fields;
     const date = new Date(api.publishDate);

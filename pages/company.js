@@ -78,7 +78,7 @@ const Index = ({ setNavColor, news }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <div className={`${Style["hero"]} section`}>
@@ -87,7 +87,7 @@ const Index = ({ setNavColor, news }) => {
                 >
                   <InView
                     as="div"
-                    onChange={(inView, entry) =>
+                    onChange={(inView) =>
                       setNavColor(inView ? "white" : "black")
                     }
                   >

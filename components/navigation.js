@@ -22,7 +22,7 @@ const Navigation = ({ navColor }) => {
     console.log(navColor);
   }, [navColor, setColor]);
 
-  function toggle(event) {
+  function toggle() {
     const visibilty = navRef.current.getAttribute("data-visible");
     if (visibilty === "false") {
       navRef.current.setAttribute("data-visible", true);

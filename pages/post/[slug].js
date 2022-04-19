@@ -52,9 +52,7 @@ const slug = ({ news, setNavColor }) => {
         <header className={`${Static["service-header"]}`}>
           <InView
             as="div"
-            onChange={(inView, entry) =>
-              setNavColor(inView ? "white" : "black")
-            }
+            onChange={(inView) => setNavColor(inView ? "white" : "black")}
           >
             <div className={`${Static["service"]}`}>
               <div className={`${Static["content"]}`}>

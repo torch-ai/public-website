@@ -15,7 +15,7 @@ const Prism = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <section className={`section hero`}>
@@ -30,9 +30,7 @@ const Prism = ({ setNavColor }) => {
                 <InView
                   as="div"
                   className="checking"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div className="container">
                     <h3>
@@ -91,9 +89,7 @@ const Prism = ({ setNavColor }) => {
                 <InView
                   as="div"
                   className="checking"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div className="container">
                     <div className="winPoints">
