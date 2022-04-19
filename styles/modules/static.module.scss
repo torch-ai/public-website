@@ -1,34 +1,34 @@
 .service {
-    padding-top: 10em;
+  padding-top: 10em;
 }
 
 .service-header {
-    background-color: hsl(220, 16%, 11%);
-    padding: 5em 0;
-    color: white;
+  background-color: hsl(220, 16%, 11%);
+  padding: 5em 0;
+  color: white;
 
-    .content h2 {
-        color: white;
-    }
+  .content h2 {
+    color: white;
+  }
 }
 
 .service-content {
-    color: black;
+  color: black;
 }
 
 .content h2,
 .content h3 {
-    margin-top: 1em;
-    max-width: 25ch;
+  margin-top: 1em;
+  max-width: 25ch;
 }
 
 .content p {
-    margin: 2em 0;
-    line-height: 2;
-    max-width: 55ch;
+  margin: 2em 0;
+  line-height: 2;
+  max-width: 55ch;
 }
 
 .content a {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }

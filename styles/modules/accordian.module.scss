@@ -1,55 +1,55 @@
 .accordian {
-    max-width: 400px;
-    width: 80%;
-    border-radius: 5px;
-    overflow: hidden;
-    background-color: transparent;
-    border: 1px solid white;
-    margin: 1em 0;
+  max-width: 400px;
+  width: 80%;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: transparent;
+  border: 1px solid white;
+  margin: 1em 0;
 }
 
 .accordian__label,
 .accordian__content {
-    padding: 14px 20px;
+  padding: 14px 20px;
 }
 
 .accordian__label {
-    display: block;
-    color: white;
-    font-weight: 500;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s !important;
+  display: block;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s !important;
 }
 
 .accordian__label:hover {
-    background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .accordian__label::after {
-    content: "+";
-    position: absolute;
-    top: 30%;
-    transform: translateY(-50%);
-    right: 20px;
-    width: 12px;
-    height: 6px;
-    transition: transform 0.4s;
+  content: "+";
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  right: 20px;
+  width: 12px;
+  height: 6px;
+  transition: transform 0.4s;
 }
 
 .accordian__content {
-    line-height: 1.5;
-    display: none;
+  line-height: 1.5;
+  display: none;
 }
 
 .accordian__input {
-    display: none;
+  display: none;
 }
 
 .accordian__input:checked ~ .accordian__content {
-    display: block;
+  display: block;
 }
 
 .accordian__input:checked ~ .accordian__label::after {
-    content: "-";
+  content: "-";
 }
