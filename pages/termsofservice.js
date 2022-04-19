@@ -1,4 +1,3 @@
-import next from "next";
 import React from "react";
 import Image from "next/image";
 import { useEffect } from "react";

@@ -1,4 +1,3 @@
-import next from "next";
 import React, { useRef, useEffect } from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
