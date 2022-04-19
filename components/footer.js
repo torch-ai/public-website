@@ -8,7 +8,6 @@ import logo from "../img/logo.svg";
 import forbes from "../img/forbes.png";
 
 import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
   return (

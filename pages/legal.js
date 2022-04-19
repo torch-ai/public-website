@@ -1,9 +1,7 @@
+// noinspection JSUnusedGlobalSymbols
+
 import React from "react";
-import Image from "next/image";
 import { useEffect } from "react";
-import Grid from "../styles/modules/grid.module.scss";
-import Navigation from "../components/navigation";
-import Landing from "../styles/modules/landing.module.scss";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";

@@ -1,5 +1,4 @@
 import Style from "../styles/modules/accordian.module.scss";
-import { useState } from "react";
 
 const Features = () => {
   return (

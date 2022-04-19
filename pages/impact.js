@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -9,7 +11,7 @@ import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAdd, faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 
 const Index = ({ setNavColor }) => {
   const router = useRouter();

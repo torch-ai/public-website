@@ -1,5 +1,5 @@
-import Navigation from "../../components/navigation";
-import Grid from "../../styles/modules/grid.module.scss";
+// noinspection JSUnusedGlobalSymbols
+
 import Static from "../../styles/modules/static.module.scss";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
@@ -12,6 +12,7 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 });
 
+// noinspection JSUnusedGlobalSymbols
 export const getStaticPaths = async () => {
   const res = await client.getEntries({
     content_type: "news",

@@ -1,5 +1,4 @@
 import { InView } from "react-intersection-observer";
-import ReactPlayer from "react-player";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Footer from "../components/footer";
 import Head from "next/head";

@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import Link from "next/link";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
@@ -19,7 +21,6 @@ import DavidKern from "../img/dotArt/DavidKern.png";
 import HondoGeruts from "../img/dotArt/HondoGeruts.png";
 import JanetHanofee from "../img/dotArt/JanetHanofee.png";
 import JasonDelker from "../img/dotArt/JasonDelker.png";
-import JasonEidam from "../img/dotArt/JasonEidam.png";
 import JenniferUtting from "../img/dotArt/JenniferUtting.png";
 import JonKramer from "../img/dotArt/JonKramer.png";
 import MikeDanda from "../img/dotArt/MikeDanda.png";

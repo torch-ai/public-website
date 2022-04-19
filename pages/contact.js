@@ -1,15 +1,9 @@
 import React from "react";
-import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
-import Navigation from "../components/navigation";
 import Style from "../styles/modules/contact.module.scss";
-import Static from "../styles/modules/static.module.scss";
-import { createClient } from "contentful";
-import JobCard from "../components/JobCard";
 import Footer from "../components/footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
-import Link from "next/link";
 
 const Contact = ({ jobs, setNavColor }) => {
   return (

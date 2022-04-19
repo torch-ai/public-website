@@ -1,10 +1,7 @@
-import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
-import Landing from "../styles/modules/landing.module.scss";
-import Accor from "../styles/modules/accordian.module.scss";
-import Image from "next/image";
 import Style from "../styles/modules/solution.module.scss";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";

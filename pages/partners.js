@@ -1,9 +1,9 @@
-import { useEffect, useState, useRef } from "react";
-import Link from "next/link";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
-import Landing from "../styles/modules/landing.module.scss";
 import Image from "next/image";
 import Style from "../styles/modules/partners.module.scss";
 import Footer from "../components/footer";

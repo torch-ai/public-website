@@ -1,5 +1,6 @@
-import { useEffect, useState, useRef } from "react";
-import ReactDOM from "react-dom";
+// noinspection JSUnusedGlobalSymbols
+
+import { useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
