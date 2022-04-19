@@ -25,8 +25,7 @@
 .hero {
   z-index: 1000;
   position: relative;
-  background-color: #131313;
-  background: url(../../img/backgrounds/hero_mobile.png) center center;
+  background: #131313 url(../../img/backgrounds/hero_mobile.png) center center;
   background-size: cover;
 
   .container {
@@ -308,10 +307,6 @@
   justify-content: space-between;
 }
 
-.news__layout-list {
-  align-items: space-evenly;
-}
-
 .news__layout-item {
   padding: 8em;
   margin: 0.5em 0;
@@ -532,7 +527,7 @@
 
 @keyframes slidein {
   from {
-    opacity: 0%;
+    opacity: 0;
   }
 
   to {

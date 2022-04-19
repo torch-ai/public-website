@@ -1,10 +1,10 @@
-import React, { useRef, useEffect } from "react";
+import React from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import Landing from "../styles/modules/landing.module.scss";
 import Link from "next/link";
 
-const News = ({ news, topNews }) => {
+const News = ({ topNews }) => {
   const displayCurrentTime = (data) => {
     let api = data.fields;
     const date = new Date(api.publishDate);
@@ -66,9 +66,7 @@ const News = ({ news, topNews }) => {
                 </div>
               </div>
             </div>
-            <div
-              className={`${Grid["row"]} ${Grid["between-lg"]} ${Landing["news__layout-list"]}`}
-            >
+            <div className={`${Grid["row"]} ${Grid["between-lg"]}`}>
               <div
                 className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]} ${Landing["news__layout-item"]}`}
                 style={{ position: "relative" }}

@@ -1,21 +1,17 @@
+// noinspection JSUnusedGlobalSymbols
+
 import React from "react";
-import Image from "next/image";
-import Grid from "../styles/modules/grid.module.scss";
-import Navigation from "../components/navigation";
-import Landing from "../styles/modules/landing.module.scss";
 import Static from "../styles/modules/static.module.scss";
-import { createClient } from "contentful";
-import JobCard from "../components/JobCard";
 import Footer from "../components/footer";
 import { InView } from "react-intersection-observer";
 
-const Privacy = ({ jobs, setNavColor }) => {
+const Privacy = ({ setNavColor }) => {
   return (
     <>
       <section className={`${Static["service"]} post`}>
         <InView
           as="div"
-          onChange={(inView, entry) => setNavColor(inView ? "black" : "white")}
+          onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
           <div className={`${Static["content"]}`}>
             <h2>Privacy Policy</h2>

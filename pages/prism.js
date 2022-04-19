@@ -1,5 +1,4 @@
 import { InView } from "react-intersection-observer";
-import ReactPlayer from "react-player";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Footer from "../components/footer";
 import Head from "next/head";
@@ -16,7 +15,7 @@ const Prism = ({ setNavColor }) => {
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={(props) => {
+        render={() => {
           return (
             <ReactFullpage.Wrapper>
               <section className={`section hero`}>
@@ -31,9 +30,7 @@ const Prism = ({ setNavColor }) => {
                 <InView
                   as="div"
                   className="checking"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div className="container">
                     <h3>
@@ -92,9 +89,7 @@ const Prism = ({ setNavColor }) => {
                 <InView
                   as="div"
                   className="checking"
-                  onChange={(inView, entry) =>
-                    setNavColor(inView ? "black" : "white")
-                  }
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div className="container">
                     <div className="winPoints">

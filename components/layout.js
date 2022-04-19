@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 
 const Layout = ({ children }) => {
   const [navColor, setNavColor] = useState(undefined);
-  const backgroundRef = useRef();
+  useRef();
 
   return (
     <div>
