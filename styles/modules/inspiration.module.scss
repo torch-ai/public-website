@@ -1,593 +1,593 @@
 @use "/styles/colors";
 
 .content-center {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 10em 0;
-    position: relative;
-    z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10em 0;
+  position: relative;
+  z-index: 1;
 }
 
 .circle-icon {
-    padding: 3em 0;
+  padding: 3em 0;
 }
 
 .icon {
-    color: #f7941e;
-    transition: all 0.7s ease-out !important;
+  color: #f7941e;
+  transition: all 0.7s ease-out !important;
 }
 
 .icon:hover {
-    opacity: 0.8;
-    cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 // HERO
 
 .hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: var(--color-dark);
-    padding-top: 10em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-dark);
+  padding-top: 10em;
 
-    h2 {
-        margin: 0 auto;
-    }
+  h2 {
+    margin: 0 auto;
+  }
 }
 
 .hero h2 {
-    color: white;
-    max-width: 50ch;
+  color: white;
+  max-width: 50ch;
 }
 
 .hero p {
-    color: #fff;
-    padding: 2em 0;
-    max-width: 50ch;
+  color: #fff;
+  padding: 2em 0;
+  max-width: 50ch;
 }
 
 //  Gallery
 .gallery {
-    display: flex;
-    align-items: center;
-    background-color: #232730;
+  display: flex;
+  align-items: center;
+  background-color: #232730;
 }
 
 .gallery h2 {
-    color: #ffffff;
+  color: #ffffff;
 }
 
 .gallery__title {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3em 0;
-    color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3em 0;
+  color: #ffffff;
 }
 
 .gallery__container {
-    display: flex;
-    justify-content: space-evenly;
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .gallery__container-item {
-    position: relative;
-    padding: 5em;
-    margin: 1em 0;
-    color: #ffffff;
+  position: relative;
+  padding: 5em;
+  margin: 1em 0;
+  color: #ffffff;
 }
 
 .gallery__container-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    min-height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  min-height: 100%;
 
-    p {
-        margin: 1.5em 0;
-    }
+  p {
+    margin: 1.5em 0;
+  }
 }
 
 .gallery-logistics {
-    background: url(../../img/gallery/logistics.png) center center no-repeat;
-    background-size: cover;
-    background-position: center center;
+  background: url(../../img/gallery/logistics.png) center center no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 
 .gallery-defense {
-    background: url(../../img/gallery/defense.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/defense.png) center center no-repeat;
+  background-size: cover;
 }
 
 .gallery-insurance {
-    background: url(../../img/gallery/insurance.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/insurance.png) center center no-repeat;
+  background-size: cover;
 }
 
 .gallery-publicSector {
-    background: url(../../img/gallery/publicsector.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/publicsector.png) center center no-repeat;
+  background-size: cover;
 }
 
 .gallery-manufacture {
-    background: url(../../img/gallery/manufacturing.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/manufacturing.png) center center no-repeat;
+  background-size: cover;
 }
 .gallery-financial {
-    background: url(../../img/gallery/finance.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/finance.png) center center no-repeat;
+  background-size: cover;
 }
 
 .gallery-marketing {
-    background: url(../../img/gallery/marketing.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/marketing.png) center center no-repeat;
+  background-size: cover;
 }
 
 .gallery-healthcare {
-    background: url(../../img/gallery/healthcare.png) center center no-repeat;
-    background-size: cover;
+  background: url(../../img/gallery/healthcare.png) center center no-repeat;
+  background-size: cover;
 }
 
 .logistics {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background: url(../../img/backgrounds/06.png);
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background: url(../../img/backgrounds/06.png);
+  background-size: cover;
 }
 
 .logistics__content {
 }
 
 .logistics__content h2 {
-    padding: 1em 0;
-    color: #fff;
+  padding: 1em 0;
+  color: #fff;
 }
 
 .logistics__content h2::after {
-    content: "";
-    border-bottom: 5px solid #ffffff;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid #ffffff;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .logistics__content p {
-    padding: 1em 0;
-    color: #fff;
+  padding: 1em 0;
+  color: #fff;
 }
 
 // Defense
 
 .defense {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-color: #ffffff;
 }
 
 .defenses__content {
 }
 
 .defenses__content h2 {
-    padding: 1em 0;
-    color: black;
-    max-width: 15ch;
+  padding: 1em 0;
+  color: black;
+  max-width: 15ch;
 }
 
 .defenses__content h2::after {
-    content: "";
-    border-bottom: 5px solid black;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid black;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .defenses__content p {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .defenses__content a[role="button"] {
-    color: black;
-    border: 1px solid black;
-    margin-top: 1em;
+  color: black;
+  border: 1px solid black;
+  margin-top: 1em;
 }
 
 .defenses__content a[role="button"]:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 // insurace
 
 .insurance {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    color: black;
-    background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  color: black;
+  background-color: white;
 }
 
 .insurance__content {
 }
 
 .insurance__content h2 {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .insurance__content h2::after {
-    content: "";
-    border-bottom: 5px solid black;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid black;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .insurance__content p {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .insurance__content a[role="button"] {
-    color: black;
-    border: 1px solid black;
-    margin-top: 1em;
+  color: black;
+  border: 1px solid black;
+  margin-top: 1em;
 }
 
 .insurance__content a[role="button"]:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 // marketing
 
 .marketing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background-image: url(../../img/backgrounds/07.png);
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-image: url(../../img/backgrounds/07.png);
+  background-size: cover;
 }
 
 .marketing__content {
 }
 
 .marketing__content h2 {
-    padding: 1em 0;
-    color: #fff;
+  padding: 1em 0;
+  color: #fff;
 }
 
 .marketing__content h2::after {
-    content: "";
-    border-bottom: 5px solid #ffffff;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid #ffffff;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .marketing__content p {
-    padding: 1em 0;
-    color: #fff;
+  padding: 1em 0;
+  color: #fff;
 }
 
 // Manufacturing
 
 .manufacturing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background-image: url(../../img/backgrounds/26.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-image: url(../../img/backgrounds/26.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .manufacturing__content {
-    justify-content: end;
+  justify-content: end;
 }
 
 .manufacturing__content h2 {
-    padding: 1em 0;
-    color: white;
+  padding: 1em 0;
+  color: white;
 }
 
 .manufacturing__content h2::after {
-    content: "";
-    border-bottom: 5px solid white;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid white;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .manufacturing__content p {
-    padding: 1em 0;
-    color: white;
+  padding: 1em 0;
+  color: white;
 }
 
 .manufacturing__content a[role="button"] {
-    color: white;
-    border: 1px solid white;
-    margin-top: 1em;
+  color: white;
+  border: 1px solid white;
+  margin-top: 1em;
 }
 
 .manufacturing__content a[role="button"]:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
 }
 
 // financial
 
 .financial {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background: white;
 }
 
 .financial__content h2 {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .financial__content h2::after {
-    content: "";
-    border-bottom: 5px solid black;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid black;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .financial__content p {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .financial__content a[role="button"] {
-    color: black;
-    border: 1px solid black;
-    margin-top: 1em;
+  color: black;
+  border: 1px solid black;
+  margin-top: 1em;
 }
 
 .financial__content a[role="button"]:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 // publicSector
 
 .publicSector {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background-image: url(../../img/backgrounds/08.png);
-    background-repeat: no-repeat;
-    background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-image: url(../../img/backgrounds/08.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .publicSector__content h2 {
-    padding: 1em 0;
-    color: #fff;
+  padding: 1em 0;
+  color: #fff;
 }
 
 .publicSector__content h2::after {
-    content: "";
-    border-bottom: 5px solid #ffffff;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid #ffffff;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .publicSector__content p {
-    padding: 1em 0;
-    color: #fff;
+  padding: 1em 0;
+  color: #fff;
 }
 
 .cta {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-color: white;
 }
 
 .cta__content h3 {
-    padding-bottom: 0.5em;
-    color: black;
+  padding-bottom: 0.5em;
+  color: black;
 }
 
 .cta__content h3::after {
-    content: "";
-    border-bottom: 5px solid black;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid black;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .cta__content p {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .cta [role="button"] {
-    margin: 1em 0;
-    color: black;
-    border: 1px solid black;
+  margin: 1em 0;
+  color: black;
+  border: 1px solid black;
 }
 
 .cta [role="button"]:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 // Healthcare
 
 .healthcare {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5em 0;
-    background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-color: #ffffff;
 }
 
 .healthcare__content h2 {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .healthcare__content h2::after {
-    content: "";
-    border-bottom: 5px solid black;
-    padding-bottom: 0.5em;
-    display: block;
-    bottom: 0;
-    width: 1em;
-    left: 0;
-    height: 10px;
+  content: "";
+  border-bottom: 5px solid black;
+  padding-bottom: 0.5em;
+  display: block;
+  bottom: 0;
+  width: 1em;
+  left: 0;
+  height: 10px;
 }
 
 .healthcare__content p {
-    padding: 1em 0;
-    color: black;
+  padding: 1em 0;
+  color: black;
 }
 
 .healthcare__content a[role="button"] {
-    color: black;
-    border: 1px solid black;
-    margin-top: 1em;
+  color: black;
+  border: 1px solid black;
+  margin-top: 1em;
 }
 
 .healthcare__content a[role="button"]:hover {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 @keyframes zoomies {
-    from {
-        background-size: 100%;
-    }
-    to {
-        background-size: 150%;
-    }
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 150%;
+  }
 }
 
 @media only screen and (min-width: 75em) {
-    .gallery-item {
-        margin: 0.5em 0;
-    }
+  .gallery-item {
+    margin: 0.5em 0;
+  }
 
-    .healthcare {
-        background-image: url(../../img/backgrounds/twin.png);
-        background-repeat: no-repeat;
-        background-position: center right;
-        background-size: contain;
-    }
+  .healthcare {
+    background-image: url(../../img/backgrounds/twin.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+  }
 
-    .financial {
-        background-image: url(../../img/backgrounds/finance.png);
-        background-repeat: no-repeat;
-        background-position: center right -10%;
-        background-size: contain;
-    }
+  .financial {
+    background-image: url(../../img/backgrounds/finance.png);
+    background-repeat: no-repeat;
+    background-position: center right -10%;
+    background-size: contain;
+  }
 
-    .cta {
-        background-image: url(../../img/backgrounds/27.png);
-        background-repeat: no-repeat;
-        background-position: center left -5%;
-        background-size: contain;
-    }
+  .cta {
+    background-image: url(../../img/backgrounds/27.png);
+    background-repeat: no-repeat;
+    background-position: center left -5%;
+    background-size: contain;
+  }
 
-    .manufacturing {
-        animation-name: zoomies;
-        animation-duration: 65s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-    }
+  .manufacturing {
+    animation-name: zoomies;
+    animation-duration: 65s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
 
-    .insurance {
-        background-image: url(../../img/backgrounds/insurance.png);
-        background-repeat: no-repeat;
-        background-position: center right -22.5%;
-        background-size: 50%;
-    }
+  .insurance {
+    background-image: url(../../img/backgrounds/insurance.png);
+    background-repeat: no-repeat;
+    background-position: center right -22.5%;
+    background-size: 50%;
+  }
 
-    .defense {
-        background-image: url(../../img/backgrounds/helicoptor.png);
-        background-repeat: no-repeat;
-        background-position: center right;
-        background-size: contain;
-    }
+  .defense {
+    background-image: url(../../img/backgrounds/helicoptor.png);
+    background-repeat: no-repeat;
+    background-position: center right;
+    background-size: contain;
+  }
 
-    .publicSector {
-        animation-name: zoomies;
-        animation-duration: 65s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-    }
+  .publicSector {
+    animation-name: zoomies;
+    animation-duration: 65s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
 
-    .marketing {
-        animation-name: zoomies;
-        animation-duration: 65s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-    }
+  .marketing {
+    animation-name: zoomies;
+    animation-duration: 65s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
 
-    .logistics {
-        animation-name: zoomies;
-        animation-duration: 65s;
-        animation-iteration-count: 1;
-        animation-timing-function: linear;
-        animation-fill-mode: forwards;
-        -webkit-animation-fill-mode: forwards;
-    }
+  .logistics {
+    animation-name: zoomies;
+    animation-duration: 65s;
+    animation-iteration-count: 1;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+  }
 }
 
 @media only screen and (min-width: 100em) {
-    .hero {
-        padding-top: 2em;
-    }
+  .hero {
+    padding-top: 2em;
+  }
 }

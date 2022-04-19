@@ -1,241 +1,241 @@
 @use "/styles/colors";
 
 .container {
-    width: min(90%, 1200px);
-    margin-inline: auto;
+  width: min(90%, 1200px);
+  margin-inline: auto;
 }
 
 .wrapper {
-    background-color: hsl(222, 16%, 16%);
-    background-image: url(../../img/backgrounds/mesh.png);
+  background-color: hsl(222, 16%, 16%);
+  background-image: url(../../img/backgrounds/mesh.png);
 }
 
 .sol-title {
-    padding-top: 50em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    animation: fadeInAnimation ease 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  padding-top: 50em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  animation: fadeInAnimation ease 3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 
-    p {
-        padding: max(2rem, 1rem) 0;
-        max-width: 100%;
-        color: white;
-    }
-    h2 {
-        max-width: 100%;
-        color: white;
-    }
+  p {
+    padding: max(2rem, 1rem) 0;
+    max-width: 100%;
+    color: white;
+  }
+  h2 {
+    max-width: 100%;
+    color: white;
+  }
 }
 
 .sol-subtitle {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    justify-content: flex-start;
-    color: white;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-start;
+  color: white;
 
-    .container {
-        p {
-            padding: max(2rem, 1rem) 0;
-            width: min(45ch, 100%);
-        }
-
-        h3::after {
-            content: "";
-            background: white;
-            background-size: 400% 400%;
-            padding-bottom: 0.09em;
-            margin: 0.3em 0;
-            display: block;
-            bottom: 0;
-            width: 1em;
-            left: 0;
-            height: 2px;
-            -webkit-animation: AnimationName 10s ease infinite;
-            -moz-animation: AnimationName 10s ease infinite;
-            animation: AnimationName 10s ease infinite;
-        }
+  .container {
+    p {
+      padding: max(2rem, 1rem) 0;
+      width: min(45ch, 100%);
     }
+
+    h3::after {
+      content: "";
+      background: white;
+      background-size: 400% 400%;
+      padding-bottom: 0.09em;
+      margin: 0.3em 0;
+      display: block;
+      bottom: 0;
+      width: 1em;
+      left: 0;
+      height: 2px;
+      -webkit-animation: AnimationName 10s ease infinite;
+      -moz-animation: AnimationName 10s ease infinite;
+      animation: AnimationName 10s ease infinite;
+    }
+  }
 }
 
 .sol-content {
-    .container {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        height: 100%;
-        width: min(90%, 800px);
-        margin-left: auto;
-        margin-right: 5%;
-        padding: 2em 0;
-        background-color: transparent;
-    }
+  .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    width: min(90%, 800px);
+    margin-left: auto;
+    margin-right: 5%;
+    padding: 2em 0;
+    background-color: transparent;
+  }
 
+  p {
+    padding: max(0.5rem, 1rem) 0;
+    width: min(45ch, 100%);
+    color: white;
+  }
+
+  h3 {
+    color: white;
+  }
+
+  .sub-content-title {
     p {
-        padding: max(0.5rem, 1rem) 0;
-        width: min(45ch, 100%);
-        color: white;
+      color: hsl(33deg 93% 54%);
     }
-
-    h3 {
-        color: white;
-    }
-
-    .sub-content-title {
-        p {
-            color: hsl(33deg 93% 54%);
-        }
-    }
+  }
 }
 
 .sub-content-accent {
-    color: rgb(211, 151, 79);
+  color: rgb(211, 151, 79);
 }
 
 .index {
-    padding: 5em 0;
-    display: grid;
-    gap: 1em;
-    grid-template-columns: repeat(2, 1fr);
+  padding: 5em 0;
+  display: grid;
+  gap: 1em;
+  grid-template-columns: repeat(2, 1fr);
 }
 
 .index-item {
-    padding: 8em 1em;
-    background-color: white;
-    position: relative;
-    background: url(../../img/backgrounds/14.png);
+  padding: 8em 1em;
+  background-color: white;
+  position: relative;
+  background: url(../../img/backgrounds/14.png);
+  background-size: cover;
+
+  &:nth-child(2) {
+    background: url(../../img/backgrounds/17.png);
     background-size: cover;
+  }
 
-    &:nth-child(2) {
-        background: url(../../img/backgrounds/17.png);
-        background-size: cover;
-    }
-
-    &:nth-child(3) {
-        background: url(../../img/backgrounds/16.png);
-        background-size: cover;
-    }
-    &:nth-child(4) {
-        background: url(../../img/backgrounds/22.png);
-        background-size: cover;
-    }
-    &:nth-child(5) {
-        background: url(../../img/backgrounds/13.png);
-        background-size: cover;
-    }
-    &:nth-child(6) {
-        background: url(../../img/backgrounds/29.png);
-        background-size: cover;
-    }
+  &:nth-child(3) {
+    background: url(../../img/backgrounds/16.png);
+    background-size: cover;
+  }
+  &:nth-child(4) {
+    background: url(../../img/backgrounds/22.png);
+    background-size: cover;
+  }
+  &:nth-child(5) {
+    background: url(../../img/backgrounds/13.png);
+    background-size: cover;
+  }
+  &:nth-child(6) {
+    background: url(../../img/backgrounds/29.png);
+    background-size: cover;
+  }
 }
 
 .index-content {
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .desktop-only {
-    display: none;
+  display: none;
 }
 
 @-webkit-keyframes AnimationName {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 @-moz-keyframes AnimationName {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 @keyframes AnimationName {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes fadeInAnimation {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 @keyframes zoomies {
-    from {
-        background-size: 100%;
-    }
-    to {
-        background-size: 150%;
-    }
+  from {
+    background-size: 100%;
+  }
+  to {
+    background-size: 150%;
+  }
 }
 
 @media only screen and (min-width: 64em) {
 }
 
 @media (min-width: 75em) {
-    .mobile-only {
-        display: none;
-    }
+  .mobile-only {
+    display: none;
+  }
 
-    .desktop-only {
-        display: flex;
-    }
+  .desktop-only {
+    display: flex;
+  }
 }
 
 @media only screen and (min-width: 100em) {
-    .index {
-        grid-template-columns: repeat(3, 1fr);
+  .index {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .sol-content {
+    .container {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      height: 100%;
+      width: min(100%, 800px);
+      margin-left: auto;
+      margin-right: 5%;
+      padding: 2em 5em;
+      background-color: #2f303f;
     }
-    .sol-content {
-        .container {
-            display: flex;
-            justify-content: center;
-            flex-direction: column;
-            height: 100%;
-            width: min(100%, 800px);
-            margin-left: auto;
-            margin-right: 5%;
-            padding: 2em 5em;
-            background-color: #2f303f;
-        }
-    }
+  }
 
-    .sol-title {
-        padding-top: 30em;
-    }
+  .sol-title {
+    padding-top: 30em;
+  }
 }
