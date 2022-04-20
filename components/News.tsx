@@ -3,8 +3,12 @@ import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import Landing from "../styles/modules/landing.module.scss";
 import Link from "next/link";
+import { NewsEntry } from "../contentful/news";
 
-const News = ({ topNews }) => {
+interface Props {
+  items: NewsEntry[];
+}
+const News: React.FunctionComponent<Props> = ({ items }) => {
   const displayCurrentTime = (data) => {
     let api = data.fields;
     const date = new Date(api.publishDate);
@@ -32,16 +36,14 @@ const News = ({ topNews }) => {
                 style={{ position: "relative" }}
               >
                 <Image
-                  src={
-                    "http:" + topNews[0].fields.fullSizeImage.fields.file.url
-                  }
+                  src={"http:" + items[0].fields.fullSizeImage.fields.file.url}
                   layout="fill"
                   objectFit={"cover"}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
-                  <p>{displayCurrentTime(topNews[0])}</p>
-                  <h5>{topNews[0].fields.title}</h5>
-                  <Link href={"/post/" + topNews[0].fields.slug}>
+                  <p>{displayCurrentTime(items[0])}</p>
+                  <h5>{items[0].fields.title}</h5>
+                  <Link href={"/post/" + items[0].fields.slug}>
                     <a>Read More</a>
                   </Link>
                 </div>
@@ -51,16 +53,14 @@ const News = ({ topNews }) => {
                 style={{ position: "relative", backgroundSize: "cover" }}
               >
                 <Image
-                  src={
-                    "http:" + topNews[1].fields.fullSizeImage.fields.file.url
-                  }
+                  src={"http:" + items[1].fields.fullSizeImage.fields.file.url}
                   layout="fill"
                   objectFit={"cover"}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
-                  <p>{displayCurrentTime(topNews[1])}</p>
-                  <h5>{topNews[1].fields.title}</h5>
-                  <Link href={"/post/" + topNews[1].fields.slug}>
+                  <p>{displayCurrentTime(items[1])}</p>
+                  <h5>{items[1].fields.title}</h5>
+                  <Link href={"/post/" + items[1].fields.slug}>
                     <a>Read More</a>
                   </Link>
                 </div>
@@ -72,16 +72,14 @@ const News = ({ topNews }) => {
                 style={{ position: "relative" }}
               >
                 <Image
-                  src={
-                    "http:" + topNews[2].fields.fullSizeImage.fields.file.url
-                  }
+                  src={"http:" + items[2].fields.fullSizeImage.fields.file.url}
                   layout={"fill"}
                   objectFit={"cover"}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
-                  <p>{displayCurrentTime(topNews[2])}</p>
-                  <h5>{topNews[2].fields.title}</h5>
-                  <Link href={"/post/" + topNews[2].fields.slug}>
+                  <p>{displayCurrentTime(items[2])}</p>
+                  <h5>{items[2].fields.title}</h5>
+                  <Link href={"/post/" + items[2].fields.slug}>
                     <a>Read More</a>
                   </Link>
                 </div>
@@ -91,16 +89,14 @@ const News = ({ topNews }) => {
                 style={{ position: "relative" }}
               >
                 <Image
-                  src={
-                    "http:" + topNews[3].fields.fullSizeImage.fields.file.url
-                  }
+                  src={"http:" + items[3].fields.fullSizeImage.fields.file.url}
                   layout={"fill"}
                   objectFit={"cover"}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
-                  <p>{displayCurrentTime(topNews[3])}</p>
-                  <h5>{topNews[3].fields.title}</h5>
-                  <Link href={"/post/" + topNews[3].fields.slug}>
+                  <p>{displayCurrentTime(items[3])}</p>
+                  <h5>{items[3].fields.title}</h5>
+                  <Link href={"/post/" + items[3].fields.slug}>
                     <a>Read More</a>
                   </Link>
                 </div>
@@ -110,16 +106,14 @@ const News = ({ topNews }) => {
                 style={{ position: "relative" }}
               >
                 <Image
-                  src={
-                    "http:" + topNews[4].fields.fullSizeImage.fields.file.url
-                  }
+                  src={"http:" + items[4].fields.fullSizeImage.fields.file.url}
                   layout={"fill"}
                   objectFit={"cover"}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
-                  <p>{displayCurrentTime(topNews[4])}</p>
-                  <h5>{topNews[4].fields.title}</h5>
-                  <Link href={"/post/" + topNews[4].fields.slug}>
+                  <p>{displayCurrentTime(items[4])}</p>
+                  <h5>{items[4].fields.title}</h5>
+                  <Link href={"/post/" + items[4].fields.slug}>
                     <a>Read More</a>
                   </Link>
                 </div>

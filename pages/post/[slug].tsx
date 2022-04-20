@@ -3,9 +3,12 @@
 import Static from "../../styles/modules/static.module.scss";
 import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Footer from "../../components/footer";
+import Footer from "../../components/Footer";
 import { InView } from "react-intersection-observer";
 import Head from "next/head";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { ReactElement, useContext } from "react";
+import LayoutContext from "../../components/layout/LayoutContext";
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID,
@@ -13,8 +16,10 @@ const client = createClient({
 });
 
 // noinspection JSUnusedGlobalSymbols
-export const getStaticPaths = async () => {
-  const res = await client.getEntries({
+export const getStaticPaths: GetStaticPaths = async () => {
+  const res = await client.getEntries<
+    Record<string | number, string | string[]>
+  >({
     content_type: "news",
   });
 
@@ -30,7 +35,7 @@ export const getStaticPaths = async () => {
   };
 };
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { items } = await client.getEntries({
     content_type: "news",
     "fields.slug": params.slug,
@@ -39,9 +44,13 @@ export async function getStaticProps({ params }) {
   return {
     props: { news: items[0] },
   };
-}
+};
 
-const slug = ({ news, setNavColor }) => {
+const Slug = ({
+  news,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const { content } = news.fields;
   return (
     <>
@@ -81,4 +90,4 @@ const slug = ({ news, setNavColor }) => {
   );
 };
 
-export default slug;
+export default Slug;

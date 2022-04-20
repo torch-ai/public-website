@@ -3,13 +3,12 @@ import Template from "../styles/modules/template.module.scss";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-
 import logo from "../img/logo.svg";
 import forbes from "../img/forbes.png";
-
 import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import React from "react";
 
-const Footer = () => {
+const Footer: React.FunctionComponent = () => {
   return (
     <footer id="contact" className={`${Template.footer} section`}>
       <div
@@ -127,7 +126,7 @@ const Footer = () => {
         <div className={`${Template["footer__address"]}`}>
           <ul>
             <li>5250 W 116TH Pl Suite 200</li>
-            <li>Leawood​, KS, 66211</li>
+            <li>Leawood, KS, 66211</li>
             <li>+1 (202) 570-7169</li>
             <li>
               <a href="https://www.forbes.com/lists/americas-best-startup-employers/?">
@@ -147,7 +146,7 @@ const Footer = () => {
           alt="The logo of Torch.ai"
         />
 
-        <p>Copyright © 2022 Torch.AI</p>
+        <p>Copyright &copy; 2022 Torch.AI</p>
       </div>
     </footer>
   );

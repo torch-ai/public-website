@@ -1,6 +1,7 @@
 import Style from "../styles/modules/accordian.module.scss";
+import React from "react";
 
-const Benefits = () => {
+const Benefits: React.FunctionComponent = () => {
   return (
     <>
       <div className={`${Style["accordian"]}`}>

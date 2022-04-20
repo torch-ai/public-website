@@ -1,18 +1,22 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React from "react";
-import { useEffect } from "react";
+import React, { ReactElement, useContext, useEffect } from "react";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/footer";
-const TermsofService = ({ setNavColor }) => {
+import Footer from "../components/Footer";
+import LayoutContext from "../components/layout/LayoutContext";
+
+const Legal: React.FunctionComponent = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   useEffect(() => {
-    window.scrollTo({
+    window?.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  });
+  }, []);
+
   return (
     <>
       <section className={`${Static["service"]} post`}>
@@ -25,7 +29,7 @@ const TermsofService = ({ setNavColor }) => {
             <p>Last updated: March 22, 2022</p>
           </div>
           <div className={`${Static["content"]}`}>
-            <h3>NEXUS™-as-a-Service (NaaS) – Terms of Service</h3>
+            <h3>NEXUS&trade;-as-a-Service (NaaS) – Terms of Service</h3>
             <p>
               TORCH.AI NaaS Terms of Service can be TORCH.AI owns the NEXUS™
               software suite, through which it provides certain software
@@ -79,4 +83,4 @@ const TermsofService = ({ setNavColor }) => {
   );
 };
 
-export default TermsofService;
+export default Legal;
