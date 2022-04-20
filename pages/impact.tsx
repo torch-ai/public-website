@@ -14,7 +14,7 @@ import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 import LayoutContext from "../components/layout/LayoutContext";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-const Index: React.FunctionComponent = () => {
+const Impact: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const fadeRef = useRef<HTMLDivElement>(null);
@@ -492,4 +492,4 @@ const Index: React.FunctionComponent = () => {
   );
 };
 
-export default Index;
+export default Impact;

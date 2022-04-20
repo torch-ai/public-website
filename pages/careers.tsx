@@ -3,7 +3,7 @@
 import React, { ReactElement, useContext } from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
-import Careers from "../styles/modules/careers.module.scss";
+import CareersClasses from "../styles/modules/careers.module.scss";
 import { createClient } from "contentful";
 import JobCard from "../components/JobCard";
 import Footer from "../components/Footer";
@@ -28,7 +28,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const commercial = ({
+const Careers = ({
   jobs,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
@@ -40,13 +40,13 @@ const commercial = ({
           AI and Machine Learning Jobs | Current Openings | Torch.AI
         </title>
       </Head>
-      <section className={`${Careers["intro"]}`}>
+      <section className={`${CareersClasses["intro"]}`}>
         <InView
           as="div"
           onChange={(inView) => setNavColor(inView ? "white" : "black")}
         >
           <div
-            className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers["carrers__content"]}`}
+            className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${CareersClasses["carrers__content"]}`}
           >
             <div className={`${Grid["col-xs-12"]}`}>
               <h1> Careers. </h1>
@@ -69,7 +69,9 @@ const commercial = ({
         </InView>
       </section>
 
-      <section className={`${Careers["job-list"]} ${Careers["section"]}`}>
+      <section
+        className={`${CareersClasses["job-list"]} ${CareersClasses["section"]}`}
+      >
         <div className={`${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
           <div className={`${Grid["row"]}`}>
             <h2>Job Openings</h2>
@@ -88,4 +90,4 @@ const commercial = ({
   );
 };
 
-export default commercial;
+export default Careers;

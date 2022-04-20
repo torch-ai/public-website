@@ -48,7 +48,7 @@ export const getStaticProps: GetStaticProps = async () => {
   };
 };
 
-const Index = ({
+const Company = ({
   news,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
@@ -489,4 +489,4 @@ const Index = ({
   );
 };
 
-export default Index;
+export default Company;
