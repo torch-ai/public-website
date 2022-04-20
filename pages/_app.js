@@ -7,7 +7,7 @@ const App = ({ Component, pageProps }) => {
   // TODO add preloader to website.
 
   useEffect(() => {
-    useHeapTracking();
+    initializeHeapTracking();
   }, []);
 
   return (
@@ -23,7 +23,7 @@ const App = ({ Component, pageProps }) => {
 
 export default App;
 
-const useHeapTracking = () => {
+const initializeHeapTracking = () => {
   (window.heap = window.heap || []),
     (heap.load = function (e, t) {
       (window.heap.appid = e), (window.heap.config = t = t || {});
