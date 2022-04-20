@@ -10,7 +10,7 @@ import Footer from "../components/footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
 
-import traning from "../img/training.png";
+import training from "../img/training.png";
 import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
 
@@ -115,7 +115,7 @@ const Index = ({ setNavColor }) => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
                     >
                       <div>
-                        <Image src={traning} />
+                        <Image src={training} />
                       </div>
                       <h5>Training.</h5>
                       <p>
