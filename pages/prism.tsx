@@ -167,7 +167,7 @@ const Prism = () => {
                           name="message"
                           placeholder="Message"
                           required
-                        ></textarea>
+                        />
                       </label>
                     </div>
                     <div>
