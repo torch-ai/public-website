@@ -67,8 +67,8 @@ const Prism = () => {
                     <div className="prismFeature-item">
                       <h5>It's not productive.</h5>
                       <p>
-                        >60% of teams are manually copying and pasting document
-                        data.
+                        &gt;60% of teams are manually copying and pasting
+                        document data.
                       </p>
                     </div>
                     <div className="prismFeature-item">
