@@ -5,7 +5,7 @@ import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import CareersClasses from "../styles/modules/careers.module.scss";
 import { createClient } from "contentful";
-import JobCard from "../components/JobCard";
+import CareerCard from "../components/CareerCard";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
@@ -79,7 +79,7 @@ const Careers = ({
           <div className={`${Grid["row"]}`}>
             {jobs.map((job) => (
               <div key={job.sys.id} className={`${Grid["col-xs-12"]}`}>
-                <JobCard job={job} />
+                <CareerCard career={job} />
               </div>
             ))}
           </div>

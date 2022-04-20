@@ -3,10 +3,10 @@ import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import Landing from "../styles/modules/landing.module.scss";
 import Link from "next/link";
-import { NewsEntry } from "../contentful/news";
+import { TypeNews } from "../generated/contentful";
 
 interface Props {
-  items: NewsEntry[];
+  items: TypeNews[];
 }
 const News: React.FunctionComponent<Props> = ({ items }) => {
   const displayCurrentTime = (data) => {
