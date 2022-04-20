@@ -5,7 +5,6 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Landing from "../styles/modules/landing.module.scss";
@@ -40,7 +39,6 @@ const Index = ({
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const router = useRouter();
   const fadeRef = useRef();
   const buttonRef = useRef();
   const enhance = useRef<HTMLDivElement>(null);
