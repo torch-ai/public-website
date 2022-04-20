@@ -6,7 +6,6 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Landing from "../styles/modules/landing.module.scss";
-import { createClient } from "contentful";
 import Image from "next/image";
 import Style from "../styles/modules/company.module.scss";
 import News from "../components/News";
@@ -32,14 +31,15 @@ import KevinMarcus from "../img/dotArt/KevinMarcus.png";
 import forbes from "../img/forbes.png";
 import LayoutContext from "../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getNewsEntries } from "../contentful/client";
+import { TypeNews } from "../generated/contentful";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+export const getStaticProps: GetStaticProps<{
+  news: TypeNews[];
+}> = async () => {
+  const res = await getNewsEntries({
+    limit: 5,
   });
-
-  const res = await client.getEntries({ content_type: "news" });
 
   return {
     props: {
@@ -478,7 +478,7 @@ const Company = ({
                 </div>
               </div>
               <div className={`${Landing["news"]} section`}>
-                <News items={news.slice(0, 5)} />
+                <News items={news} />
               </div>
               <Footer />
             </ReactFullpage.Wrapper>

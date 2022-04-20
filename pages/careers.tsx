@@ -4,7 +4,6 @@ import React, { ReactElement, useContext } from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import CareersClasses from "../styles/modules/careers.module.scss";
-import { createClient } from "contentful";
 import CareerCard from "../components/CareerCard";
 import Footer from "../components/Footer";
 import Head from "next/head";
@@ -12,24 +11,23 @@ import { InView } from "react-intersection-observer";
 import forbes from "../img/forbes.png";
 import LayoutContext from "../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getCareerPostingsEntries } from "../contentful/client";
+import { TypeCareerPosting } from "../generated/contentful";
 
-export const getStaticProps: GetStaticProps = async () => {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-  });
-
-  const res = await client.getEntries({ content_type: "careerPosting" });
+export const getStaticProps: GetStaticProps<{
+  careers: TypeCareerPosting[];
+}> = async () => {
+  const res = await getCareerPostingsEntries({});
 
   return {
     props: {
-      jobs: res.items,
+      careers: res.items,
     },
   };
 };
 
 const Careers = ({
-  jobs,
+  careers,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
@@ -77,9 +75,9 @@ const Careers = ({
             <h2>Job Openings</h2>
           </div>
           <div className={`${Grid["row"]}`}>
-            {jobs.map((job) => (
-              <div key={job.sys.id} className={`${Grid["col-xs-12"]}`}>
-                <CareerCard career={job} />
+            {careers.map((career) => (
+              <div key={career.sys.id} className={`${Grid["col-xs-12"]}`}>
+                <CareerCard career={career} />
               </div>
             ))}
           </div>
