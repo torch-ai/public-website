@@ -23,8 +23,8 @@ const Navigation = ({ navColor }) => {
   }, [navColor, setColor]);
 
   function toggle() {
-    const visibilty = navRef.current.getAttribute("data-visible");
-    if (visibilty === "false") {
+    const visibility = navRef.current.getAttribute("data-visible");
+    if (visibility === "false") {
       navRef.current.setAttribute("data-visible", true);
       buttonRef.current.setAttribute("aria-expanded", true);
     } else {
