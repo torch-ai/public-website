@@ -1,8 +1,12 @@
 import React from "react";
 import Grid from "../styles/modules/grid.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
+import { JobsEntry } from "../contentful/jobs";
 
-const JobCard = ({ job }) => {
+interface Props {
+  job: JobsEntry;
+}
+const JobCard: React.FunctionComponent<Props> = ({ job }) => {
   const { title, location, publishDate, jobDescription, url } = job.fields;
 
   const displayCurrentTime = () => {

@@ -1,22 +1,24 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Image from "next/image";
 import Style from "../styles/modules/partners.module.scss";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
-
-import traning from "../img/training.png";
+import training from "../img/training.png";
 import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Index = ({ setNavColor }) => {
-  const buttonRef = useRef();
-  const fadeRef = useRef();
+const Partners: React.FunctionComponent = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
+  const buttonRef = useRef<HTMLHeadingElement>(null);
+  const fadeRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -115,7 +117,7 @@ const Index = ({ setNavColor }) => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
                     >
                       <div>
-                        <Image src={traning} />
+                        <Image src={training} />
                       </div>
                       <h5>Training.</h5>
                       <p>
@@ -181,4 +183,4 @@ const Index = ({ setNavColor }) => {
   );
 };
 
-export default Index;
+export default Partners;

@@ -1,11 +1,14 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React from "react";
+import React, { useContext } from "react";
 import Static from "../styles/modules/static.module.scss";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { InView } from "react-intersection-observer";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Privacy = ({ setNavColor }) => {
+const PrivacyPolicy: React.FunctionComponent = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <section className={`${Static["service"]} post`}>
@@ -544,4 +547,4 @@ const Privacy = ({ setNavColor }) => {
   );
 };
 
-export default Privacy;
+export default PrivacyPolicy;

@@ -1,24 +1,25 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { gsap } from "gsap/dist/gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Landing from "../styles/modules/landing.module.scss";
-import News from "../components/news";
+import News from "../components/News";
 import { InView } from "react-intersection-observer";
 import { createClient } from "contentful";
 import Image from "next/image";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import imac from "../img/iMac.gif";
+import LayoutContext from "../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -28,17 +29,20 @@ export async function getStaticProps() {
 
   return {
     props: {
-      news: res.items,
+      news: res.items.slice(0, 5),
     },
   };
-}
+};
 
-const Index = ({ setNavColor, news }) => {
-  const router = useRouter();
+const Index = ({
+  news,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const fadeRef = useRef();
   const buttonRef = useRef();
-  const enhance = useRef();
-  const nexus = useRef();
+  const enhance = useRef<HTMLDivElement>(null);
+  const nexus = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -129,9 +133,9 @@ const Index = ({ setNavColor, news }) => {
                       >
                         <h2>We build AI that makes data easier to use.</h2>
                         <p>
-                          Torch.AI's Nexus™ software instantly unlocks value
-                          from data and provides information needed for humans
-                          and machines to be more productive.
+                          Torch.AI's Nexus&trade; software instantly unlocks
+                          value from data and provides information needed for
+                          humans and machines to be more productive.
                         </p>
                       </div>
                     </div>
@@ -139,7 +143,7 @@ const Index = ({ setNavColor, news }) => {
                 </InView>
               </div>
               <div className={`${Landing["nexus"]}  section`}>
-                <div className="fp-bg"></div>
+                <div className="fp-bg" />
                 <div
                   className={`${Grid["container"]} ${Grid["margin_center"]}`}
                 >
@@ -313,16 +317,7 @@ const Index = ({ setNavColor, news }) => {
                         className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
                       >
                         <Link href="/platform">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/platform"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Learn More
-                          </a>
+                          <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
@@ -688,16 +683,7 @@ const Index = ({ setNavColor, news }) => {
                           </div>
                         </div>
                         <Link href="/solutions">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/solutions"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Learn More
-                          </a>
+                          <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
@@ -779,7 +765,7 @@ const Index = ({ setNavColor, news }) => {
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <News topNews={news.slice(0, 5)} news={news} />
+                  <News items={news} />
                 </InView>
               </div>
               <div className={`${Landing["statement2"]}  section`}>
@@ -796,16 +782,7 @@ const Index = ({ setNavColor, news }) => {
                       </h3>
                       <div className={`${Landing["statement2__button"]}`}>
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Learn More
-                          </a>
+                          <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>

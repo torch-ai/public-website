@@ -1,24 +1,26 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Style from "../styles/modules/inspiration.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
+import LayoutContext from "../components/layout/LayoutContext";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-const Index = ({ setNavColor }) => {
-  const router = useRouter();
-  const fadeRef = useRef();
-  const fadeRef2 = useRef();
-  const pFade = useRef();
-  const buttonRef = useRef();
+const Impact: React.FunctionComponent = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
+  const fadeRef = useRef<HTMLDivElement>(null);
+  const fadeRef2 = useRef<HTMLDivElement>(null);
+  const pFade = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -146,7 +148,10 @@ const Index = ({ setNavColor }) => {
                     className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
                   >
                     <p ref={pFade}>Find your passion below:</p>
-                    <FontAwesomeIcon icon={faArrowAltCircleDown} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faArrowAltCircleDown as IconProp}
+                      size="2x"
+                    />
                   </div>
                 </div>
               </div>
@@ -182,16 +187,7 @@ const Index = ({ setNavColor }) => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -228,14 +224,7 @@ const Index = ({ setNavColor }) => {
                       className={`${Grid["col_xs_8"]} ${Grid["col_lg_8"]} ${Style["inspiration__button"]}`}
                     >
                       <Link href="/contact">
-                        <a
-                          role="button"
-                          className={
-                            router.pathname == "/contact" ? `${Nav.active}` : ""
-                          }
-                        >
-                          Request Brief
-                        </a>
+                        <a role="button">Request Brief</a>
                       </Link>
                     </div>
                   </div>
@@ -274,16 +263,7 @@ const Index = ({ setNavColor }) => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -319,14 +299,7 @@ const Index = ({ setNavColor }) => {
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-xs-12"]} ${Grid["col_lg_8"]}`}>
                       <Link href="/contact">
-                        <a
-                          role="button"
-                          className={
-                            router.pathname == "/contact" ? `${Nav.active}` : ""
-                          }
-                        >
-                          Request Brief
-                        </a>
+                        <a role="button">Request Brief</a>
                       </Link>
                     </div>
                   </div>
@@ -364,16 +337,7 @@ const Index = ({ setNavColor }) => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -406,16 +370,7 @@ const Index = ({ setNavColor }) => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -452,16 +407,7 @@ const Index = ({ setNavColor }) => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -502,14 +448,7 @@ const Index = ({ setNavColor }) => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                     >
                       <Link href="/contact">
-                        <a
-                          role="button"
-                          className={
-                            router.pathname == "/contact" ? `${Nav.active}` : ""
-                          }
-                        >
-                          Request Brief
-                        </a>
+                        <a role="button">Request Brief</a>
                       </Link>
                     </div>
                   </div>
@@ -537,16 +476,7 @@ const Index = ({ setNavColor }) => {
                         className={`${Grid["col-lg-offset-6"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Let's be friends
-                          </a>
+                          <a role="button">Let's be friends</a>
                         </Link>
                       </div>
                     </div>
@@ -562,4 +492,4 @@ const Index = ({ setNavColor }) => {
   );
 };
 
-export default Index;
+export default Impact;

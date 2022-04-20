@@ -1,9 +1,15 @@
+// noinspection JSUnusedGlobalSymbols
+
+import React, { useContext } from "react";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Head from "next/head";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Prism = ({ setNavColor }) => {
+const Prism: React.FunctionComponent = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <Head>
@@ -63,8 +69,8 @@ const Prism = ({ setNavColor }) => {
                     <div className="prismFeature-item">
                       <h5>It's not productive.</h5>
                       <p>
-                        >60% of teams are manually copying and pasting document
-                        data.
+                        &gt;60% of teams are manually copying and pasting
+                        document data.
                       </p>
                     </div>
                     <div className="prismFeature-item">
@@ -163,7 +169,7 @@ const Prism = ({ setNavColor }) => {
                           name="message"
                           placeholder="Message"
                           required
-                        ></textarea>
+                        />
                       </label>
                     </div>
                     <div>

@@ -1,17 +1,19 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React from "react";
+import React, { ReactElement, useContext } from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
-import Careers from "../styles/modules/careers.module.scss";
+import CareersClasses from "../styles/modules/careers.module.scss";
 import { createClient } from "contentful";
 import JobCard from "../components/JobCard";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import forbes from "../img/forbes.png";
+import LayoutContext from "../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -24,9 +26,13 @@ export async function getStaticProps() {
       jobs: res.items,
     },
   };
-}
+};
 
-const commercial = ({ jobs, setNavColor }) => {
+const Careers = ({
+  jobs,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <Head>
@@ -34,13 +40,13 @@ const commercial = ({ jobs, setNavColor }) => {
           AI and Machine Learning Jobs | Current Openings | Torch.AI
         </title>
       </Head>
-      <section className={`${Careers["intro"]}`}>
+      <section className={`${CareersClasses["intro"]}`}>
         <InView
           as="div"
           onChange={(inView) => setNavColor(inView ? "white" : "black")}
         >
           <div
-            className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${Careers["carrers__content"]}`}
+            className={`${Grid.row} ${Grid.margin_center}  ${Grid.container} ${CareersClasses["carrers__content"]}`}
           >
             <div className={`${Grid["col-xs-12"]}`}>
               <h1> Careers. </h1>
@@ -63,7 +69,9 @@ const commercial = ({ jobs, setNavColor }) => {
         </InView>
       </section>
 
-      <section className={`${Careers["job-list"]} ${Careers["section"]}`}>
+      <section
+        className={`${CareersClasses["job-list"]} ${CareersClasses["section"]}`}
+      >
         <div className={`${Grid.row} ${Grid.margin_center} ${Grid.container}`}>
           <div className={`${Grid["row"]}`}>
             <h2>Job Openings</h2>
@@ -82,4 +90,4 @@ const commercial = ({ jobs, setNavColor }) => {
   );
 };
 
-export default commercial;
+export default Careers;

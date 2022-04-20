@@ -1,37 +1,26 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "../styles/modules/nav.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
+import LayoutContext from "./layout/LayoutContext";
 
-const Navigation = ({ navColor }) => {
-  const buttonRef = useRef();
-  const navRef = useRef();
+const Navigation = () => {
+  const { navColor: color } = useContext(LayoutContext);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const navRef = useRef<HTMLUListElement>(null);
   const router = useRouter();
-  const [color, setColor] = useState("white");
 
-  useEffect(() => {
-    buttonRef.current.addEventListener("click", toggle);
-  }, [buttonRef]);
-
-  useEffect(() => {
-    if (navColor === undefined) {
-      navColor = "white";
-    }
-    setColor(navColor);
-    console.log(navColor);
-  }, [navColor, setColor]);
-
-  function toggle() {
-    const visibilty = navRef.current.getAttribute("data-visible");
-    if (visibilty === "false") {
-      navRef.current.setAttribute("data-visible", true);
-      buttonRef.current.setAttribute("aria-expanded", true);
+  const toggle = () => {
+    const visibility = navRef.current.getAttribute("data-visible");
+    if (visibility === "false") {
+      navRef.current.setAttribute("data-visible", "true");
+      buttonRef.current.setAttribute("aria-expanded", "");
     } else {
-      navRef.current.setAttribute("data-visible", false);
-      buttonRef.current.setAttribute("aria-expanded", false);
+      navRef.current.setAttribute("data-visible", "false");
+      buttonRef.current.removeAttribute("aria-expanded");
     }
-  }
+  };
 
   return (
     <header className={`${Nav.header}`}>
@@ -53,7 +42,7 @@ const Navigation = ({ navColor }) => {
                 height="100px"
                 viewBox="0 0 552.14 116.11"
               >
-                <defs></defs>
+                <defs />
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <path
@@ -105,6 +94,7 @@ const Navigation = ({ navColor }) => {
           className={`${Nav.mobile_nav_toggle}`}
           aria-controls="primary_navigation"
           ref={buttonRef}
+          onClick={toggle}
           aria-expanded="false"
         >
           <span className={`${Nav.sr_only}`}>menu</span>
