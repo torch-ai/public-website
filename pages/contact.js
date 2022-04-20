@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import Grid from "../styles/modules/grid.module.scss";
 import Style from "../styles/modules/contact.module.scss";
 import Footer from "../components/footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Contact = ({ setNavColor }) => {
+const Contact = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <Head>

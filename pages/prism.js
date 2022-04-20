@@ -1,9 +1,13 @@
+import { useContext } from "react";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Footer from "../components/footer";
 import Head from "next/head";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Prism = ({ setNavColor }) => {
+const Prism = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <Head>

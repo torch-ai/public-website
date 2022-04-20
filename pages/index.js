@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -15,6 +15,7 @@ import { createClient } from "contentful";
 import Image from "next/image";
 import Footer from "../components/footer";
 import imac from "../img/iMac.gif";
+import LayoutContext from "../components/layout/LayoutContext";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,7 +34,9 @@ export async function getStaticProps() {
   };
 }
 
-const Index = ({ setNavColor, news }) => {
+const Index = ({ news }) => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const router = useRouter();
   const fadeRef = useRef();
   const buttonRef = useRef();

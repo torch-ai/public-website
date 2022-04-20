@@ -1,18 +1,22 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React from "react";
-import { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
-const TermsofService = ({ setNavColor }) => {
+import LayoutContext from "../components/layout/LayoutContext";
+
+const TermsOfService = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
     });
-  });
+  }, []);
+
   return (
     <>
       <section className={`${Static["service"]} post`}>
@@ -331,4 +335,4 @@ const TermsofService = ({ setNavColor }) => {
   );
 };
 
-export default TermsofService;
+export default TermsOfService;

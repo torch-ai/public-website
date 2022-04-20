@@ -1,17 +1,19 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Head from "next/head";
 import Style from "../styles/modules/solution.module.scss";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap/dist/gsap";
 import Footer from "../components/footer";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Solutions = ({ setNavColor }) => {
+const Solutions = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const fadeRef = useRef();
   const buttonRef = useRef();
-  useRef();
 
   useEffect(() => {
     gsap.fromTo(

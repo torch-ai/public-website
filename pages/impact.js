@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -12,8 +12,11 @@ import Footer from "../components/footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Index = ({ setNavColor }) => {
+const Index = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const router = useRouter();
   const fadeRef = useRef();
   const fadeRef2 = useRef();

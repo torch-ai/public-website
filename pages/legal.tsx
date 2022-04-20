@@ -1,18 +1,21 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React from "react";
-import { useEffect } from "react";
+import React, { ReactElement, useContext } from "react";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
-const TermsofService = ({ setNavColor }) => {
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: "smooth",
-    });
-  });
+import LayoutContext from "../components/layout/LayoutContext";
+
+// export const getStaticProps: GetStaticProps = async () => {
+//   return {
+//     props: {},
+//   };
+// };
+// props: InferGetStaticPropsType<typeof getStaticProps>
+
+const Legal = (): ReactElement => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <section className={`${Static["service"]} post`}>
@@ -79,4 +82,4 @@ const TermsofService = ({ setNavColor }) => {
   );
 };
 
-export default TermsofService;
+export default Legal;

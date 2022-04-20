@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
@@ -30,6 +30,7 @@ import WilliamBeyer from "../img/dotArt/WilliamBeyer.png";
 import MarkPerrin from "../img/dotArt/MarkPerrin.png";
 import KevinMarcus from "../img/dotArt/KevinMarcus.png";
 import forbes from "../img/forbes.png";
+import LayoutContext from "../components/layout/LayoutContext";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -46,7 +47,9 @@ export async function getStaticProps() {
   };
 }
 
-const Index = ({ setNavColor, news }) => {
+const Index = ({ news }) => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const fadeRef = useRef();
   const buttonRef = useRef();
 
@@ -65,6 +68,7 @@ const Index = ({ setNavColor, news }) => {
       { opacity: 1, y: 0, duration: 0.5, delay: 2 }
     );
   }, []);
+
   return (
     <>
       <Head>

@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -13,8 +13,11 @@ import { gsap } from "gsap";
 import training from "../img/training.png";
 import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
+import LayoutContext from "../components/layout/LayoutContext";
 
-const Index = ({ setNavColor }) => {
+const Partners = () => {
+  const { setNavColor } = useContext(LayoutContext);
+
   const buttonRef = useRef();
   const fadeRef = useRef();
 
@@ -181,4 +184,4 @@ const Index = ({ setNavColor }) => {
   );
 };
 
-export default Index;
+export default Partners;

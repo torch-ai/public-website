@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React from "react";
+import React, { useContext } from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
@@ -10,6 +10,7 @@ import Footer from "../components/footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import forbes from "../img/forbes.png";
+import LayoutContext from "../components/layout/LayoutContext";
 
 export async function getStaticProps() {
   const client = createClient({
@@ -26,7 +27,9 @@ export async function getStaticProps() {
   };
 }
 
-const commercial = ({ jobs, setNavColor }) => {
+const commercial = ({ jobs }) => {
+  const { setNavColor } = useContext(LayoutContext);
+
   return (
     <>
       <Head>
