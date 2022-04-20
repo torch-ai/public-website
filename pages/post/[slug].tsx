@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   };
 };
 
-const slug = ({
+const Slug = ({
   news,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
@@ -90,4 +90,4 @@ const slug = ({
   );
 };
 
-export default slug;
+export default Slug;
