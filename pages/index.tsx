@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useContext, useEffect, useRef } from "react";
+import { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -16,10 +16,11 @@ import Image from "next/image";
 import Footer from "../components/footer";
 import imac from "../img/iMac.gif";
 import LayoutContext from "../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -32,16 +33,18 @@ export async function getStaticProps() {
       news: res.items,
     },
   };
-}
+};
 
-const Index = ({ news }) => {
+const Index = ({
+  news,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const router = useRouter();
   const fadeRef = useRef();
   const buttonRef = useRef();
-  const enhance = useRef();
-  const nexus = useRef();
+  const enhance = useRef<HTMLDivElement>(null);
+  const nexus = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -132,9 +135,9 @@ const Index = ({ news }) => {
                       >
                         <h2>We build AI that makes data easier to use.</h2>
                         <p>
-                          Torch.AI's Nexus™ software instantly unlocks value
-                          from data and provides information needed for humans
-                          and machines to be more productive.
+                          Torch.AI's Nexus&trade; software instantly unlocks
+                          value from data and provides information needed for
+                          humans and machines to be more productive.
                         </p>
                       </div>
                     </div>
@@ -142,7 +145,7 @@ const Index = ({ news }) => {
                 </InView>
               </div>
               <div className={`${Landing["nexus"]}  section`}>
-                <div className="fp-bg"></div>
+                <div className="fp-bg" />
                 <div
                   className={`${Grid["container"]} ${Grid["margin_center"]}`}
                 >
@@ -316,16 +319,7 @@ const Index = ({ news }) => {
                         className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
                       >
                         <Link href="/platform">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/platform"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Learn More
-                          </a>
+                          <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
@@ -691,16 +685,7 @@ const Index = ({ news }) => {
                           </div>
                         </div>
                         <Link href="/solutions">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/solutions"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Learn More
-                          </a>
+                          <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
@@ -799,16 +784,7 @@ const Index = ({ news }) => {
                       </h3>
                       <div className={`${Landing["statement2__button"]}`}>
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Learn More
-                          </a>
+                          <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
