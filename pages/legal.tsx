@@ -17,7 +17,7 @@ const Legal = (): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   useEffect(() => {
-    window.scrollTo({
+    window?.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",
