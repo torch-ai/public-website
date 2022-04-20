@@ -1,26 +1,19 @@
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import Nav from "../styles/modules/nav.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
+import LayoutContext from "./layout/LayoutContext";
 
-const Navigation = ({ navColor }) => {
+const Navigation = () => {
+  const { navColor: color } = useContext(LayoutContext);
   const buttonRef = useRef();
   const navRef = useRef();
   const router = useRouter();
-  const [color, setColor] = useState("white");
 
   useEffect(() => {
     buttonRef.current.addEventListener("click", toggle);
   }, [buttonRef]);
-
-  useEffect(() => {
-    if (navColor === undefined) {
-      navColor = "white";
-    }
-    setColor(navColor);
-    console.log(navColor);
-  }, [navColor, setColor]);
 
   function toggle() {
     const visibility = navRef.current.getAttribute("data-visible");
