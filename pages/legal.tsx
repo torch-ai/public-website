@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
+import React, { ReactElement, useContext, useEffect } from "react";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
@@ -15,6 +15,14 @@ import LayoutContext from "../components/layout/LayoutContext";
 
 const Legal = (): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }, []);
 
   return (
     <>
