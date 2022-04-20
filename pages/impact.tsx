@@ -5,7 +5,6 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Style from "../styles/modules/inspiration.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/footer";
@@ -17,11 +16,10 @@ import LayoutContext from "../components/layout/LayoutContext";
 const Index = () => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const router = useRouter();
-  const fadeRef = useRef();
-  const fadeRef2 = useRef();
-  const pFade = useRef();
-  const buttonRef = useRef();
+  const fadeRef = useRef<HTMLDivElement>(null);
+  const fadeRef2 = useRef<HTMLDivElement>(null);
+  const pFade = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     gsap.fromTo(
@@ -185,16 +183,7 @@ const Index = () => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -231,14 +220,7 @@ const Index = () => {
                       className={`${Grid["col_xs_8"]} ${Grid["col_lg_8"]} ${Style["inspiration__button"]}`}
                     >
                       <Link href="/contact">
-                        <a
-                          role="button"
-                          className={
-                            router.pathname == "/contact" ? `${Nav.active}` : ""
-                          }
-                        >
-                          Request Brief
-                        </a>
+                        <a role="button">Request Brief</a>
                       </Link>
                     </div>
                   </div>
@@ -277,16 +259,7 @@ const Index = () => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -322,14 +295,7 @@ const Index = () => {
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-xs-12"]} ${Grid["col_lg_8"]}`}>
                       <Link href="/contact">
-                        <a
-                          role="button"
-                          className={
-                            router.pathname == "/contact" ? `${Nav.active}` : ""
-                          }
-                        >
-                          Request Brief
-                        </a>
+                        <a role="button">Request Brief</a>
                       </Link>
                     </div>
                   </div>
@@ -367,16 +333,7 @@ const Index = () => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -409,16 +366,7 @@ const Index = () => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -455,16 +403,7 @@ const Index = () => {
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Request Brief
-                          </a>
+                          <a role="button">Request Brief</a>
                         </Link>
                       </div>
                     </div>
@@ -505,14 +444,7 @@ const Index = () => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                     >
                       <Link href="/contact">
-                        <a
-                          role="button"
-                          className={
-                            router.pathname == "/contact" ? `${Nav.active}` : ""
-                          }
-                        >
-                          Request Brief
-                        </a>
+                        <a role="button">Request Brief</a>
                       </Link>
                     </div>
                   </div>
@@ -540,16 +472,7 @@ const Index = () => {
                         className={`${Grid["col-lg-offset-6"]} ${Grid["col-lg-12"]}`}
                       >
                         <Link href="/contact">
-                          <a
-                            role="button"
-                            className={
-                              router.pathname == "/contact"
-                                ? `${Nav.active}`
-                                : ""
-                            }
-                          >
-                            Let's be friends
-                          </a>
+                          <a role="button">Let's be friends</a>
                         </Link>
                       </div>
                     </div>
