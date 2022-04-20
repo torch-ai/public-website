@@ -46,7 +46,7 @@ const Navigation = () => {
                 height="100px"
                 viewBox="0 0 552.14 116.11"
               >
-                <defs></defs>
+                <defs />
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <path
