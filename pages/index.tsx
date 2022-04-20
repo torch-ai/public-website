@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
   return {
     props: {
-      news: res.items,
+      news: res.items.slice(0, 5),
     },
   };
 };
@@ -765,7 +765,7 @@ const Index = ({
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <News topNews={news.slice(0, 5)} news={news} />
+                  <News items={news} />
                 </InView>
               </div>
               <div className={`${Landing["statement2"]}  section`}>
