@@ -1,4 +1,4 @@
-import Nav from "../navigation";
+import Nav from "../Navigation";
 import React from "react";
 
 interface Props {}

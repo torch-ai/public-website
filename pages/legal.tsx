@@ -3,17 +3,10 @@
 import React, { ReactElement, useContext, useEffect } from "react";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import LayoutContext from "../components/layout/LayoutContext";
 
-// export const getStaticProps: GetStaticProps = async () => {
-//   return {
-//     props: {},
-//   };
-// };
-// props: InferGetStaticPropsType<typeof getStaticProps>
-
-const Legal = (): ReactElement => {
+const Legal: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   useEffect(() => {

@@ -1,12 +1,12 @@
 import React, { useContext } from "react";
 import Grid from "../styles/modules/grid.module.scss";
 import Style from "../styles/modules/contact.module.scss";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../components/layout/LayoutContext";
 
-const Contact = () => {
+const Contact: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
@@ -69,11 +69,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <label>
-                      <textarea
-                        name="message"
-                        placeholder="Message"
-                        required
-                      ></textarea>
+                      <textarea name="message" placeholder="Message" required />
                     </label>
                   </div>
                   <div>

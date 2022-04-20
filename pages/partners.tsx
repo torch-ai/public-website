@@ -1,25 +1,24 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Image from "next/image";
 import Style from "../styles/modules/partners.module.scss";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
-
 import training from "../img/training.png";
 import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
 import LayoutContext from "../components/layout/LayoutContext";
 
-const Partners = () => {
+const Partners: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const buttonRef = useRef();
-  const fadeRef = useRef();
+  const buttonRef = useRef<HTMLHeadingElement>(null);
+  const fadeRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
     gsap.fromTo(

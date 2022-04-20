@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useContext, useEffect, useRef } from "react";
+import { ReactElement, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
@@ -9,8 +9,8 @@ import Landing from "../styles/modules/landing.module.scss";
 import { createClient } from "contentful";
 import Image from "next/image";
 import Style from "../styles/modules/company.module.scss";
-import News from "../components/news";
-import Footer from "../components/footer";
+import News from "../components/News";
+import Footer from "../components/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
 
@@ -31,8 +31,9 @@ import MarkPerrin from "../img/dotArt/MarkPerrin.png";
 import KevinMarcus from "../img/dotArt/KevinMarcus.png";
 import forbes from "../img/forbes.png";
 import LayoutContext from "../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -45,9 +46,11 @@ export async function getStaticProps() {
       news: res.items,
     },
   };
-}
+};
 
-const Index = ({ news }) => {
+const Index = ({
+  news,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const fadeRef = useRef();
@@ -475,7 +478,7 @@ const Index = ({ news }) => {
                 </div>
               </div>
               <div className={`${Landing["news"]} section`}>
-                <News topNews={news.slice(0, 5)} news={news} />
+                <News items={news.slice(0, 5)} />
               </div>
               <Footer />
             </ReactFullpage.Wrapper>

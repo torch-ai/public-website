@@ -3,14 +3,14 @@
 import React, { useEffect, useContext } from "react";
 import Static from "../styles/modules/static.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import LayoutContext from "../components/layout/LayoutContext";
 
-const TermsOfService = () => {
+const TermsOfService: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   useEffect(() => {
-    window.scrollTo({
+    window?.scrollTo({
       top: 0,
       left: 0,
       behavior: "smooth",

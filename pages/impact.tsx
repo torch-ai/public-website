@@ -1,19 +1,20 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Link from "next/link";
 import Style from "../styles/modules/inspiration.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 import LayoutContext from "../components/layout/LayoutContext";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
-const Index = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const fadeRef = useRef<HTMLDivElement>(null);
@@ -147,7 +148,10 @@ const Index = () => {
                     className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
                   >
                     <p ref={pFade}>Find your passion below:</p>
-                    <FontAwesomeIcon icon={faArrowAltCircleDown} size="2x" />
+                    <FontAwesomeIcon
+                      icon={faArrowAltCircleDown as IconProp}
+                      size="2x"
+                    />
                   </div>
                 </div>
               </div>

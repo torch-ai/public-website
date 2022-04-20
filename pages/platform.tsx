@@ -1,13 +1,13 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Image from "next/image";
 import Style from "../styles/modules/platform.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { gsap } from "gsap";
 
 import datamodel1 from "../img/datamodel1.svg";
@@ -15,11 +15,11 @@ import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
 import LayoutContext from "../components/layout/LayoutContext";
 
-const Platform = () => {
+const Platform: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const fadeRef = useRef();
-  const buttonRef = useRef();
+  const fadeRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
     gsap.fromTo(

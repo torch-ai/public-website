@@ -1,18 +1,19 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { ReactElement, useContext } from "react";
 import Image from "next/image";
 import Grid from "../styles/modules/grid.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
 import { createClient } from "contentful";
 import JobCard from "../components/JobCard";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import forbes from "../img/forbes.png";
 import LayoutContext from "../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID,
     accessToken: process.env.CONTENTFUL_ACCESS_KEY,
@@ -25,9 +26,11 @@ export async function getStaticProps() {
       jobs: res.items,
     },
   };
-}
+};
 
-const commercial = ({ jobs }) => {
+const commercial = ({
+  jobs,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (

@@ -2,11 +2,11 @@
 
 import React, { useContext } from "react";
 import Static from "../styles/modules/static.module.scss";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../components/layout/LayoutContext";
 
-const PrivacyPolicy = () => {
+const PrivacyPolicy: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (

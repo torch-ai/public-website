@@ -1,11 +1,13 @@
-import { useContext } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import React, { useContext } from "react";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
 
-const Prism = () => {
+const Prism: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
