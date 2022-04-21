@@ -18,6 +18,17 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
+## Generated features
+
+### Contentful
+
+This code base uses a set of tools provided by Contentful and the community to generate type definitions:
+You can then use the cli with a personal access token from your account to export space's content model definitions:
+
+```shell
+cf-content-types-generator -o generated/contentful -s dtb5w0ega2aw -t CFPAT-****
+```
+
 # Learn More
 
 To learn more about Next.js, take a look at the following resources:
