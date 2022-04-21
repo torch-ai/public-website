@@ -44,6 +44,7 @@ const Contact: React.FunctionComponent = () => {
                         name="name"
                         placeholder="Full Name"
                         required
+                        autoFocus
                       />
                     </label>
                   </div>
