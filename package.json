@@ -2,7 +2,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
-    "lint": "next lint",
+    "lint": "tsc --noEmit && next lint",
     "prepare": "husky install",
     "start": "next start"
   },
@@ -29,6 +29,7 @@
   "devDependencies": {
     "@types/node": "^17.0.25",
     "@types/react": "^18.0.5",
+    "cf-content-types-generator": "^2.0.1",
     "eslint-config-next": "12.1.5",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",

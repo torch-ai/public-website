@@ -10,26 +10,26 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Landing from "../styles/modules/landing.module.scss";
 import News from "../components/News";
 import { InView } from "react-intersection-observer";
-import { createClient } from "contentful";
 import Image from "next/image";
 import Footer from "../components/Footer";
 import imac from "../img/iMac.gif";
 import LayoutContext from "../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getNewsEntries } from "../contentful/client";
+import { TypeNews } from "../generated/contentful";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const getStaticProps: GetStaticProps = async () => {
-  const client = createClient({
-    space: process.env.CONTENTFUL_SPACE_ID,
-    accessToken: process.env.CONTENTFUL_ACCESS_KEY,
+export const getStaticProps: GetStaticProps<{
+  news: TypeNews[];
+}> = async () => {
+  const res = await getNewsEntries({
+    limit: 5,
   });
-
-  const res = await client.getEntries({ content_type: "news" });
 
   return {
     props: {
-      news: res.items.slice(0, 5),
+      news: res.items,
     },
   };
 };

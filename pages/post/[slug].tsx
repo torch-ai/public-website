@@ -1,7 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
 import Static from "../../styles/modules/static.module.scss";
-import { createClient } from "contentful";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Footer from "../../components/Footer";
 import { InView } from "react-intersection-observer";
@@ -9,53 +8,45 @@ import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ReactElement, useContext } from "react";
 import LayoutContext from "../../components/layout/LayoutContext";
+import { getNewsEntries } from "../../contentful/client";
+import { TypeNews } from "../../generated/contentful";
+import { Document } from "@contentful/rich-text-types";
 
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
-  accessToken: process.env.CONTENTFUL_ACCESS_KEY,
-});
-
-// noinspection JSUnusedGlobalSymbols
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await client.getEntries<
-    Record<string | number, string | string[]>
-  >({
-    content_type: "news",
-  });
-
-  const paths = res.items.map((item) => {
-    return {
-      params: { slug: item.fields.slug },
-    };
-  });
+  const res = await getNewsEntries();
 
   return {
-    paths,
+    paths: res.items.map((item) => ({
+      params: {
+        slug: item.fields.slug,
+      },
+    })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { items } = await client.getEntries({
-    content_type: "news",
-    "fields.slug": params.slug,
+export const getStaticProps: GetStaticProps<{ item: TypeNews }> = async ({
+  params,
+}) => {
+  const { items } = await getNewsEntries({
+    "fields.slug": params.slug as string,
   });
 
   return {
-    props: { news: items[0] },
+    props: { item: items[0] },
   };
 };
 
 const Slug = ({
-  news,
+  item,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const { content } = news.fields;
+  const { content } = item.fields;
   return (
     <>
       <Head>
-        <title>{news.fields.title} | Torch.AI</title>
+        <title>{item.fields.title} | Torch.AI</title>
       </Head>
       <section>
         <header className={`${Static["service-header"]}`}>
@@ -66,9 +57,9 @@ const Slug = ({
             <div className={`${Static["service"]}`}>
               <div className={`${Static["content"]}`}>
                 <div className={`post flow`}>
-                  <h3>{news.fields.title}.</h3>
+                  <h3>{item.fields.title}.</h3>
                   <p>
-                    <em>{news.fields.summary} </em>
+                    <em>{item.fields.summary} </em>
                   </p>
                 </div>
               </div>
@@ -79,7 +70,7 @@ const Slug = ({
         <div className={`${Static["service-content"]}`}>
           <div>
             <div className={` ${Static["content"]} post flow`}>
-              <p>{documentToReactComponents(content)}</p>
+              <p>{documentToReactComponents(content as Document)}</p>
             </div>
           </div>
         </div>

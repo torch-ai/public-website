@@ -1,13 +1,13 @@
 import React from "react";
 import Grid from "../styles/modules/grid.module.scss";
 import Careers from "../styles/modules/careers.module.scss";
-import { JobsEntry } from "../contentful/jobs";
+import { TypeCareerPosting } from "../generated/contentful";
 
 interface Props {
-  job: JobsEntry;
+  career: TypeCareerPosting;
 }
-const JobCard: React.FunctionComponent<Props> = ({ job }) => {
-  const { title, location, publishDate, jobDescription, url } = job.fields;
+const CareerCard: React.FunctionComponent<Props> = ({ career }) => {
+  const { title, location, publishDate, jobDescription, url } = career.fields;
 
   const displayCurrentTime = () => {
     const date = new Date(publishDate);
@@ -48,4 +48,4 @@ const JobCard: React.FunctionComponent<Props> = ({ job }) => {
   );
 };
 
-export default JobCard;
+export default CareerCard;
