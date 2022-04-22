@@ -42,8 +42,10 @@ const Contact: React.FunctionComponent = () => {
                       <input
                         type="text"
                         name="name"
-                        placeholder="Full Name"
+                        placeholder="Full name"
                         required
+                        autoComplete="name"
+                        autoFocus
                       />
                     </label>
                   </div>
@@ -53,7 +55,7 @@ const Contact: React.FunctionComponent = () => {
                         type="text"
                         name="company"
                         placeholder="Company"
-                        required
+                        autoComplete="organization"
                       />
                     </label>
                   </div>
@@ -64,9 +66,11 @@ const Contact: React.FunctionComponent = () => {
                         name="email"
                         placeholder="Email"
                         required
+                        autoComplete="email"
                       />
                     </label>
                   </div>
+
                   <div>
                     <label>
                       <textarea name="message" placeholder="Message" required />
