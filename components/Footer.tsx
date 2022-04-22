@@ -58,7 +58,6 @@ const Footer: React.FunctionComponent = () => {
                 type="text"
                 autoComplete="organization"
                 name="company"
-                required
               />
 
               <input
