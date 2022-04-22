@@ -42,7 +42,7 @@ const Contact: React.FunctionComponent = () => {
                       <input
                         type="text"
                         name="name"
-                        placeholder="Full Name"
+                        placeholder="Full name"
                         required
                         autoComplete="name"
                         autoFocus
