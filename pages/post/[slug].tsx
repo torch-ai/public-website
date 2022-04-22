@@ -11,6 +11,7 @@ import LayoutContext from "../../components/layout/LayoutContext";
 import { getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
 import { Document } from "@contentful/rich-text-types";
+import ContentfulContent from "../../components/ContentfulContent";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await getNewsEntries();
@@ -67,12 +68,8 @@ const Slug = ({
           </InView>
         </header>
         {/* <InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}> */}
-        <div className={`${Static["service-content"]}`}>
-          <div>
-            <div className={` ${Static["content"]} post flow`}>
-              <p>{documentToReactComponents(content as Document)}</p>
-            </div>
-          </div>
+        <div className={`${Static["service-content"]} post `}>
+          <ContentfulContent content={content} />
         </div>
         {/* </InView> */}
       </section>
