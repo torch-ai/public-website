@@ -29,42 +29,30 @@ const Footer: React.FunctionComponent = () => {
             method="POST"
             className={`${Template["footer__form"]} flow`}
           >
-            <div
-              className={`${Template["footer__form-name"]} ${Grid.row_wrapoff}`}
-            >
+            <div className={`${Grid.row_wrapoff}`}>
               <input
-                placeholder="First Name"
+                placeholder="Full name"
                 id="name"
                 type="text"
                 autoComplete="name"
-                required
-                name="firstName"
-              />
-              <input
-                placeholder="Last Name"
-                name="lastName"
-                id="name"
-                type="text"
-                autoComplete="name"
+                name="name"
                 required
               />
             </div>
-            <div
-              className={`${Template["footer__form-info"]} ${Grid.row_wrapoff} `}
-            >
+            <div className={`${Grid.row_wrapoff} `}>
               <input
                 placeholder="Company"
-                id="name"
+                id="organization"
                 type="text"
-                autoComplete="name"
-                required
+                autoComplete="organization"
+                name="company"
               />
 
               <input
-                placeholder="Email Address"
+                placeholder="Email address"
                 id="name"
-                type="text"
-                autoComplete="name"
+                type="email"
+                autoComplete="email"
                 name="email"
                 required
               />
