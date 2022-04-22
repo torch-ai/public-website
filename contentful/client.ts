@@ -3,6 +3,7 @@ import {
   TypeCareerPostingFields,
   TypeNewsFields,
   TypePage,
+  TypePageFields,
 } from "../generated/contentful";
 
 // Trying very hard not to expose the raw client to get good utility functions.
@@ -59,7 +60,7 @@ export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
 //     ...query,
 //   });
 
-export const getPage: GetEntry<TypePage> = async (id, query = {}) =>
-  client.getEntry<TypePage>(id, {
+export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
+  client.getEntry<TypePageFields>(id, {
     ...query,
   });

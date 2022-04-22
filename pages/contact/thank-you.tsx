@@ -1,20 +1,42 @@
-import React, { useContext } from "react";
+// noinspection JSUnusedGlobalSymbols
+
+import React, { ReactElement, useContext } from "react";
 import Grid from "../../styles/modules/grid.module.scss";
 import Style from "../../styles/modules/contact.module.scss";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TypePage } from "../../generated/contentful";
+import { getPage } from "../../contentful/client";
+import ContentfulContent from "../../components/ContentfulContent";
 
-const Index: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  page: TypePage;
+}> = async () => {
+  // See: https://app.contentful.com/spaces/dtb5w0ega2aw/entries/7iwdVdgUAl4bzvQMzWl3Ww
+  const page = await getPage("7iwdVdgUAl4bzvQMzWl3Ww");
+
+  return {
+    props: {
+      page,
+    },
+  };
+};
+
+const ThankYou = ({
+  page,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+  const {
+    fields: { title, content, subtitle },
+  } = page;
   const { setNavColor } = useContext(LayoutContext);
 
   return (
     <>
       <Head>
-        <title>
-          Contact Us | Unlock Your Potential | Talk to Us | Torch.AI
-        </title>
+        <title>{title} | Unlock Your Potential | Talk to Us | Torch.AI</title>
       </Head>
       <section className={`${Style["contact__container"]}`}>
         <InView
@@ -26,10 +48,11 @@ const Index: React.FunctionComponent = () => {
               <div
                 className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
               >
-                <h2>Thank you.</h2>
-                <p>Find out how Nexus can unlock your productivity.</p>
+                <h2>{title}</h2>
+                {subtitle && <p>{subtitle}</p>}
               </div>
             </div>
+            <ContentfulContent content={content} />
           </div>
         </InView>
       </section>
@@ -38,4 +61,4 @@ const Index: React.FunctionComponent = () => {
   );
 };
 
-export default Index;
+export default ThankYou;
