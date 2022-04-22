@@ -7,12 +7,12 @@ import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ReactElement, useContext } from "react";
 import LayoutContext from "../../components/layout/LayoutContext";
-import { getNewsEntries } from "../../contentful/client";
+import { getNewsEntries, getPageEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
 import ContentfulContent from "../../components/ContentfulContent";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await getNewsEntries();
+  const res = await getPageEntries();
 
   return {
     paths: res.items.map((item) => ({
@@ -27,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<{ item: TypeNews }> = async ({
   params,
 }) => {
-  const { items } = await getNewsEntries({
+  const { items } = await getPageEntries({
     "fields.slug": params.slug as string,
   });
 

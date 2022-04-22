@@ -9,14 +9,14 @@ import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TypePage } from "../../generated/contentful";
-import { getPage } from "../../contentful/client";
+import { getPageEntry } from "../../contentful/client";
 import ContentfulContent from "../../components/ContentfulContent";
 
 export const getStaticProps: GetStaticProps<{
   page: TypePage;
 }> = async () => {
   // See: https://app.contentful.com/spaces/dtb5w0ega2aw/entries/7iwdVdgUAl4bzvQMzWl3Ww
-  const page = await getPage("7iwdVdgUAl4bzvQMzWl3Ww");
+  const page = await getPageEntry("7iwdVdgUAl4bzvQMzWl3Ww");
 
   return {
     props: {

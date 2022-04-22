@@ -39,6 +39,8 @@ type GetEntry<T> = (
 enum ContentModels {
   CareerPosting = "careerPosting",
   News = "news",
+  Page = "page",
+  PageSection = "pageSection",
 }
 
 export const getCareerPostingsEntries: GetEntries<
@@ -60,7 +62,16 @@ export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
 //     ...query,
 //   });
 
-export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
+export const getPageEntries: GetEntries<TypePageFields> = async (
+  id,
+  query = {}
+) =>
+  client.getEntries<TypePageFields>({
+    ...query,
+    content_type: ContentModels.News,
+  });
+
+export const getPageEntry: GetEntry<TypePageFields> = async (id, query = {}) =>
   client.getEntry<TypePageFields>(id, {
     ...query,
   });
