@@ -54,7 +54,7 @@ const Contact: React.FunctionComponent = () => {
                         type="text"
                         name="company"
                         placeholder="Company"
-                        required
+                        autoComplete="organization"
                       />
                     </label>
                   </div>
