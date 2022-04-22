@@ -64,7 +64,7 @@ const Footer: React.FunctionComponent = () => {
               <input
                 placeholder="Email address"
                 id="name"
-                type="text"
+                type="email"
                 autoComplete="email"
                 name="email"
                 required
