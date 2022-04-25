@@ -17,6 +17,7 @@
     "@fullpage/react-fullpage": "^0.1.19",
     "@react-spring/parallax": "^9.4.4",
     "@react-spring/web": "^9.4.4",
+    "clsx": "^1.1.1",
     "contentful": "^9.1.12",
     "gsap": "^3.9.1",
     "next": "^12.1.0",
