@@ -10,35 +10,25 @@ import ContentfulAsset from "../../../../components/ContentfulAsset/ContentfulAs
 import clsx from "clsx";
 
 interface Props {
-  page: TypePage;
+  page?: TypePage;
   isSharingEnabled?: boolean;
 }
 const Header: React.FunctionComponent<Props> = ({
   page,
   isSharingEnabled = true,
 }) => {
-  const {
-    fields: {
-      title,
-      subtitle,
-      headerImage,
-      headerBackgroundImage,
-      headerBackgroundColor,
-      isHeaderBackgroundColorSchemaLight,
-    },
-  } = page;
   const { setNavColor } = useContext(LayoutContext);
-  console.info("headerBackgroundImage", headerBackgroundImage?.fields.file.url);
 
   return (
     <header
       className={clsx(Styles.header, {
-        [Styles.headerIsLightColorScheme]: isHeaderBackgroundColorSchemaLight,
+        [Styles.headerIsLightColorScheme]:
+          page?.fields.isHeaderBackgroundColorSchemaLight,
       })}
       style={{
-        backgroundColor: headerBackgroundColor,
-        backgroundImage: headerBackgroundImage?.fields.file.url
-          ? `url(${headerBackgroundImage?.fields.file.url})`
+        backgroundColor: page?.fields.headerBackgroundColor,
+        backgroundImage: page?.fields.headerBackgroundImage?.fields.file.url
+          ? `url(${page?.fields.headerBackgroundImage?.fields.file.url})`
           : undefined,
       }}
     >
@@ -49,13 +39,13 @@ const Header: React.FunctionComponent<Props> = ({
         <ReadabilityConstraints>
           <div className={Styles.container}>
             <div className={Styles.title}>
-              <h3>{title}</h3>
-              {subtitle && <p>{subtitle}</p>}
+              <h3>{page?.fields.title || "Content not found"}</h3>
+              {page?.fields.subtitle && <p>{page.fields.subtitle}</p>}
             </div>
             {isSharingEnabled && <div className={Styles.sharing}>Share:</div>}
-            {headerImage && (
+            {page?.fields.headerImage && (
               <div className={Styles.image}>
-                <ContentfulAsset asset={headerImage} />
+                <ContentfulAsset asset={page.fields.headerImage} />
               </div>
             )}
           </div>
