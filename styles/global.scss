@@ -1,3 +1,4 @@
+@use "/styles/breakpoints";
 @use "/styles/colors";
 @use "/styles/fonts";
 @use "/styles/pages/prism";
@@ -162,7 +163,13 @@ footer .row {
   align-items: center;
 }
 
-@media (min-width: 600px) {
+@media (min-width: breakpoints.$breakpoint-sm) {
+  .fullpage-wrapper {
+    display: block;
+  }
+}
+
+@media (min-width: breakpoints.$breakpoint-md) {
   :root {
     --type-scale: 1.25;
   }
@@ -171,25 +178,9 @@ footer .row {
     max-width: 90%;
     margin-inline: auto;
   }
-
-  .fullpage-wrapper {
-    display: block;
-  }
 }
 
-@media (min-width: 500px) {
-  .fullpage-wrapper {
-    display: block;
-  }
-}
-
-@media (min-width: 400px) {
-  .fullpage-wrapper {
-    display: block;
-  }
-}
-
-@media (min-width: 900px) {
+@media (min-width: breakpoints.$breakpoint-lg) {
   :root {
     --type-scale: 1.33;
   }
@@ -197,21 +188,13 @@ footer .row {
     width: 900px;
     max-width: 90%;
   }
-
-  .fullpage-wrapper {
-    display: block;
-  }
 }
-@media (min-width: 1200px) {
+@media (min-width: breakpoints.$breakpoint-xl) {
   :root {
     --type-scale: 1.414;
   }
   .container {
     width: 1200px;
     max-width: 90%;
-  }
-
-  .fullpage-wrapper {
-    display: block;
   }
 }

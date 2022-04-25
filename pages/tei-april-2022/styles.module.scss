@@ -1,0 +1,13 @@
+@use "/styles/breakpoints";
+
+.main {
+  display: flex;
+  flex-flow: row wrap;
+  padding: 3rem 0;
+}
+
+@media screen and (min-width: breakpoints.$breakpoint-lg) {
+  .main {
+    flex-flow: column nowrap;
+  }
+}
