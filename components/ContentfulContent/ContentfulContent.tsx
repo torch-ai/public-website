@@ -1,8 +1,8 @@
 import React from "react";
-import Static from "../styles/modules/static.module.scss";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
 import * as CFRichTextTypes from "@contentful/rich-text-types";
+import ReadabilityConstraints from "../ReadabilityConstraints/ReadabilityConstraints";
 
 interface Props {
   content:
@@ -10,11 +10,16 @@ interface Props {
     | CFRichTextTypes.Inline
     | CFRichTextTypes.Document;
 }
-const ContentfulContent: React.FunctionComponent<Props> = ({ content }) => {
+const ContentfulContent: React.FunctionComponent<
+  Props & React.HTMLAttributes<HTMLDivElement>
+> = ({ content, ...props }) => {
   return (
-    <div className={`${Static["content"]} flow`}>
+    <ReadabilityConstraints
+      {...props}
+      className={["flow", props.className].filter(Boolean).join(" ")}
+    >
       {documentToReactComponents(content as Document)}
-    </div>
+    </ReadabilityConstraints>
   );
 };
 export default ContentfulContent;
