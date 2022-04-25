@@ -1,0 +1,35 @@
+@use "/styles/breakpoints";
+
+.header {
+  background: #006a48 url(./background.jpg) repeat;
+  padding: 15em 0 5em;
+  color: var(--color-light);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-light);
+  }
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    "Title Title Image"
+    "Share Share Image";
+}
+.Title {
+  grid-area: Title;
+}
+.Share {
+  grid-area: Share;
+}
+.Image {
+  grid-area: Image;
+}
