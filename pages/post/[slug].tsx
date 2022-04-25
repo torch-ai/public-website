@@ -9,7 +9,7 @@ import { ReactElement, useContext } from "react";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
-import ContentfulContent from "../../components/ContentfulContent";
+import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await getNewsEntries();
