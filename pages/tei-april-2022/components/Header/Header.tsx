@@ -3,23 +3,45 @@
 import React, { useContext } from "react";
 import { TypePage } from "../../../../generated/contentful";
 import { InView } from "react-intersection-observer";
-import Image from "next/image";
 import ReadabilityConstraints from "../../../../components/ReadabilityConstraints/ReadabilityConstraints";
 import LayoutContext from "../../../../components/layout/LayoutContext";
 import Styles from "./styles.module.scss";
-import ForresterReport from "./forrester-report.png";
+import ContentfulAsset from "../../../../components/ContentfulAsset/ContentfulAsset";
+import clsx from "clsx";
 
 interface Props {
   page: TypePage;
+  isSharingEnabled?: boolean;
 }
-const Header: React.FunctionComponent<Props> = ({ page }) => {
+const Header: React.FunctionComponent<Props> = ({
+  page,
+  isSharingEnabled = true,
+}) => {
   const {
-    fields: { title, subtitle },
+    fields: {
+      title,
+      subtitle,
+      headerImage,
+      headerBackgroundImage,
+      headerBackgroundColor,
+      isHeaderBackgroundColorSchemaLight,
+    },
   } = page;
   const { setNavColor } = useContext(LayoutContext);
+  console.info("headerBackgroundImage", headerBackgroundImage?.fields.file.url);
 
   return (
-    <header className={Styles.header}>
+    <header
+      className={clsx(Styles.header, {
+        [Styles.headerIsLightColorScheme]: isHeaderBackgroundColorSchemaLight,
+      })}
+      style={{
+        backgroundColor: headerBackgroundColor,
+        backgroundImage: headerBackgroundImage?.fields.file.url
+          ? `url(${headerBackgroundImage?.fields.file.url})`
+          : undefined,
+      }}
+    >
       <InView
         as="div"
         onChange={(inView) => setNavColor(inView ? "white" : "black")}
@@ -30,13 +52,12 @@ const Header: React.FunctionComponent<Props> = ({ page }) => {
               <h3>{title}</h3>
               {subtitle && <p>{subtitle}</p>}
             </div>
-            <div className={Styles.Share}>Share:</div>
-            <div className={Styles.Image}>
-              <Image
-                src={ForresterReport}
-                alt={"Title page of the Forrester economic impact report"}
-              />
-            </div>
+            {isSharingEnabled && <div className={Styles.Share}>Share:</div>}
+            {headerImage && (
+              <div className={Styles.Image}>
+                <ContentfulAsset asset={headerImage} />
+              </div>
+            )}
           </div>
         </ReadabilityConstraints>
       </InView>

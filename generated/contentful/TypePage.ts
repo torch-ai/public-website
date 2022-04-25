@@ -8,7 +8,7 @@ export interface TypePageFields {
     integrationDetails: Contentful.EntryFields.Symbol;
     headerBackgroundColor?: Contentful.EntryFields.Symbol;
     headerBackgroundImage?: Contentful.Asset;
-    headerForegroundColor?: Contentful.EntryFields.Symbol;
+    isHeaderBackgroundColorSchemaLight?: Contentful.EntryFields.Boolean;
     headerImage?: Contentful.Asset;
     content?: CFRichTextTypes.Block | CFRichTextTypes.Inline;
 }
