@@ -48,13 +48,13 @@ const Header: React.FunctionComponent<Props> = ({
       >
         <ReadabilityConstraints>
           <div className={Styles.container}>
-            <div className={Styles.Title}>
+            <div className={Styles.title}>
               <h3>{title}</h3>
               {subtitle && <p>{subtitle}</p>}
             </div>
-            {isSharingEnabled && <div className={Styles.Share}>Share:</div>}
+            {isSharingEnabled && <div className={Styles.sharing}>Share:</div>}
             {headerImage && (
-              <div className={Styles.Image}>
+              <div className={Styles.image}>
                 <ContentfulAsset asset={headerImage} />
               </div>
             )}
