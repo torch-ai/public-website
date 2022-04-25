@@ -1,7 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
 import Static from "../../styles/modules/static.module.scss";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Footer from "../../components/Footer";
 import { InView } from "react-intersection-observer";
 import Head from "next/head";
@@ -10,7 +9,6 @@ import { ReactElement, useContext } from "react";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
-import { Document } from "@contentful/rich-text-types";
 import ContentfulContent from "../../components/ContentfulContent";
 
 export const getStaticPaths: GetStaticPaths = async () => {

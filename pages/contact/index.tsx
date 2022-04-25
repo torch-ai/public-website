@@ -1,3 +1,5 @@
+// noinspection JSUnusedGlobalSymbols
+
 import React, { useContext } from "react";
 import Grid from "../../styles/modules/grid.module.scss";
 import Style from "../../styles/modules/contact.module.scss";
