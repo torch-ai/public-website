@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { TypePage } from "../../generated/contentful";
 import Styles from "./styles.module.scss";
 import ContentfulContent from "../ContentfulContent/ContentfulContent";
@@ -9,10 +9,14 @@ import ContentfulAsset from "../ContentfulAsset/ContentfulAsset";
 interface Props {
   page: TypePage;
   isSharingEnabled?: boolean;
+  /** Appears after the main content */
+  mainChildren?: ReactNode;
+  /** Appears after the aside content */
+  asideChildren?: ReactNode;
 }
 const ContentfulPage: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
-> = ({ children, isSharingEnabled, page }) => {
+> = ({ children, asideChildren, mainChildren, isSharingEnabled, page }) => {
   return (
     <>
       <section>
@@ -43,14 +47,16 @@ const ContentfulPage: React.FunctionComponent<
         <Container className={Styles.contentGrid}>
           <main className={Styles.main}>
             {<ContentfulContent content={page.fields.content} />}
+            {mainChildren}
           </main>
           <aside className={Styles.aside}>
             {page.fields.aside && (
               <ContentfulContent content={page.fields.aside} />
             )}
+            {asideChildren}
           </aside>
         </Container>
-        <Container>{children}</Container>
+        {children}
       </section>
     </>
   );
