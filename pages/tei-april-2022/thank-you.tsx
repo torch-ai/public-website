@@ -6,10 +6,7 @@ import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TypePage } from "../../generated/contentful";
 import { getPage } from "../../contentful/client";
-import Styles from "./styles.module.scss";
-import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
-import Header from "./components/Header/Header";
-import Container from "../../components/Container/Container";
+import ContentfulPage from "../../components/ContentfulPage/ContentfulPage";
 
 export const getStaticProps: GetStaticProps<{
   page: TypePage;
@@ -28,7 +25,7 @@ const ThankYou = ({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const {
-    fields: { title, content },
+    fields: { title },
   } = page;
 
   return (
@@ -36,14 +33,7 @@ const ThankYou = ({
       <Head>
         <title>{title} | Torch.AI</title>
       </Head>
-      <section>
-        <Header page={page} />
-        <Container>
-          <main className={Styles.grid}>
-            <ContentfulContent content={content} />
-          </main>
-        </Container>
-      </section>
+      <ContentfulPage page={page} />
       <Footer />
     </>
   );
