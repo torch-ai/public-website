@@ -3,19 +3,20 @@
 import React from "react";
 import Image from "next/image";
 import { Asset } from "contentful";
+import Styles from "./styles.module.scss";
 
 interface Props {
   asset: Asset;
 }
-const Header: React.FunctionComponent<Props> = ({ asset }) => {
-  return (
+const ContentfulImage: React.FunctionComponent<Props> = ({ asset }) => (
+  <div className={Styles.wrapper}>
     <Image
       src={["https://", asset.fields.file.url].join("")}
       width={asset.fields.file.details.image.width}
       height={asset.fields.file.details.image.height}
       alt={"Title page of the Forrester economic impact report"}
     />
-  );
-};
+  </div>
+);
 
-export default Header;
+export default ContentfulImage;
