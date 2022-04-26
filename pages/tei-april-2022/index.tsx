@@ -9,6 +9,7 @@ import { getPage } from "../../contentful/client";
 import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
 import Styles from "./styles.module.scss";
 import Header from "./components/Header/Header";
+import Container from "../../components/Container/Container";
 
 export const getStaticProps: GetStaticProps<{
   page?: TypePage;
@@ -25,19 +26,28 @@ export const getStaticProps: GetStaticProps<{
 
 const Index = ({
   page,
-}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => (
-  <>
-    <Head>
-      <title>{page.fields.title || "Content not found"} | Torch.AI</title>
-    </Head>
-    <section>
-      <Header page={page} />
-      <main className={Styles.main}>
-        {<ContentfulContent content={page.fields.content} />}
-      </main>
-    </section>
-    <Footer />
-  </>
-);
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+  return (
+    <>
+      <Head>
+        <title>{page.fields.title || "Content not found"} | Torch.AI</title>
+      </Head>
+      <section>
+        <Header page={page} />
+        <Container className={Styles.grid}>
+          <main className={Styles.main}>
+            {<ContentfulContent content={page.fields.content} />}
+          </main>
+          <aside className={Styles.aside}>
+            {page.fields.aside && (
+              <ContentfulContent content={page.fields.aside} />
+            )}
+          </aside>
+        </Container>
+      </section>
+      <Footer />
+    </>
+  );
+};
 
 export default Index;

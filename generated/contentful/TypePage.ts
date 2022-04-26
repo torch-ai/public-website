@@ -11,6 +11,7 @@ export interface TypePageFields {
     isHeaderBackgroundColorSchemaLight?: Contentful.EntryFields.Boolean;
     headerImage?: Contentful.Asset;
     content?: CFRichTextTypes.Block | CFRichTextTypes.Inline;
+    aside?: CFRichTextTypes.Block | CFRichTextTypes.Inline;
 }
 
 export type TypePage = Contentful.Entry<TypePageFields>;

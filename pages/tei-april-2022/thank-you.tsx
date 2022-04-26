@@ -9,6 +9,7 @@ import { getPage } from "../../contentful/client";
 import Styles from "./styles.module.scss";
 import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
 import Header from "./components/Header/Header";
+import Container from "../../components/Container/Container";
 
 export const getStaticProps: GetStaticProps<{
   page: TypePage;
@@ -37,9 +38,11 @@ const ThankYou = ({
       </Head>
       <section>
         <Header page={page} />
-        <main className={Styles.main}>
-          <ContentfulContent content={content} />
-        </main>
+        <Container>
+          <main className={Styles.grid}>
+            <ContentfulContent content={content} />
+          </main>
+        </Container>
       </section>
       <Footer />
     </>

@@ -1,13 +1,29 @@
 @use "/styles/breakpoints";
 
-.main {
+.grid {
   display: flex;
-  flex-flow: row wrap;
-  padding: 3rem 0;
+  flex-flow: column wrap;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.main {
+}
+
+.aside {
 }
 
 @media screen and (min-width: breakpoints.$breakpoint-lg) {
+  .grid {
+    flex-flow: row nowrap;
+  }
+
   .main {
-    flex-flow: column nowrap;
+    flex-grow: 2;
+  }
+
+  .aside {
+    width: clamp(10em, 40%, 50em);
+    text-align: center;
   }
 }
