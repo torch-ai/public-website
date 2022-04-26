@@ -2,7 +2,8 @@ import React from "react";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Document } from "@contentful/rich-text-types";
 import * as CFRichTextTypes from "@contentful/rich-text-types";
-import ReadabilityConstraints from "../ReadabilityConstraints/ReadabilityConstraints";
+import clsx from "clsx";
+import Prose from "../Prose/Prose";
 
 interface Props {
   content:
@@ -14,12 +15,9 @@ const ContentfulContent: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
 > = ({ content, ...props }) => {
   return (
-    <ReadabilityConstraints
-      {...props}
-      className={["flow", props.className].filter(Boolean).join(" ")}
-    >
+    <Prose {...props} className={clsx(props.className)}>
       {documentToReactComponents(content as Document)}
-    </ReadabilityConstraints>
+    </Prose>
   );
 };
 export default ContentfulContent;

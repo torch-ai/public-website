@@ -13,7 +13,8 @@
 }
 
 .service-content {
-  color: black;
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .content h2,
@@ -26,9 +27,4 @@
   margin: 2em 0;
   line-height: 2;
   max-width: 55ch;
-}
-
-.content a {
-  color: black;
-  text-decoration: underline;
 }
