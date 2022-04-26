@@ -24,7 +24,7 @@ const Header: React.FunctionComponent<Props> = ({
           : undefined,
       }}
     >
-      <div className={Styles.container}>
+      <div className={Styles.grid}>
         <div className={Styles.title}>
           <h3>{page?.fields.title || "Content not found"}</h3>
           {page?.fields.subtitle && <p>{page.fields.subtitle}</p>}

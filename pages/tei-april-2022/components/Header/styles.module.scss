@@ -12,7 +12,7 @@
 }
 
 // Establish a 12x3 grid
-.container {
+.grid {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: min-content min-content min-content;
