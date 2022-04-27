@@ -1,7 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
 import Static from "../../styles/modules/static.module.scss";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import Footer from "../../components/Footer";
 import { InView } from "react-intersection-observer";
 import Head from "next/head";
@@ -10,7 +9,7 @@ import { ReactElement, useContext } from "react";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
-import { Document } from "@contentful/rich-text-types";
+import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await getNewsEntries();
@@ -67,12 +66,8 @@ const Slug = ({
           </InView>
         </header>
         {/* <InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}> */}
-        <div className={`${Static["service-content"]}`}>
-          <div>
-            <div className={` ${Static["content"]} post flow`}>
-              <p>{documentToReactComponents(content as Document)}</p>
-            </div>
-          </div>
+        <div className={`${Static["service-content"]} post `}>
+          <ContentfulContent content={content} />
         </div>
         {/* </InView> */}
       </section>

@@ -1,7 +1,9 @@
-import { createClient, EntryCollection, Sys } from "contentful";
+import { createClient, Entry, EntryCollection, Sys } from "contentful";
 import {
   TypeCareerPostingFields,
   TypeNewsFields,
+  TypePage,
+  TypePageFields,
 } from "../generated/contentful";
 
 // Trying very hard not to expose the raw client to get good utility functions.
@@ -29,11 +31,10 @@ type GetEntries<T> = (
   } & QueryFields<T>
 ) => Promise<EntryCollection<T>>;
 
-// type GetEntry<T> = (
-//   id: string,
-//   query?: Record<string, any> & {
-//   } & QueryFields<T>
-// ) => Promise<Entry<T>>;
+type GetEntry<T> = (
+  id: string,
+  query?: Record<string, any> & {} & QueryFields<T>
+) => Promise<Entry<T>>;
 
 enum ContentModels {
   CareerPosting = "careerPosting",
@@ -58,3 +59,8 @@ export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
 //   client.getEntry<TypeNewsFields>(id, {
 //     ...query,
 //   });
+
+export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
+  client.getEntry<TypePageFields>(id, {
+    ...query,
+  });

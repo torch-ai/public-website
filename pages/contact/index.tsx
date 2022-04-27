@@ -1,12 +1,14 @@
+// noinspection JSUnusedGlobalSymbols
+
 import React, { useContext } from "react";
-import Grid from "../styles/modules/grid.module.scss";
-import Style from "../styles/modules/contact.module.scss";
-import Footer from "../components/Footer";
+import Grid from "../../styles/modules/grid.module.scss";
+import Style from "../../styles/modules/contact.module.scss";
+import Footer from "../../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
-import LayoutContext from "../components/layout/LayoutContext";
+import LayoutContext from "../../components/layout/LayoutContext";
 
-const Contact: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
@@ -90,4 +92,4 @@ const Contact: React.FunctionComponent = () => {
   );
 };
 
-export default Contact;
+export default Index;
