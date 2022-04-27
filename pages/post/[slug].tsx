@@ -53,7 +53,7 @@ const Slug = ({
       </PageHeader>
       <Container>
         <main className={Styles.main}>
-          <ContentfulContent content={content} />
+          <ContentfulContent className={Styles.content} content={content} />
         </main>
       </Container>
       <Footer />
