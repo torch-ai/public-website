@@ -46,6 +46,10 @@
   flex-flow: column wrap;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  justify-content: center;
+}
+
+.contentGridHasAside {
 }
 
 .main {
@@ -58,8 +62,11 @@
 @media screen and (min-width: breakpoints.$breakpoint-lg) {
   .contentGrid {
     flex-flow: row nowrap;
-    justify-content: center;
     gap: 2em;
+  }
+
+  .contentGridHasAside {
+    justify-content: space-evenly;
   }
 
   .main {

@@ -6,6 +6,8 @@ import PageHeader from "../PageHeader/PageHeader";
 import Container from "../Container/Container";
 import ContentfulAsset from "../ContentfulAsset/ContentfulAsset";
 import PageTitle from "../PageTitle/PageTitle";
+import PageSubtitle from "../PageSubtitle/PageSubtitle";
+import clsx from "clsx";
 
 interface Props {
   page: TypePage;
@@ -18,6 +20,8 @@ interface Props {
 const ContentfulPage: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
 > = ({ children, asideChildren, mainChildren, isSharingEnabled, page }) => {
+  const hasAside = asideChildren || page.fields.aside;
+
   return (
     <>
       <section>
@@ -33,7 +37,9 @@ const ContentfulPage: React.FunctionComponent<
           <div className={Styles.headerGrid}>
             <div className={Styles.headerGridTitle}>
               <PageTitle>{page?.fields.title || "Content not found"}</PageTitle>
-              {page?.fields.subtitle && <p>{page.fields.subtitle}</p>}
+              {page?.fields.subtitle && (
+                <PageSubtitle>{page.fields.subtitle}</PageSubtitle>
+              )}
             </div>
             {isSharingEnabled && (
               <div className={Styles.headerGridSharing}>Share:</div>
@@ -45,17 +51,22 @@ const ContentfulPage: React.FunctionComponent<
             )}
           </div>
         </PageHeader>
-        <Container className={Styles.contentGrid}>
+        <Container
+          className={clsx(Styles.contentGrid, {
+            [Styles.contentGridHasAside]: hasAside,
+          })}
+        >
           <main className={Styles.main}>
             {<ContentfulContent content={page.fields.content} />}
             {mainChildren}
           </main>
-          <aside className={Styles.aside}>
-            {page.fields.aside && (
+
+          {hasAside && (
+            <aside className={Styles.aside}>
               <ContentfulContent content={page.fields.aside} />
-            )}
-            {asideChildren}
-          </aside>
+              {asideChildren}
+            </aside>
+          )}
         </Container>
         {children}
       </section>

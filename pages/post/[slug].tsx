@@ -10,6 +10,8 @@ import ContentfulContent from "../../components/ContentfulContent/ContentfulCont
 import PageHeader from "../../components/PageHeader/PageHeader";
 import Container from "../../components/Container/Container";
 import PageTitle from "../../components/PageTitle/PageTitle";
+import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
+import Styles from "./styles.module.scss";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await getNewsEntries();
@@ -47,12 +49,10 @@ const Slug = ({
       </Head>
       <PageHeader>
         <PageTitle>{item.fields.title}.</PageTitle>
-        <p>
-          <em>{item.fields.summary} </em>
-        </p>
+        <PageSubtitle>{item.fields.summary}</PageSubtitle>
       </PageHeader>
       <Container>
-        <main>
+        <main className={Styles.main}>
           <ContentfulContent content={content} />
         </main>
       </Container>

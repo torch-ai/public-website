@@ -9,7 +9,7 @@ import Prose from "../Prose/Prose";
 import ContentfulAsset from "../ContentfulAsset/ContentfulAsset";
 
 interface Props {
-  content: Block | Inline | Document;
+  content?: Block | Inline | Document;
 }
 
 const ContentfulContent: React.FunctionComponent<
@@ -18,9 +18,13 @@ const ContentfulContent: React.FunctionComponent<
   const renderOptions = getRenderOptions();
 
   return (
-    <Prose {...props} className={clsx(props.className)}>
-      {documentToReactComponents(content as Document, renderOptions)}
-    </Prose>
+    <>
+      {content && (
+        <Prose {...props} className={clsx(props.className)}>
+          {documentToReactComponents(content as Document, renderOptions)}
+        </Prose>
+      )}
+    </>
   );
 };
 export default ContentfulContent;
