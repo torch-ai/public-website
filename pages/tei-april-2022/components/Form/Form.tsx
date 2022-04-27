@@ -61,7 +61,7 @@ const Index: React.FunctionComponent = () => {
           our team by email or phone. You can unsubscribe from our
           communications at any time via the unsubscribe option in the email
           received. For more information on how Torch.AI uses your data, please
-          refer to our Privacy Policy.
+          refer to our <a href="/privacypolicy">Privacy Policy</a>.
         </p>
         <button type="submit">Send</button>
       </form>
