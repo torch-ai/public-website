@@ -21,7 +21,7 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const Legal = ({
+const PrivacyPolicy = ({
   page,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const {
@@ -46,4 +46,4 @@ const Legal = ({
   );
 };
 
-export default Legal;
+export default PrivacyPolicy;
