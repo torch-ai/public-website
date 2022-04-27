@@ -1,15 +1,17 @@
 // noinspection JSUnusedGlobalSymbols
 
-import Static from "../../styles/modules/static.module.scss";
 import Footer from "../../components/Footer";
-import { InView } from "react-intersection-observer";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
-import { ReactElement, useContext } from "react";
-import LayoutContext from "../../components/layout/LayoutContext";
+import { ReactElement } from "react";
 import { getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
 import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import Container from "../../components/Container/Container";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
+import Styles from "./styles.module.scss";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const res = await getNewsEntries();
@@ -39,38 +41,21 @@ export const getStaticProps: GetStaticProps<{ item: TypeNews }> = async ({
 const Slug = ({
   item,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
-  const { setNavColor } = useContext(LayoutContext);
-
   const { content } = item.fields;
   return (
     <>
       <Head>
         <title>{item.fields.title} | Torch.AI</title>
       </Head>
-      <section>
-        <header className={`${Static["service-header"]}`}>
-          <InView
-            as="div"
-            onChange={(inView) => setNavColor(inView ? "white" : "black")}
-          >
-            <div className={`${Static["service"]}`}>
-              <div className={`${Static["content"]}`}>
-                <div className={`post flow`}>
-                  <h3>{item.fields.title}.</h3>
-                  <p>
-                    <em>{item.fields.summary} </em>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </InView>
-        </header>
-        {/* <InView as='div' onChange={(inView, entry) => setNavColor(inView ? 'black' : 'white')}> */}
-        <div className={`${Static["service-content"]} post `}>
-          <ContentfulContent content={content} />
-        </div>
-        {/* </InView> */}
-      </section>
+      <PageHeader>
+        <PageTitle>{item.fields.title}.</PageTitle>
+        <PageSubtitle>{item.fields.summary}</PageSubtitle>
+      </PageHeader>
+      <Container>
+        <main className={Styles.main}>
+          <ContentfulContent className={Styles.content} content={content} />
+        </main>
+      </Container>
       <Footer />
     </>
   );

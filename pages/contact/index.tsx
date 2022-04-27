@@ -7,6 +7,8 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 
 const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -28,8 +30,10 @@ const Index: React.FunctionComponent = () => {
               <div
                 className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
               >
-                <h2>Contact Us.</h2>
-                <p>Find out how Nexus can unlock your productivity.</p>
+                <PageTitle>Contact Us.</PageTitle>
+                <PageSubtitle>
+                  Find out how Nexus can unlock your productivity.
+                </PageSubtitle>
               </div>
             </div>
             <div className={`${Grid["row"]}`}>

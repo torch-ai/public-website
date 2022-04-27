@@ -1,6 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 module.exports = {
   images: {
+    // Contentful assets
     domains: ["images.ctfassets.net"],
   },
   async redirects() {
