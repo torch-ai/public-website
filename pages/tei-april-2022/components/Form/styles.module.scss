@@ -9,6 +9,10 @@
   flex-grow: 1;
 }
 
+.legal {
+  font-size: 0.8em;
+}
+
 .header {
   border-radius: 0.5rem 0.5rem 0 0;
   background: #a3d8d6;
@@ -40,8 +44,13 @@
   }
 
   p {
+    max-width: 65ch;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  a {
+    font-size: inherit;
   }
 
   button {

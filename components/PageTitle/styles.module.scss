@@ -1,0 +1,7 @@
+@use "/styles/breakpoints";
+
+.default {
+  max-width: none;
+  font-size: var(--h3);
+  font-family: var(--font-primary);
+}

@@ -5,6 +5,7 @@ import ContentfulContent from "../ContentfulContent/ContentfulContent";
 import PageHeader from "../PageHeader/PageHeader";
 import Container from "../Container/Container";
 import ContentfulAsset from "../ContentfulAsset/ContentfulAsset";
+import PageTitle from "../PageTitle/PageTitle";
 
 interface Props {
   page: TypePage;
@@ -31,7 +32,7 @@ const ContentfulPage: React.FunctionComponent<
         >
           <div className={Styles.headerGrid}>
             <div className={Styles.headerGridTitle}>
-              <h3>{page?.fields.title || "Content not found"}</h3>
+              <PageTitle>{page?.fields.title || "Content not found"}</PageTitle>
               {page?.fields.subtitle && <p>{page.fields.subtitle}</p>}
             </div>
             {isSharingEnabled && (

@@ -10,7 +10,7 @@ import clsx from "clsx";
 interface Props {
   isLightColorScheme?: boolean;
 }
-const Header: React.FunctionComponent<
+const PageHeader: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
 > = ({ isLightColorScheme, children, ...props }) => {
   const { setNavColor } = useContext(LayoutContext);
@@ -32,4 +32,4 @@ const Header: React.FunctionComponent<
   );
 };
 
-export default Header;
+export default PageHeader;

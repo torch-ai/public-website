@@ -56,7 +56,7 @@ const Index: React.FunctionComponent = () => {
           </label>
         </div>
 
-        <p>
+        <p className={Styles.legal}>
           By submitting this form, you consent to be contacted by a member of
           our team by email or phone. You can unsubscribe from our
           communications at any time via the unsubscribe option in the email

@@ -61,8 +61,8 @@ const Platform: React.FunctionComponent = () => {
                     className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
                   >
                     <h2 ref={buttonRef}>
-                      Nexus<sup>™</sup>. The highest-performance data processing
-                      platform ever built.
+                      Nexus<sup>&trade;</sup>. The highest-performance data
+                      processing platform ever built.
                     </h2>
                     <div ref={fadeRef} className={`${Style["circle-icon"]}`}>
                       <svg
@@ -96,8 +96,8 @@ const Platform: React.FunctionComponent = () => {
                         className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]} ${Grid["margin_center"]}`}
                       >
                         <h3>
-                          Nexus<sup>™</sup> is a transparent and composable
-                          software platform bridging three powerful
+                          Nexus<sup>&trade;</sup> is a transparent and
+                          composable software platform bridging three powerful
                           capabilities:
                         </h3>
                       </div>

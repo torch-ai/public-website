@@ -10,27 +10,29 @@
 
 // Lay out content for xs
 .headerGridTitle {
-  grid-column: 1 / 12;
+  grid-column: 1 / 13;
   grid-row: 1 / 1;
 }
 .headerGridImage {
-  grid-column: 1 / 12;
+  grid-column: 1 / 13;
   grid-row: 2 / 2;
   max-height: 40vh;
+  justify-self: center;
 }
 .headerGridSharing {
-  grid-column: 1 / 12;
+  grid-column: 1 / 13;
   grid-row: 3 / 3;
 }
 
-@media screen and (min-width: breakpoints.$breakpoint-md) {
+@media screen and (min-width: breakpoints.$breakpoint-lg) {
   .headerGridTitle {
     grid-column: 1 / 8;
     grid-row: 1 / 2;
   }
   .headerGridImage {
-    grid-column: 8 / 12;
+    grid-column: 9 / 13;
     grid-row: 1 / 3;
+    justify-self: end;
   }
   .headerGridSharing {
     grid-column: 1 / 8;
