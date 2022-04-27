@@ -2,12 +2,18 @@
   margin: 1rem auto;
   padding: 1.2em 3em;
   border-radius: 8em;
-  background-color: transparent;
+  background-color: white;
   border: 1px solid var(--color-dark);
   color: var(--color-dark);
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  max-width: none;
+  text-align: center;
+  font-size: var(--base-size);
+  line-height: 1;
+  font-family: var(--font-primary);
 }
 .default:hover,
 .default:focus {
@@ -18,7 +24,7 @@
 .isPrimary {
   color: var(--color-primary);
   border-color: var(--color-primary);
-  background: transparent;
+  background: white;
 }
 .isPrimary:hover,
 .isPrimary:focus {
@@ -28,10 +34,14 @@
 .isSecondary {
   color: var(--color-accent);
   border-color: var(--color-accent);
-  background: var(--color-accent-contrast);
+  background: white;
 }
 .isSecondary:hover,
 .isSecondary:focus {
   background: var(--color-accent);
   color: var(--color-accent-contrast);
+}
+
+.isBlock {
+  width: 100%;
 }

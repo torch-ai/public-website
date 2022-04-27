@@ -55,22 +55,22 @@
     font-size: inherit;
     text-decoration: underline;
   }
+}
 
-  button {
-    margin: 1rem auto;
-    padding: 1.2em 3em;
-    border-radius: 8em;
-    background: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    color: black;
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    width: 100%;
-  }
+.button {
+  margin: 1rem auto;
+  padding: 1.2em 3em;
+  border-radius: 8em;
+  background-color: transparent;
+  border: 1px solid black;
+  color: black;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+}
 
-  button:hover,
-  button:focus {
-    color: var(--color-primary);
-    background-color: transparent;
-  }
+.button:hover,
+.button:focus {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
 }

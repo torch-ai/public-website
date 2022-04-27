@@ -4,6 +4,7 @@ import React from "react";
 import Styles from "./styles.module.scss";
 import Card from "../../../../components/Card/Card";
 import Link from "next/link";
+import PrimaryButton from "../../../../components/PrimaryButton/PrimaryButton";
 
 const Form: React.FunctionComponent = () => {
   return (
@@ -64,7 +65,9 @@ const Form: React.FunctionComponent = () => {
           received. For more information on how Torch.AI uses your data, please
           refer to our <Link href="/privacypolicy">Privacy Policy</Link>.
         </p>
-        <button type="submit">Send</button>
+        <PrimaryButton isBlock type={"submit"}>
+          Send
+        </PrimaryButton>
       </form>
     </Card>
   );
