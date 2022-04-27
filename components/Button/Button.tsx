@@ -7,7 +7,11 @@ interface Props {
   isSecondary?: boolean;
 }
 const Button: React.FunctionComponent<
-  Props & React.HTMLAttributes<HTMLButtonElement>
+  Props &
+    React.DetailedHTMLProps<
+      React.ButtonHTMLAttributes<HTMLButtonElement>,
+      HTMLButtonElement
+    >
 > = ({ isPrimary, isSecondary, children, ...props }) => (
   <button
     {...props}
