@@ -3,6 +3,7 @@
 import React from "react";
 import Styles from "./styles.module.scss";
 import Card from "../../../../components/Card/Card";
+import Link from "next/link";
 
 const Index: React.FunctionComponent = () => {
   return (
@@ -61,7 +62,7 @@ const Index: React.FunctionComponent = () => {
           our team by email or phone. You can unsubscribe from our
           communications at any time via the unsubscribe option in the email
           received. For more information on how Torch.AI uses your data, please
-          refer to our <a href="/privacypolicy">Privacy Policy</a>.
+          refer to our <Link href="/privacypolicy">Privacy Policy</Link>.
         </p>
         <button type="submit">Send</button>
       </form>
