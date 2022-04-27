@@ -15,9 +15,11 @@
 
 .header {
   border-radius: 0.5rem 0.5rem 0 0;
-  background: #a3d8d6;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font-family: var(--font-primary);
   padding: 1.5rem;
-  font-size: 1.8rem;
+  font-size: var(--h4);
 }
 
 .form {
