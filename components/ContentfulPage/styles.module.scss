@@ -1,0 +1,18 @@
+.header {
+  background-color: var(--color-dark);
+  padding: 15em 0 5em;
+  color: var(--color-light);
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-light);
+  }
+}
+
+.content {
+  padding: 5rem 0;
+}
