@@ -1,7 +1,9 @@
+@use "/styles/breakpoints";
+
 // Integrating towards tailwind's .prose class
 
 .prose {
-  font-size: 1.1rem;
+  font-size: 18px;
   line-height: 2;
 
   * {
@@ -14,6 +16,12 @@
   strong {
     //color: var(--tw-prose-bold);
     font-family: var(--font-primary);
+  }
+}
+
+@media screen and (min-width: breakpoints.$breakpoint-lg) {
+  .prose {
+    font-size: 20.8px;
   }
 }
 
