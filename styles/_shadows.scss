@@ -1,0 +1,30 @@
+// https://shadows.brumm.af/
+
+@mixin box-shadow-elevation-1 {
+  box-shadow: 0.1px 0.3px 0.4px rgba(0, 0, 0, 0.02),
+    0.3px 0.7px 1px rgba(0, 0, 0, 0.028), 0.6px 1.3px 1.9px rgba(0, 0, 0, 0.035),
+    1.1px 2.2px 3.4px rgba(0, 0, 0, 0.042),
+    2.1px 4.2px 6.3px rgba(0, 0, 0, 0.05), 5px 10px 15px rgba(0, 0, 0, 0.07);
+}
+
+@mixin box-shadow-elevation-2 {
+  box-shadow: 0.3px 0.6px 1px rgba(0, 0, 0, 0.02),
+    0.7px 1.3px 2.3px rgba(0, 0, 0, 0.028),
+    1.3px 2.5px 4.4px rgba(0, 0, 0, 0.035),
+    2.2px 4.5px 7.8px rgba(0, 0, 0, 0.042),
+    4.2px 8.4px 14.6px rgba(0, 0, 0, 0.05), 10px 20px 35px rgba(0, 0, 0, 0.07);
+}
+
+@mixin box-shadow-elevation-3 {
+  box-shadow: 0.6px 1.1px 1.5px rgba(0, 0, 0, 0.02),
+    1.3px 2.7px 3.7px rgba(0, 0, 0, 0.028), 2.5px 5px 6.9px rgba(0, 0, 0, 0.035),
+    4.5px 8.9px 12.3px rgba(0, 0, 0, 0.042),
+    8.4px 16.7px 23px rgba(0, 0, 0, 0.05), 20px 40px 55px rgba(0, 0, 0, 0.07);
+}
+
+@mixin box-shadow-elevation-4 {
+  box-shadow: 0.8px 1.4px 1.8px rgba(0, 0, 0, 0.02),
+    2px 3.3px 4.3px rgba(0, 0, 0, 0.028), 3.8px 6.3px 8.1px rgba(0, 0, 0, 0.035),
+    6.7px 11.2px 14.5px rgba(0, 0, 0, 0.042),
+    12.5px 20.9px 27.2px rgba(0, 0, 0, 0.05), 30px 50px 65px rgba(0, 0, 0, 0.07);
+}
