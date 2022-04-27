@@ -5,7 +5,7 @@ import Styles from "./styles.module.scss";
 import Card from "../../../../components/Card/Card";
 import Link from "next/link";
 
-const Index: React.FunctionComponent = () => {
+const Form: React.FunctionComponent = () => {
   return (
     <Card>
       <header className={Styles.header}>Download this study as a PDF</header>
@@ -70,4 +70,4 @@ const Index: React.FunctionComponent = () => {
   );
 };
 
-export default Index;
+export default Form;
