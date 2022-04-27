@@ -2,10 +2,11 @@
 
 import React from "react";
 import Styles from "./styles.module.scss";
+import Card from "../../../../components/Card/Card";
 
 const Index: React.FunctionComponent = () => {
   return (
-    <section className={Styles.card}>
+    <Card>
       <header className={Styles.header}>Download this study as a PDF</header>
       <form
         action="https://formspree.io/f/mvolwyny"
@@ -64,7 +65,7 @@ const Index: React.FunctionComponent = () => {
         </p>
         <button type="submit">Send</button>
       </form>
-    </section>
+    </Card>
   );
 };
 
