@@ -2,6 +2,7 @@ import "../styles/global.scss";
 import Layout from "../components/layout/Layout";
 import { LayoutContextProvider } from "../components/layout/LayoutContext";
 import { useEffect } from "react";
+import Head from "next/head";
 
 const App = ({ Component, pageProps }) => {
   // TODO add preloader to website.
@@ -12,6 +13,13 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
+      <Head>
+        <title>Torch AI</title>
+        <meta
+          name="google-site-verification"
+          content="jnMUZSnFk7rNuzBliT91FcC07ggjU6ArbL6I1VXHs44"
+        />
+      </Head>
       <LayoutContextProvider>
         <Layout>
           <Component {...pageProps} />
