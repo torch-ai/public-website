@@ -1,0 +1,29 @@
+@use "/styles/shadows";
+
+.card {
+  border-radius: 0.5rem;
+}
+
+.border {
+  border: solid 1px var(--color-divider);
+}
+
+.square {
+  border-radius: 0;
+}
+
+.elevation1 {
+  @include shadows.box-shadow-elevation-1;
+}
+
+.elevation2 {
+  @include shadows.box-shadow-elevation-2;
+}
+
+.elevation3 {
+  @include shadows.box-shadow-elevation-3;
+}
+
+.elevation4 {
+  @include shadows.box-shadow-elevation-4;
+}

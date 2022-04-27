@@ -19,10 +19,6 @@
   max-height: 40vh;
   justify-self: center;
 }
-.headerGridSharing {
-  grid-column: 1 / 13;
-  grid-row: 3 / 3;
-}
 
 @media screen and (min-width: breakpoints.$breakpoint-lg) {
   .headerGridTitle {
@@ -34,45 +30,9 @@
     grid-row: 1 / 3;
     justify-self: end;
   }
-  .headerGridSharing {
-    grid-column: 1 / 8;
-    grid-row: 2 / 3;
-    align-self: end;
-  }
-}
-
-.contentGrid {
-  display: flex;
-  flex-flow: column wrap;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  justify-content: center;
-}
-
-.contentGridHasAside {
 }
 
 .main {
-}
-
-.aside {
-  margin-top: 2em;
-}
-
-@media screen and (min-width: breakpoints.$breakpoint-lg) {
-  .contentGrid {
-    flex-flow: row nowrap;
-    gap: 2em;
-  }
-
-  .contentGridHasAside {
-    justify-content: space-evenly;
-  }
-
-  .main {
-  }
-
-  .aside {
-    margin-top: 0;
-  }
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }

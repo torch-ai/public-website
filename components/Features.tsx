@@ -59,9 +59,9 @@ const Features: React.FunctionComponent = () => {
           <div className={`${Style["accordian__content"]}`}>
             <p>
               Unlock the total value of your entire data ecosystem with Semantic
-              Stitching™, a proprietary “no code” data retrieval system which
-              converts business-friendly data requests into optimized technical
-              queries.
+              Stitching&trade;, a proprietary “no code” data retrieval system
+              which converts business-friendly data requests into optimized
+              technical queries.
             </p>
           </div>
         </div>

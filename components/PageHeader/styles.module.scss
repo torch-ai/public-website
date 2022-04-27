@@ -1,0 +1,12 @@
+@use "/styles/breakpoints";
+
+.header {
+  background: var(--color-dark) repeat;
+  color: var(--color-light);
+  padding: 15em 0 5em;
+}
+
+.isLightColorScheme {
+  background-color: var(--color-light);
+  color: var(--color-dark);
+}
