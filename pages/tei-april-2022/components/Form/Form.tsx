@@ -17,13 +17,7 @@ const Form: React.FunctionComponent = () => {
       >
         <div className={Styles.row}>
           <label>
-            <input
-              type="text"
-              name="name"
-              placeholder="Full name"
-              required
-              autoFocus
-            />
+            <input type="text" name="name" placeholder="Full name" required />
           </label>
         </div>
 
