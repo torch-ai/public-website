@@ -25,6 +25,12 @@ module.exports = {
         destination: "/terms/6128f1444f09249ec2ac66d8_EULA.pdf",
         permanent: false,
       },
+      // 2022-05-02
+      {
+        source: "/tei-april2022",
+        destination: "/tei-april-2022",
+        permanent: true,
+      }
     ];
   },
 };
