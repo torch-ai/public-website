@@ -131,7 +131,7 @@ const Platform: React.FunctionComponent = () => {
                         <div>
                           <h4>Link</h4>
                           <p>
-                            Secure connect your data sources and business
+                            Securely connect your data sources and business
                             systems, so your investments in infrastructure don’t
                             go to waste. Nexus unlocks your proprietary data by
                             fusing it with additional, public data sources—like
