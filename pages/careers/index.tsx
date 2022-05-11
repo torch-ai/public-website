@@ -2,7 +2,6 @@
 
 import React, { ReactElement, useEffect } from "react";
 import Image from "next/image";
-import CareersClasses from "../../styles/modules/careers.module.scss";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import forbes from "../../img/forbes.png";
@@ -13,6 +12,7 @@ import Container from "../../components/Container/Container";
 import Styles from "./styles.module.scss";
 import useScript from "../../hooks/useScript";
 import Prose from "../../components/Prose/Prose";
+import clsx from "clsx";
 
 const Index = (): ReactElement => {
   useEffect(() => {
@@ -29,6 +29,11 @@ const Index = (): ReactElement => {
     src: "https://assets.rippling-ats.com/javascripts/embed.js",
     id: "rippling-jobs-widget",
   });
+  // Flaky, can't be trusted in SPA context at this time
+  // useScript({
+  //   src: "https://assets.applicant-tracking.com/webpack/forms_widget.js",
+  //   id: "rippling-signup-widget",
+  // });
 
   return (
     <>
@@ -54,7 +59,13 @@ const Index = (): ReactElement => {
           </div>
         </div>
       </PageHeader>
-      <Container>
+
+      <Container
+        className={clsx(
+          Styles.contentGrid
+          // , Styles.contentGridHasAside
+        )}
+      >
         <main className={Styles.main}>
           <Prose>
             <section id="hiringthing-jobs" className={Styles.ripplingJobs} />
@@ -88,7 +99,15 @@ const Index = (): ReactElement => {
             </noscript>
           </Prose>
         </main>
+
+        {/*<aside className={Styles.aside}>*/}
+        {/*  <section*/}
+        {/*    data-jobs-url="https://torch-ai.rippling-ats.com"*/}
+        {/*    data-signup="true"*/}
+        {/*  />*/}
+        {/*</aside>*/}
       </Container>
+
       <Footer />
     </>
   );
