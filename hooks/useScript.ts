@@ -10,7 +10,6 @@ const useScript = (
     const script = document.createElement("script");
 
     Object.entries(props).forEach(([key, value]) => {
-      console.info(key, value);
       if (typeof key === "string") {
         script[key] = value;
       }
