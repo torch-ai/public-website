@@ -36,3 +36,29 @@
   margin-top: 3rem;
   margin-bottom: 3rem;
 }
+
+// Based on the Rippling embed css: https://assets.rippling-ats.com/stylesheets/embed.css
+.ripplingJobs {
+  :global {
+    .ht-apply-link {
+      display: block;
+      margin-bottom: 2em;
+    }
+
+    .ht-title-link {
+      display: block;
+      font-size: var(--h4);
+    }
+
+    .ht-summary {
+    }
+
+    .ht-location {
+      font-size: 0.8em;
+    }
+
+    .ht-no-positions {
+      font-size: var(--h4);
+    }
+  }
+}
