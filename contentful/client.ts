@@ -18,14 +18,14 @@ enum ContentModels {
 }
 
 type GetEntries<Fields> = (
-  query: EntriesQueries<Fields>
+  query?: EntriesQueries<Fields>
 ) => Promise<
   EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks<Fields>
 >;
 
 type GetEntry<Fields> = (
   id: string,
-  query: EntriesQueries<Fields>
+  query?: EntriesQueries<Fields>
 ) => Promise<EntryWithoutLinkResolution<Fields>>;
 
 export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
