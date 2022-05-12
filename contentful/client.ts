@@ -2,6 +2,7 @@ import {
   createClient,
   EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks,
   EntriesQueries,
+  EntryWithLinkResolutionAndWithoutUnresolvableLinks,
 } from "contentful";
 import { TypeNewsFields, TypePageFields } from "../generated/contentful";
 import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
@@ -22,6 +23,10 @@ type GetEntries<Fields> = (
 ) => Promise<
   EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks<Fields>
 >;
+
+type GetAllEntries<Fields> = (
+  query?: EntriesQueries<Fields>
+) => Promise<EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[]>;
 
 type GetEntry<Fields> = (
   id: string,
@@ -45,7 +50,33 @@ export const getPageEntries: GetEntries<TypePageFields> = async (query = {}) =>
     content_type: ContentModels.Page,
   });
 
+export const getAllPageEntries: GetAllEntries<TypePageFields> = async (
+  query = {}
+) => getAllEntries<TypePageFields>(query, getPageEntries);
+
 export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypePageFields>(id, {
     ...query,
   });
+
+export const getAllEntries = async <Fields extends {}>(
+  query: EntriesQueries<Fields> = {},
+  callback: GetEntries<Fields>
+): Promise<EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[]> => {
+  let items: EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[] = [];
+  let isDone = false;
+  let skip: number | undefined = undefined;
+  while (!isDone) {
+    let res = await callback({
+      ...query,
+      skip,
+    });
+    skip = res.skip + res.limit;
+    items = items.concat(res.items);
+    if (res.skip + res.limit >= res.total) {
+      isDone = true;
+    }
+  }
+
+  return items;
+};

@@ -4,17 +4,17 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import React, { ReactElement } from "react";
-import { getPageEntries } from "../../contentful/client";
+import { getAllPageEntries, getPageEntries } from "../../contentful/client";
 import { TypePage } from "../../generated/contentful";
 import ContentfulPage from "../../components/ContentfulPage/ContentfulPage";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await getPageEntries({
+  const items = await getAllPageEntries({
     "fields.slug[exists]": true,
   });
 
   return {
-    paths: res.items.map((item) => ({
+    paths: items.map((item) => ({
       params: {
         slug: item.fields.slug,
       },
