@@ -1,10 +1,10 @@
-import { createClient, Entry, EntryCollection, Sys } from "contentful";
 import {
-  TypeCareerPostingFields,
-  TypeNewsFields,
-  TypePage,
-  TypePageFields,
-} from "../generated/contentful";
+  createClient,
+  EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks,
+  EntriesQueries,
+} from "contentful";
+import { TypeNewsFields, TypePageFields } from "../generated/contentful";
+import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
 
 // Trying very hard not to expose the raw client to get good utility functions.
 const client = createClient({
@@ -12,55 +12,34 @@ const client = createClient({
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 });
 
-type QueryFields<T> = {
-  [P in keyof T & string as `fields.${P}`]?: T[P];
-};
-
-type GetEntries<T> = (
-  query?: Record<string, any> & {
-    limit?: number;
-    skip?: number;
-    /** You can reverse the sort order by prefixing the field with a - symbol. */
-    order?:
-      | Pick<
-          Sys,
-          "type" | "id" | "createdAt" | "updatedAt" | "locale" | "revision"
-        >
-      | QueryFields<T>
-      | string;
-  } & QueryFields<T>
-) => Promise<EntryCollection<T>>;
-
-type GetEntry<T> = (
-  id: string,
-  query?: Record<string, any> & {} & QueryFields<T>
-) => Promise<Entry<T>>;
-
 enum ContentModels {
-  CareerPosting = "careerPosting",
   News = "news",
+  Page = "page",
 }
 
-export const getCareerPostingsEntries: GetEntries<
-  TypeCareerPostingFields
-> = async (query = {}) =>
-  client.getEntries<TypeCareerPostingFields>({
-    ...query,
-    content_type: ContentModels.CareerPosting,
-  });
+type GetEntries<Fields> = (
+  query?: EntriesQueries<Fields>
+) => Promise<
+  EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks<Fields>
+>;
+
+type GetEntry<Fields> = (
+  id: string,
+  query?: EntriesQueries<Fields>
+) => Promise<EntryWithoutLinkResolution<Fields>>;
 
 export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
-  client.getEntries<TypeNewsFields>({
+  client.withoutUnresolvableLinks.getEntries<TypeNewsFields>({
     ...query,
     content_type: ContentModels.News,
   });
 
-// export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
-//   client.getEntry<TypeNewsFields>(id, {
-//     ...query,
-//   });
+export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
+  client.withoutUnresolvableLinks.getEntry<TypeNewsFields>(id, {
+    ...query,
+  });
 
 export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
-  client.getEntry<TypePageFields>(id, {
+  client.withoutUnresolvableLinks.getEntry<TypePageFields>(id, {
     ...query,
   });
