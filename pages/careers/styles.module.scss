@@ -32,7 +32,65 @@
   }
 }
 
-.main {
+.contentGrid {
+  display: flex;
+  flex-flow: column wrap;
   margin-top: 3rem;
   margin-bottom: 3rem;
+  justify-content: center;
+}
+
+.contentGridHasAside {
+}
+
+.main {
+}
+
+.aside {
+  width: clamp(30ch, 33%, 65em);
+  margin-top: 2em;
+}
+
+@media screen and (min-width: breakpoints.$breakpoint-lg) {
+  .contentGrid {
+    flex-flow: row nowrap;
+    gap: 2em;
+  }
+
+  .contentGridHasAside {
+    justify-content: space-evenly;
+  }
+
+  .main {
+  }
+
+  .aside {
+    margin-top: 0;
+  }
+}
+
+// Based on the Rippling embed css: https://assets.rippling-ats.com/stylesheets/embed.css
+.ripplingJobs {
+  :global {
+    .ht-apply-link {
+      display: block;
+      margin-bottom: 2em;
+    }
+
+    .ht-title-link {
+      display: block;
+      font-size: var(--h4);
+    }
+
+    .ht-summary {
+    }
+
+    .ht-location {
+      font-size: 0.8em;
+    }
+
+    .ht-no-positions {
+      font-size: var(--h4);
+    }
+  }
 }
