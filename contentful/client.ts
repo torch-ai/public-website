@@ -1,16 +1,10 @@
 import {
   createClient,
+  EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks,
   EntriesQueries,
-  Entry,
-  EntryCollection,
 } from "contentful";
-import {
-  TypeCareerPostingFields,
-  TypeNewsFields,
-  TypePage,
-  TypePageFields,
-} from "../generated/contentful";
-import { EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks } from "contentful/lib/types/entry";
+import { TypeNewsFields, TypePageFields } from "../generated/contentful";
+import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
 
 // Trying very hard not to expose the raw client to get good utility functions.
 const client = createClient({
@@ -19,17 +13,20 @@ const client = createClient({
 });
 
 enum ContentModels {
-  CareerPosting = "careerPosting",
   News = "news",
+  Page = "page",
 }
 
-export const getCareerPostingsEntries: EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks<
-  TypeNewsFields
-> = async (query: EntriesQueries<TypeCareerPostingFields>) =>
-  client.withoutUnresolvableLinks.getEntries<TypeCareerPostingFields>({
-    ...query,
-    content_type: ContentModels.CareerPosting,
-  });
+type GetEntries<Fields> = (
+  query: EntriesQueries<Fields>
+) => Promise<
+  EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks<Fields>
+>;
+
+type GetEntry<Fields> = (
+  id: string,
+  query: EntriesQueries<Fields>
+) => Promise<EntryWithoutLinkResolution<Fields>>;
 
 export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
   client.withoutUnresolvableLinks.getEntries<TypeNewsFields>({
@@ -37,10 +34,10 @@ export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
     content_type: ContentModels.News,
   });
 
-// export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
-//   client.getEntry<TypeNewsFields>(id, {
-//     ...query,
-//   });
+export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
+  client.withoutUnresolvableLinks.getEntry<TypeNewsFields>(id, {
+    ...query,
+  });
 
 export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypePageFields>(id, {
