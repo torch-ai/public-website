@@ -55,7 +55,12 @@ const Index = (): ReactElement => {
             </PageSubtitle>
           </div>
           <div className={Styles.headerGridImage}>
-            <Image src={forbes} />
+            <Image
+              src={forbes}
+              alt={
+                "Recognized by Forbes as one of America's best startups employers for 2022"
+              }
+            />
           </div>
         </div>
       </PageHeader>

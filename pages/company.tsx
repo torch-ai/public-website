@@ -113,6 +113,9 @@ const Company = ({
                           <Image
                             className={`${Style["forbes-img"]}`}
                             src={forbes}
+                            alt={
+                              "Recognized by Forbes as one of America's best startups employers for 2022"
+                            }
                           />
                         </div>
                       </div>
@@ -206,7 +209,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={BrainWeaver} />
+                            <Image
+                              src={BrainWeaver}
+                              alt={"Drawing of Brian Weaver"}
+                            />
                             <h5>Brian Weaver</h5>
                             <p>Chief Executive Officer</p>
                           </div>
@@ -217,7 +223,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={AmyBradshaw} />
+                            <Image
+                              src={AmyBradshaw}
+                              alt={"Drawing of Amy Bradshaw"}
+                            />
                             <h5>Amy Bradshaw</h5>
                             <p>Chief Financial Officer</p>
                           </div>
@@ -228,7 +237,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={JanetHanofee} />
+                            <Image
+                              src={JanetHanofee}
+                              alt={"Drawing of Janet Hanofee"}
+                            />
                             <h5>Janet Hanofee</h5>
                             <p>Chief People Officer</p>
                           </div>
@@ -239,7 +251,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={DavidKern} />
+                            <Image
+                              src={DavidKern}
+                              alt={"Drawing of David Kervin"}
+                            />
                             <h5>David Kervin</h5>
                             <p> Chief Solutions Officer</p>
                           </div>
@@ -262,7 +277,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={AdamLurie} />
+                            <Image
+                              src={AdamLurie}
+                              alt={"Drawing of Adam Lurie"}
+                            />
                             <h5>Adam Lurie</h5>
                             <p>Chief Strategy Officer</p>
                           </div>
@@ -273,7 +291,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={JasonDelker} />
+                            <Image
+                              src={JasonDelker}
+                              alt={"Drawing of Jason Delker"}
+                            />
                             <h5>Jason Delker</h5>
                             <p>Chief of Product</p>
                           </div>
@@ -284,7 +305,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={JonKramer} />
+                            <Image
+                              src={JonKramer}
+                              alt={"Drawing of Jon Kramer"}
+                            />
                             <h5>Jon Kramer</h5>
                             <p>Chief Technology Officer</p>
                           </div>
@@ -295,7 +319,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={JenniferUtting} />
+                            <Image
+                              src={JenniferUtting}
+                              alt={"Drawing of Jennifer Utting"}
+                            />
                             <h5>Jennifer Utting</h5>
                             <p>General Counsel</p>
                           </div>
@@ -338,7 +365,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={BrainWeaver} />
+                            <Image
+                              src={BrainWeaver}
+                              alt={"Drawing of Brian Weaver"}
+                            />
                             <h5>Brian Weaver</h5>
                           </div>
                         </div>
@@ -348,7 +378,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={LaurenceTosi} />
+                            <Image
+                              src={LaurenceTosi}
+                              alt={"Drawing of Laurence Tosi"}
+                            />
                             <h5>Laurence Tosi</h5>
                           </div>
                         </div>
@@ -358,7 +391,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={ChristanSchnedler} />
+                            <Image
+                              src={ChristanSchnedler}
+                              alt={"Drawing of Christian Schnedler"}
+                            />
                             <h5>Christian Schnedler</h5>
                           </div>
                         </div>
@@ -368,7 +404,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={WilliamBeyer} />
+                            <Image
+                              src={WilliamBeyer}
+                              alt={"Drawing of William Beyer"}
+                            />
                             <h5>William Beyer</h5>
                           </div>
                         </div>
@@ -411,7 +450,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={KevinMarcus} />
+                            <Image
+                              src={KevinMarcus}
+                              alt={"Drawing of Kevin Marcus"}
+                            />
                             <h5>Kevin Marcus</h5>
                           </div>
                         </div>
@@ -421,7 +463,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={MarkPerrin} />
+                            <Image
+                              src={MarkPerrin}
+                              alt={"Drawing of Mark W. Perrin"}
+                            />
                             <h5>Mark W. Perrin</h5>
                           </div>
                         </div>
@@ -431,7 +476,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={HondoGeruts} />
+                            <Image
+                              src={HondoGeruts}
+                              alt={'Drawing of James "Hondo" Geurts'}
+                            />
                             <h5>James "Hondo" Geurts</h5>
                           </div>
                         </div>
@@ -441,7 +489,10 @@ const Company = ({
                           <div
                             className={`${Style["gallery__layout-item-content"]}`}
                           >
-                            <Image src={MikeDanda} />
+                            <Image
+                              src={MikeDanda}
+                              alt={"Drawing of LtGen Mike Dana"}
+                            />
                             <h5>LtGen Mike Dana</h5>
                           </div>
                         </div>

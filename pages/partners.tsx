@@ -117,7 +117,12 @@ const Partners: React.FunctionComponent = () => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
                     >
                       <div>
-                        <Image src={training} />
+                        <Image
+                          src={training}
+                          alt={
+                            "Picture of a man in headphones on a conference call"
+                          }
+                        />
                       </div>
                       <h5>Training.</h5>
                       <p>
@@ -130,7 +135,10 @@ const Partners: React.FunctionComponent = () => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
                     >
                       <div>
-                        <Image src={opportunities} />
+                        <Image
+                          src={opportunities}
+                          alt={"Picture of people around a conference table"}
+                        />
                       </div>
                       <h5>Customer Opportunities.</h5>
                       <p>
@@ -142,7 +150,12 @@ const Partners: React.FunctionComponent = () => {
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
                     >
                       <div>
-                        <Image src={tools} />
+                        <Image
+                          src={tools}
+                          alt={
+                            "Picture of a woman in front of a pair of screens showing dashboards"
+                          }
+                        />
                       </div>
                       <h5>Tools.</h5>
                       <p>

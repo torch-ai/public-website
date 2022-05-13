@@ -342,7 +342,10 @@ const Index = ({
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-xl-5"]} ${Landing["statement__image"]}`}
                       >
-                        <Image src={imac} />
+                        <Image
+                          src={imac}
+                          alt={"Image of a force graph loading on a screen"}
+                        />
                       </div>
                       <div
                         className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]}`}
