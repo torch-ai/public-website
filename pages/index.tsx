@@ -795,7 +795,10 @@ const Index = ({
                         poster="./bryanPreview.png"
                         id="background-video"
                       >
-                        <source src="./videos/bryan.mp4" type="video/mp4" />
+                        <source
+                          src="//videos.ctfassets.net/dtb5w0ega2aw/2vpabycT4RUW8S85iC0lml/4d65d40ca51931bdc5de5fea6d7bf0c8/bryan-weaver-torch-introduction.mp4"
+                          type="video/mp4"
+                        />
                       </video>
                     </div>
                   </div>
