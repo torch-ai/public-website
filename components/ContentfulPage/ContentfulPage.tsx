@@ -20,6 +20,7 @@ interface Props {
 const ContentfulPage: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
 > = ({ children, asideChildren, mainChildren, isSharingEnabled, page }) => {
+  const hasHeaderImage = !!page?.fields.headerImage;
   const hasAside = asideChildren || page.fields.aside;
 
   return (
@@ -34,7 +35,11 @@ const ContentfulPage: React.FunctionComponent<
               : undefined,
           }}
         >
-          <div className={Styles.headerGrid}>
+          <div
+            className={clsx(Styles.headerGrid, {
+              [Styles.headerGridHasImage]: hasHeaderImage,
+            })}
+          >
             <div className={Styles.headerGridTitle}>
               <PageTitle>{page?.fields.title || "Content not found"}</PageTitle>
               {page?.fields.subtitle && (
@@ -44,7 +49,7 @@ const ContentfulPage: React.FunctionComponent<
             {isSharingEnabled && (
               <div className={Styles.headerGridSharing}>Share:</div>
             )}
-            {page?.fields.headerImage && (
+            {hasHeaderImage && (
               <div className={Styles.headerGridImage}>
                 <ContentfulAsset asset={page.fields.headerImage} />
               </div>
