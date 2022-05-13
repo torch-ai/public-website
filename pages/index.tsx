@@ -108,7 +108,10 @@ const Index = ({
                   autoPlay
                   muted
                 >
-                  <source src="./videos/heroMovie.mp4" type="video/mp4" />
+                  <source
+                    src="//videos.ctfassets.net/dtb5w0ega2aw/1Gp5IxHssKRGQRMGJTQ2S2/6bcfd960cedbc968d1d3c67707b56593/nexus-hero-movie.mp4"
+                    type="video/mp4"
+                  />
                 </video>
               </div>
               <div className={`${Landing["enhance"]}  section`}>
