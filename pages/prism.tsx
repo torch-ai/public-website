@@ -118,7 +118,7 @@ const Prism: React.FunctionComponent = () => {
                     <div className="prismVideo">
                       <video controls poster="./thumbnail.jpg">
                         <source
-                          src="./videos/prismVideo.mp4"
+                          src="//videos.ctfassets.net/dtb5w0ega2aw/2PdGM8dFgBF7poRWGQGjDI/530cb7a3a89765ac820196eec7ea8dbc/prism-highlights.mp4"
                           type="video/mp4"
                         />
                       </video>
