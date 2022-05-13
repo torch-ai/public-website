@@ -118,7 +118,12 @@ const Footer: React.FunctionComponent = () => {
             <li>+1 (202) 570-7169</li>
             <li>
               <a href="https://www.forbes.com/lists/americas-best-startup-employers/?">
-                <Image src={forbes} />
+                <Image
+                  src={forbes}
+                  alt={
+                    "Recognized by Forbes as one of America's best startups employers for 2022"
+                  }
+                />
               </a>
             </li>
           </ul>

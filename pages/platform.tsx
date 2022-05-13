@@ -109,7 +109,7 @@ const Platform: React.FunctionComponent = () => {
                         className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
                       >
                         <div>
-                          <Image src={datamodel1} />
+                          <Image src={datamodel1} alt={""} />
                         </div>
                         <div>
                           <h4>Ingest</h4>
@@ -126,7 +126,7 @@ const Platform: React.FunctionComponent = () => {
                         className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
                       >
                         <div>
-                          <Image src={datamodel2} />
+                          <Image src={datamodel2} alt={""} />
                         </div>
                         <div>
                           <h4>Link</h4>
@@ -143,7 +143,7 @@ const Platform: React.FunctionComponent = () => {
                         className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
                       >
                         <div>
-                          <Image src={datamodel3} />
+                          <Image src={datamodel3} alt={""} />
                         </div>
                         <div>
                           <h4>Illuminate</h4>

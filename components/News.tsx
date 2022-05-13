@@ -39,6 +39,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   src={"http:" + items[0].fields.fullSizeImage.fields.file.url}
                   layout="fill"
                   objectFit={"cover"}
+                  alt={items[0].fields.fullSizeImage.fields.description || ""}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
                   <p>{displayCurrentTime(items[0])}</p>
@@ -56,6 +57,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   src={"http:" + items[1].fields.fullSizeImage.fields.file.url}
                   layout="fill"
                   objectFit={"cover"}
+                  alt={items[1].fields.fullSizeImage.fields.description || ""}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
                   <p>{displayCurrentTime(items[1])}</p>
@@ -75,6 +77,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   src={"http:" + items[2].fields.fullSizeImage.fields.file.url}
                   layout={"fill"}
                   objectFit={"cover"}
+                  alt={items[2].fields.fullSizeImage.fields.description || ""}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
                   <p>{displayCurrentTime(items[2])}</p>
@@ -92,6 +95,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   src={"http:" + items[3].fields.fullSizeImage.fields.file.url}
                   layout={"fill"}
                   objectFit={"cover"}
+                  alt={items[3].fields.fullSizeImage.fields.description || ""}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
                   <p>{displayCurrentTime(items[3])}</p>
@@ -109,6 +113,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   src={"http:" + items[4].fields.fullSizeImage.fields.file.url}
                   layout={"fill"}
                   objectFit={"cover"}
+                  alt={items[4].fields.fullSizeImage.fields.description || ""}
                 />
                 <div className={`${Landing["news__layout-item-content"]}`}>
                   <p>{displayCurrentTime(items[4])}</p>
