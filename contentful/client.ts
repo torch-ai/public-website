@@ -39,6 +39,10 @@ export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
     content_type: ContentModels.News,
   });
 
+export const getAllNewsEntries: GetAllEntries<TypeNewsFields> = async (
+  query = {}
+) => getAllEntries<TypeNewsFields>(query, getNewsEntries);
+
 export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypeNewsFields>(id, {
     ...query,
