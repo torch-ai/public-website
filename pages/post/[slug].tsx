@@ -4,7 +4,7 @@ import Footer from "../../components/Footer";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import { ReactElement } from "react";
-import { getNewsEntries } from "../../contentful/client";
+import { getAllNewsEntries, getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
 import ContentfulContent from "../../components/ContentfulContent/ContentfulContent";
 import PageHeader from "../../components/PageHeader/PageHeader";
@@ -14,10 +14,10 @@ import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import Styles from "./styles.module.scss";
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const res = await getNewsEntries();
+  const items = await getAllNewsEntries();
 
   return {
-    paths: res.items.map((item) => ({
+    paths: items.map((item) => ({
       params: {
         slug: item.fields.slug,
       },
