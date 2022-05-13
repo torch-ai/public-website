@@ -3,9 +3,23 @@ import Layout from "../components/layout/Layout";
 import { LayoutContextProvider } from "../components/layout/LayoutContext";
 import { useEffect } from "react";
 import Head from "next/head";
+import useScript from "../hooks/useScript";
 
 const App = ({ Component, pageProps }) => {
   // TODO add preloader to website.
+
+  // GA
+  useScript({
+    src: "https://www.googletagmanager.com/gtag/js?id=UA-114049699-1",
+  });
+  useEffect(() => {
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-114049699-1");
+  }, []);
 
   useEffect(() => {
     initializeHeapTracking();
