@@ -7,6 +7,7 @@ import logo from "../img/logo.svg";
 import forbes from "../img/forbes.png";
 import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
+import { pageSettings as termsOfServicePageSettings } from "../pages/termsofservice";
 
 const Footer: React.FunctionComponent = () => {
   return (
@@ -89,8 +90,8 @@ const Footer: React.FunctionComponent = () => {
         <div className={`${Template["footer__terms"]}`}>
           <ul>
             <li>
-              <Link href="/termsofservice">
-                <a> Terms of Service </a>
+              <Link href={termsOfServicePageSettings.path}>
+                <a>{termsOfServicePageSettings.title}</a>
               </Link>
             </li>
             <li>
