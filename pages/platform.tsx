@@ -194,17 +194,19 @@ const Platform: React.FunctionComponent = () => {
                       </div>
                       <div>
                         <table>
-                          <tr>
-                            <td>Nexus: </td>
-                            <td>3.78 GB per 1 second 32-core CPU</td>
-                          </tr>
-                          <tr>
-                            <td>Nearest peer:</td>
-                            <td>
-                              0.345 GB per 1 second 32-core CPU (built on Apache
-                              Spark)
-                            </td>
-                          </tr>
+                          <tbody>
+                            <tr>
+                              <td>Nexus: </td>
+                              <td>3.78 GB per 1 second 32-core CPU</td>
+                            </tr>
+                            <tr>
+                              <td>Nearest peer:</td>
+                              <td>
+                                0.345 GB per 1 second 32-core CPU (built on
+                                Apache Spark)
+                              </td>
+                            </tr>
+                          </tbody>
                         </table>
                       </div>
                     </div>
