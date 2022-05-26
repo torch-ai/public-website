@@ -1,12 +1,10 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Link from "next/link";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Landing from "../styles/modules/landing.module.scss";
 import News from "../components/News";
 import { InView } from "react-intersection-observer";
@@ -23,8 +21,7 @@ import { pageSettings as platformPageSettings } from "../pages/platform";
 import { pageSettings as impactPageSettings } from "../pages/impact";
 import { pageSettings as contactPageSettings } from "../pages/contact";
 import { PageSettings } from "../types/next";
-
-gsap.registerPlugin(ScrollTrigger);
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/",
@@ -49,27 +46,6 @@ const Index = ({
   news,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
-
-  const fadeRef = useRef();
-  const buttonRef = useRef();
-  const enhance = useRef<HTMLDivElement>(null);
-  const nexus = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    gsap.fromTo(
-      buttonRef.current,
-      { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 39 }
-    );
-  }, []);
-
-  useEffect(() => {
-    gsap.fromTo(
-      fadeRef.current,
-      { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 38.5 }
-    );
-  }, []);
 
   return (
     <>
@@ -140,13 +116,13 @@ const Index = ({
                       className={`${Grid["row"]} ${Landing["enhance__content"]}`}
                     >
                       <div
-                        ref={enhance}
-                        className={`
-												 ${Grid["col-xs-12"]}
-												 ${Grid["col-sm-10"]}
-												 ${Grid["col-md-10"]}
-												 ${Grid["col-lg-10"]} 
-												 ${Grid["col-xl-5"]}`}
+                        className={clsx(
+                          Grid["col-xs-12"],
+                          Grid["col-sm-10"],
+                          Grid["col-md-10"],
+                          Grid["col-lg-10"],
+                          Grid["col-xl-5"]
+                        )}
                       >
                         <h2>We build AI that makes data easier to use.</h2>
                         <p>
@@ -193,7 +169,7 @@ const Index = ({
                           </div>
                         </div>
                         <hr />
-                        <div ref={nexus} className={`${Grid["row"]}`}>
+                        <div className={`${Grid["row"]}`}>
                           <div className={`${Grid["col-xs-10"]}`}>
                             <p>Simply put:</p>
                           </div>
