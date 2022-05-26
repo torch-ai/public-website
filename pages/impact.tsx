@@ -14,6 +14,12 @@ import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 import LayoutContext from "../components/layout/LayoutContext";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { getHeadPageTitle } from "../utils/meta";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/impact",
+  linkContent: <>Impact</>,
+};
 
 const Impact: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);

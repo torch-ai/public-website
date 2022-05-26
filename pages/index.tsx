@@ -20,6 +20,7 @@ import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
 import { pageSettings as platformPageSettings } from "../pages/platform";
+import { pageSettings as impactPageSettings } from "../pages/impact";
 import { PageSettings } from "../types/next";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -731,7 +732,7 @@ const Index = ({
                       >
                         <p>MARKETING</p>
                         <h4>Microsoft</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -744,7 +745,7 @@ const Index = ({
                       >
                         <p>FINANCIAL SERVICES</p>
                         <h4>H&R Block</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -757,7 +758,7 @@ const Index = ({
                       >
                         <p>LOGISTICS</p>
                         <h4>Raytheon</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -770,7 +771,7 @@ const Index = ({
                       >
                         <p>DEFENSE & INTELLIGENCE</p>
                         <h4>U.S. Navy</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
