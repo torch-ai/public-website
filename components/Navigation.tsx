@@ -9,6 +9,7 @@ import { pageSettings as platformPageSettings } from "../pages/platform";
 import { pageSettings as partnersPageSettings } from "../pages/partners";
 import { pageSettings as impactPageSettings } from "../pages/impact";
 import { pageSettings as companyPageSettings } from "../pages/company";
+import { pageSettings as contactPageSettings } from "../pages/contact";
 
 const Navigation = () => {
   const { navColor: color } = useContext(LayoutContext);
@@ -234,14 +235,16 @@ const Navigation = () => {
             </li>
 
             <li>
-              <Link href="/contact">
+              <Link href={contactPageSettings.path}>
                 <a
                   style={{ color: color }}
                   className={
-                    router.pathname == "/contact" ? `${Nav.active}` : ""
+                    router.pathname === contactPageSettings.path
+                      ? `${Nav.active}`
+                      : ""
                   }
                 >
-                  Contact
+                  {contactPageSettings.linkContent}
                 </a>
               </Link>
             </li>

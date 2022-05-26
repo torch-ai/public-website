@@ -21,6 +21,7 @@ import { getHeadPageTitle } from "../utils/meta";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
 import { pageSettings as platformPageSettings } from "../pages/platform";
 import { pageSettings as impactPageSettings } from "../pages/impact";
+import { pageSettings as contactPageSettings } from "../pages/contact";
 import { PageSettings } from "../types/next";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -800,7 +801,7 @@ const Index = ({
                         growing faster than our ability to process it.
                       </h3>
                       <div className={`${Landing["statement2__button"]}`}>
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>

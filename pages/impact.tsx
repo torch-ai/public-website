@@ -14,6 +14,7 @@ import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 import LayoutContext from "../components/layout/LayoutContext";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
 import { getHeadPageTitle } from "../utils/meta";
+import { pageSettings as contactPageSettings } from "../pages/contact";
 import { PageSettings } from "../types/next";
 
 export const pageSettings: PageSettings = {
@@ -195,7 +196,7 @@ const Impact: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
                       </div>
@@ -232,7 +233,7 @@ const Impact: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col_xs_8"]} ${Grid["col_lg_8"]} ${Style["inspiration__button"]}`}
                     >
-                      <Link href="/contact">
+                      <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
                     </div>
@@ -271,7 +272,7 @@ const Impact: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
                       </div>
@@ -307,7 +308,7 @@ const Impact: React.FunctionComponent = () => {
                   </div>
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-xs-12"]} ${Grid["col_lg_8"]}`}>
-                      <Link href="/contact">
+                      <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
                     </div>
@@ -345,7 +346,7 @@ const Impact: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
                       </div>
@@ -378,7 +379,7 @@ const Impact: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
                       </div>
@@ -415,7 +416,7 @@ const Impact: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
                       </div>
@@ -456,7 +457,7 @@ const Impact: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                     >
-                      <Link href="/contact">
+                      <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
                     </div>
@@ -484,7 +485,7 @@ const Impact: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-lg-offset-6"]} ${Grid["col-lg-12"]}`}
                       >
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Let's be friends</a>
                         </Link>
                       </div>
