@@ -5,22 +5,20 @@ import Script from "next/script";
 const GA_PROPERTY = "G-BG7CCP34MT";
 
 export const pageView = (url: URL) => {
-  // if (!IS_PRODUCTION) {
-  //   return;
-  // }
+  if (!IS_PRODUCTION) {
+    return;
+  }
 
-  console.info("pageView", url);
   window.gtag("config", GA_PROPERTY, {
     page_path: url
   });
 };
 
 export const event = (action: Gtag.EventNames, params: Gtag.EventParams) => {
-  // if (!IS_PRODUCTION) {
-  //   return;
-  // }
+  if (!IS_PRODUCTION) {
+    return;
+  }
 
-  console.info("event", action, params);
   window.gtag("event", action, params);
 };
 
