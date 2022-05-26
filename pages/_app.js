@@ -4,12 +4,10 @@ import { LayoutContextProvider } from "../components/layout/LayoutContext";
 import { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { pageView as trackPageView, useGAScript } from "../telemetry/gtag";
+import { pageView as trackPageView, GAScripts } from "../telemetry/gtag";
 
 const App = ({ Component, pageProps }) => {
   // TODO add preloader to website.
-
-  useGAScript();
 
   useEffect(() => {
     initializeHeapTracking();
@@ -26,6 +24,7 @@ const App = ({ Component, pageProps }) => {
 
   return (
     <>
+      <GAScripts />
       <Head>
         <title>Torch AI</title>
         <meta
