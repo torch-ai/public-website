@@ -5,9 +5,9 @@ import useScript from "../hooks/useScript";
 const GA_PROPERTY = "UA-114049699-1";
 
 export const pageView = (url: URL) => {
-  // if (!IS_PRODUCTION) {
-  //   return;
-  // }
+  if (!IS_PRODUCTION) {
+    return;
+  }
 
   window.gtag("config", GA_PROPERTY, {
     page_path: url,
@@ -15,9 +15,9 @@ export const pageView = (url: URL) => {
 };
 
 export const event = (action: Gtag.EventNames, params: Gtag.EventParams) => {
-  // if (!IS_PRODUCTION) {
-  //   return;
-  // }
+  if (!IS_PRODUCTION) {
+    return;
+  }
 
   window.gtag("event", action, params);
 };
