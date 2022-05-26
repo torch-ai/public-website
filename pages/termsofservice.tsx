@@ -8,6 +8,12 @@ import { getPage } from "../contentful/client";
 import Head from "next/head";
 import ContentfulPage from "../components/ContentfulPage/ContentfulPage";
 import { getHeadPageTitle } from "../utils/meta";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/termsofservice",
+  linkContent: <>Terms of service</>,
+};
 
 export const getStaticProps: GetStaticProps<{
   page: TypePage;

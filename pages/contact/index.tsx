@@ -10,6 +10,12 @@ import LayoutContext from "../../components/layout/LayoutContext";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/contact",
+  linkContent: <>Contact</>,
+};
 
 const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);

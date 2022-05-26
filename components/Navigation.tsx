@@ -1,11 +1,20 @@
-import { useContext, useRef } from "react";
+import { FunctionComponent, useContext, useRef } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { NextRouter, useRouter } from "next/router";
 import Nav from "../styles/modules/nav.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
 import LayoutContext from "./layout/LayoutContext";
+import { pageSettings as solutionsPageSettings } from "../pages/solutions";
+import { pageSettings as platformPageSettings } from "../pages/platform";
+import { pageSettings as partnersPageSettings } from "../pages/partners";
+import { pageSettings as impactPageSettings } from "../pages/impact";
+import { pageSettings as companyPageSettings } from "../pages/company";
+import { pageSettings as contactPageSettings } from "../pages/contact";
+import { pageSettings as careersPageSettings } from "../pages/careers";
+import clsx from "clsx";
+import { PageSettings } from "../types/next";
 
-const Navigation = () => {
+const Navigation: FunctionComponent = () => {
   const { navColor: color } = useContext(LayoutContext);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const navRef = useRef<HTMLUListElement>(null);
@@ -21,6 +30,12 @@ const Navigation = () => {
       buttonRef.current.removeAttribute("aria-expanded");
     }
   };
+
+  const levelOneLinkProps: Omit<PageSettingsLevelOneLinkProps, "pageSettings"> =
+    {
+      color,
+      router,
+    };
 
   return (
     <header className={`${Nav.header}`}>
@@ -107,110 +122,84 @@ const Navigation = () => {
             className={`${Nav.primary_navigation}`}
           >
             <li>
-              <Link href="/platform">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/platform" ? `${Nav.active}` : ""
-                  }
-                >
-                  Platform
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={platformPageSettings}
+                {...levelOneLinkProps}
+              />
             </li>
             <li className={`${Nav["dropdown"]}`}>
-              <Link href="/solutions">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/solutions" ? `${Nav.active}` : ""
-                  }
-                >
-                  Solutions
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={solutionsPageSettings}
+                {...levelOneLinkProps}
+              />
               <div className={`${Nav["dropdown-content"]}`}>
-                <Link href="/solutions#infrastructure" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#infrastructure`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Infrastructure</a>
                 </Link>
-                <Link href="/solutions#analytics" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#analytics`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Analytics</a>
                 </Link>
-                <Link href="/solutions#machine" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#machine`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Machine learning</a>
                 </Link>
-                <Link href="/solutions#enterprise" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#enterprise`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Enterprise</a>
                 </Link>
-                <Link href="/solutions#openSource" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#openSource`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Open Source</a>
                 </Link>
-                <Link href="/solutions#dataApis" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#dataApis`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Data APIs</a>
                 </Link>
               </div>
             </li>
             <li>
-              <Link href="/impact">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/impact" ? `${Nav.active}` : ""
-                  }
-                >
-                  Impact
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={impactPageSettings}
+                {...levelOneLinkProps}
+              />
             </li>
             <li>
-              <Link href="/company">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/company" ? `${Nav.active}` : ""
-                  }
-                >
-                  Company
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={companyPageSettings}
+                {...levelOneLinkProps}
+              />
             </li>
             <li>
-              <Link href="/partners">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/partners" ? `${Nav.active}` : ""
-                  }
-                >
-                  Partners
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={partnersPageSettings}
+                {...levelOneLinkProps}
+              />
             </li>
-
             <li>
-              <Link href="/careers">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/careers" ? `${Nav.active}` : ""
-                  }
-                >
-                  Careers
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={careersPageSettings}
+                {...levelOneLinkProps}
+              />
             </li>
-
             <li>
-              <Link href="/contact">
-                <a
-                  style={{ color: color }}
-                  className={
-                    router.pathname == "/contact" ? `${Nav.active}` : ""
-                  }
-                >
-                  Contact
-                </a>
-              </Link>
+              <PageSettingsLevelOneLink
+                pageSettings={contactPageSettings}
+                {...levelOneLinkProps}
+              />
             </li>
           </ul>
         </nav>
@@ -220,3 +209,23 @@ const Navigation = () => {
 };
 
 export default Navigation;
+
+interface PageSettingsLevelOneLinkProps {
+  pageSettings: PageSettings;
+  color: string;
+  router: NextRouter;
+}
+const PageSettingsLevelOneLink: FunctionComponent<
+  PageSettingsLevelOneLinkProps
+> = ({ pageSettings, color, router }) => (
+  <Link href={pageSettings.path}>
+    <a
+      style={{ color: color }}
+      className={clsx({
+        [Nav.active]: router.pathname.startsWith(pageSettings.path),
+      })}
+    >
+      {pageSettings.linkContent}
+    </a>
+  </Link>
+);

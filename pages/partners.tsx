@@ -14,6 +14,12 @@ import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/partners",
+  linkContent: <>Partners</>,
+};
 
 const Partners: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);

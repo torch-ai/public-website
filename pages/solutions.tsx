@@ -9,6 +9,12 @@ import { gsap } from "gsap/dist/gsap";
 import Footer from "../components/Footer";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/solutions",
+  linkContent: <>Solutions</>,
+};
 
 const Solutions: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);

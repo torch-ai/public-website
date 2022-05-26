@@ -7,6 +7,10 @@ import logo from "../img/logo.svg";
 import forbes from "../img/forbes.png";
 import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
+import { pageSettings as termsOfServicePageSettings } from "../pages/termsofservice";
+import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
+import { pageSettings as legalPageSettings } from "../pages/legal";
+import { pageSettings as careersPageSettings } from "../pages/careers";
 
 const Footer: React.FunctionComponent = () => {
   return (
@@ -89,23 +93,23 @@ const Footer: React.FunctionComponent = () => {
         <div className={`${Template["footer__terms"]}`}>
           <ul>
             <li>
-              <Link href="/termsofservice">
-                <a> Terms of Service </a>
+              <Link href={termsOfServicePageSettings.path}>
+                <a>{termsOfServicePageSettings.linkContent}</a>
               </Link>
             </li>
             <li>
-              <Link href="/privacypolicy">
-                <a>Privacy Policy </a>
+              <Link href={privacyPolicyPageSettings.path}>
+                <a>{privacyPolicyPageSettings.linkContent}</a>
               </Link>
             </li>
             <li>
-              <Link href="/legal">
-                <a>Legal</a>
+              <Link href={legalPageSettings.path}>
+                <a>{legalPageSettings.linkContent}</a>
               </Link>
             </li>
             <li>
-              <Link href="/careers">
-                <a>Careers </a>
+              <Link href={careersPageSettings.path}>
+                <a>{careersPageSettings.linkContent}</a>
               </Link>
             </li>
           </ul>

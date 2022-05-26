@@ -7,6 +7,12 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/prism",
+  linkContent: <>PRISM</>,
+};
 
 const Prism: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);

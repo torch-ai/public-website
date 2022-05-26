@@ -5,6 +5,7 @@ import Styles from "./styles.module.scss";
 import Card from "../../../../components/Card/Card";
 import Link from "next/link";
 import PrimaryButton from "../../../../components/PrimaryButton/PrimaryButton";
+import { pageSettings as privacyPolicyPageSettings } from "../../../privacypolicy";
 
 const Form: React.FunctionComponent = () => {
   return (
@@ -57,7 +58,8 @@ const Form: React.FunctionComponent = () => {
           our team by email or phone. You can unsubscribe from our
           communications at any time via the unsubscribe option in the email
           received. For more information on how Torch.AI uses your data, please
-          refer to our <Link href="/privacypolicy">Privacy Policy</Link>.
+          refer to our{" "}
+          <Link href={privacyPolicyPageSettings.path}>privacy policy</Link>.
         </p>
         <PrimaryButton isBlock type={"submit"}>
           Send

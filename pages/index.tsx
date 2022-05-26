@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { ReactElement, useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -18,8 +18,18 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
+import { pageSettings as solutionsPageSettings } from "../pages/solutions";
+import { pageSettings as platformPageSettings } from "../pages/platform";
+import { pageSettings as impactPageSettings } from "../pages/impact";
+import { pageSettings as contactPageSettings } from "../pages/contact";
+import { PageSettings } from "../types/next";
 
 gsap.registerPlugin(ScrollTrigger);
+
+export const pageSettings: PageSettings = {
+  path: "/",
+  linkContent: <>Home</>,
+};
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
@@ -323,7 +333,7 @@ const Index = ({
                       <div
                         className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
                       >
-                        <Link href="/platform">
+                        <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>
@@ -692,7 +702,7 @@ const Index = ({
                             <p>Reduce costs in your technology stack</p>
                           </div>
                         </div>
-                        <Link href="/solutions">
+                        <Link href={solutionsPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>
@@ -723,7 +733,7 @@ const Index = ({
                       >
                         <p>MARKETING</p>
                         <h4>Microsoft</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -736,7 +746,7 @@ const Index = ({
                       >
                         <p>FINANCIAL SERVICES</p>
                         <h4>H&R Block</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -749,7 +759,7 @@ const Index = ({
                       >
                         <p>LOGISTICS</p>
                         <h4>Raytheon</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -762,7 +772,7 @@ const Index = ({
                       >
                         <p>DEFENSE & INTELLIGENCE</p>
                         <h4>U.S. Navy</h4>
-                        <Link href="/impact">
+                        <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
@@ -791,7 +801,7 @@ const Index = ({
                         growing faster than our ability to process it.
                       </h3>
                       <div className={`${Landing["statement2__button"]}`}>
-                        <Link href="/contact">
+                        <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>

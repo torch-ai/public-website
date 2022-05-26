@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { ReactElement, useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
@@ -34,6 +34,13 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
+import { pageSettings as careersPageSettings } from "./careers";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/company",
+  linkContent: <>Company</>,
+};
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
@@ -523,7 +530,7 @@ const Company = ({
                         challenge, let's connect.
                       </p>
                       <div className={` ${Style["button__content"]}`}>
-                        <Link href="/careers">
+                        <Link href={careersPageSettings.path}>
                           <a role="button">Find your job</a>
                         </Link>
                       </div>

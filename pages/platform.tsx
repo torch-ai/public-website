@@ -15,6 +15,12 @@ import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
+import { PageSettings } from "../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/platform",
+  linkContent: <>Platform</>,
+};
 
 const Platform: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
