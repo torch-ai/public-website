@@ -12,7 +12,7 @@ import { PageSettings } from "../types/next";
 
 export const pageSettings: PageSettings = {
   path: "/termsofservice",
-  title: "Terms of service",
+  linkContent: <>Terms of service</>,
 };
 
 export const getStaticProps: GetStaticProps<{

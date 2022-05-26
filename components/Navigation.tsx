@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import Nav from "../styles/modules/nav.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
 import LayoutContext from "./layout/LayoutContext";
+import { pageSettings as solutionsPageSettings } from "../pages/solutions";
 
 const Navigation = () => {
   const { navColor: color } = useContext(LayoutContext);
@@ -119,33 +120,53 @@ const Navigation = () => {
               </Link>
             </li>
             <li className={`${Nav["dropdown"]}`}>
-              <Link href="/solutions">
+              <Link href={solutionsPageSettings.path}>
                 <a
                   style={{ color: color }}
                   className={
-                    router.pathname == "/solutions" ? `${Nav.active}` : ""
+                    router.pathname === solutionsPageSettings.path
+                      ? `${Nav.active}`
+                      : ""
                   }
                 >
-                  Solutions
+                  {solutionsPageSettings.linkContent}
                 </a>
               </Link>
               <div className={`${Nav["dropdown-content"]}`}>
-                <Link href="/solutions#infrastructure" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#infrastructure`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Infrastructure</a>
                 </Link>
-                <Link href="/solutions#analytics" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#analytics`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Analytics</a>
                 </Link>
-                <Link href="/solutions#machine" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#machine`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Machine learning</a>
                 </Link>
-                <Link href="/solutions#enterprise" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#enterprise`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Enterprise</a>
                 </Link>
-                <Link href="/solutions#openSource" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#openSource`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Open Source</a>
                 </Link>
-                <Link href="/solutions#dataApis" scroll={false}>
+                <Link
+                  href={`${solutionsPageSettings.path}#dataApis`}
+                  scroll={false}
+                >
                   <a style={{ color: color }}>Data APIs</a>
                 </Link>
               </div>

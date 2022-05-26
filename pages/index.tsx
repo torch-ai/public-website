@@ -18,6 +18,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
+import { pageSettings as solutionsPageSettings } from "../pages/solutions";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -692,7 +693,7 @@ const Index = ({
                             <p>Reduce costs in your technology stack</p>
                           </div>
                         </div>
-                        <Link href="/solutions">
+                        <Link href={solutionsPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>

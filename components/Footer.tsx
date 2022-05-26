@@ -91,7 +91,7 @@ const Footer: React.FunctionComponent = () => {
           <ul>
             <li>
               <Link href={termsOfServicePageSettings.path}>
-                <a>{termsOfServicePageSettings.title}</a>
+                <a>{termsOfServicePageSettings.linkContent}</a>
               </Link>
             </li>
             <li>
