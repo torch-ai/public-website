@@ -19,6 +19,7 @@ import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
+import { pageSettings as platformPageSettings } from "../pages/platform";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -324,7 +325,7 @@ const Index = ({
                       <div
                         className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
                       >
-                        <Link href="/platform">
+                        <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>

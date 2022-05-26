@@ -5,6 +5,7 @@ import Nav from "../styles/modules/nav.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
 import LayoutContext from "./layout/LayoutContext";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
+import { pageSettings as platformPageSettings } from "../pages/platform";
 
 const Navigation = () => {
   const { navColor: color } = useContext(LayoutContext);
@@ -108,14 +109,16 @@ const Navigation = () => {
             className={`${Nav.primary_navigation}`}
           >
             <li>
-              <Link href="/platform">
+              <Link href={platformPageSettings.path}>
                 <a
                   style={{ color: color }}
                   className={
-                    router.pathname == "/platform" ? `${Nav.active}` : ""
+                    router.pathname === platformPageSettings.path
+                      ? `${Nav.active}`
+                      : ""
                   }
                 >
-                  Platform
+                  {platformPageSettings.linkContent}
                 </a>
               </Link>
             </li>
