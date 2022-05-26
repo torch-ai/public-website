@@ -5,8 +5,6 @@ import { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { pageView as trackPageView, GAScripts } from "../telemetry/gtag";
-import { gsap } from "gsap/dist/gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { config, dom } from "@fortawesome/fontawesome-svg-core";
 config.autoAddCss = false;
 
@@ -82,6 +80,3 @@ const initializeHeapTracking = () => {
     });
   heap.load("1628599215");
 };
-
-// TODO, but do we use it?
-gsap.registerPlugin(ScrollTrigger);
