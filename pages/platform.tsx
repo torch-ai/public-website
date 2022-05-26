@@ -25,22 +25,23 @@ export const pageSettings: PageSettings = {
 const Platform: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const fadeRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let delay = 1;
+    const titleDuration = 1;
     gsap.fromTo(
-      buttonRef.current,
+      titleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 1 }
+      { opacity: 1, y: 0, duration: titleDuration, delay }
     );
-  }, []);
 
-  useEffect(() => {
+    delay += titleDuration;
     gsap.fromTo(
-      fadeRef.current,
+      arrowRef.current,
       { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 2 }
+      { opacity: 1, y: 0, duration: titleDuration / 2, delay }
     );
   }, []);
 
@@ -69,11 +70,11 @@ const Platform: React.FunctionComponent = () => {
                   <div
                     className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
                   >
-                    <h2 ref={buttonRef}>
+                    <h2 ref={titleRef}>
                       Nexus<sup>&trade;</sup>. The highest-performance data
                       processing platform ever built.
                     </h2>
-                    <div ref={fadeRef} className={`${Style["circle-icon"]}`}>
+                    <div ref={arrowRef} className={`${Style["circle-icon"]}`}>
                       <svg
                         width="50"
                         height="50"

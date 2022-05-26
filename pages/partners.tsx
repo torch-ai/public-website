@@ -24,22 +24,24 @@ export const pageSettings: PageSettings = {
 const Partners: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const buttonRef = useRef<HTMLHeadingElement>(null);
-  const fadeRef = useRef<HTMLParagraphElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
+    const titleDuration = 1;
+    let delay = 1;
+
     gsap.fromTo(
-      buttonRef.current,
+      titleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 1 }
+      { opacity: 1, y: 0, duration: titleDuration, delay }
     );
-  }, []);
 
-  useEffect(() => {
+    delay += titleDuration / 2;
     gsap.fromTo(
-      fadeRef.current,
+      subtitleRef.current,
       { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 1.5 }
+      { opacity: 1, y: 0, duration: titleDuration / 2, delay }
     );
   }, []);
 
@@ -69,8 +71,8 @@ const Partners: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
                     >
-                      <h1 ref={buttonRef}>Be a hero for your customers.</h1>
-                      <p ref={fadeRef}>
+                      <h1 ref={titleRef}>Be a hero for your customers.</h1>
+                      <p ref={subtitleRef}>
                         Deploy Nexus to solve your customers problems.
                       </p>
                     </div>

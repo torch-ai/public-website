@@ -61,22 +61,23 @@ const Company = ({
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const fadeRef = useRef();
-  const buttonRef = useRef();
+  const titleRef = useRef<HTMLHeadingElement>();
+  const subtitleRef = useRef<HTMLParagraphElement>();
 
   useEffect(() => {
+    let delay = 1;
+    const titleDuration = 1;
     gsap.fromTo(
-      buttonRef.current,
+      titleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 1 }
+      { opacity: 1, y: 0, duration: titleDuration, delay }
     );
-  }, []);
 
-  useEffect(() => {
+    delay += titleDuration;
     gsap.fromTo(
-      fadeRef.current,
+      subtitleRef.current,
       { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 2 }
+      { opacity: 1, y: 0, duration: titleDuration / 2, delay }
     );
   }, []);
 
@@ -112,10 +113,10 @@ const Company = ({
                       <div
                         className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
                       >
-                        <h2 ref={buttonRef}>
+                        <h2 ref={titleRef}>
                           We're building Kansas City's next great company.
                         </h2>
-                        <p ref={fadeRef}>
+                        <p ref={subtitleRef}>
                           The world's hardest problems. The world's greatest
                           minds. An unmatched environment for innovation.
                         </p>

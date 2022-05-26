@@ -25,40 +25,37 @@ export const pageSettings: PageSettings = {
 const Impact: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
-  const fadeRef = useRef<HTMLDivElement>(null);
-  const fadeRef2 = useRef<HTMLDivElement>(null);
-  const pFade = useRef<HTMLParagraphElement>(null);
-  const buttonRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
+  const sectorsForegroundRef = useRef<HTMLDivElement>(null);
+  const sectorsBackgroundsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const titleDuration = 1;
+    const sectionsDuration = titleDuration / 2;
+
+    let delay = 1;
     gsap.fromTo(
-      buttonRef.current,
+      titleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 1 }
+      { opacity: 1, y: 0, duration: titleDuration, delay }
     );
-  }, []);
-
-  useEffect(() => {
     gsap.fromTo(
-      pFade.current,
+      subtitleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 1 }
+      { opacity: 1, y: 0, duration: titleDuration, delay }
     );
-  }, []);
 
-  useEffect(() => {
+    delay += titleDuration;
     gsap.fromTo(
-      fadeRef.current,
+      sectorsForegroundRef.current,
       { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 2 }
+      { opacity: 1, y: 0, duration: sectionsDuration, delay }
     );
-  }, []);
-
-  useEffect(() => {
     gsap.fromTo(
-      fadeRef2.current,
+      sectorsBackgroundsRef.current,
       { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 2 }
+      { opacity: 1, y: 0, duration: sectionsDuration, delay }
     );
   }, []);
 
@@ -85,11 +82,11 @@ const Impact: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
                     >
-                      <h3 ref={buttonRef}>Make your impact.</h3>
+                      <h3 ref={titleRef}>Make your impact.</h3>
                     </div>
                   </div>
                   <div
-                    ref={fadeRef}
+                    ref={sectorsForegroundRef}
                     className={`${Grid["row"]} ${Style["gallery__container"]}`}
                   >
                     <div
@@ -122,7 +119,7 @@ const Impact: React.FunctionComponent = () => {
                     </div>
                   </div>
                   <div
-                    ref={fadeRef2}
+                    ref={sectorsBackgroundsRef}
                     className={`${Grid["row"]} ${Style["gallery__container"]}`}
                   >
                     <div
@@ -157,7 +154,7 @@ const Impact: React.FunctionComponent = () => {
                   <div
                     className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
                   >
-                    <p ref={pFade}>Find your passion below:</p>
+                    <p ref={subtitleRef}>Find your passion below:</p>
                     <FontAwesomeIcon
                       icon={faArrowAltCircleDown as IconProp}
                       size="2x"
