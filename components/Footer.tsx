@@ -10,6 +10,7 @@ import React from "react";
 import { pageSettings as termsOfServicePageSettings } from "../pages/termsofservice";
 import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
 import { pageSettings as legalPageSettings } from "../pages/legal";
+import { pageSettings as careersPageSettings } from "../pages/careers";
 
 const Footer: React.FunctionComponent = () => {
   return (
@@ -107,8 +108,8 @@ const Footer: React.FunctionComponent = () => {
               </Link>
             </li>
             <li>
-              <Link href="/careers">
-                <a>Careers </a>
+              <Link href={careersPageSettings.path}>
+                <a>{careersPageSettings.linkContent}</a>
               </Link>
             </li>
           </ul>

@@ -14,6 +14,12 @@ import useScript from "../../hooks/useScript";
 import Prose from "../../components/Prose/Prose";
 import clsx from "clsx";
 import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+
+export const pageSettings: PageSettings = {
+  path: "/careers",
+  linkContent: <>Careers</>,
+};
 
 const Index = (): ReactElement => {
   useEffect(() => {

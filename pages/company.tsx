@@ -34,6 +34,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
+import { pageSettings as careersPageSettings } from "./careers";
 import { PageSettings } from "../types/next";
 
 export const pageSettings: PageSettings = {
@@ -529,7 +530,7 @@ const Company = ({
                         challenge, let's connect.
                       </p>
                       <div className={` ${Style["button__content"]}`}>
-                        <Link href="/careers">
+                        <Link href={careersPageSettings.path}>
                           <a role="button">Find your job</a>
                         </Link>
                       </div>

@@ -10,6 +10,7 @@ import { pageSettings as partnersPageSettings } from "../pages/partners";
 import { pageSettings as impactPageSettings } from "../pages/impact";
 import { pageSettings as companyPageSettings } from "../pages/company";
 import { pageSettings as contactPageSettings } from "../pages/contact";
+import { pageSettings as careersPageSettings } from "../pages/careers";
 
 const Navigation = () => {
   const { navColor: color } = useContext(LayoutContext);
@@ -222,14 +223,16 @@ const Navigation = () => {
             </li>
 
             <li>
-              <Link href="/careers">
+              <Link href={careersPageSettings.path}>
                 <a
                   style={{ color: color }}
                   className={
-                    router.pathname == "/careers" ? `${Nav.active}` : ""
+                    router.pathname === careersPageSettings.path
+                      ? `${Nav.active}`
+                      : ""
                   }
                 >
-                  Careers
+                  {careersPageSettings.linkContent}
                 </a>
               </Link>
             </li>
