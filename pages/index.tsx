@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import { ReactElement, useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -20,8 +20,14 @@ import { TypeNews } from "../generated/contentful";
 import { getHeadPageTitle } from "../utils/meta";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
 import { pageSettings as platformPageSettings } from "../pages/platform";
+import { PageSettings } from "../types/next";
 
 gsap.registerPlugin(ScrollTrigger);
+
+export const pageSettings: PageSettings = {
+  path: "/",
+  linkContent: <>Home</>,
+};
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
