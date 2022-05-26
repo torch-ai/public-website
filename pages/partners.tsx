@@ -13,6 +13,7 @@ import training from "../img/training.png";
 import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
 import LayoutContext from "../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../utils/meta";
 
 const Partners: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -40,8 +41,10 @@ const Partners: React.FunctionComponent = () => {
     <>
       <Head>
         <title>
-          Torch.AI Partnerships | Transforming the Potential of Data for Good |
-          Torch.AI
+          {getHeadPageTitle([
+            "Partnerships",
+            "Transforming the potential of data for good",
+          ])}
         </title>
       </Head>
       <ReactFullpage

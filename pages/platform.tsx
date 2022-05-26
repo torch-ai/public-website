@@ -14,6 +14,7 @@ import datamodel1 from "../img/datamodel1.svg";
 import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
 import LayoutContext from "../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../utils/meta";
 
 const Platform: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -41,8 +42,10 @@ const Platform: React.FunctionComponent = () => {
     <>
       <Head>
         <title>
-          Highest Performing Data Processing Platform | Nexus Platform |
-          Torch.AI
+          {getHeadPageTitle([
+            "Highest performing data processing platform",
+            "Nexus platform",
+          ])}
         </title>
       </Head>
       <ReactFullpage

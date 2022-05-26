@@ -8,6 +8,7 @@ import { TypePage } from "../../generated/contentful";
 import { getPage } from "../../contentful/client";
 import ContentfulPage from "../../components/ContentfulPage/ContentfulPage";
 import Form from "./components/Form/Form";
+import { getHeadPageTitle } from "../../utils/meta";
 
 export const getStaticProps: GetStaticProps<{
   page?: TypePage;
@@ -28,7 +29,9 @@ const Index = ({
   return (
     <>
       <Head>
-        <title>{page.fields.title || "Content not found"} | Torch.AI</title>
+        <title>
+          {getHeadPageTitle([page.fields.title || "Content not found"])}
+        </title>
       </Head>
       <ContentfulPage page={page} asideChildren={<Form />} />
       <Footer />

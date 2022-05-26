@@ -12,6 +12,7 @@ import Container from "../../components/Container/Container";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import Styles from "./styles.module.scss";
+import { getHeadPageTitle } from "../../utils/meta";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAllNewsEntries();
@@ -45,7 +46,7 @@ const Slug = ({
   return (
     <>
       <Head>
-        <title>{item.fields.title} | Torch.AI</title>
+        <title>{getHeadPageTitle([item.fields.title])}</title>
       </Head>
       <PageHeader>
         <PageTitle>{item.fields.title}.</PageTitle>

@@ -17,6 +17,7 @@ import LayoutContext from "../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
+import { getHeadPageTitle } from "../utils/meta";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -64,7 +65,10 @@ const Index = ({
     <>
       <Head>
         <title>
-          World's Most Trusted AI Platform | Unlock Human Potential | Torch.AI
+          {getHeadPageTitle([
+            "World's most trusted AI platform",
+            "Unlock human potential",
+          ])}
         </title>
       </Head>
       <ReactFullpage

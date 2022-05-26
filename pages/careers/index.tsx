@@ -13,6 +13,7 @@ import Styles from "./styles.module.scss";
 import useScript from "../../hooks/useScript";
 import Prose from "../../components/Prose/Prose";
 import clsx from "clsx";
+import { getHeadPageTitle } from "../../utils/meta";
 
 const Index = (): ReactElement => {
   useEffect(() => {
@@ -39,7 +40,10 @@ const Index = (): ReactElement => {
     <>
       <Head>
         <title>
-          AI and Machine Learning Jobs | Current Openings | Torch.AI
+          {getHeadPageTitle([
+            "AI and machine learning jobs",
+            "Current openings",
+          ])}
         </title>
       </Head>
       <PageHeader>
