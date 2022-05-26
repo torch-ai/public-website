@@ -6,6 +6,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../utils/meta";
 
 const Prism: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -13,9 +14,7 @@ const Prism: React.FunctionComponent = () => {
   return (
     <>
       <Head>
-        <title>
-          World's Most Trusted AI Platform | Unlock Human Potential | Torch.AI
-        </title>
+        <title>{getHeadPageTitle(["PRISM", "Nexus platform"])}</title>
       </Head>
       <ReactFullpage
         navigation

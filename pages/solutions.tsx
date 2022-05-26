@@ -8,6 +8,7 @@ import { InView } from "react-intersection-observer";
 import { gsap } from "gsap/dist/gsap";
 import Footer from "../components/Footer";
 import LayoutContext from "../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../utils/meta";
 
 const Solutions: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -35,7 +36,9 @@ const Solutions: React.FunctionComponent = () => {
     <>
       <Head>
         <title>
-          Drive Value from Data with a System of Intelligence | Torch.AI
+          {getHeadPageTitle([
+            "Drive value from data with a system of intelligence",
+          ])}
         </title>
       </Head>
       <section className={`${Style["wrap"]}`}>

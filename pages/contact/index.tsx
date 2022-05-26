@@ -9,6 +9,7 @@ import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
+import { getHeadPageTitle } from "../../utils/meta";
 
 const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -17,7 +18,11 @@ const Index: React.FunctionComponent = () => {
     <>
       <Head>
         <title>
-          Contact Us | Unlock Your Potential | Talk to Us | Torch.AI
+          {getHeadPageTitle([
+            "Contact us",
+            "Unlock your potential",
+            "Talk to us",
+          ])}
         </title>
       </Head>
       <section className={`${Style["contact__container"]}`}>

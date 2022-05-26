@@ -33,6 +33,7 @@ import LayoutContext from "../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { getNewsEntries } from "../contentful/client";
 import { TypeNews } from "../generated/contentful";
+import { getHeadPageTitle } from "../utils/meta";
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
@@ -76,8 +77,10 @@ const Company = ({
     <>
       <Head>
         <title>
-          Kansas City's Next Great Company | Unmatched Environment for
-          Innovation | Torch.AI
+          {getHeadPageTitle([
+            "Kansas City's next great company",
+            "Unmatched environment for innovation",
+          ])}
         </title>
       </Head>
       <ReactFullpage

@@ -13,6 +13,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
 import LayoutContext from "../components/layout/LayoutContext";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { getHeadPageTitle } from "../utils/meta";
 
 const Impact: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
@@ -57,7 +58,9 @@ const Impact: React.FunctionComponent = () => {
   return (
     <>
       <Head>
-        <title>What Impact Can Nexus Have in the World? | Torch.AI</title>
+        <title>
+          {getHeadPageTitle(["What impact can Nexus have in the world?"])}
+        </title>
       </Head>
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}

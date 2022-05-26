@@ -7,6 +7,7 @@ import React, { ReactElement } from "react";
 import { getAllPageEntries, getPageEntries } from "../../contentful/client";
 import { TypePage } from "../../generated/contentful";
 import ContentfulPage from "../../components/ContentfulPage/ContentfulPage";
+import { getHeadPageTitle } from "../../utils/meta";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAllPageEntries({
@@ -41,7 +42,7 @@ const Slug = ({
   return (
     <>
       <Head>
-        <title>{page.fields.title} | Torch.AI</title>
+        <title>{getHeadPageTitle([page.fields.title])}</title>
       </Head>
       <ContentfulPage page={page} />
       <Footer />

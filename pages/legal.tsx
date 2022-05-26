@@ -7,6 +7,7 @@ import { TypePage } from "../generated/contentful";
 import { getPage } from "../contentful/client";
 import Head from "next/head";
 import ContentfulPage from "../components/ContentfulPage/ContentfulPage";
+import { getHeadPageTitle } from "../utils/meta";
 
 export const getStaticProps: GetStaticProps<{
   page: TypePage;
@@ -38,7 +39,7 @@ const Legal = ({
   return (
     <>
       <Head>
-        <title>{title} | Torch.AI</title>
+        <title>{getHeadPageTitle([title])}</title>
       </Head>
       <ContentfulPage page={page} />
       <Footer />
