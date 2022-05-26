@@ -8,6 +8,7 @@ import forbes from "../img/forbes.png";
 import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
 import { pageSettings as termsOfServicePageSettings } from "../pages/termsofservice";
+import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
 
 const Footer: React.FunctionComponent = () => {
   return (
@@ -95,8 +96,8 @@ const Footer: React.FunctionComponent = () => {
               </Link>
             </li>
             <li>
-              <Link href="/privacypolicy">
-                <a>Privacy Policy </a>
+              <Link href={privacyPolicyPageSettings.path}>
+                <a>{privacyPolicyPageSettings.linkContent}</a>
               </Link>
             </li>
             <li>
