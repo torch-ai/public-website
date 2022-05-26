@@ -32,7 +32,7 @@ const ThankYou = ({
     <>
       <Head>
         <title>
-          {getHeadPageTitle([title, "Unlock Your Potential", "Talk to Us"])}
+          {getHeadPageTitle([title, "Unlock your potential", "Talk to us"])}
         </title>
       </Head>
       <ContentfulPage page={page} />
