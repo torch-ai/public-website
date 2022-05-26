@@ -29,17 +29,21 @@ const Platform: React.FunctionComponent = () => {
   const arrowRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    let delay = 1;
+    const titleDuration = 1;
     gsap.fromTo(
       titleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 1, delay: 1 }
+      { opacity: 1, y: 0, duration: titleDuration, delay }
     );
+
+    delay += titleDuration;
     gsap.fromTo(
       arrowRef.current,
       { opacity: 0, y: "-100%", ease: "power1" },
-      { opacity: 1, y: 0, duration: 0.5, delay: 2 }
+      { opacity: 1, y: 0, duration: titleDuration / 2, delay }
     );
-  }, [titleRef, arrowRef]);
+  }, []);
 
   return (
     <>
