@@ -3,27 +3,26 @@ import Layout from "../components/layout/Layout";
 import { LayoutContextProvider } from "../components/layout/LayoutContext";
 import { useEffect } from "react";
 import Head from "next/head";
-import useScript from "../hooks/useScript";
+import { useRouter } from "next/router";
+import { pageView as trackPageView, useGAScript } from "../telemetry/gtag";
 
 const App = ({ Component, pageProps }) => {
   // TODO add preloader to website.
 
-  // GA
-  useScript({
-    src: "https://www.googletagmanager.com/gtag/js?id=UA-114049699-1",
-  });
-  useEffect(() => {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-    gtag("config", "UA-114049699-1");
-  }, []);
+  useGAScript();
 
   useEffect(() => {
     initializeHeapTracking();
   }, []);
+
+  // Setup router event changes
+  const router = useRouter();
+  useEffect(() => {
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [router.events]);
 
   return (
     <>
@@ -44,6 +43,8 @@ const App = ({ Component, pageProps }) => {
 };
 
 export default App;
+
+const handleRouteChange = (url) => trackPageView(url);
 
 const initializeHeapTracking = () => {
   (window.heap = window.heap || []),
