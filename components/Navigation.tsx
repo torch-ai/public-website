@@ -6,6 +6,7 @@ import Grid from "../styles/modules/grid.module.scss";
 import LayoutContext from "./layout/LayoutContext";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
 import { pageSettings as platformPageSettings } from "../pages/platform";
+import { pageSettings as partnersPageSettings } from "../pages/partners";
 
 const Navigation = () => {
   const { navColor: color } = useContext(LayoutContext);
@@ -199,14 +200,16 @@ const Navigation = () => {
               </Link>
             </li>
             <li>
-              <Link href="/partners">
+              <Link href={partnersPageSettings.path}>
                 <a
                   style={{ color: color }}
                   className={
-                    router.pathname == "/partners" ? `${Nav.active}` : ""
+                    router.pathname === partnersPageSettings.path
+                      ? `${Nav.active}`
+                      : ""
                   }
                 >
-                  Partners
+                  {partnersPageSettings.linkContent}
                 </a>
               </Link>
             </li>
