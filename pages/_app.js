@@ -5,6 +5,8 @@ import { useEffect } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { pageView as trackPageView, GAScripts } from "../telemetry/gtag";
+import { config, dom } from "@fortawesome/fontawesome-svg-core";
+config.autoAddCss = false;
 
 const App = ({ Component, pageProps }) => {
   // TODO add preloader to website.
@@ -27,11 +29,12 @@ const App = ({ Component, pageProps }) => {
       <GAScripts />
       <Head>
         <title>Torch AI</title>
-        {/*<link rel="icon" type="image/svg+xml" href="/flame-icon.svg" />*/}
+        <link rel="icon" type="image/svg+xml" href="/flame-icon.svg" />
         <meta
           name="google-site-verification"
           content="jnMUZSnFk7rNuzBliT91FcC07ggjU6ArbL6I1VXHs44"
         />
+        <style>{dom.css()}</style>
       </Head>
       <LayoutContextProvider>
         <Layout>
