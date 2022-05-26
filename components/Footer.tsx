@@ -9,6 +9,7 @@ import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
 import { pageSettings as termsOfServicePageSettings } from "../pages/termsofservice";
 import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
+import { pageSettings as legalPageSettings } from "../pages/legal";
 
 const Footer: React.FunctionComponent = () => {
   return (
@@ -101,8 +102,8 @@ const Footer: React.FunctionComponent = () => {
               </Link>
             </li>
             <li>
-              <Link href="/legal">
-                <a>Legal</a>
+              <Link href={legalPageSettings.path}>
+                <a>{legalPageSettings.linkContent}</a>
               </Link>
             </li>
             <li>
