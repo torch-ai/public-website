@@ -4,38 +4,40 @@ import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
-import Landing from "../styles/modules/landing.module.scss";
+import Grid from "../../styles/modules/grid.module.scss";
+import Landing from "../../styles/modules/landing.module.scss";
 import Image from "next/image";
-import Style from "../styles/modules/company.module.scss";
-import News from "../components/News";
-import Footer from "../components/Footer";
+import Style from "./styles.module.scss";
+import News from "../../components/News";
+import Footer from "../../components/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
 
-import BrainWeaver from "../img/dotArt/BrainWeaver.png";
-import AdamLurie from "../img/dotArt/AdamLurie.png";
-import AmyBradshaw from "../img/dotArt/AmyBradshaw.png";
-import DavidKern from "../img/dotArt/DavidKern.png";
-import HondoGeruts from "../img/dotArt/HondoGeruts.png";
-import JanetHanofee from "../img/dotArt/JanetHanofee.png";
-import JasonDelker from "../img/dotArt/JasonDelker.png";
-import JenniferUtting from "../img/dotArt/JenniferUtting.png";
-import JonKramer from "../img/dotArt/JonKramer.png";
-import MikeDanda from "../img/dotArt/MikeDanda.png";
-import LaurenceTosi from "../img/dotArt/LaurenceTosi.png";
-import ChristanSchnedler from "../img/dotArt/ChristanSchnedler.png";
-import WilliamBeyer from "../img/dotArt/WilliamBeyer.png";
-import MarkPerrin from "../img/dotArt/MarkPerrin.png";
-import KevinMarcus from "../img/dotArt/KevinMarcus.png";
-import forbes from "../img/forbes.png";
-import LayoutContext from "../components/layout/LayoutContext";
+import BrainWeaver from "../../img/dotArt/BrainWeaver.png";
+import AdamLurie from "../../img/dotArt/AdamLurie.png";
+import AmyBradshaw from "../../img/dotArt/AmyBradshaw.png";
+import DavidKern from "../../img/dotArt/DavidKern.png";
+import HondoGeruts from "../../img/dotArt/HondoGeruts.png";
+import JanetHanofee from "../../img/dotArt/JanetHanofee.png";
+import JasonDelker from "../../img/dotArt/JasonDelker.png";
+import JenniferUtting from "../../img/dotArt/JenniferUtting.png";
+import JonKramer from "../../img/dotArt/JonKramer.png";
+import MikeDanda from "../../img/dotArt/MikeDanda.png";
+import LaurenceTosi from "../../img/dotArt/LaurenceTosi.png";
+import ChristanSchnedler from "../../img/dotArt/ChristanSchnedler.png";
+import WilliamBeyer from "../../img/dotArt/WilliamBeyer.png";
+import MarkPerrin from "../../img/dotArt/MarkPerrin.png";
+import KevinMarcus from "../../img/dotArt/KevinMarcus.png";
+import forbes from "../../img/forbes.png";
+import logoBookshelf from "./assets/logo-bookshelf.png";
+import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getNewsEntries } from "../contentful/client";
-import { TypeNews } from "../generated/contentful";
-import { getHeadPageTitle } from "../utils/meta";
-import { pageSettings as careersPageSettings } from "./careers";
-import { PageSettings } from "../types/next";
+import { getNewsEntries } from "../../contentful/client";
+import { TypeNews } from "../../generated/contentful";
+import { getHeadPageTitle } from "../../utils/meta";
+import { pageSettings as careersPageSettings } from "../careers";
+import { PageSettings } from "../../types/next";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -56,7 +58,7 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const Company = ({
+const Index = ({
   news,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
@@ -99,51 +101,18 @@ const Company = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "white" : "black")
-                    }
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
-                      >
-                        <h2 ref={titleRef}>
-                          We're building Kansas City's next great company.
-                        </h2>
-                        <p ref={subtitleRef}>
-                          The world's hardest problems. The world's greatest
-                          minds. An unmatched environment for innovation.
-                        </p>
-                        <div className={`${Style["forbes"]}`}>
-                          <Image
-                            className={`${Style["forbes-img"]}`}
-                            src={forbes}
-                            alt={
-                              "Recognized by Forbes as one of America's best startups employers for 2022"
-                            }
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </InView>
-                </div>
-              </div>
               <div
                 data-anchor="culture"
-                className={`${Style["culture"]} section`}
+                className={clsx(Style.culture, "section")}
               >
                 <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
+                  className={clsx(
+                    Style.culture__content,
+                    Grid.container,
+                    Grid.margin_center
+                  )}
                 >
-                  <div
-                    className={`${Grid["row"]} ${Style["culture__content"]}`}
-                  >
+                  <div className={Grid.row}>
                     <div
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                     >
@@ -192,6 +161,16 @@ const Company = ({
                       </p>
                     </div>
                   </div>
+                </div>
+                <div className={Style.cultureBackground}>
+                  <Image
+                    layout={"fill"}
+                    objectFit={"contain"}
+                    objectPosition={"right bottom"}
+                    className={Style.cultureBackgroundImage}
+                    src={logoBookshelf}
+                    alt={"Logo made with photo!"}
+                  />
                 </div>
               </div>
               <div className={`${Style["gallery"]} section`}>
@@ -551,4 +530,4 @@ const Company = ({
   );
 };
 
-export default Company;
+export default Index;

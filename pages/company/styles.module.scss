@@ -54,6 +54,7 @@
   align-items: center;
   padding: 5em 0;
   background-color: #ffffff;
+  position: relative;
 }
 .culture h3 {
   color: #232730;
@@ -72,7 +73,35 @@
 }
 
 .culture__content {
+  z-index: 1;
   justify-content: flex-end;
+}
+
+.cultureBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+}
+
+.cultureBackground > span {
+  z-index: 0;
+}
+
+.cultureBackground::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1;
+}
+
+.cultureBackgroundImage {
 }
 
 .culture p {
@@ -211,11 +240,12 @@
     background-size: contain;
   }
 
-  .culture {
-    background-image: url(../../img/backgrounds/logo_image2.svg);
-    background-repeat: no-repeat;
-    background-position: center right -10%;
-    background-size: contain;
+  .cultureBackground::after {
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.95) 800px,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   .hero {
