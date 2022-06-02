@@ -20,7 +20,7 @@ const ContentOverImage: React.FunctionComponent<
     <section {...props} className={clsx(Style.section, className)}>
       <div
         {...contentProps}
-        className={clsx(Style.content, contentProps.className)}
+        className={clsx(Style.content, contentProps?.className)}
       >
         {children}
       </div>

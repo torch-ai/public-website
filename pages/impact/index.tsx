@@ -3,26 +3,29 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
+import Grid from "../../styles/modules/grid.module.scss";
 import Link from "next/link";
-import Style from "../styles/modules/inspiration.module.scss";
+import Style from "../../styles/modules/inspiration.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
-import LayoutContext from "../components/layout/LayoutContext";
+import LayoutContext from "../../components/layout/LayoutContext";
 import { IconProp } from "@fortawesome/fontawesome-svg-core";
-import { getHeadPageTitle } from "../utils/meta";
-import { pageSettings as contactPageSettings } from "../pages/contact";
-import { PageSettings } from "../types/next";
+import { getHeadPageTitle } from "../../utils/meta";
+import { pageSettings as contactPageSettings } from "../contact";
+import { PageSettings } from "../../types/next";
+import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
+import staffFlameBackground from "./assets/staff-flame-background.png";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
   linkContent: <>Impact</>,
 };
 
-const Impact: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -462,33 +465,51 @@ const Impact: React.FunctionComponent = () => {
                 </div>
               </div>
               <div className={`${Style["cta"]} section`}>
-                <InView
-                  as="div"
-                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
+                <ContentOverImage
+                  imageProps={{
+                    src: staffFlameBackground,
+                    alt: "",
+                    layout: "fill",
+                    objectPosition: "left center",
+                    objectFit: "contain",
+                  }}
                 >
-                  <div
-                    id="public"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
+                  <InView
+                    as="div"
+                    onChange={(inView) =>
+                      setNavColor(inView ? "black" : "white")
+                    }
                   >
-                    <div className={`${Grid["row"]} ${Style["cta__content"]}`}>
-                      <div
-                        className={`${Grid["col-lg-offset-6"]} ${Grid["col-xs-12"]}`}
-                      >
-                        <h3>Let us help you make data easier to use.</h3>
-                        <p>It's time to unleash your potential.</p>
+                    <div
+                      id="public"
+                      className={clsx(Grid.container, Grid.margin_center)}
+                    >
+                      <div className={clsx(Grid.row, Style.cta__content)}>
+                        <div
+                          className={clsx(
+                            Grid["col-lg-offset-6"],
+                            Grid["col-xs-12"]
+                          )}
+                        >
+                          <h3>Let us help you make data easier to use.</h3>
+                          <p>It's time to unleash your potential.</p>
+                        </div>
+                      </div>
+                      <div className={Grid.row}>
+                        <div
+                          className={clsx(
+                            Grid["col-lg-offset-6"],
+                            Grid["col-lg-12"]
+                          )}
+                        >
+                          <Link href={contactPageSettings.path}>
+                            <a role="button">Let's be friends</a>
+                          </Link>
+                        </div>
                       </div>
                     </div>
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-lg-offset-6"]} ${Grid["col-lg-12"]}`}
-                      >
-                        <Link href={contactPageSettings.path}>
-                          <a role="button">Let's be friends</a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
-                </InView>
+                  </InView>
+                </ContentOverImage>
               </div>
               <Footer />
             </ReactFullpage.Wrapper>
@@ -499,4 +520,4 @@ const Impact: React.FunctionComponent = () => {
   );
 };
 
-export default Impact;
+export default Index;
