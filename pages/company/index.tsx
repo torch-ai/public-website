@@ -12,7 +12,15 @@ import News from "../../components/News";
 import Footer from "../../components/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
-
+import LayoutContext from "../../components/layout/LayoutContext";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { getNewsEntries } from "../../contentful/client";
+import { TypeNews } from "../../generated/contentful";
+import { getHeadPageTitle } from "../../utils/meta";
+import { pageSettings as careersPageSettings } from "../careers";
+import { PageSettings } from "../../types/next";
+import clsx from "clsx";
+import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import BrainWeaver from "../../img/dotArt/BrainWeaver.png";
 import AdamLurie from "../../img/dotArt/AdamLurie.png";
 import AmyBradshaw from "../../img/dotArt/AmyBradshaw.png";
@@ -30,15 +38,6 @@ import MarkPerrin from "../../img/dotArt/MarkPerrin.png";
 import KevinMarcus from "../../img/dotArt/KevinMarcus.png";
 import forbes from "../../img/forbes.png";
 import logoBookshelf from "./assets/logo-bookshelf.png";
-import LayoutContext from "../../components/layout/LayoutContext";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getNewsEntries } from "../../contentful/client";
-import { TypeNews } from "../../generated/contentful";
-import { getHeadPageTitle } from "../../utils/meta";
-import { pageSettings as careersPageSettings } from "../careers";
-import { PageSettings } from "../../types/next";
-import clsx from "clsx";
-import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -102,6 +101,41 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
+              <div className={`${Style["hero"]} section`}>
+                <div
+                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
+                >
+                  <InView
+                    as="div"
+                    onChange={(inView) =>
+                      setNavColor(inView ? "white" : "black")
+                    }
+                  >
+                    <div className={`${Grid["row"]}`}>
+                      <div
+                        className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
+                      >
+                        <h2 ref={titleRef}>
+                          We're building Kansas City's next great company.
+                        </h2>
+                        <p ref={subtitleRef}>
+                          The world's hardest problems. The world's greatest
+                          minds. An unmatched environment for innovation.
+                        </p>
+                        <div className={`${Style["forbes"]}`}>
+                          <Image
+                            className={`${Style["forbes-img"]}`}
+                            src={forbes}
+                            alt={
+                              "Recognized by Forbes as one of America's best startups employers for 2022"
+                            }
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </InView>
+                </div>
+              </div>
               <ContentOverImage
                 data-anchor="culture"
                 className={Style.culture}
