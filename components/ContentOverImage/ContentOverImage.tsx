@@ -6,11 +6,16 @@ import Image from "next/image";
 
 interface Props {
   imageProps: ImageProps;
-  contentProps: React.HTMLAttributes<HTMLDivElement>;
+  contentProps?: React.HTMLAttributes<HTMLDivElement>;
 }
 const ContentOverImage: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
 > = ({ className, children, imageProps, contentProps, ...props }) => {
+  const objectPosition: ImageProps["objectPosition"] =
+    imageProps.objectPosition || "right bottom";
+  const isObjectRightAligned: boolean =
+    objectPosition === "right" ||
+    (typeof objectPosition === "string" && objectPosition.includes("right"));
   return (
     <section {...props} className={clsx(Style.section, "section", className)}>
       <div
@@ -19,13 +24,16 @@ const ContentOverImage: React.FunctionComponent<
       >
         {children}
       </div>
-      <div className={Style.background}>
+      <div
+        className={clsx(Style.background, {
+          [Style.backgroundRight]: isObjectRightAligned,
+        })}
+      >
         <Image
           layout={"fill"}
           objectFit={"contain"}
-          objectPosition={"right bottom"}
+          objectPosition={objectPosition}
           {...imageProps}
-          className={clsx(Style.cultureBackgroundImage, imageProps.className)}
         />
       </div>
     </section>

@@ -107,11 +107,24 @@
 //  Nexus
 
 .nexus {
+  position: relative;
+  background: #b15400;
   display: flex;
   align-items: center;
-  padding: 5em 0;
-  background: url(../../img/backgrounds/01.png) no-repeat center center;
-  background-size: cover;
+}
+
+.nexusBackground {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.nexusContent {
+  position: relative;
+  z-index: 1;
 }
 
 .nexus__stats {
@@ -285,7 +298,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 5em 0;
+  padding: 0;
 }
 
 .news__title {
@@ -348,10 +361,25 @@
 
 @keyframes zoomies {
   from {
-    background-size: 100%;
+    background-size: cover;
   }
   to {
     background-size: 150%;
+  }
+}
+
+@keyframes zoomAbsolutes25Percent {
+  from {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  to {
+    top: -25%;
+    bottom: -25%;
+    left: -25%;
+    right: -25%;
   }
 }
 
@@ -400,25 +428,16 @@
     -webkit-animation-fill-mode: forwards;
   }
 
-  .nexus {
-    animation-name: zoomies;
+  .nexusBackground {
+    animation-name: zoomAbsolutes25Percent;
     animation-duration: 65s;
     animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-fill-mode: forwards;
-    -webkit-animation-fill-mode: forwards;
   }
 
   .enhance {
     display: flex;
     align-items: center;
-    padding: 5em 0;
     background-color: #ffffff;
-    background-image: url(../../img/backgrounds/logo_image.svg);
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position-y: 70%;
-    background-position-x: -5%;
   }
 
   .statement2 {
@@ -445,7 +464,7 @@
 
   .enhance {
     justify-content: stretch;
-    padding: 3em 0;
+    padding: 0;
   }
 
   .enhance h2 {
