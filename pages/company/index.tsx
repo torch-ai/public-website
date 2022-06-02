@@ -136,8 +136,8 @@ const Index = ({
                       <p>
                         We are always interested in finding new and better ways
                         to do things and never satisfied with what we have. We
-                        wonder constantly about “what could be” and how we might
-                        “solve the unsolvable.”
+                        wonder constantly about "what could be” and how we might
+                        "solve the unsolvable.”
                       </p>
                     </div>
                   </div>

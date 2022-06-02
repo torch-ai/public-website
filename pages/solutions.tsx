@@ -549,7 +549,7 @@ const Solutions: React.FunctionComponent = () => {
                     &nbsp; We have out-of-the-box connectors for virtually every
                     meaningful cloud service or system, such as Tableau,
                     PowerBI, and Qlik. Nexus converts business-friendly data
-                    requests into optimized technical queries, enabling a “no
+                    requests into optimized technical queries, enabling a "no
                     code” mechanism for data access and discovery.
                   </p>
                 </div>
@@ -663,7 +663,7 @@ const Solutions: React.FunctionComponent = () => {
                     <span className={`${Style["sub-content-accent"]}`}>
                       Solution:
                     </span>{" "}
-                    &nbsp; Nexus provides a proprietary “no code” data retrieval
+                    &nbsp; Nexus provides a proprietary "no code” data retrieval
                     system which converts business-friendly data requests into
                     optimized technical queries. Queries are made across
                     federated data sources. Nexus users and decision-makers do
