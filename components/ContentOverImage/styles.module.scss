@@ -41,7 +41,7 @@
   .background::after {
     background: linear-gradient(
       to left,
-      rgba(255, 255, 255, 0.95) 800px,
+      rgba(255, 255, 255, 0.95) 65rem,
       rgba(255, 255, 255, 0) 100%
     );
   }
@@ -49,7 +49,7 @@
   .backgroundRight::after {
     background: linear-gradient(
       to right,
-      rgba(255, 255, 255, 0.95) 800px,
+      rgba(255, 255, 255, 0.95) 65rem,
       rgba(255, 255, 255, 0) 100%
     );
   }
