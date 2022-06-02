@@ -138,7 +138,7 @@ const Index = ({
               </div>
               <ContentOverImage
                 data-anchor="culture"
-                className={Style.culture}
+                className={clsx(Style.culture, "section")}
                 contentProps={{
                   className: clsx(
                     Style.culture__content,

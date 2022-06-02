@@ -17,7 +17,7 @@ const ContentOverImage: React.FunctionComponent<
     objectPosition === "right" ||
     (typeof objectPosition === "string" && objectPosition.includes("right"));
   return (
-    <section {...props} className={clsx(Style.section, "section", className)}>
+    <section {...props} className={clsx(Style.section, className)}>
       <div
         {...contentProps}
         className={clsx(Style.content, contentProps.className)}
