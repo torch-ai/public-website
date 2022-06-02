@@ -38,6 +38,7 @@ import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as careersPageSettings } from "../careers";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
+import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -101,78 +102,72 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div
+              <ContentOverImage
                 data-anchor="culture"
-                className={clsx(Style.culture, "section")}
-              >
-                <div
-                  className={clsx(
+                className={Style.culture}
+                contentProps={{
+                  className: clsx(
                     Style.culture__content,
                     Grid.container,
                     Grid.margin_center
-                  )}
-                >
-                  <div className={Grid.row}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                    >
-                      <h3>Total badasses.</h3>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
-                      <h5>Mission-Focused</h5>
-                      <p>
-                        We have the awesome privilege of sharing responsibility
-                        for the security of our country and the lives of
-                        warfighters protecting that security. From this starting
-                        point, we’ve developed a deep sense of duty to our
-                        clients, company, and each other. Our client’s mission
-                        is our mission.
-                      </p>
-                    </div>
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
-                      <h5>Curious & Innovative</h5>
-                      <p>
-                        We are always interested in finding new and better ways
-                        to do things and never satisfied with what we have. We
-                        wonder constantly about "what could be” and how we might
-                        "solve the unsolvable.”
-                      </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
-                      <h5>Gumption</h5>
-                      <p>
-                        We approach everything we do with a level of passion and
-                        intensity, consistent with the knowledge and
-                        understanding that our work is important and meaningful.
-                        We think and act like a start-up. Every day is Day 1.
-                      </p>
-                    </div>
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
-                      <h5>Do What's Right</h5>
-                      <p>
-                        We approach every decision, action, and interaction with
-                        an unwavering commitment to being ethical, considerate,
-                        transparent, and focused on achieving the best outcome
-                        for our clients and team, rather than ourselves.
-                      </p>
-                    </div>
+                  ),
+                }}
+                imageProps={{
+                  src: logoBookshelf,
+                  alt: "Logo made with photo!",
+                  layout: "fill",
+                  objectFit: "contain",
+                  objectPosition: "right bottom",
+                }}
+              >
+                <div className={Grid.row}>
+                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}>
+                    <h3>Total badasses.</h3>
                   </div>
                 </div>
-                <div className={Style.cultureBackground}>
-                  <Image
-                    layout={"fill"}
-                    objectFit={"contain"}
-                    objectPosition={"right bottom"}
-                    className={Style.cultureBackgroundImage}
-                    src={logoBookshelf}
-                    alt={"Logo made with photo!"}
-                  />
+                <div className={`${Grid["row"]}`}>
+                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
+                    <h5>Mission-Focused</h5>
+                    <p>
+                      We have the awesome privilege of sharing responsibility
+                      for the security of our country and the lives of
+                      warfighters protecting that security. From this starting
+                      point, we’ve developed a deep sense of duty to our
+                      clients, company, and each other. Our client’s mission is
+                      our mission.
+                    </p>
+                  </div>
+                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
+                    <h5>Curious & Innovative</h5>
+                    <p>
+                      We are always interested in finding new and better ways to
+                      do things and never satisfied with what we have. We wonder
+                      constantly about "what could be” and how we might "solve
+                      the unsolvable.”
+                    </p>
+                  </div>
                 </div>
-              </div>
+                <div className={`${Grid["row"]}`}>
+                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
+                    <h5>Gumption</h5>
+                    <p>
+                      We approach everything we do with a level of passion and
+                      intensity, consistent with the knowledge and understanding
+                      that our work is important and meaningful. We think and
+                      act like a start-up. Every day is Day 1.
+                    </p>
+                  </div>
+                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
+                    <h5>Do What's Right</h5>
+                    <p>
+                      We approach every decision, action, and interaction with
+                      an unwavering commitment to being ethical, considerate,
+                      transparent, and focused on achieving the best outcome for
+                      our clients and team, rather than ourselves.
+                    </p>
+                  </div>
+                </div>
+              </ContentOverImage>
               <div className={`${Style["gallery"]} section`}>
                 <div
                   className={`${Grid["container"]} ${Grid["margin_center"]}`}
