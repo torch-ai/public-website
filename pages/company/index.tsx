@@ -38,6 +38,7 @@ import MarkPerrin from "../../img/dotArt/MarkPerrin.png";
 import KevinMarcus from "../../img/dotArt/KevinMarcus.png";
 import forbes from "../../img/forbes.png";
 import logoBookshelf from "./assets/logo-bookshelf.png";
+import galleryBackground from "./assets/gallerypic.png";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -520,33 +521,39 @@ const Index = ({
                   </div>
                 </div>
               </div>
-              <div className={` ${Style["careers"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["careers__content"]}`}
-                  >
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-6"]}`}>
-                      <h2>Careers.</h2>
-                      <p>
-                        At Torch.AI, we are passionate about building software
-                        that solves some of the world's most challenging
-                        problems. Our work is hard. It is fun. It has meaning.
-                        We have built a team of exceptional people that build
-                        great products and provide the highest quality support
-                        and services. If you are a curious pioneer looking for a
-                        challenge, let's connect.
-                      </p>
-                      <div className={` ${Style["button__content"]}`}>
-                        <Link href={careersPageSettings.path}>
-                          <a role="button">Find your job</a>
-                        </Link>
-                      </div>
+              <ContentOverImage
+                className={clsx(Style.careers, "section")}
+                contentProps={{
+                  className: clsx(Grid.container, Grid.margin_center),
+                }}
+                imageProps={{
+                  src: galleryBackground,
+                  alt: "",
+                  layout: "fill",
+                  objectPosition: "left center",
+                  objectFit: "contain",
+                }}
+              >
+                <div className={clsx(Grid.row, Style.careers__content)}>
+                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-6"])}>
+                    <h2>Careers.</h2>
+                    <p>
+                      At Torch.AI, we are passionate about building software
+                      that solves some of the world's most challenging problems.
+                      Our work is hard. It is fun. It has meaning. We have built
+                      a team of exceptional people that build great products and
+                      provide the highest quality support and services. If you
+                      are a curious pioneer looking for a challenge, let's
+                      connect.
+                    </p>
+                    <div>
+                      <Link href={careersPageSettings.path}>
+                        <a role="button">Find your job</a>
+                      </Link>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ContentOverImage>
               <div className={`${Landing["news"]} section`}>
                 <News items={news} />
               </div>
