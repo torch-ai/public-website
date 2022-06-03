@@ -45,7 +45,7 @@ const Footer: React.FunctionComponent = () => {
             </div>
             <div className={`${Grid.row_wrapoff} `}>
               <input
-                placeholder="Company"
+                placeholder="Index"
                 id="organization"
                 type="text"
                 autoComplete="organization"

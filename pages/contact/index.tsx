@@ -71,7 +71,7 @@ const Index: React.FunctionComponent = () => {
                       <input
                         type="text"
                         name="company"
-                        placeholder="Company"
+                        placeholder="Index"
                         autoComplete="organization"
                       />
                     </label>

@@ -101,7 +101,7 @@ const Partners: React.FunctionComponent = () => {
                         </h3>
                         <p>
                           Torch.AI's strong partner ecosystem is foundational to
-                          our mission of “Transforming the potential of data for
+                          our mission of "Transforming the potential of data for
                           good.” Often, we co-invest in solutions alongside our
                           more established partners, but we have also enjoyed
                           great success providing support to new and emerging
