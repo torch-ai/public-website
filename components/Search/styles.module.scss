@@ -1,0 +1,38 @@
+.searchBar {
+  background: white;
+  padding: 0.1em 0.4em;
+  margin-top: -0.1em;
+}
+
+.searchBar.isLightColorScheme {
+  border-bottom: 2px solid var(--color-dark);
+}
+
+.searchBar input {
+  border: none;
+  outline: none;
+  font-family: var(--font-copy);
+  font-size: var(--base-size);
+}
+
+.icon {
+  cursor: pointer;
+}
+
+.searchResult {
+  height: 200px;
+  display: flex;
+  justify-content: flex-start;
+  gap: 1em;
+  margin: 1em 0;
+  overflow: hidden;
+}
+
+.searchResult img {
+  height: 100%;
+  width: auto;
+}
+
+.searchResult h5 {
+  cursor: pointer;
+}

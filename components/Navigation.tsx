@@ -2,6 +2,7 @@ import { FunctionComponent, useContext, useRef } from "react";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import Nav from "../styles/modules/nav.module.scss";
+import SearchBar from "./Search/SearchBar";
 import Grid from "../styles/modules/grid.module.scss";
 import LayoutContext from "./layout/LayoutContext";
 import { pageSettings as solutionsPageSettings } from "../pages/solutions";
@@ -201,6 +202,12 @@ const Navigation: FunctionComponent = () => {
                 {...levelOneLinkProps}
               />
             </li>
+            <li>
+              <SearchBar
+                isLightColorScheme={color == "black"}
+                router={router}
+              />
+            </li>
           </ul>
         </nav>
       </div>
@@ -212,7 +219,7 @@ export default Navigation;
 
 interface PageSettingsLevelOneLinkProps {
   pageSettings: PageSettings;
-  color: string;
+  color: "white" | "black";
   router: NextRouter;
 }
 const PageSettingsLevelOneLink: FunctionComponent<

@@ -43,6 +43,11 @@ export const getAllNewsEntries: GetAllEntries<TypeNewsFields> = async (
   query = {}
 ) => getAllEntries<TypeNewsFields>(query, getNewsEntries);
 
+export const searchEntries = async (searchQuery: string) =>
+  client.withoutUnresolvableLinks.getEntries<TypePageFields | TypeNewsFields>({
+    query: searchQuery
+  })
+
 export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypeNewsFields>(id, {
     ...query,
