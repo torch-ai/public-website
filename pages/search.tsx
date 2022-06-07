@@ -21,7 +21,12 @@ export const getServerSideProps: GetServerSideProps<{
 
   return {
     props: {
-      items: results.items,
+      items: results.items.filter(
+        (result) =>
+          !!result.fields.slug &&
+          (result.sys.contentType.sys.id == "news" ||
+            result.sys.contentType.sys.id == "page")
+      ),
       search,
     },
   };
@@ -48,11 +53,9 @@ const SearchResults = ({
         </PageSubtitle>
       </PageHeader>
       <Container>
-        {items
-          .filter((result) => !!result.fields.slug)
-          .map((result) => {
-            return <SearchResult key={result.sys.id} item={result} />;
-          })}
+        {items.map((result) => {
+          return <SearchResult key={result.sys.id} item={result} />;
+        })}
       </Container>
       <Footer />
     </>
