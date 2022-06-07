@@ -32,6 +32,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
         })}
       >
         <input
+          autoFocus
           placeholder="Search"
           value={searchText}
           onChange={(e) => {
