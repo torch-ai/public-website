@@ -88,7 +88,7 @@ const Index = ({
                   <div
                     className={`${Grid["col-xs-12"]} ${Landing["content-center"]}`}
                   >
-                    <h1>Unlock Human Potential.</h1>
+                    <Microcopy id="63jQquwt38ls8v1KFoVrl7" />
                     <div className={`${Landing["circle-icon"]}`}>
                       <svg
                         width="50"

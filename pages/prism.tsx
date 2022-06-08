@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { ReactElement, useContext } from "react";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Footer from "../components/Footer";
@@ -8,19 +8,42 @@ import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
+import { getCustomPageAndMicrocopy } from "../contentful/client";
+import { createMicrocopyComponent } from "../components/Microcopy/Microcopy";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
   linkContent: <>PRISM</>,
 };
 
-const Prism: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
+}> = async () => {
+  const microcopy = await getCustomPageAndMicrocopy("7vYSW1kH6ruqlTFRVRxO3C");
+
+  return {
+    props: {
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
+    },
+  };
+};
+
+const Prism = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+
+  const Microcopy = createMicrocopyComponent(microcopy);
 
   return (
     <>
       <Head>
-        <title>{getHeadPageTitle(["PRISM", "Nexus platform"])}</title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <ReactFullpage
         navigation
@@ -44,15 +67,7 @@ const Prism: React.FunctionComponent = () => {
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <div className="container">
-                    <h3>
-                      As an insurance professional, you enable trust across
-                      entire economies.
-                    </h3>
-                    <p>
-                      Prism powers that mission, simplifying how you achieve
-                      instant value from critical document data: faster,
-                      cheaper, more accurate than anyone else.
-                    </p>
+                    <Microcopy id="2dJIiXEQkasxmwNtuvZgoP" />
                   </div>
                 </InView>
               </section>
@@ -104,21 +119,7 @@ const Prism: React.FunctionComponent = () => {
                 >
                   <div className="container">
                     <div className="winPoints">
-                      <h3>Win with Prism</h3>
-                      <ul>
-                        <li>Reduce operational cost.</li>
-                        <li>
-                          Automate & accelerate document processing times.
-                        </li>
-                        <li>
-                          Rely on military-grade, AI document intelligence
-                          technology.
-                        </li>
-                        <li>
-                          Achieve a seamless experience for your teams. Enable
-                          trust for your clients.
-                        </li>
-                      </ul>
+                      <Microcopy id="5kKlUm8U7btqxsidg1pSaH" />
                     </div>
                     <div className="prismVideo">
                       <video controls poster="/torch-video-poster.jpg">

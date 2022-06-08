@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -9,7 +9,10 @@ import Style from "../styles/modules/platform.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import { gsap } from "gsap";
-
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
+import { getCustomPageAndMicrocopy } from "../contentful/client";
+import { createMicrocopyComponent } from "../components/Microcopy/Microcopy";
 import datamodel1 from "../img/datamodel1.svg";
 import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
@@ -22,7 +25,24 @@ export const pageSettings: PageSettings = {
   linkContent: <>Platform</>,
 };
 
-const Platform: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
+}> = async () => {
+  const microcopy = await getCustomPageAndMicrocopy("2yr6rxUJNQz7QHpruI8VRw");
+
+  return {
+    props: {
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
+    },
+  };
+};
+
+const Platform = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -45,15 +65,12 @@ const Platform: React.FunctionComponent = () => {
     );
   }, []);
 
+  const Microcopy = createMicrocopyComponent(microcopy);
+
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle([
-            "Highest performing data processing platform",
-            "Nexus platform",
-          ])}
-        </title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
@@ -105,11 +122,7 @@ const Platform: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]} ${Grid["margin_center"]}`}
                       >
-                        <h3>
-                          Nexus<sup>&trade;</sup> is a transparent and
-                          composable software platform bridging three powerful
-                          capabilities:
-                        </h3>
+                        <Microcopy id="7E0DOj5tn2i4SXQ6u6WSl8" />
                       </div>
                     </div>
                     <div
@@ -122,14 +135,7 @@ const Platform: React.FunctionComponent = () => {
                           <Image src={datamodel1} alt={""} />
                         </div>
                         <div>
-                          <h4>Ingest</h4>
-                          <p>
-                            Extract meaningful content from any type of data,
-                            any format, any system, any structure, in the cloud
-                            or on premises.  Nexus leverages machine learning
-                            algorithms to process data instantly, before it’s
-                            stored anywhere.
-                          </p>
+                          <Microcopy id="58eU8jhDl31NfXVwwrSaov" />
                         </div>
                       </div>
                       <div
@@ -139,14 +145,7 @@ const Platform: React.FunctionComponent = () => {
                           <Image src={datamodel2} alt={""} />
                         </div>
                         <div>
-                          <h4>Link</h4>
-                          <p>
-                            Securely connect your data sources and business
-                            systems, so your investments in infrastructure don’t
-                            go to waste. Nexus unlocks your proprietary data by
-                            fusing it with additional, public data sources—like
-                            social media and geography.
-                          </p>
+                          <Microcopy id="2QI3k7g9CVXk8osHhkYdmA" />
                         </div>
                       </div>
                       <div
@@ -156,13 +155,7 @@ const Platform: React.FunctionComponent = () => {
                           <Image src={datamodel3} alt={""} />
                         </div>
                         <div>
-                          <h4>Illuminate</h4>
-                          <p>
-                            Extract intelligence from your data in new and novel
-                            ways. Surface hidden context and correlations
-                            through a deeper, ontological understanding of your
-                            data.
-                          </p>
+                          <Microcopy id="hLuHIbi3VJubemjGnjcvL" />
                         </div>
                       </div>
                     </div>
@@ -177,15 +170,7 @@ const Platform: React.FunctionComponent = () => {
                     className={`${Grid["row"]} ${Style["datalake__content"]}`}
                   >
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h3>
-                        Your large scale data processor just became obsolete.
-                      </h3>
-                      <p>
-                        Nexus software's ground-breaking compute performance, up
-                        to 10.7x faster than the leading data lake software,
-                        enables your organization to interact directly with the
-                        entirety of your authoritative data.
-                      </p>
+                      <Microcopy id="IiM647ZizgxwpqmFpWMUM" />
                     </div>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
                       <div className={`${Style["datalake__title"]}`}>
@@ -227,18 +212,7 @@ const Platform: React.FunctionComponent = () => {
                         <p className={`${Style["code__subtitle"]}`}>
                           The engineer-friendly approach
                         </p>
-                        <p>
-                          Composable microservices invoked as code, simplifying
-                          integration with existing data infrastructure.
-                        </p>
-                        <p>
-                          Securely provision and orchestrate multiple services
-                          at any scale.
-                        </p>
-                        <p>
-                          Rapid deployment provides your customers value within
-                          a matter of hours.
-                        </p>
+                        <Microcopy id="lzAHB4u9lAcWVCceGkblD" />
                       </div>
                     </div>
                   </div>
@@ -257,56 +231,18 @@ const Platform: React.FunctionComponent = () => {
                   </div>
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Real-Time Data Transformation</h5>
-                      <ul>
-                        <li>Analyze data in flight in real time.</li>
-                        <li>Does not replicate authoritative data.</li>
-                        <li>Reduces infrastructure costs.</li>
-                      </ul>
+                      <Microcopy id="1a6A1yjCwK99DBAQMRz1bm" />
                     </div>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Unstructured Data Processing and Fusion</h5>
-                      <ul>
-                        <li>
-                          Instantly make your data totally available, usable,
-                          and valuable.
-                        </li>
-                        <li>
-                          Utilizes AI to determine additional data objects to
-                          add to further enrich existing data.
-                        </li>
-                        <li>
-                          Autotunes the optimal representations of data to
-                          continuously improve ML performance and accuracy.
-                        </li>
-                      </ul>
+                      <Microcopy id="5CLWOqc6fslOOfxsjwzO1W" />
                     </div>
                   </div>
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Semantic Stitching</h5>
-                      <ul>
-                        <li>
-                          Semantic Stitching. Proprietary no-code data retrieval
-                          system. Use business-friendly data requests instead of
-                          technical queries. Semantically understand's the
-                          wealth of enterprise data.
-                        </li>
-                      </ul>
+                      <Microcopy id="3esBCYvqHSAEEmk63GqgoH" />
                     </div>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Composability</h5>
-                      <ul>
-                        <li>Engages easily within existing architecture.</li>
-                        <li>
-                          Comprised of packaged business capabilities and
-                          pluggable microservices
-                        </li>
-                        <li>
-                          Provides class-leading pre-trained models as well
-                          support for Bring Your Own Model (BYOM).
-                        </li>
-                      </ul>
+                      <Microcopy id="2WpPX6VJRRFy2xnBMvW7We" />
                     </div>
                   </div>
                 </div>

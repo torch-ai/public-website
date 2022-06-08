@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -15,13 +15,34 @@ import tools from "../img/tools.png";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
+import { getCustomPageAndMicrocopy } from "../contentful/client";
+import { createMicrocopyComponent } from "../components/Microcopy/Microcopy";
 
 export const pageSettings: PageSettings = {
   path: "/partners",
   linkContent: <>Partners</>,
 };
 
-const Partners: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
+}> = async () => {
+  const microcopy = await getCustomPageAndMicrocopy("630HdbjY5Sis0xB2w2vWfP");
+
+  return {
+    props: {
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
+    },
+  };
+};
+
+const Partners = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -45,15 +66,12 @@ const Partners: React.FunctionComponent = () => {
     );
   }, []);
 
+  const Microcopy = createMicrocopyComponent(microcopy);
+
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle([
-            "Partnerships",
-            "Transforming the potential of data for good",
-          ])}
-        </title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
@@ -95,18 +113,7 @@ const Partners: React.FunctionComponent = () => {
                       <div
                         className={`${Grid["col-lg-offset-3"]} ${Grid["col-xs-12"]}`}
                       >
-                        <h3>
-                          We value our friends. This is more than business for
-                          us.
-                        </h3>
-                        <p>
-                          Torch.AI's strong partner ecosystem is foundational to
-                          our mission of "Transforming the potential of data for
-                          good.” Often, we co-invest in solutions alongside our
-                          more established partners, but we have also enjoyed
-                          great success providing support to new and emerging
-                          partners.
-                        </p>
+                        <Microcopy id="3tZvyDKqb45GORlQZHewT7" />
                       </div>
                     </div>
                   </InView>
@@ -135,12 +142,7 @@ const Partners: React.FunctionComponent = () => {
                           }
                         />
                       </div>
-                      <h5>Training.</h5>
-                      <p>
-                        Access a robust set of training and enablement content.
-                        Get friendly with our Solution Architects to guarantee
-                        success of your program.
-                      </p>
+                      <Microcopy id="7BY3W6R5GWiiUy14Go0Zys" />
                     </div>
                     <div
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
@@ -151,11 +153,7 @@ const Partners: React.FunctionComponent = () => {
                           alt={"Picture of people around a conference table"}
                         />
                       </div>
-                      <h5>Customer Opportunities.</h5>
-                      <p>
-                        Our partners enjoy new sales opportunities, sourced by
-                        Torch.AI, and aligned to their core competencies.
-                      </p>
+                      <Microcopy id="28Otcj3y8xx5pQ1B7fJzQ3" />
                     </div>
                     <div
                       className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
@@ -168,11 +166,7 @@ const Partners: React.FunctionComponent = () => {
                           }
                         />
                       </div>
-                      <h5>Tools.</h5>
-                      <p>
-                        Access a wide variety of sales, marketing, ML modeling,
-                        and other technical tools.
-                      </p>
+                      <Microcopy id="2XsYSKxcyT1VqRLrbFLr4y" />
                     </div>
                   </div>
                 </div>

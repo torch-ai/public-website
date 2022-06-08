@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
@@ -19,19 +19,42 @@ import { PageSettings } from "../../types/next";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import staffFlameBackground from "./assets/staff-flame-background.png";
 import clsx from "clsx";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { createMicrocopyComponent } from "../../components/Microcopy/Microcopy";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
   linkContent: <>Impact</>,
 };
 
-const Index: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
+}> = async () => {
+  const microcopy = await getCustomPageAndMicrocopy("1yAKxqj5wWxlHOxR3CS5iO");
+
+  return {
+    props: {
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
+    },
+  };
+};
+
+const Index = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const sectorsForegroundRef = useRef<HTMLDivElement>(null);
   const sectorsBackgroundsRef = useRef<HTMLDivElement>(null);
+
+  const Microcopy = createMicrocopyComponent(microcopy);
 
   useEffect(() => {
     const titleDuration = 1;
@@ -65,9 +88,7 @@ const Index: React.FunctionComponent = () => {
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle(["What impact can Nexus have in the world?"])}
-        </title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
@@ -180,18 +201,8 @@ const Index: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["row"]} ${Style["defenses__content"]}`}
                     >
-                      <div className={`${Grid["col-xs-12"]}`}>
-                        <h2>Defense & Intelligence.</h2>
-                        <p>
-                          The national security enterprise is awash with vast
-                          quantities of data sources, types, and structures,
-                          across multiple domains. The Nexus platform enables
-                          our government customers to rapidly access valuable
-                          information, strengthening our position against our
-                          adversaries. Deploying Nexus truly supports our
-                          warfighters and intelligence professionals in their
-                          mission to bolster the defense of our nation.
-                        </p>
+                      <div className={`${Grid["col-xs-11"]}`}>
+                        <Microcopy id="6L7382VhFqa1Mw61e9KoqY" />
                       </div>
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
@@ -216,17 +227,7 @@ const Index: React.FunctionComponent = () => {
                     className={`${Grid["row"]} ${Style["logistics__content"]}`}
                   >
                     <div className={`${Grid["col_xs_8"]}`}>
-                      <h2>Logistics.</h2>
-                      <p>
-                        Modern logistics requires the ability to orchestrate
-                        massive pipelines of information in real-time to move
-                        critical products and supplies across the globe. Nexus
-                        enhances your logistics processes by fusing together
-                        previously unrelated sets of information, optimizing
-                        your supply chain, delivery mechanisms and distribution.
-                        Nexus leaves its mark by providing immediate bottom-line
-                        results
-                      </p>
+                      <Microcopy id="s2UBqGwoOQJnZv9pwSjWx" />
                     </div>
                   </div>
                   <div className={`${Grid["row"]}`}>
@@ -256,18 +257,7 @@ const Index: React.FunctionComponent = () => {
                       className={`${Grid["row"]} ${Style["insurance__content"]}`}
                     >
                       <div className={`${Grid["col-xs-12"]}`}>
-                        <h2>Insurance.</h2>
-                        <p>
-                          Creating new policies or certificates of insurance
-                          (COIs) require human labor to review, interpret, and
-                          extract relevant information from various documents—a
-                          slow, error prone, and expensive process. Nexus solves
-                          this problem by automating the data extraction process
-                          resulting in a simple and efficient solution that
-                          helps insurance companies generate new policies and
-                          COIs at an average speed of 9.8 milliseconds per page
-                          and with over 96% accuracy for data extraction.
-                        </p>
+                        <Microcopy id="74Jg1iuqx4t68XQGvsXKCW" />
                       </div>
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
@@ -292,18 +282,7 @@ const Index: React.FunctionComponent = () => {
                     className={`${Grid["row"]} ${Style["marketing__content"]}`}
                   >
                     <div className={`${Grid["col-xs-12"]}`}>
-                      <h2>Marketing.</h2>
-                      <p>
-                        Innovative marketers understand the trends and
-                        inclinations of customers by sifting through piles of
-                        data, attempting to filter the noise. Staying at the
-                        forefront of markets requires keen insight, correlating
-                        information from disparate sources to drive decision
-                        making. Nexus applies its machine learning to associate
-                        features hidden from the human eye, ensuring marketers
-                        pick up tendencies before the masses, honing appropriate
-                        messaging and driving increased sales.
-                      </p>
+                      <Microcopy id="5pql78wen1KLGceu2Ak5vm" />
                     </div>
                   </div>
                   <div className={`${Grid["row"]}`}>
@@ -331,17 +310,7 @@ const Index: React.FunctionComponent = () => {
                       className={`${Grid["row"]} ${Style["financial__content"]}`}
                     >
                       <div className={`${Grid["col-xs-12"]}`}>
-                        <h2>Financial Services.</h2>
-                        <p>
-                          Financial service organizations seek to fully engage
-                          their customers and prospects with their growing list
-                          of products and services. Analysts and advisors are
-                          currently forced to sift through vast amounts of
-                          disparate information to understand current and future
-                          needs. By integrating Nexus, surfacing only the most
-                          valuable and actionable information can happen in an
-                          instant.
-                        </p>
+                        <Microcopy id="7f0hg8KaHLSzx2YiCxNsRF" />
                       </div>
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
@@ -366,16 +335,7 @@ const Index: React.FunctionComponent = () => {
                     className={`${Grid["row-reverse"]} ${Style["manufacturing__content"]}`}
                   >
                     <div className={`${Grid["col-lg-5"]} ${Grid["col-xs-12"]}`}>
-                      <h2>Manufacturing.</h2>
-                      <p>
-                        With supply chains operating on a global scale,
-                        intelligence must be aggregated across language,
-                        cultural, and national security barriers. Nexus
-                        implements AI to deploy risk measures across the supply
-                        chain, including financial distress, foreign influence,
-                        sole-source supplier, and economic threat, mitigating
-                        perilous activity.
-                      </p>
+                      <Microcopy id="5wVJ1nHJRjMaq4Cx53qDmy" />
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
                       >
@@ -403,15 +363,7 @@ const Index: React.FunctionComponent = () => {
                       className={`${Grid["row"]} ${Style["healthcare__content"]}`}
                     >
                       <div className={`${Grid["col-xs-12"]}`}>
-                        <h2>Healthcare.</h2>
-                        <p>
-                          Artificial Intelligence is revolutionizing healthcare,
-                          from diagnosing conditions using computer vision in
-                          imagery to illuminating risk in a medical parts supply
-                          chain. Nexus can integrate data across all your
-                          systems, providing an enhanced patient profile for
-                          intelligent decisioning.
-                        </p>
+                        <Microcopy id="3CnK6dPgCtCPNWlCNr1acS" />
                       </div>
                       <div
                         className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
@@ -436,21 +388,7 @@ const Index: React.FunctionComponent = () => {
                     className={`${Grid["row"]} ${Style["publicSector__content"]}`}
                   >
                     <div className={`${Grid["col-xs-12"]}`}>
-                      <h2>Public Sector.</h2>
-                      <p>
-                        Governments exist to strengthen the lives of their
-                        constituents. Federal, State and Local agencies are
-                        hyper focused on providing better services for their
-                        citizens, constantly searching for ways to protect and
-                        enhance our critical infrastructure, increase the
-                        quality of public services and mitigating fraud, waste
-                        and abuse. As a platform that has been proven to tackle
-                        the largest and most complex data challenges, Nexus is
-                        uniquely positioned to support public sector agencies by
-                        maintaining technical credentials that allow for data &
-                        decision auditability, traceability, scalability and
-                        security.
-                      </p>
+                      <Microcopy id="3Czc5i0cKTXPbquPAByqjg" />
                     </div>
                   </div>
                   <div className={`${Grid["row"]}`}>
@@ -491,8 +429,7 @@ const Index: React.FunctionComponent = () => {
                             Grid["col-xs-12"]
                           )}
                         >
-                          <h3>Let us help you make data easier to use.</h3>
-                          <p>It's time to unleash your potential.</p>
+                          <Microcopy id="1EjrIHOiWnQMwp8ccfKHbW" />
                         </div>
                       </div>
                       <div className={Grid.row}>

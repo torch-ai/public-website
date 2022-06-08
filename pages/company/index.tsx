@@ -14,8 +14,16 @@ import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getNewsEntries } from "../../contentful/client";
-import { TypeNews } from "../../generated/contentful";
+import {
+  getNewsEntries,
+  getCustomPageAndMicrocopy,
+} from "../../contentful/client";
+import {
+  TypeNews,
+  TypeMicrocopy,
+  TypeCustomPage,
+} from "../../generated/contentful";
+import { createMicrocopyComponent } from "../../components/Microcopy/Microcopy";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as careersPageSettings } from "../careers";
 import { PageSettings } from "../../types/next";
@@ -47,20 +55,28 @@ export const pageSettings: PageSettings = {
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
 }> = async () => {
-  const res = await getNewsEntries({
+  const news = await getNewsEntries({
     limit: 5,
   });
 
+  const microcopy = await getCustomPageAndMicrocopy("7gw479ghJ6W9LGpvT1Txwl");
+
   return {
     props: {
-      news: res.items,
+      news: news.items,
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
     },
   };
 };
 
 const Index = ({
   news,
+  microcopy,
+  customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
@@ -84,15 +100,12 @@ const Index = ({
     );
   }, []);
 
+  const Microcopy = createMicrocopyComponent(microcopy);
+
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle([
-            "Kansas City's next great company",
-            "Unmatched environment for innovation",
-          ])}
-        </title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
@@ -162,44 +175,18 @@ const Index = ({
                 </div>
                 <div className={`${Grid["row"]}`}>
                   <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
-                    <h5>Mission-Focused</h5>
-                    <p>
-                      We have the awesome privilege of sharing responsibility
-                      for the security of our country and the lives of
-                      warfighters protecting that security. From this starting
-                      point, we’ve developed a deep sense of duty to our
-                      clients, company, and each other. Our client’s mission is
-                      our mission.
-                    </p>
+                    <Microcopy id="6FFVdGq7efnUi60dz2GPu5" />
                   </div>
                   <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
-                    <h5>Curious & Innovative</h5>
-                    <p>
-                      We are always interested in finding new and better ways to
-                      do things and never satisfied with what we have. We wonder
-                      constantly about "what could be” and how we might "solve
-                      the unsolvable.”
-                    </p>
+                    <Microcopy id="7aouSJyiqM3V85uLvinsKk" />
                   </div>
                 </div>
                 <div className={`${Grid["row"]}`}>
                   <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
-                    <h5>Gumption</h5>
-                    <p>
-                      We approach everything we do with a level of passion and
-                      intensity, consistent with the knowledge and understanding
-                      that our work is important and meaningful. We think and
-                      act like a start-up. Every day is Day 1.
-                    </p>
+                    <Microcopy id="47lC12t2O4Qo8URg3dDLi3" />
                   </div>
                   <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
-                    <h5>Do What's Right</h5>
-                    <p>
-                      We approach every decision, action, and interaction with
-                      an unwavering commitment to being ethical, considerate,
-                      transparent, and focused on achieving the best outcome for
-                      our clients and team, rather than ourselves.
-                    </p>
+                    <Microcopy id="6sRHM65inbtu3KLcfdp0Zd" />
                   </div>
                 </div>
               </ContentOverImage>
@@ -360,14 +347,7 @@ const Index = ({
                     <div
                       className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
                     >
-                      <h3>Board of Directors</h3>
-                      <p>
-                        Torch.AI's board members have vast domain, technology,
-                        product, and business experience, and are helping us
-                        create one of our country's great companies. We endeavor
-                        to make the world a better place by advancing the use of
-                        AI to change how data is put to use.
-                      </p>
+                      <Microcopy id="HUpD5JJsDLLbQyXxF6awV" />
                     </div>
                   </div>
                   <div
@@ -444,15 +424,7 @@ const Index = ({
                     <div
                       className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
                     >
-                      <h3>Board of Advisors</h3>
-                      <p>
-                        Torch.AI's board of advisors have vast domain,
-                        technology, product, and business experience, and are
-                        helping create one of our country's great companies.
-                        Their unique backgrounds and experience allow us to make
-                        the world a better place by advancing the use of AI to
-                        change how data is put to use.
-                      </p>
+                      <Microcopy id="2EXrxJS0vbtWLF9gWspLVj" />
                     </div>
                   </div>
                   <div
@@ -536,16 +508,7 @@ const Index = ({
               >
                 <div className={clsx(Grid.row, Style.careers__content)}>
                   <div className={clsx(Grid["col-xs-12"], Grid["col-lg-6"])}>
-                    <h2>Careers.</h2>
-                    <p>
-                      At Torch.AI, we are passionate about building software
-                      that solves some of the world's most challenging problems.
-                      Our work is hard. It is fun. It has meaning. We have built
-                      a team of exceptional people that build great products and
-                      provide the highest quality support and services. If you
-                      are a curious pioneer looking for a challenge, let's
-                      connect.
-                    </p>
+                    <Microcopy id="ey7tN89DU4mTqE2bxZtaI" />
                     <div>
                       <Link href={careersPageSettings.path}>
                         <a role="button">Find your job</a>

@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { ReactElement, useContext } from "react";
 import Grid from "../../styles/modules/grid.module.scss";
 import Style from "../../styles/modules/contact.module.scss";
 import Footer from "../../components/Footer";
@@ -11,25 +11,42 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { createMicrocopyComponent } from "../../components/Microcopy/Microcopy";
 
 export const pageSettings: PageSettings = {
   path: "/contact",
   linkContent: <>Contact</>,
 };
 
-const Index: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
+}> = async () => {
+  const microcopy = await getCustomPageAndMicrocopy("6ITsMPinDCSu0CljB3me4S");
+
+  return {
+    props: {
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
+    },
+  };
+};
+
+const Index = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+
+  const Microcopy = createMicrocopyComponent(microcopy);
 
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle([
-            "Contact us",
-            "Unlock your potential",
-            "Talk to us",
-          ])}
-        </title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <section className={`${Style["contact__container"]}`}>
         <InView
@@ -41,10 +58,7 @@ const Index: React.FunctionComponent = () => {
               <div
                 className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
               >
-                <PageTitle>Contact Us.</PageTitle>
-                <PageSubtitle>
-                  Find out how Nexus can unlock your productivity.
-                </PageSubtitle>
+                <Microcopy id="5ayw7SsRgyRwHVwH80JrGK" />
               </div>
             </div>
             <div className={`${Grid["row"]}`}>
