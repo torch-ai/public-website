@@ -13,8 +13,16 @@ import Footer from "../../components/Footer";
 import imac from "../../img/iMac.gif";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getNewsEntries } from "../../contentful/client";
-import { TypeNews } from "../../generated/contentful";
+import {
+  getNewsEntries,
+  getCustomPageAndMicrocopy,
+} from "../../contentful/client";
+import {
+  TypeNews,
+  TypeMicrocopy,
+  TypeCustomPage,
+} from "../../generated/contentful";
+import { createMicrocopyComponent } from "../../components/Microcopy/Microcopy";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as solutionsPageSettings } from "../solutions";
 import { pageSettings as platformPageSettings } from "../platform";
@@ -33,32 +41,37 @@ export const pageSettings: PageSettings = {
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
+  microcopy: TypeMicrocopy[];
+  customPage: TypeCustomPage;
 }> = async () => {
-  const res = await getNewsEntries({
+  const news = await getNewsEntries({
     limit: 5,
   });
 
+  const microcopy = await getCustomPageAndMicrocopy("XuX8JuFnb3hir63GzCgGR");
+
   return {
     props: {
-      news: res.items,
+      news: news.items,
+      microcopy: microcopy.items,
+      customPage: (microcopy.includes.Entry as TypeCustomPage[])[0],
     },
   };
 };
 
 const Index = ({
   news,
+  microcopy,
+  customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+
+  const Microcopy = createMicrocopyComponent(microcopy);
 
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle([
-            "World's most trusted AI platform",
-            "Unlock human potential",
-          ])}
-        </title>
+        <title>{getHeadPageTitle(customPage.fields.pageHeadTitle)}</title>
       </Head>
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
@@ -133,12 +146,7 @@ const Index = ({
                         Grid["col-xl-5"]
                       )}
                     >
-                      <h2>We build AI that makes data easier to use.</h2>
-                      <p>
-                        Torch.AI's Nexus&trade; software instantly unlocks value
-                        from data and provides information needed for humans and
-                        machines to be more productive.
-                      </p>
+                      <Microcopy id="7ow1fUayjom8UMYI3gZ2aq" />
                     </div>
                   </InView>
                 </ContentOverImage>
@@ -164,13 +172,7 @@ const Index = ({
                           <div
                             className={`${Grid["col-xl-8"]} ${Grid["col-xs-9"]}`}
                           >
-                            <h2>
-                              Introducing Nexus <sup>TM</sup>
-                            </h2>
-                            <p>
-                              Nexus instantly makes your data totally available,
-                              usable, and valuable.
-                            </p>
+                            <Microcopy id="6JfIB0MPCopU0lkbc4wN9T" />
                           </div>
                           <div
                             className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
@@ -222,10 +224,7 @@ const Index = ({
                                   fill="white"
                                 />
                               </svg>
-                              <p>
-                                Highest performance data processing platform
-                                ever built.
-                              </p>
+                              <Microcopy id="4VErJmOlvwUxP5gwou6Ggo" />
                             </div>
                             <div
                               className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
@@ -242,11 +241,7 @@ const Index = ({
                                   fill="white"
                                 />
                               </svg>
-
-                              <p>
-                                Radically simplifies how companies extract value
-                                from data.
-                              </p>
+                              <Microcopy id="3J5FMV1MsUJPVRzBjB2Ub3" />
                             </div>
                             <div
                               className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
@@ -263,11 +258,7 @@ const Index = ({
                                   fill="white"
                                 />
                               </svg>
-
-                              <p>
-                                Accelerates processing times and reduces
-                                operational costs.
-                              </p>
+                              <Microcopy id="404WvoYJ73RBmqapb8OMN4" />
                             </div>
                             <div
                               className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]} `}
@@ -307,10 +298,7 @@ const Index = ({
                                   </clipPath>
                                 </defs>
                               </svg>
-                              <p>
-                                AI/ML-enabled automation frees workers to
-                                perform high-value work.
-                              </p>
+                              <Microcopy id="4Nq8vpAUZOp3fEIIIQ7Utd" />
                             </div>
                           </div>
                         </div>
@@ -359,7 +347,7 @@ const Index = ({
                       <div
                         className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]}`}
                       >
-                        <h3>Make Data Work for You.</h3>
+                        <Microcopy id="6nUaawRo6aNPJ5a2SjchWp" />
                         <div className={`${Grid["row"]}`}>
                           <div
                             className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
@@ -429,7 +417,7 @@ const Index = ({
                                 </clipPath>
                               </defs>
                             </svg>
-                            <p>Operationalize data faster and efficiently</p>
+                            <Microcopy id="6ZFVZtVzOcrTz36GuyxhJ" />
                           </div>
                           <div
                             className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
@@ -493,7 +481,7 @@ const Index = ({
                                 </clipPath>
                               </defs>
                             </svg>
-                            <p>Connect to all your data sources</p>
+                            <Microcopy id="5aXx9i5uUicy9S5TIqqpiD" />
                           </div>
                         </div>
                         <div className={`${Grid["row"]}`}>
@@ -618,7 +606,7 @@ const Index = ({
                                 strokeLinejoin="round"
                               />
                             </svg>
-                            <p>Gain access to deep insights</p>
+                            <Microcopy id="b67rmn9wSehIaVfi9C3KA" />
                           </div>
                           <div
                             className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
@@ -694,7 +682,7 @@ const Index = ({
                                 </clipPath>
                               </defs>
                             </svg>
-                            <p>Reduce costs in your technology stack</p>
+                            <Microcopy id="2HClPVTYeR7plWvL6n0XZ0" />
                           </div>
                         </div>
                         <Link href={solutionsPageSettings.path}>
@@ -791,10 +779,7 @@ const Index = ({
                     <div
                       className={`${Grid["col-xl-6"]} ${Landing["statement2__content"]}`}
                     >
-                      <h3>
-                        Human productivity is stifled by the ocean of data
-                        growing faster than our ability to process it.
-                      </h3>
+                      <Microcopy id="3AbVbBmh0J3lVHgDumoFwu" />
                       <div className={`${Landing["statement2__button"]}`}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>

@@ -4,7 +4,7 @@ import {
   EntriesQueries,
   EntryWithLinkResolutionAndWithoutUnresolvableLinks,
 } from "contentful";
-import { TypeNewsFields, TypePageFields } from "../generated/contentful";
+import { TypeNewsFields, TypePageFields, TypeMicrocopyFields } from "../generated/contentful";
 import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
 
 // Trying very hard not to expose the raw client to get good utility functions.
@@ -16,6 +16,7 @@ const client = createClient({
 enum ContentModels {
   News = "news",
   Page = "page",
+  Microcopy = "microcopy"
 }
 
 type GetEntries<Fields> = (
@@ -62,6 +63,13 @@ export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypePageFields>(id, {
     ...query,
   });
+
+export const getCustomPageAndMicrocopy = async (pageId: string) =>
+  client.withoutUnresolvableLinks.getEntries<TypeMicrocopyFields>({
+    "fields.containingPage.sys.id": pageId,
+    content_type: ContentModels.Microcopy,
+    limit: 1000,
+  })
 
 export const getAllEntries = async <Fields extends {}>(
   query: EntriesQueries<Fields> = {},
