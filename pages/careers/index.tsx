@@ -15,6 +15,7 @@ import Prose from "../../components/Prose/Prose";
 import clsx from "clsx";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/careers",
@@ -52,6 +53,7 @@ const Index = (): ReactElement => {
           ])}
         </title>
       </Head>
+      <ScrollToTop scrollType="window" />
       <PageHeader>
         <div className={Styles.headerGrid}>
           <div className={Styles.headerGridTitle}>

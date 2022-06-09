@@ -1,13 +1,14 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 import { InView } from "react-intersection-observer";
-import ReactFullpage from "@fullpage/react-fullpage";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
@@ -17,16 +18,31 @@ export const pageSettings: PageSettings = {
 const Prism: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
+  const fullpageApiRef = useRef<fullpageApi>();
+
   return (
     <>
       <Head>
         <title>{getHeadPageTitle(["PRISM", "Nexus platform"])}</title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
               <section className={`section hero`}>

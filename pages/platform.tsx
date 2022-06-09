@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { useContext, useEffect, useRef } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Image from "next/image";
@@ -9,7 +9,7 @@ import Style from "../styles/modules/platform.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import { gsap } from "gsap";
-
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 import datamodel1 from "../img/datamodel1.svg";
 import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
@@ -27,6 +27,8 @@ const Platform: React.FunctionComponent = () => {
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+
+  const fullpageApiRef = useRef<fullpageApi>();
 
   useEffect(() => {
     let delay = 1;
@@ -55,12 +57,25 @@ const Platform: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
               <div className={` ${Style["hero"]} section`}>

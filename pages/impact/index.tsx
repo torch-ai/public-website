@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { useContext, useEffect, useRef } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
 import Link from "next/link";
@@ -19,6 +19,7 @@ import { PageSettings } from "../../types/next";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import staffFlameBackground from "./assets/staff-flame-background.png";
 import clsx from "clsx";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
@@ -32,6 +33,8 @@ const Index: React.FunctionComponent = () => {
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const sectorsForegroundRef = useRef<HTMLDivElement>(null);
   const sectorsBackgroundsRef = useRef<HTMLDivElement>(null);
+
+  const fullpageApiRef = useRef<fullpageApi>();
 
   useEffect(() => {
     const titleDuration = 1;
@@ -69,12 +72,25 @@ const Index: React.FunctionComponent = () => {
           {getHeadPageTitle(["What impact can Nexus have in the world?"])}
         </title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
               <div className={`${Style["hero"]} section`}>

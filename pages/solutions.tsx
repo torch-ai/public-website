@@ -1,14 +1,15 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import Head from "next/head";
 import Style from "../styles/modules/solution.module.scss";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
@@ -17,6 +18,19 @@ export const pageSettings: PageSettings = {
 
 const Solutions: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
+  const scrollingElement = useRef<IParallax>();
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    scrollingElement.current.container.current.addEventListener(
+      "scroll",
+      () => {
+        setIsScrolledDown(
+          scrollingElement.current.current >= window.innerHeight / 2
+        );
+      }
+    );
+  }, [scrollingElement]);
 
   return (
     <>
@@ -27,12 +41,25 @@ const Solutions: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
+      {scrollingElement.current && (
+        <ScrollToTop
+          scrollType="overrides"
+          overrideIsBeyondFirstPage={isScrolledDown}
+          overrideScrollToTopFunc={() => {
+            scrollingElement.current.scrollTo(0);
+          }}
+        />
+      )}
       <section className={`${Style["wrap"]}`}>
         <InView
           as="span"
           onChange={(inView) => setNavColor(inView ? "white" : "white")}
         >
-          <Parallax pages={46} className={`${Style["wrapper"]}`}>
+          <Parallax
+            pages={46}
+            className={`${Style["wrapper"]}`}
+            ref={scrollingElement}
+          >
             <ParallaxLayer
               className={`${Style["sol-title"]}`}
               offset={0}
