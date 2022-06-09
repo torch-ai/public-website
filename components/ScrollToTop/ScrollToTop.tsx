@@ -19,9 +19,14 @@ const ScrollToTop: FunctionComponent<ScrollToTopProps> = ({
 
   useEffect(() => {
     if (scrollType == "window") {
-      window.addEventListener("scroll", () => {
+      let onScroll = () => {
         setIsBeyondFirstPage(window.scrollY >= window.innerHeight / 2);
-      });
+      };
+      window.addEventListener("scroll", onScroll);
+
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+      };
     }
   }, []);
 
