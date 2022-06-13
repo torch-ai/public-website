@@ -11,6 +11,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/contact",
@@ -31,31 +32,29 @@ const Index: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
-      <section className={`${Style["contact__container"]}`}>
+      <section className={clsx(Style["contact__container"])}>
         <InView
           as="div"
           onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
-          <div className={`${Grid["container"]} ${Grid["margin_center"]}`}>
-            <div className={`${Grid["row"]}`}>
-              <div
-                className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
-              >
+          <div className={clsx(Grid["container"], Grid["margin_center"])}>
+            <div className={clsx(Grid["row"])}>
+              <div className={clsx(Grid["col-xs-12"], Style["contact__title"])}>
                 <PageTitle>Contact Us.</PageTitle>
                 <PageSubtitle>
                   Find out how Nexus can unlock your productivity.
                 </PageSubtitle>
               </div>
             </div>
-            <div className={`${Grid["row"]}`}>
-              <div className={`${Grid["col-xs-12"]}`}>
+            <div className={clsx(Grid["row"])}>
+              <div className={clsx(Grid["col-xs-12"])}>
                 <form
-                  className={`${Style["contact__form"]}`}
+                  className={clsx(Style["contact__form"])}
                   action="https://formspree.io/f/mvolablv"
                   method="POST"
                 >
                   <div>
-                    <label className={`${Style["contact__names"]}`}>
+                    <label className={clsx(Style["contact__names"])}>
                       <input
                         type="text"
                         name="name"

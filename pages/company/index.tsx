@@ -102,19 +102,20 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              <div className={clsx(Style["hero"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "white" : "black")
                     }
                   >
-                    <div className={`${Grid["row"]}`}>
+                    <div className={clsx(Grid["row"])}>
                       <div
-                        className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
+                        className={clsx(
+                          Grid["col-xs-12"],
+                          Style["content-center"]
+                        )}
                       >
                         <h2 ref={titleRef}>
                           We're building Kansas City's next great company.
@@ -123,9 +124,9 @@ const Index = ({
                           The world's hardest problems. The world's greatest
                           minds. An unmatched environment for innovation.
                         </p>
-                        <div className={`${Style["forbes"]}`}>
+                        <div className={clsx(Style["forbes"])}>
                           <Image
-                            className={`${Style["forbes-img"]}`}
+                            className={clsx(Style["forbes-img"])}
                             src={forbes}
                             alt={
                               "Recognized by Forbes as one of America's best startups employers for 2022"
@@ -156,12 +157,12 @@ const Index = ({
                 }}
               >
                 <div className={Grid.row}>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}>
+                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}>
                     <h3>Total badasses.</h3>
                   </div>
                 </div>
-                <div className={`${Grid["row"]}`}>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
+                <div className={clsx(Grid["row"])}>
+                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-3"])}>
                     <h5>Mission-Focused</h5>
                     <p>
                       We have the awesome privilege of sharing responsibility
@@ -172,7 +173,7 @@ const Index = ({
                       our mission.
                     </p>
                   </div>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
+                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-8"])}>
                     <h5>Curious & Innovative</h5>
                     <p>
                       We are always interested in finding new and better ways to
@@ -182,8 +183,8 @@ const Index = ({
                     </p>
                   </div>
                 </div>
-                <div className={`${Grid["row"]}`}>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
+                <div className={clsx(Grid["row"])}>
+                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-3"])}>
                     <h5>Gumption</h5>
                     <p>
                       We approach everything we do with a level of passion and
@@ -192,7 +193,7 @@ const Index = ({
                       act like a start-up. Every day is Day 1.
                     </p>
                   </div>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
+                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-8"])}>
                     <h5>Do What's Right</h5>
                     <p>
                       We approach every decision, action, and interaction with
@@ -203,31 +204,45 @@ const Index = ({
                   </div>
                 </div>
               </ContentOverImage>
-              <div className={`${Style["gallery"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
+              <div className={clsx(Style["gallery"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"])}>
                     <div
-                      className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__title"]
+                      )}
                     >
                       <h3>Leadership.</h3>
                     </div>
                   </div>
                   <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={clsx(Grid["row"], Style["gallery__container"])}
                   >
                     <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__layout"]
+                      )}
                     >
                       <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-featured"]} `}
+                        className={clsx(
+                          Grid["row"],
+                          Style["gallery__layout-featured"],
+                          ""
+                        )}
                       >
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={BrainWeaver}
@@ -238,10 +253,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={AmyBradshaw}
@@ -252,10 +273,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={JanetHanofee}
@@ -266,10 +293,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={DavidKern}
@@ -283,19 +316,31 @@ const Index = ({
                     </div>
                   </div>
                   <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={clsx(Grid["row"], Style["gallery__container"])}
                   >
                     <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__layout"]
+                      )}
                     >
                       <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-list"]}`}
+                        className={clsx(
+                          Grid["row"],
+                          Style["gallery__layout-list"]
+                        )}
                       >
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={AdamLurie}
@@ -306,10 +351,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]}  ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={JasonDelker}
@@ -320,10 +371,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={JonKramer}
@@ -334,10 +391,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={JenniferUtting}
@@ -352,13 +415,14 @@ const Index = ({
                   </div>
                 </div>
               </div>
-              <div className={`${Style["gallery"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
+              <div className={clsx(Style["gallery"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"])}>
                     <div
-                      className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__title"]
+                      )}
                     >
                       <h3>Board of Directors</h3>
                       <p>
@@ -371,19 +435,31 @@ const Index = ({
                     </div>
                   </div>
                   <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={clsx(Grid["row"], Style["gallery__container"])}
                   >
                     <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__layout"]
+                      )}
                     >
                       <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-list"]}`}
+                        className={clsx(
+                          Grid["row"],
+                          Style["gallery__layout-list"]
+                        )}
                       >
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={BrainWeaver}
@@ -393,10 +469,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]}  ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={LaurenceTosi}
@@ -406,10 +488,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={ChristanSchnedler}
@@ -419,10 +507,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={WilliamBeyer}
@@ -436,13 +530,14 @@ const Index = ({
                   </div>
                 </div>
               </div>
-              <div className={`${Style["gallery"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
+              <div className={clsx(Style["gallery"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"])}>
                     <div
-                      className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__title"]
+                      )}
                     >
                       <h3>Board of Advisors</h3>
                       <p>
@@ -456,19 +551,31 @@ const Index = ({
                     </div>
                   </div>
                   <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={clsx(Grid["row"], Style["gallery__container"])}
                   >
                     <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["gallery__layout"]
+                      )}
                     >
                       <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-list"]}`}
+                        className={clsx(
+                          Grid["row"],
+                          Style["gallery__layout-list"]
+                        )}
                       >
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={KevinMarcus}
@@ -478,10 +585,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]}  ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={MarkPerrin}
@@ -491,10 +604,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={HondoGeruts}
@@ -504,10 +623,16 @@ const Index = ({
                           </div>
                         </div>
                         <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                          className={clsx(
+                            Grid["col-lg-3"],
+                            Grid["col-xs-12"],
+                            Style["gallery__layout-item"]
+                          )}
                         >
                           <div
-                            className={`${Style["gallery__layout-item-content"]}`}
+                            className={clsx(
+                              Style["gallery__layout-item-content"]
+                            )}
                           >
                             <Image
                               src={MikeDanda}
@@ -554,7 +679,7 @@ const Index = ({
                   </div>
                 </div>
               </ContentOverImage>
-              <div className={`${Landing["news"]} section`}>
+              <div className={clsx(Landing["news"], "section")}>
                 <News items={news} />
               </div>
               <Footer />

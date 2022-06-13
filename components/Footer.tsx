@@ -11,29 +11,41 @@ import { pageSettings as termsOfServicePageSettings } from "../pages/termsofserv
 import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
 import { pageSettings as legalPageSettings } from "../pages/legal";
 import { pageSettings as careersPageSettings } from "../pages/careers";
+import clsx from "clsx";
 
 const Footer: React.FunctionComponent = () => {
   return (
-    <footer id="contact" className={`${Template.footer} section`}>
+    <footer id="contact" className={clsx(Template.footer, "section")}>
       <div
-        className={`${Grid.margin_center} ${Grid.container} ${Grid.row}  ${Template.footer__title}`}
+        className={clsx(
+          Grid.margin_center,
+          Grid.container,
+          Grid.row,
+          Template.footer__title
+        )}
       >
         <h3>Get in Touch With Us.</h3>
       </div>
       <div
-        className={`${Grid.margin_center} ${Grid.container} ${Grid.row} ${Grid["gap"]} ${Template.footer__content}`}
+        className={clsx(
+          Grid.margin_center,
+          Grid.container,
+          Grid.row,
+          Grid["gap"],
+          Template.footer__content
+        )}
       >
-        <div className={`${Template["footer__form-container"]} flow`}>
-          <div className={`${Template.footer__text}`}>
+        <div className={clsx(Template["footer__form-container"], "flow")}>
+          <div className={clsx(Template.footer__text)}>
             <p>Find out how Nexus can unlock your productivity.</p>
           </div>
 
           <form
             action="https://formspree.io/f/mvolablv"
             method="POST"
-            className={`${Template["footer__form"]} flow`}
+            className={clsx(Template["footer__form"], "flow")}
           >
-            <div className={`${Grid.row_wrapoff}`}>
+            <div className={clsx(Grid.row_wrapoff)}>
               <input
                 placeholder="Full name"
                 id="name"
@@ -43,7 +55,7 @@ const Footer: React.FunctionComponent = () => {
                 required
               />
             </div>
-            <div className={`${Grid.row_wrapoff} `}>
+            <div className={clsx(Grid.row_wrapoff, "")}>
               <input
                 placeholder="Index"
                 id="organization"
@@ -62,15 +74,20 @@ const Footer: React.FunctionComponent = () => {
               />
             </div>
             <div
-              className={`${Template["footer__form-submit"]} ${Grid["row"]} ${Grid["gap"]} flow`}
+              className={clsx(
+                Template["footer__form-submit"],
+                Grid["row"],
+                Grid["gap"],
+                "flow"
+              )}
             >
               <button
-                className={`${Template["footer__form-button"]}`}
+                className={clsx(Template["footer__form-button"])}
                 type="submit"
               >
                 Send
               </button>
-              <div className={`${Template.socialIcons} ${Grid["row"]} `}>
+              <div className={clsx(Template.socialIcons, Grid["row"], "")}>
                 <a
                   href="https://www.linkedin.com/company/torchai"
                   target="_blank"
@@ -90,7 +107,7 @@ const Footer: React.FunctionComponent = () => {
           </form>
         </div>
 
-        <div className={`${Template["footer__terms"]}`}>
+        <div className={clsx(Template["footer__terms"])}>
           <ul>
             <li>
               <Link href={termsOfServicePageSettings.path}>
@@ -115,7 +132,7 @@ const Footer: React.FunctionComponent = () => {
           </ul>
         </div>
 
-        <div className={`${Template["footer__address"]}`}>
+        <div className={clsx(Template["footer__address"])}>
           <ul>
             <li>5250 W 116TH Pl Suite 200</li>
             <li>Leawood, KS, 66211</li>
@@ -135,10 +152,16 @@ const Footer: React.FunctionComponent = () => {
       </div>
 
       <div
-        className={`${Template["footer__copy"]} ${Grid.margin_center} ${Grid.container} ${Grid["between_xs"]} ${Grid.row}`}
+        className={clsx(
+          Template["footer__copy"],
+          Grid.margin_center,
+          Grid.container,
+          Grid["between_xs"],
+          Grid.row
+        )}
       >
         <Image
-          className={`${Template.logo}`}
+          className={clsx(Template.logo)}
           src={logo}
           alt="The logo of Torch.ai"
         />

@@ -8,6 +8,7 @@ import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
@@ -29,7 +30,7 @@ const Prism: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <section className={`section hero`}>
+              <section className={clsx("section", "hero")}>
                 <div className="container">
                   <h1>PRISM</h1>
                   <h4>
@@ -37,7 +38,7 @@ const Prism: React.FunctionComponent = () => {
                   </h4>
                 </div>
               </section>
-              <section className={`section professional`}>
+              <section className={clsx("section", "professional")}>
                 <InView
                   as="div"
                   className="checking"
@@ -56,7 +57,7 @@ const Prism: React.FunctionComponent = () => {
                   </div>
                 </InView>
               </section>
-              <section className={`section organization`}>
+              <section className={clsx("section", "organization")}>
                 <div className="container">
                   <h3>Insurance organizations deal with messy data.</h3>
                   <p className="subtitle">
@@ -96,7 +97,7 @@ const Prism: React.FunctionComponent = () => {
                 </div>
               </section>
 
-              <section className={`section win`}>
+              <section className={clsx("section", "win")}>
                 <InView
                   as="div"
                   className="checking"
@@ -131,7 +132,7 @@ const Prism: React.FunctionComponent = () => {
                   </div>
                 </InView>
               </section>
-              <section className={`section contact`}>
+              <section className={clsx("section", "contact")}>
                 <div className="container">
                   <h4>
                     Learn why Torch.AI is the world leader in document

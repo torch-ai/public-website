@@ -38,17 +38,24 @@ const Navigation: FunctionComponent = () => {
     };
 
   return (
-    <header className={`${Nav.header}`}>
-      <div className={`${Nav.event}`}>
+    <header className={clsx(Nav.header)}>
+      <div className={clsx(Nav.event)}>
         <a href="https://torch.ai/post/forbes-names-torch-ai-one-of-americas-best-startup-employers">
           Torch.AI is proud to have been named one of America's Best Startup
           Employers by Forbes magazine.
         </a>
       </div>
       <div
-        className={`${Grid.row} ${Nav["Nav__container"]} ${Grid["margin_center"]} ${Grid["container"]} ${Grid["between-lg"]}  ${Grid["between-xs"]}`}
+        className={clsx(
+          Grid.row,
+          Nav["Nav__container"],
+          Grid["margin_center"],
+          Grid["container"],
+          Grid["between-lg"],
+          Grid["between-xs"]
+        )}
       >
-        <div className={`${Nav.Logo}`}>
+        <div className={clsx(Nav.Logo)}>
           <Link href="/">
             <a>
               <svg
@@ -61,7 +68,7 @@ const Navigation: FunctionComponent = () => {
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <path
-                      className={`${Nav["cls-1"]}`}
+                      className={clsx(Nav["cls-1"])}
                       d="M136.27,63.51a36.5,36.5,0,0,0-13.56-14.92c-.67-.36-1.32-.74-2-1.14A34.84,34.84,0,0,1,109.17,0a35,35,0,0,0,3.31,61.74v0a20,20,0,1,1-14.92-1.19,42.65,42.65,0,0,1-9.38-13.31c-.09-.2-.16-.4-.25-.6a36.48,36.48,0,1,0,48.35,16.85Z"
                     />
                     <polygon
@@ -106,20 +113,20 @@ const Navigation: FunctionComponent = () => {
           </Link>
         </div>
         <button
-          className={`${Nav.mobile_nav_toggle}`}
+          className={clsx(Nav.mobile_nav_toggle)}
           aria-controls="primary_navigation"
           ref={buttonRef}
           onClick={toggle}
           aria-expanded="false"
         >
-          <span className={`${Nav.sr_only}`}>menu</span>
+          <span className={clsx(Nav.sr_only)}>menu</span>
         </button>
-        <nav className={`${Nav.parent}`}>
+        <nav className={clsx(Nav.parent)}>
           <ul
             id="primary_navigation"
             data-visible="false"
             ref={navRef}
-            className={`${Nav.primary_navigation}`}
+            className={clsx(Nav.primary_navigation)}
           >
             <li>
               <PageSettingsLevelOneLink
@@ -127,12 +134,12 @@ const Navigation: FunctionComponent = () => {
                 {...levelOneLinkProps}
               />
             </li>
-            <li className={`${Nav["dropdown"]}`}>
+            <li className={clsx(Nav["dropdown"])}>
               <PageSettingsLevelOneLink
                 pageSettings={solutionsPageSettings}
                 {...levelOneLinkProps}
               />
-              <div className={`${Nav["dropdown-content"]}`}>
+              <div className={clsx(Nav["dropdown-content"])}>
                 <Link
                   href={`${solutionsPageSettings.path}#infrastructure`}
                   scroll={false}

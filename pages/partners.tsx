@@ -15,6 +15,7 @@ import tools from "../img/tools.png";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/partners",
@@ -63,13 +64,14 @@ const Partners: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
+              <div className={clsx(Style["hero"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"])}>
                     <div
-                      className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["content-center"]
+                      )}
                     >
                       <h1 ref={titleRef}>Be a hero for your customers.</h1>
                       <p ref={subtitleRef}>
@@ -79,21 +81,20 @@ const Partners: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={`${Style["value"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              <div className={clsx(Style["value"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div
-                      className={`${Grid["row"]} ${Style["value__content"]}`}
-                    >
+                    <div className={clsx(Grid["row"], Style["value__content"])}>
                       <div
-                        className={`${Grid["col-lg-offset-3"]} ${Grid["col-xs-12"]}`}
+                        className={clsx(
+                          Grid["col-lg-offset-3"],
+                          Grid["col-xs-12"]
+                        )}
                       >
                         <h3>
                           We value our friends. This is more than business for
@@ -112,20 +113,28 @@ const Partners: React.FunctionComponent = () => {
                   </InView>
                 </div>
               </div>
-              <div className={`${Style["benefitsPartners"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              <div className={clsx(Style["benefitsPartners"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
                   <div
-                    className={`${Grid["row"]} ${Style["benefitsPartners__title"]}`}
+                    className={clsx(
+                      Grid["row"],
+                      Style["benefitsPartners__title"]
+                    )}
                   >
                     <h3>Benefits for our partners.</h3>
                   </div>
                   <div
-                    className={`${Grid["row"]} ${Style["benefitsPartners__content"]}`}
+                    className={clsx(
+                      Grid["row"],
+                      Style["benefitsPartners__content"]
+                    )}
                   >
                     <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Grid["col-lg-3"],
+                        Style["benefitsPartners-item"]
+                      )}
                     >
                       <div>
                         <Image
@@ -143,7 +152,11 @@ const Partners: React.FunctionComponent = () => {
                       </p>
                     </div>
                     <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Grid["col-lg-3"],
+                        Style["benefitsPartners-item"]
+                      )}
                     >
                       <div>
                         <Image
@@ -158,7 +171,11 @@ const Partners: React.FunctionComponent = () => {
                       </p>
                     </div>
                     <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Grid["col-lg-3"],
+                        Style["benefitsPartners-item"]
+                      )}
                     >
                       <div>
                         <Image
@@ -177,13 +194,14 @@ const Partners: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={`${Style["change"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
+              <div className={clsx(Style["change"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"])}>
                     <div
-                      className={`${Grid["col-xs-12"]} ${Style["change__title"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Style["change__title"]
+                      )}
                     >
                       <h2>Help us change the world.</h2>
                       <p>Interested in becoming a partner?</p>

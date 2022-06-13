@@ -68,15 +68,16 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Landing["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              <div className={clsx(Landing["hero"], "section")}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
                   <div
-                    className={`${Grid["col-xs-12"]} ${Landing["content-center"]}`}
+                    className={clsx(
+                      Grid["col-xs-12"],
+                      Landing["content-center"]
+                    )}
                   >
                     <h1>Unlock Human Potential.</h1>
-                    <div className={`${Landing["circle-icon"]}`}>
+                    <div className={clsx(Landing["circle-icon"])}>
                       <svg
                         width="50"
                         height="50"
@@ -96,7 +97,7 @@ const Index = ({
                 </div>
                 <video
                   data-keepplaying
-                  className={`${Landing["background-video"]}`}
+                  className={clsx(Landing["background-video"])}
                   id="background-video"
                   autoPlay
                   muted
@@ -152,17 +153,20 @@ const Index = ({
                   )}
                 >
                   <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
+                    className={clsx(Grid["container"], Grid["margin_center"])}
                   >
-                    <div className={`${Grid["row"]}`}>
+                    <div className={clsx(Grid["row"])}>
                       <div
-                        className={`${Grid["col-xs-10"]} ${Grid["margin_center"]}`}
+                        className={clsx(
+                          Grid["col-xs-10"],
+                          Grid["margin_center"]
+                        )}
                       >
                         <div
-                          className={`${Grid["row"]} ${Landing["nexus__stats"]}`}
+                          className={clsx(Grid["row"], Landing["nexus__stats"])}
                         >
                           <div
-                            className={`${Grid["col-xl-8"]} ${Grid["col-xs-9"]}`}
+                            className={clsx(Grid["col-xl-8"], Grid["col-xs-9"])}
                           >
                             <h2>
                               Introducing Nexus <sup>TM</sup>
@@ -173,22 +177,32 @@ const Index = ({
                             </p>
                           </div>
                           <div
-                            className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
+                            className={clsx(
+                              Grid["col-xl-2"],
+                              Grid["col-xs-12"]
+                            )}
                           >
-                            <h2 className={`${Landing["large"]}`}>10.7x</h2>
+                            <h2 className={clsx(Landing["large"])}>10.7x</h2>
                             <p>Faster compute performance.</p>
                           </div>
                         </div>
                         <hr />
-                        <div className={`${Grid["row"]}`}>
-                          <div className={`${Grid["col-xs-10"]}`}>
+                        <div className={clsx(Grid["row"])}>
+                          <div className={clsx(Grid["col-xs-10"])}>
                             <p>Simply put:</p>
                           </div>
                           <div
-                            className={`${Grid["row"]} ${Grid["between-xl"]} ${Landing["nexus__points"]}`}
+                            className={clsx(
+                              Grid["row"],
+                              Grid["between-xl"],
+                              Landing["nexus__points"]
+                            )}
                           >
                             <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
+                              className={clsx(
+                                Grid["col-xl-2"],
+                                Grid["col-xs-12"]
+                              )}
                             >
                               <svg
                                 width="52"
@@ -228,7 +242,10 @@ const Index = ({
                               </p>
                             </div>
                             <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
+                              className={clsx(
+                                Grid["col-xl-2"],
+                                Grid["col-xs-12"]
+                              )}
                             >
                               <svg
                                 width="48"
@@ -249,7 +266,10 @@ const Index = ({
                               </p>
                             </div>
                             <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
+                              className={clsx(
+                                Grid["col-xl-2"],
+                                Grid["col-xs-12"]
+                              )}
                             >
                               <svg
                                 width="52"
@@ -270,7 +290,11 @@ const Index = ({
                               </p>
                             </div>
                             <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]} `}
+                              className={clsx(
+                                Grid["col-xl-2"],
+                                Grid["col-xs-12"],
+                                ""
+                              )}
                             >
                               <svg
                                 width="52"
@@ -316,9 +340,13 @@ const Index = ({
                         </div>
                       </div>
                     </div>
-                    <div className={`${Grid["row"]}`}>
+                    <div className={clsx(Grid["row"])}>
                       <div
-                        className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
+                        className={clsx(
+                          Grid["col-xs-10"],
+                          Grid["col-xl-10"],
+                          Grid["margin_center"]
+                        )}
                       >
                         <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
@@ -338,18 +366,20 @@ const Index = ({
               </div>
 
               <div className={`${Landing["statement"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
                   <InView
                     as="span"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={`${Grid["row"]}`}>
+                    <div className={clsx(Grid["row"])}>
                       <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-xl-5"]} ${Landing["statement__image"]}`}
+                        className={clsx(
+                          Grid["col-xs-12"],
+                          Grid["col-xl-5"],
+                          Landing["statement__image"]
+                        )}
                       >
                         <Image
                           src={imac}
@@ -357,12 +387,16 @@ const Index = ({
                         />
                       </div>
                       <div
-                        className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]}`}
+                        className={clsx(Grid["col-xl-6"], Grid["col-xs-12"])}
                       >
                         <h3>Make Data Work for You.</h3>
-                        <div className={`${Grid["row"]}`}>
+                        <div className={clsx(Grid["row"])}>
                           <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            className={clsx(
+                              Grid["col-xl-6"],
+                              Grid["col-xs-12"],
+                              Landing["statement-item"]
+                            )}
                           >
                             <svg
                               width="58"
@@ -432,7 +466,11 @@ const Index = ({
                             <p>Operationalize data faster and efficiently</p>
                           </div>
                           <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            className={clsx(
+                              Grid["col-xl-6"],
+                              Grid["col-xs-12"],
+                              Landing["statement-item"]
+                            )}
                           >
                             <svg
                               width="61"
@@ -496,9 +534,13 @@ const Index = ({
                             <p>Connect to all your data sources</p>
                           </div>
                         </div>
-                        <div className={`${Grid["row"]}`}>
+                        <div className={clsx(Grid["row"])}>
                           <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            className={clsx(
+                              Grid["col-xl-6"],
+                              Grid["col-xs-12"],
+                              Landing["statement-item"]
+                            )}
                           >
                             <svg
                               width="125"
@@ -621,7 +663,11 @@ const Index = ({
                             <p>Gain access to deep insights</p>
                           </div>
                           <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            className={clsx(
+                              Grid["col-xl-6"],
+                              Grid["col-xs-12"],
+                              Landing["statement-item"]
+                            )}
                           >
                             <svg
                               width="99"
@@ -707,24 +753,30 @@ const Index = ({
               </div>
 
               <div className={`${Landing["impact"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]} `}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"], "")}>
                     <div
-                      className={`${Grid["col-xs-12"]} ${Landing["impact__title"]}`}
+                      className={clsx(
+                        Grid["col-xs-12"],
+                        Landing["impact__title"]
+                      )}
                     >
                       <h2>Impact Studies.</h2>
                     </div>
                   </div>
                   <div
-                    className={`${Grid["row"]} ${Landing["impact__container"]}`}
+                    className={clsx(Grid["row"], Landing["impact__container"])}
                   >
                     <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__microsoft"]}`}
+                      className={clsx(
+                        Grid["col-xl-3"],
+                        Grid["col-xs-12"],
+                        Landing["impact__container-item"],
+                        Landing["impact__microsoft"]
+                      )}
                     >
                       <div
-                        className={`${Landing["impact__container-content"]}`}
+                        className={clsx(Landing["impact__container-content"])}
                       >
                         <p>MARKETING</p>
                         <h4>Microsoft</h4>
@@ -734,10 +786,15 @@ const Index = ({
                       </div>
                     </div>
                     <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__hr"]}`}
+                      className={clsx(
+                        Grid["col-xl-3"],
+                        Grid["col-xs-12"],
+                        Landing["impact__container-item"],
+                        Landing["impact__hr"]
+                      )}
                     >
                       <div
-                        className={`${Landing["impact__container-content"]}`}
+                        className={clsx(Landing["impact__container-content"])}
                       >
                         <p>FINANCIAL SERVICES</p>
                         <h4>H&R Block</h4>
@@ -747,10 +804,15 @@ const Index = ({
                       </div>
                     </div>
                     <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__raytheon"]}`}
+                      className={clsx(
+                        Grid["col-xl-3"],
+                        Grid["col-xs-12"],
+                        Landing["impact__container-item"],
+                        Landing["impact__raytheon"]
+                      )}
                     >
                       <div
-                        className={`${Landing["impact__container-content"]}`}
+                        className={clsx(Landing["impact__container-content"])}
                       >
                         <p>LOGISTICS</p>
                         <h4>Raytheon</h4>
@@ -760,10 +822,15 @@ const Index = ({
                       </div>
                     </div>
                     <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__navy"]}`}
+                      className={clsx(
+                        Grid["col-xl-3"],
+                        Grid["col-xs-12"],
+                        Landing["impact__container-item"],
+                        Landing["impact__navy"]
+                      )}
                     >
                       <div
-                        className={`${Landing["impact__container-content"]}`}
+                        className={clsx(Landing["impact__container-content"])}
                       >
                         <p>DEFENSE & INTELLIGENCE</p>
                         <h4>U.S. Navy</h4>
@@ -775,7 +842,7 @@ const Index = ({
                   </div>
                 </div>
               </div>
-              <div className={`${Landing["news"]} section`}>
+              <div className={clsx(Landing["news"], "section")}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
@@ -784,24 +851,25 @@ const Index = ({
                 </InView>
               </div>
               <div className={`${Landing["statement2"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
+                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+                  <div className={clsx(Grid["row"])}>
                     <div
-                      className={`${Grid["col-xl-6"]} ${Landing["statement2__content"]}`}
+                      className={clsx(
+                        Grid["col-xl-6"],
+                        Landing["statement2__content"]
+                      )}
                     >
                       <h3>
                         Human productivity is stifled by the ocean of data
                         growing faster than our ability to process it.
                       </h3>
-                      <div className={`${Landing["statement2__button"]}`}>
+                      <div className={clsx(Landing["statement2__button"])}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
-                    <div className={`${Grid["col-xl-6"]}`}>
+                    <div className={clsx(Grid["col-xl-6"])}>
                       <video
                         controls
                         poster="./bryanPreview.png"
