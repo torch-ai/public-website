@@ -48,11 +48,11 @@ const Navigation: FunctionComponent = () => {
       <div
         className={clsx(
           Grid.row,
-          Nav["Nav__container"],
-          Grid["margin_center"],
-          Grid["container"],
-          Grid["between-lg"],
-          Grid["between-xs"]
+          Nav.NavContainer,
+          Grid.marginCenter,
+          Grid.container,
+          Grid.betweenLg,
+          Grid.betweenXs
         )}
       >
         <div className={clsx(Nav.Logo)}>
@@ -68,7 +68,7 @@ const Navigation: FunctionComponent = () => {
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <path
-                      className={clsx(Nav["cls-1"])}
+                      className={clsx(Nav.cls1)}
                       d="M136.27,63.51a36.5,36.5,0,0,0-13.56-14.92c-.67-.36-1.32-.74-2-1.14A34.84,34.84,0,0,1,109.17,0a35,35,0,0,0,3.31,61.74v0a20,20,0,1,1-14.92-1.19,42.65,42.65,0,0,1-9.38-13.31c-.09-.2-.16-.4-.25-.6a36.48,36.48,0,1,0,48.35,16.85Z"
                     />
                     <polygon
@@ -113,20 +113,20 @@ const Navigation: FunctionComponent = () => {
           </Link>
         </div>
         <button
-          className={clsx(Nav.mobile_nav_toggle)}
+          className={clsx(Nav.mobileNavToggle)}
           aria-controls="primary_navigation"
           ref={buttonRef}
           onClick={toggle}
           aria-expanded="false"
         >
-          <span className={clsx(Nav.sr_only)}>menu</span>
+          <span className={clsx(Nav.srOnly)}>menu</span>
         </button>
         <nav className={clsx(Nav.parent)}>
           <ul
             id="primary_navigation"
             data-visible="false"
             ref={navRef}
-            className={clsx(Nav.primary_navigation)}
+            className={clsx(Nav.primaryNavigation)}
           >
             <li>
               <PageSettingsLevelOneLink
@@ -134,12 +134,12 @@ const Navigation: FunctionComponent = () => {
                 {...levelOneLinkProps}
               />
             </li>
-            <li className={clsx(Nav["dropdown"])}>
+            <li className={clsx(Nav.dropdown)}>
               <PageSettingsLevelOneLink
                 pageSettings={solutionsPageSettings}
                 {...levelOneLinkProps}
               />
-              <div className={clsx(Nav["dropdown-content"])}>
+              <div className={clsx(Nav.dropdownContent)}>
                 <Link
                   href={`${solutionsPageSettings.path}#infrastructure`}
                   scroll={false}

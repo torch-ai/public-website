@@ -9,14 +9,14 @@
   width: 100%;
 }
 
-.Nav__container {
+.NavContainer {
 }
 
 .event {
   display: none;
 }
 
-.dropdown-content {
+.dropdownContent {
   display: none;
   position: absolute;
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
@@ -24,18 +24,18 @@
   z-index: 1;
 }
 
-.dropdown-content a {
+.dropdownContent a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdownContent {
   display: block;
 }
 
-.primary_navigation {
+.primaryNavigation {
   --navWhite: white;
   --navDark: black;
 
@@ -46,15 +46,15 @@
   gap: 1em;
 }
 
-.primary_navigation a {
+.primaryNavigation a {
   color: var(--navWhite);
 }
 
-.primary_navigation a:hover {
+.primaryNavigation a:hover {
   opacity: 0.5;
 }
 
-.primary_navigation a .change {
+.primaryNavigation a .change {
   color: white;
 }
 
@@ -62,15 +62,15 @@
   font-weight: bold;
 }
 
-.cls-1 {
+.cls1 {
   fill: #ffb100;
 }
 
-.cls-2 {
+.cls2 {
   fill: #f3f3f3;
 }
 
-.menu_row {
+.menuRow {
   color: #fff;
   padding: 1em;
 }
@@ -79,16 +79,16 @@
   color: #fff;
 }
 
-.mobile_nav_toggle {
+.mobileNavToggle {
   display: none;
 }
 
-.mobile_nav_toggle:hover {
+.mobileNavToggle:hover {
   cursor: pointer;
 }
 
 @media (max-width: 56.25em) {
-  .primary_navigation {
+  .primaryNavigation {
     position: fixed;
     inset: 0 0 0 30%;
     z-index: 1000;
@@ -99,19 +99,19 @@
     transition: transform 350ms ease-in !important;
   }
 
-  .dropdown:hover .dropdown-content {
+  .dropdown:hover .dropdownContent {
     display: none;
   }
 
-  .primary_navigation li a {
+  .primaryNavigation li a {
     color: white;
   }
 
-  .primary_navigation[data-visible="true"] {
+  .primaryNavigation[data-visible="true"] {
     transform: translateX(0%);
   }
 
-  .mobile_nav_toggle {
+  .mobileNavToggle {
     position: absolute;
     display: block;
     background: url("https://img.icons8.com/material-rounded/24/000000/menu--v1.png")
@@ -125,14 +125,14 @@
     right: 1rem;
   }
 
-  .mobile_nav_toggle[aria-expanded="true"] {
+  .mobileNavToggle[aria-expanded="true"] {
     background: url("https://img.icons8.com/ios-glyphs/25/ffffff/multiply.png")
       no-repeat;
     width: 1.5rem;
   }
 }
 
-.sr_only {
+.srOnly {
   clip: rect(0, 0, 0, 0);
   clip-path: inset(50%);
   position: absolute;

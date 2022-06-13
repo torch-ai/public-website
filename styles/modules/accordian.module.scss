@@ -8,12 +8,12 @@
   margin: 1em 0;
 }
 
-.accordian__label,
-.accordian__content {
+.accordianLabel,
+.accordianContent {
   padding: 14px 20px;
 }
 
-.accordian__label {
+.accordianLabel {
   display: block;
   color: white;
   font-weight: 500;
@@ -22,11 +22,11 @@
   transition: all 0.3s !important;
 }
 
-.accordian__label:hover {
+.accordianLabel:hover {
   background: rgba(0, 0, 0, 0.1);
 }
 
-.accordian__label::after {
+.accordianLabel::after {
   content: "+";
   position: absolute;
   top: 30%;
@@ -37,19 +37,19 @@
   transition: transform 0.4s;
 }
 
-.accordian__content {
+.accordianContent {
   line-height: 1.5;
   display: none;
 }
 
-.accordian__input {
+.accordianInput {
   display: none;
 }
 
-.accordian__input:checked ~ .accordian__content {
+.accordianInput:checked ~ .accordianContent {
   display: block;
 }
 
-.accordian__input:checked ~ .accordian__label::after {
+.accordianInput:checked ~ .accordianLabel::after {
   content: "-";
 }

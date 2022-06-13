@@ -68,16 +68,11 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Landing["hero"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div
-                    className={clsx(
-                      Grid["col-xs-12"],
-                      Landing["content-center"]
-                    )}
-                  >
+              <div className={clsx(Landing.hero, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.colXs12, Landing.contentCenter)}>
                     <h1>Unlock Human Potential.</h1>
-                    <div className={clsx(Landing["circle-icon"])}>
+                    <div className={clsx(Landing.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -97,7 +92,7 @@ const Index = ({
                 </div>
                 <video
                   data-keepplaying
-                  className={clsx(Landing["background-video"])}
+                  className={clsx(Landing.backgroundVideo)}
                   id="background-video"
                   autoPlay
                   muted
@@ -115,7 +110,7 @@ const Index = ({
                     objectPosition: "left bottom",
                   }}
                   contentProps={{
-                    className: clsx(Grid.container, Grid.margin_center),
+                    className: clsx(Grid.container, Grid.marginCenter),
                   }}
                 >
                   <InView
@@ -123,15 +118,15 @@ const Index = ({
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
-                    className={clsx(Grid.row, Landing.enhance__content)}
+                    className={clsx(Grid.row, Landing.enhanceContent)}
                   >
                     <div
                       className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-sm-10"],
-                        Grid["col-md-10"],
-                        Grid["col-lg-10"],
-                        Grid["col-xl-5"]
+                        Grid.colXs12,
+                        Grid.colSm10,
+                        Grid.colMd10,
+                        Grid.colLg10,
+                        Grid.colXl5
                       )}
                     >
                       <h2>We build AI that makes data easier to use.</h2>
@@ -148,26 +143,15 @@ const Index = ({
                 <div
                   className={clsx(
                     Grid.container,
-                    Grid.margin_center,
+                    Grid.marginCenter,
                     Landing.nexusContent
                   )}
                 >
-                  <div
-                    className={clsx(Grid["container"], Grid["margin_center"])}
-                  >
-                    <div className={clsx(Grid["row"])}>
-                      <div
-                        className={clsx(
-                          Grid["col-xs-10"],
-                          Grid["margin_center"]
-                        )}
-                      >
-                        <div
-                          className={clsx(Grid["row"], Landing["nexus__stats"])}
-                        >
-                          <div
-                            className={clsx(Grid["col-xl-8"], Grid["col-xs-9"])}
-                          >
+                  <div className={clsx(Grid.container, Grid.marginCenter)}>
+                    <div className={clsx(Grid.row)}>
+                      <div className={clsx(Grid.colXs10, Grid.marginCenter)}>
+                        <div className={clsx(Grid.row, Landing.nexusStats)}>
+                          <div className={clsx(Grid.colXl8, Grid.colXs9)}>
                             <h2>
                               Introducing Nexus <sup>TM</sup>
                             </h2>
@@ -176,34 +160,24 @@ const Index = ({
                               usable, and valuable.
                             </p>
                           </div>
-                          <div
-                            className={clsx(
-                              Grid["col-xl-2"],
-                              Grid["col-xs-12"]
-                            )}
-                          >
-                            <h2 className={clsx(Landing["large"])}>10.7x</h2>
+                          <div className={clsx(Grid.colXl2, Grid.colXs12)}>
+                            <h2 className={clsx(Landing.large)}>10.7x</h2>
                             <p>Faster compute performance.</p>
                           </div>
                         </div>
                         <hr />
-                        <div className={clsx(Grid["row"])}>
-                          <div className={clsx(Grid["col-xs-10"])}>
+                        <div className={clsx(Grid.row)}>
+                          <div className={clsx(Grid.colXs10)}>
                             <p>Simply put:</p>
                           </div>
                           <div
                             className={clsx(
-                              Grid["row"],
-                              Grid["between-xl"],
-                              Landing["nexus__points"]
+                              Grid.row,
+                              Grid.betweenXl,
+                              Landing.nexusPoints
                             )}
                           >
-                            <div
-                              className={clsx(
-                                Grid["col-xl-2"],
-                                Grid["col-xs-12"]
-                              )}
-                            >
+                            <div className={clsx(Grid.colXl2, Grid.colXs12)}>
                               <svg
                                 width="52"
                                 height="52"
@@ -241,12 +215,7 @@ const Index = ({
                                 ever built.
                               </p>
                             </div>
-                            <div
-                              className={clsx(
-                                Grid["col-xl-2"],
-                                Grid["col-xs-12"]
-                              )}
-                            >
+                            <div className={clsx(Grid.colXl2, Grid.colXs12)}>
                               <svg
                                 width="48"
                                 height="55"
@@ -265,12 +234,7 @@ const Index = ({
                                 from data.
                               </p>
                             </div>
-                            <div
-                              className={clsx(
-                                Grid["col-xl-2"],
-                                Grid["col-xs-12"]
-                              )}
-                            >
+                            <div className={clsx(Grid.colXl2, Grid.colXs12)}>
                               <svg
                                 width="52"
                                 height="52"
@@ -290,11 +254,7 @@ const Index = ({
                               </p>
                             </div>
                             <div
-                              className={clsx(
-                                Grid["col-xl-2"],
-                                Grid["col-xs-12"],
-                                ""
-                              )}
+                              className={clsx(Grid.colXl2, Grid.colXs12, "")}
                             >
                               <svg
                                 width="52"
@@ -340,12 +300,12 @@ const Index = ({
                         </div>
                       </div>
                     </div>
-                    <div className={clsx(Grid["row"])}>
+                    <div className={clsx(Grid.row)}>
                       <div
                         className={clsx(
-                          Grid["col-xs-10"],
-                          Grid["col-xl-10"],
-                          Grid["margin_center"]
+                          Grid.colXs10,
+                          Grid.colXl10,
+                          Grid.marginCenter
                         )}
                       >
                         <Link href={platformPageSettings.path}>
@@ -365,20 +325,20 @@ const Index = ({
                 </div>
               </div>
 
-              <div className={`${Landing["statement"]}  section`}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+              <div className={`${Landing.statement}  section`}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <InView
                     as="span"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={clsx(Grid["row"])}>
+                    <div className={clsx(Grid.row)}>
                       <div
                         className={clsx(
-                          Grid["col-xs-12"],
-                          Grid["col-xl-5"],
-                          Landing["statement__image"]
+                          Grid.colXs12,
+                          Grid.colXl5,
+                          Landing.statementImage
                         )}
                       >
                         <Image
@@ -386,16 +346,14 @@ const Index = ({
                           alt={"Image of a force graph loading on a screen"}
                         />
                       </div>
-                      <div
-                        className={clsx(Grid["col-xl-6"], Grid["col-xs-12"])}
-                      >
+                      <div className={clsx(Grid.colXl6, Grid.colXs12)}>
                         <h3>Make Data Work for You.</h3>
-                        <div className={clsx(Grid["row"])}>
+                        <div className={clsx(Grid.row)}>
                           <div
                             className={clsx(
-                              Grid["col-xl-6"],
-                              Grid["col-xs-12"],
-                              Landing["statement-item"]
+                              Grid.colXl6,
+                              Grid.colXs12,
+                              Landing.statementItem
                             )}
                           >
                             <svg
@@ -467,9 +425,9 @@ const Index = ({
                           </div>
                           <div
                             className={clsx(
-                              Grid["col-xl-6"],
-                              Grid["col-xs-12"],
-                              Landing["statement-item"]
+                              Grid.colXl6,
+                              Grid.colXs12,
+                              Landing.statementItem
                             )}
                           >
                             <svg
@@ -534,12 +492,12 @@ const Index = ({
                             <p>Connect to all your data sources</p>
                           </div>
                         </div>
-                        <div className={clsx(Grid["row"])}>
+                        <div className={clsx(Grid.row)}>
                           <div
                             className={clsx(
-                              Grid["col-xl-6"],
-                              Grid["col-xs-12"],
-                              Landing["statement-item"]
+                              Grid.colXl6,
+                              Grid.colXs12,
+                              Landing.statementItem
                             )}
                           >
                             <svg
@@ -664,9 +622,9 @@ const Index = ({
                           </div>
                           <div
                             className={clsx(
-                              Grid["col-xl-6"],
-                              Grid["col-xs-12"],
-                              Landing["statement-item"]
+                              Grid.colXl6,
+                              Grid.colXs12,
+                              Landing.statementItem
                             )}
                           >
                             <svg
@@ -752,32 +710,23 @@ const Index = ({
                 </div>
               </div>
 
-              <div className={`${Landing["impact"]}  section`}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div className={clsx(Grid["row"], "")}>
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Landing["impact__title"]
-                      )}
-                    >
+              <div className={`${Landing.impact}  section`}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row, "")}>
+                    <div className={clsx(Grid.colXs12, Landing.impactTitle)}>
                       <h2>Impact Studies.</h2>
                     </div>
                   </div>
-                  <div
-                    className={clsx(Grid["row"], Landing["impact__container"])}
-                  >
+                  <div className={clsx(Grid.row, Landing.impactContainer)}>
                     <div
                       className={clsx(
-                        Grid["col-xl-3"],
-                        Grid["col-xs-12"],
-                        Landing["impact__container-item"],
-                        Landing["impact__microsoft"]
+                        Grid.colXl3,
+                        Grid.colXs12,
+                        Landing.impactContainerItem,
+                        Landing.impactMicrosoft
                       )}
                     >
-                      <div
-                        className={clsx(Landing["impact__container-content"])}
-                      >
+                      <div className={clsx(Landing.impactContainerContent)}>
                         <p>MARKETING</p>
                         <h4>Microsoft</h4>
                         <Link href={impactPageSettings.path}>
@@ -787,15 +736,13 @@ const Index = ({
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-xl-3"],
-                        Grid["col-xs-12"],
-                        Landing["impact__container-item"],
-                        Landing["impact__hr"]
+                        Grid.colXl3,
+                        Grid.colXs12,
+                        Landing.impactContainerItem,
+                        Landing.impactHr
                       )}
                     >
-                      <div
-                        className={clsx(Landing["impact__container-content"])}
-                      >
+                      <div className={clsx(Landing.impactContainerContent)}>
                         <p>FINANCIAL SERVICES</p>
                         <h4>H&R Block</h4>
                         <Link href={impactPageSettings.path}>
@@ -805,15 +752,13 @@ const Index = ({
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-xl-3"],
-                        Grid["col-xs-12"],
-                        Landing["impact__container-item"],
-                        Landing["impact__raytheon"]
+                        Grid.colXl3,
+                        Grid.colXs12,
+                        Landing.impactContainerItem,
+                        Landing.impactRaytheon
                       )}
                     >
-                      <div
-                        className={clsx(Landing["impact__container-content"])}
-                      >
+                      <div className={clsx(Landing.impactContainerContent)}>
                         <p>LOGISTICS</p>
                         <h4>Raytheon</h4>
                         <Link href={impactPageSettings.path}>
@@ -823,15 +768,13 @@ const Index = ({
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-xl-3"],
-                        Grid["col-xs-12"],
-                        Landing["impact__container-item"],
-                        Landing["impact__navy"]
+                        Grid.colXl3,
+                        Grid.colXs12,
+                        Landing.impactContainerItem,
+                        Landing.impactNavy
                       )}
                     >
-                      <div
-                        className={clsx(Landing["impact__container-content"])}
-                      >
+                      <div className={clsx(Landing.impactContainerContent)}>
                         <p>DEFENSE & INTELLIGENCE</p>
                         <h4>U.S. Navy</h4>
                         <Link href={impactPageSettings.path}>
@@ -842,7 +785,7 @@ const Index = ({
                   </div>
                 </div>
               </div>
-              <div className={clsx(Landing["news"], "section")}>
+              <div className={clsx(Landing.news, "section")}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
@@ -850,26 +793,23 @@ const Index = ({
                   <News items={news} />
                 </InView>
               </div>
-              <div className={`${Landing["statement2"]}  section`}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div className={clsx(Grid["row"])}>
+              <div className={`${Landing.statement2}  section`}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row)}>
                     <div
-                      className={clsx(
-                        Grid["col-xl-6"],
-                        Landing["statement2__content"]
-                      )}
+                      className={clsx(Grid.colXl6, Landing.statement2Content)}
                     >
                       <h3>
                         Human productivity is stifled by the ocean of data
                         growing faster than our ability to process it.
                       </h3>
-                      <div className={clsx(Landing["statement2__button"])}>
+                      <div className={clsx(Landing.statement2Button)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>
                     </div>
-                    <div className={clsx(Grid["col-xl-6"])}>
+                    <div className={clsx(Grid.colXl6)}>
                       <video
                         controls
                         poster="./bryanPreview.png"

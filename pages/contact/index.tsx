@@ -32,29 +32,29 @@ const Index: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
-      <section className={clsx(Style["contact__container"])}>
+      <section className={clsx(Style.contactContainer)}>
         <InView
           as="div"
           onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
-          <div className={clsx(Grid["container"], Grid["margin_center"])}>
-            <div className={clsx(Grid["row"])}>
-              <div className={clsx(Grid["col-xs-12"], Style["contact__title"])}>
+          <div className={clsx(Grid.container, Grid.marginCenter)}>
+            <div className={clsx(Grid.row)}>
+              <div className={clsx(Grid.colXs12, Style.contactTitle)}>
                 <PageTitle>Contact Us.</PageTitle>
                 <PageSubtitle>
                   Find out how Nexus can unlock your productivity.
                 </PageSubtitle>
               </div>
             </div>
-            <div className={clsx(Grid["row"])}>
-              <div className={clsx(Grid["col-xs-12"])}>
+            <div className={clsx(Grid.row)}>
+              <div className={clsx(Grid.colXs12)}>
                 <form
-                  className={clsx(Style["contact__form"])}
+                  className={clsx(Style.contactForm)}
                   action="https://formspree.io/f/mvolablv"
                   method="POST"
                 >
                   <div>
-                    <label className={clsx(Style["contact__names"])}>
+                    <label className={clsx(Style.contactNames)}>
                       <input
                         type="text"
                         name="name"

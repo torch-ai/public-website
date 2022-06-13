@@ -1,6 +1,6 @@
 @use "/styles/colors";
 
-.footer__snap {
+.footerSnap {
   scroll-snap-align: start;
 }
 
@@ -8,23 +8,23 @@
   padding: 2em 0;
 }
 
-.footer__title h3,
-.footer__title p {
+.footerTitle h3,
+.footerTitle p {
   padding: 0.5em 0;
 }
 
-.footer__text {
+.footerText {
   padding-bottom: 1em;
 }
-.footer__text p {
+.footerText p {
   max-width: 45ch;
 }
 
-.footer__form > * + * {
+.footerForm > * + * {
   padding: 0.5em 0;
 }
 
-.footer__form input {
+.footerForm input {
   width: 100%;
   background: transparent;
   outline: 0;
@@ -35,27 +35,27 @@
   padding: 0.5em 0;
 }
 
-.footer__form input + input {
+.footerForm input + input {
   margin-left: 1em;
 }
 
-.footer__form-submit a[role="button"] {
+.footerFormSubmit a[role="button"] {
   color: #fff;
   border: 1px solid #fff;
 }
 
-.footer__form-submit a[role="button"]:hover {
+.footerFormSubmit a[role="button"]:hover {
   color: #000;
   border: 1px solid #fff;
 }
 
-.footer__form-submit .socialIcons {
+.footerFormSubmit .socialIcons {
   color: #fff;
   gap: 1em;
   margin-top: auto;
 }
 
-.footer__form-button {
+.footerFormButton {
   padding: 0.8em 2em;
   color: white;
   background-color: transparent;
@@ -65,37 +65,37 @@
   transition: all 0.3s ease-in-out;
 }
 
-.footer__form-button:hover {
+.footerFormButton:hover {
   background-color: white;
   color: black;
   border: 1px solid white;
   cursor: pointer;
 }
 
-.footer__terms,
-.footer__terms h4 {
+.footerTerms,
+.footerTerms h4 {
   color: #ffffff;
   font-family: var(--font-copy);
 }
 
-.footer__terms ul li {
+.footerTerms ul li {
   margin-bottom: 1em;
 }
 
-.footer__address,
-.footer__address h4 {
+.footerAddress,
+.footerAddress h4 {
   color: #ffffff;
   font-family: var(--font-copy);
 }
 
-.footer__address ul li {
+.footerAddress ul li {
   margin-bottom: 1em;
 }
 
-.footer__copy {
+.footerCopy {
   align-items: center;
 }
 
-.footer__copy p {
+.footerCopy p {
   margin-top: auto;
 }

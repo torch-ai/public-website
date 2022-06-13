@@ -1,6 +1,6 @@
 @use "/styles/colors";
 
-.content-center {
+.contentCenter {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -111,11 +111,11 @@
   padding: 5em 0;
   background-color: #ffffff;
 }
-.gallery__container {
+.galleryContainer {
   padding: 1em 0;
 }
 
-.gallery__title {
+.galleryTitle {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,14 +123,14 @@
   padding: 2em 0;
 }
 
-.gallery__title p {
+.galleryTitle p {
   text-align: center;
   max-width: 60ch;
   font-size: 1em;
   padding: 0.5em 0;
 }
 
-.gallery__layout-item {
+.galleryLayoutItem {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -166,7 +166,7 @@
   height: 10px;
 }
 
-.careers__content {
+.careersContent {
   justify-content: flex-end;
 }
 
@@ -221,7 +221,7 @@
 }
 
 @media only screen and (min-width: 100em) {
-  .gallery__layout-item {
+  .galleryLayoutItem {
     padding: 0;
     h5 {
       font-size: 1.2em;

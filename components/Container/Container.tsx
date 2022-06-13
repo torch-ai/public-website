@@ -8,7 +8,7 @@ const Container: React.FunctionComponent<
 > = ({ children, ...props }) => (
   <div
     {...props}
-    className={clsx(Grid.container, Grid.margin_center, props.className)}
+    className={clsx(Grid.container, Grid.marginCenter, props.className)}
   >
     {children}
   </div>

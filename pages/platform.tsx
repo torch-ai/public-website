@@ -63,16 +63,14 @@ const Platform: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Style["hero"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div
-                    className={clsx(Grid["col-xs-12"], Style["content-center"])}
-                  >
+              <div className={clsx(Style.hero, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.colXs12, Style.contentCenter)}>
                     <h2 ref={titleRef}>
                       Nexus<sup>&trade;</sup>. The highest-performance data
                       processing platform ever built.
                     </h2>
-                    <div ref={arrowRef} className={clsx(Style["circle-icon"])}>
+                    <div ref={arrowRef} className={clsx(Style.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -91,20 +89,18 @@ const Platform: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={clsx(Style["engines"], "section")}>
+              <div className={clsx(Style.engines, "section")}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    className={clsx(Grid["container"], Grid["margin_center"])}
-                  >
-                    <div className={clsx(Grid["row"])}>
+                  <div className={clsx(Grid.container, Grid.marginCenter)}>
+                    <div className={clsx(Grid.row)}>
                       <div
                         className={clsx(
-                          Grid["col-lg-12"],
-                          Grid["col-xs-12"],
-                          Grid["margin_center"]
+                          Grid.colLg12,
+                          Grid.colXs12,
+                          Grid.marginCenter
                         )}
                       >
                         <h3>
@@ -114,12 +110,8 @@ const Platform: React.FunctionComponent = () => {
                         </h3>
                       </div>
                     </div>
-                    <div
-                      className={clsx(Grid["row"], Style["engines__models"])}
-                    >
-                      <div
-                        className={clsx(Grid["col-lg-4"], Grid["col-xs-12"])}
-                      >
+                    <div className={clsx(Grid.row, Style.enginesModels)}>
+                      <div className={clsx(Grid.colLg4, Grid.colXs12)}>
                         <div>
                           <Image src={datamodel1} alt={""} />
                         </div>
@@ -134,9 +126,7 @@ const Platform: React.FunctionComponent = () => {
                           </p>
                         </div>
                       </div>
-                      <div
-                        className={clsx(Grid["col-lg-4"], Grid["col-xs-12"])}
-                      >
+                      <div className={clsx(Grid.colLg4, Grid.colXs12)}>
                         <div>
                           <Image src={datamodel2} alt={""} />
                         </div>
@@ -151,9 +141,7 @@ const Platform: React.FunctionComponent = () => {
                           </p>
                         </div>
                       </div>
-                      <div
-                        className={clsx(Grid["col-lg-4"], Grid["col-xs-12"])}
-                      >
+                      <div className={clsx(Grid.colLg4, Grid.colXs12)}>
                         <div>
                           <Image src={datamodel3} alt={""} />
                         </div>
@@ -171,12 +159,10 @@ const Platform: React.FunctionComponent = () => {
                   </div>
                 </InView>
               </div>
-              <div className={clsx(Style["datalake"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div
-                    className={clsx(Grid["row"], Style["datalake__content"])}
-                  >
-                    <div className={clsx(Grid["col-lg-6"], Grid["col-xs-12"])}>
+              <div className={clsx(Style.datalake, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row, Style.datalakeContent)}>
+                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
                       <h3>
                         Your large scale data processor just became obsolete.
                       </h3>
@@ -187,8 +173,8 @@ const Platform: React.FunctionComponent = () => {
                         entirety of your authoritative data.
                       </p>
                     </div>
-                    <div className={clsx(Grid["col-lg-6"], Grid["col-xs-12"])}>
-                      <div className={clsx(Style["datalake__title"])}>
+                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                      <div className={clsx(Style.datalakeTitle)}>
                         <h1>10.7x</h1>
                         <h4>Faster compute performance.</h4>
                       </div>
@@ -213,18 +199,16 @@ const Platform: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={clsx(Style["code"], "section")}>
+              <div className={clsx(Style.code, "section")}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    className={clsx(Grid["container"], Grid["margin_center"])}
-                  >
-                    <div className={clsx(Grid["row"])}>
-                      <div className={clsx(Grid["col-lg-1"], Grid["col-xs-8"])}>
+                  <div className={clsx(Grid.container, Grid.marginCenter)}>
+                    <div className={clsx(Grid.row)}>
+                      <div className={clsx(Grid.colXs8)}>
                         <h2>As Code</h2>
-                        <p className={clsx(Style["code__subtitle"])}>
+                        <p className={clsx(Style.codeSubtitle)}>
                           The engineer-friendly approach
                         </p>
                         <p>
@@ -244,15 +228,15 @@ const Platform: React.FunctionComponent = () => {
                   </div>
                 </InView>
               </div>
-              <div className={clsx(Style["benefits"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div className={clsx(Grid["row"])}>
-                    <div className={clsx(Grid["col-lg-12"], Grid["col-xs-12"])}>
+              <div className={clsx(Style.benefits, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colLg12, Grid.colXs12)}>
                       <h2>Features and benefits</h2>
                     </div>
                   </div>
-                  <div className={clsx(Grid["row"])}>
-                    <div className={clsx(Grid["col-lg-6"], Grid["col-xs-12"])}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
                       <h5>Real-Time Data Transformation</h5>
                       <ul>
                         <li>Analyze data in flight in real time.</li>
@@ -260,7 +244,7 @@ const Platform: React.FunctionComponent = () => {
                         <li>Reduces infrastructure costs.</li>
                       </ul>
                     </div>
-                    <div className={clsx(Grid["col-lg-6"], Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
                       <h5>Unstructured Data Processing and Fusion</h5>
                       <ul>
                         <li>
@@ -278,8 +262,8 @@ const Platform: React.FunctionComponent = () => {
                       </ul>
                     </div>
                   </div>
-                  <div className={clsx(Grid["row"])}>
-                    <div className={clsx(Grid["col-lg-6"], Grid["col-xs-12"])}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
                       <h5>Semantic Stitching</h5>
                       <ul>
                         <li>
@@ -290,7 +274,7 @@ const Platform: React.FunctionComponent = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className={clsx(Grid["col-lg-6"], Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
                       <h5>Composability</h5>
                       <ul>
                         <li>Engages easily within existing architecture.</li>

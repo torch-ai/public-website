@@ -77,143 +77,120 @@ const Index: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Style["hero"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div className={clsx(Grid["row"], "")}>
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Style["gallery__title"]
-                      )}
-                    >
+              <div className={clsx(Style.hero, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row, "")}>
+                    <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
                       <h3 ref={titleRef}>Make your impact.</h3>
                     </div>
                   </div>
                   <div
                     ref={sectorsForegroundRef}
-                    className={clsx(Grid["row"], Style["gallery__container"])}
+                    className={clsx(Grid.row, Style.galleryContainer)}
                   >
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-defense"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryDefense
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Defense & Intelligence</p>
                       </div>
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-logistics"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryLogistics
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Logistics</p>
                       </div>
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-insurance"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryInsurance
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Insurance</p>
                       </div>
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-marketing"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryMarketing
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Marketing</p>
                       </div>
                     </div>
                   </div>
                   <div
                     ref={sectorsBackgroundsRef}
-                    className={clsx(Grid["row"], Style["gallery__container"])}
+                    className={clsx(Grid.row, Style.galleryContainer)}
                   >
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-financial"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryFinancial
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Financial Services</p>
                       </div>
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-manufacture"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryManufacture
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Manufacturing</p>
                       </div>
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-healthcare"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryHealthcare
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Healthcare</p>
                       </div>
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-lg-2"],
-                        Grid["col-xs-12"],
-                        Style["gallery__container-item"],
-                        Style["gallery-publicSector"]
+                        Grid.colLg2,
+                        Grid.colXs12,
+                        Style.galleryContainerItem,
+                        Style.galleryPublicSector
                       )}
                     >
-                      <div
-                        className={clsx(Style["gallery__container-content"])}
-                      >
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Public Sector</p>
                       </div>
                     </div>
                   </div>
-                  <div
-                    className={clsx(Grid["col-xs-12"], Style["gallery__title"])}
-                  >
+                  <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
                     <p ref={subtitleRef}>Find your passion below:</p>
                     <FontAwesomeIcon
                       icon={faArrowAltCircleDown as IconProp}
@@ -224,7 +201,7 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="defense"
-                className={clsx(Style["defense"], "section")}
+                className={clsx(Style.defense, "section")}
               >
                 <InView
                   as="div"
@@ -232,12 +209,10 @@ const Index: React.FunctionComponent = () => {
                 >
                   <div
                     id="defense"
-                    className={clsx(Grid["container"], Grid["margin_center"])}
+                    className={clsx(Grid.container, Grid.marginCenter)}
                   >
-                    <div
-                      className={clsx(Grid["row"], Style["defenses__content"])}
-                    >
-                      <div className={clsx(Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.row, Style.defensesContent)}>
+                      <div className={clsx(Grid.colXs12)}>
                         <h2>Defense & Intelligence.</h2>
                         <p>
                           The national security enterprise is awash with vast
@@ -250,9 +225,7 @@ const Index: React.FunctionComponent = () => {
                           mission to bolster the defense of our nation.
                         </p>
                       </div>
-                      <div
-                        className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}
-                      >
+                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
@@ -263,16 +236,14 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="logistics"
-                className={clsx(Style["logistics"], "section")}
+                className={clsx(Style.logistics, "section")}
               >
                 <div
                   id="logistics"
-                  className={clsx(Grid["container"], Grid["margin_center"])}
+                  className={clsx(Grid.container, Grid.marginCenter)}
                 >
-                  <div
-                    className={clsx(Grid["row"], Style["logistics__content"])}
-                  >
-                    <div className={clsx(Grid["col_xs_8"])}>
+                  <div className={clsx(Grid.row, Style.logisticsContent)}>
+                    <div className={clsx(Grid.colXs8)}>
                       <h2>Logistics.</h2>
                       <p>
                         Modern logistics requires the ability to orchestrate
@@ -286,12 +257,12 @@ const Index: React.FunctionComponent = () => {
                       </p>
                     </div>
                   </div>
-                  <div className={clsx(Grid["row"])}>
+                  <div className={clsx(Grid.row)}>
                     <div
                       className={clsx(
-                        Grid["col_xs_8"],
-                        Grid["col_lg_8"],
-                        Style["inspiration__button"]
+                        Grid.colXs8,
+                        Grid.colLg8,
+                        Style.inspirationButton
                       )}
                     >
                       <Link href={contactPageSettings.path}>
@@ -303,7 +274,7 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="insurance"
-                className={clsx(Style["insurance"], "section")}
+                className={clsx(Style.insurance, "section")}
               >
                 <InView
                   as="div"
@@ -311,12 +282,10 @@ const Index: React.FunctionComponent = () => {
                 >
                   <div
                     id="insurance"
-                    className={clsx(Grid["container"], Grid["margin_center"])}
+                    className={clsx(Grid.container, Grid.marginCenter)}
                   >
-                    <div
-                      className={clsx(Grid["row"], Style["insurance__content"])}
-                    >
-                      <div className={clsx(Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.row, Style.insuranceContent)}>
+                      <div className={clsx(Grid.colXs12)}>
                         <h2>Insurance.</h2>
                         <p>
                           Creating new policies or certificates of insurance
@@ -330,9 +299,7 @@ const Index: React.FunctionComponent = () => {
                           and with over 96% accuracy for data extraction.
                         </p>
                       </div>
-                      <div
-                        className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}
-                      >
+                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
@@ -343,16 +310,14 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="marketing"
-                className={clsx(Style["marketing"], "section")}
+                className={clsx(Style.marketing, "section")}
               >
                 <div
                   id="marketing"
-                  className={clsx(Grid["container"], Grid["margin_center"])}
+                  className={clsx(Grid.container, Grid.marginCenter)}
                 >
-                  <div
-                    className={clsx(Grid["row"], Style["marketing__content"])}
-                  >
-                    <div className={clsx(Grid["col-xs-12"])}>
+                  <div className={clsx(Grid.row, Style.marketingContent)}>
+                    <div className={clsx(Grid.colXs12)}>
                       <h2>Marketing.</h2>
                       <p>
                         Innovative marketers understand the trends and
@@ -367,8 +332,8 @@ const Index: React.FunctionComponent = () => {
                       </p>
                     </div>
                   </div>
-                  <div className={clsx(Grid["row"])}>
-                    <div className={clsx(Grid["col-xs-12"], Grid["col_lg_8"])}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colXs12, Grid.colLg8)}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
@@ -378,7 +343,7 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="financial"
-                className={clsx(Style["financial"], "section")}
+                className={clsx(Style.financial, "section")}
               >
                 <InView
                   as="div"
@@ -386,12 +351,10 @@ const Index: React.FunctionComponent = () => {
                 >
                   <div
                     id="financial"
-                    className={clsx(Grid["container"], Grid["margin_center"])}
+                    className={clsx(Grid.container, Grid.marginCenter)}
                   >
-                    <div
-                      className={clsx(Grid["row"], Style["financial__content"])}
-                    >
-                      <div className={clsx(Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.row, Style.financialContent)}>
+                      <div className={clsx(Grid.colXs12)}>
                         <h2>Financial Services.</h2>
                         <p>
                           Financial service organizations seek to fully engage
@@ -404,9 +367,7 @@ const Index: React.FunctionComponent = () => {
                           instant.
                         </p>
                       </div>
-                      <div
-                        className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}
-                      >
+                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
@@ -417,19 +378,19 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="manufacturing"
-                className={clsx(Style["manufacturing"], "section")}
+                className={clsx(Style.manufacturing, "section")}
               >
                 <div
                   id="manufacturing"
-                  className={clsx(Grid["container"], Grid["margin_center"])}
+                  className={clsx(Grid.container, Grid.marginCenter)}
                 >
                   <div
                     className={clsx(
-                      Grid["row-reverse"],
-                      Style["manufacturing__content"]
+                      Grid.rowReverse,
+                      Style.manufacturingContent
                     )}
                   >
-                    <div className={clsx(Grid["col-lg-5"], Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.colLg5, Grid.colXs12)}>
                       <h2>Manufacturing.</h2>
                       <p>
                         With supply chains operating on a global scale,
@@ -440,9 +401,7 @@ const Index: React.FunctionComponent = () => {
                         sole-source supplier, and economic threat, mitigating
                         perilous activity.
                       </p>
-                      <div
-                        className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}
-                      >
+                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
@@ -453,7 +412,7 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="healthcare"
-                className={clsx(Style["healthcare"], "section")}
+                className={clsx(Style.healthcare, "section")}
               >
                 <InView
                   as="div"
@@ -461,15 +420,10 @@ const Index: React.FunctionComponent = () => {
                 >
                   <div
                     id="healthcare"
-                    className={clsx(Grid["container"], Grid["margin_center"])}
+                    className={clsx(Grid.container, Grid.marginCenter)}
                   >
-                    <div
-                      className={clsx(
-                        Grid["row"],
-                        Style["healthcare__content"]
-                      )}
-                    >
-                      <div className={clsx(Grid["col-xs-12"])}>
+                    <div className={clsx(Grid.row, Style.healthcareContent)}>
+                      <div className={clsx(Grid.colXs12)}>
                         <h2>Healthcare.</h2>
                         <p>
                           Artificial Intelligence is revolutionizing healthcare,
@@ -480,9 +434,7 @@ const Index: React.FunctionComponent = () => {
                           intelligent decisioning.
                         </p>
                       </div>
-                      <div
-                        className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}
-                      >
+                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
@@ -493,19 +445,14 @@ const Index: React.FunctionComponent = () => {
               </div>
               <div
                 data-anchor="publicSector"
-                className={clsx(Style["publicSector"], "section")}
+                className={clsx(Style.publicSector, "section")}
               >
                 <div
                   id="public"
-                  className={clsx(Grid["container"], Grid["margin_center"])}
+                  className={clsx(Grid.container, Grid.marginCenter)}
                 >
-                  <div
-                    className={clsx(
-                      Grid["row"],
-                      Style["publicSector__content"]
-                    )}
-                  >
-                    <div className={clsx(Grid["col-xs-12"])}>
+                  <div className={clsx(Grid.row, Style.publicSectorContent)}>
+                    <div className={clsx(Grid.colXs12)}>
                       <h2>Public Sector.</h2>
                       <p>
                         Governments exist to strengthen the lives of their
@@ -523,8 +470,8 @@ const Index: React.FunctionComponent = () => {
                       </p>
                     </div>
                   </div>
-                  <div className={clsx(Grid["row"])}>
-                    <div className={clsx(Grid["col-xs-12"], Grid["col-lg-12"])}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colXs12, Grid.colLg12)}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
@@ -532,7 +479,7 @@ const Index: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={clsx(Style["cta"], "section")}>
+              <div className={clsx(Style.cta, "section")}>
                 <ContentOverImage
                   imageProps={{
                     src: staffFlameBackground,
@@ -550,26 +497,16 @@ const Index: React.FunctionComponent = () => {
                   >
                     <div
                       id="public"
-                      className={clsx(Grid.container, Grid.margin_center)}
+                      className={clsx(Grid.container, Grid.marginCenter)}
                     >
-                      <div className={clsx(Grid.row, Style.cta__content)}>
-                        <div
-                          className={clsx(
-                            Grid["col-lg-offset-6"],
-                            Grid["col-xs-12"]
-                          )}
-                        >
+                      <div className={clsx(Grid.row, Style.ctaContent)}>
+                        <div className={clsx(Grid.colLgOffset6, Grid.colXs12)}>
                           <h3>Let us help you make data easier to use.</h3>
                           <p>It's time to unleash your potential.</p>
                         </div>
                       </div>
                       <div className={Grid.row}>
-                        <div
-                          className={clsx(
-                            Grid["col-lg-offset-6"],
-                            Grid["col-lg-12"]
-                          )}
-                        >
+                        <div className={clsx(Grid.colLgOffset6, Grid.colLg12)}>
                           <Link href={contactPageSettings.path}>
                             <a role="button">Let's be friends</a>
                           </Link>

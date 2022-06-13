@@ -21,26 +21,20 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
 
   return (
     <>
-      <div className={clsx(Grid["container"], Grid["margin_center"])}>
-        <div className={clsx(Grid["row"])}>
-          <div className={clsx(Grid["col-xs-12"], Landing["news__title"])}>
+      <div className={clsx(Grid.container, Grid.marginCenter)}>
+        <div className={clsx(Grid.row)}>
+          <div className={clsx(Grid.colXs12, Landing.newsTitle)}>
             <h3>Latest News.</h3>
           </div>
         </div>
-        <div className={clsx(Grid["row"], Landing["news__container"])}>
-          <div className={clsx(Grid["col-xs-8"], Landing["news__layout"])}>
-            <div
-              className={clsx(
-                Grid["row"],
-                Landing["news__layout-featured"],
-                ""
-              )}
-            >
+        <div className={clsx(Grid.row, Landing.newsContainer)}>
+          <div className={clsx(Grid.colXs8, Landing.newsLayout)}>
+            <div className={clsx(Grid.row, Landing.newsLayoutFeatured, "")}>
               <div
                 className={clsx(
-                  Grid["col-lg-8"],
-                  Grid["col-xs-12"],
-                  Landing["news__layout-item"]
+                  Grid.colLg8,
+                  Grid.colXs12,
+                  Landing.newsLayoutItem
                 )}
                 style={{ position: "relative" }}
               >
@@ -50,7 +44,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   objectFit={"cover"}
                   alt={items[0].fields.fullSizeImage.fields.description || ""}
                 />
-                <div className={clsx(Landing["news__layout-item-content"])}>
+                <div className={clsx(Landing.newsLayoutItemContent)}>
                   <p>{displayCurrentTime(items[0])}</p>
                   <h5>{items[0].fields.title}</h5>
                   <Link href={"/post/" + items[0].fields.slug}>
@@ -60,9 +54,9 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
               </div>
               <div
                 className={clsx(
-                  Grid["col-lg-4"],
-                  Grid["col-xs-12"],
-                  Landing["news__layout-item"]
+                  Grid.colLg4,
+                  Grid.colXs12,
+                  Landing.newsLayoutItem
                 )}
                 style={{ position: "relative", backgroundSize: "cover" }}
               >
@@ -72,7 +66,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   objectFit={"cover"}
                   alt={items[1].fields.fullSizeImage.fields.description || ""}
                 />
-                <div className={clsx(Landing["news__layout-item-content"])}>
+                <div className={clsx(Landing.newsLayoutItemContent)}>
                   <p>{displayCurrentTime(items[1])}</p>
                   <h5>{items[1].fields.title}</h5>
                   <Link href={"/post/" + items[1].fields.slug}>
@@ -81,12 +75,12 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                 </div>
               </div>
             </div>
-            <div className={clsx(Grid["row"], Grid["between-lg"])}>
+            <div className={clsx(Grid.row, Grid.betweenLg)}>
               <div
                 className={clsx(
-                  Grid["col-lg-4"],
-                  Grid["col-xs-12"],
-                  Landing["news__layout-item"]
+                  Grid.colLg4,
+                  Grid.colXs12,
+                  Landing.newsLayoutItem
                 )}
                 style={{ position: "relative" }}
               >
@@ -96,7 +90,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   objectFit={"cover"}
                   alt={items[2].fields.fullSizeImage.fields.description || ""}
                 />
-                <div className={clsx(Landing["news__layout-item-content"])}>
+                <div className={clsx(Landing.newsLayoutItemContent)}>
                   <p>{displayCurrentTime(items[2])}</p>
                   <h5>{items[2].fields.title}</h5>
                   <Link href={"/post/" + items[2].fields.slug}>
@@ -106,9 +100,9 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
               </div>
               <div
                 className={clsx(
-                  Grid["col-lg-4"],
-                  Grid["col-xs-12"],
-                  Landing["news__layout-item"]
+                  Grid.colLg4,
+                  Grid.colXs12,
+                  Landing.newsLayoutItem
                 )}
                 style={{ position: "relative" }}
               >
@@ -118,7 +112,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   objectFit={"cover"}
                   alt={items[3].fields.fullSizeImage.fields.description || ""}
                 />
-                <div className={clsx(Landing["news__layout-item-content"])}>
+                <div className={clsx(Landing.newsLayoutItemContent)}>
                   <p>{displayCurrentTime(items[3])}</p>
                   <h5>{items[3].fields.title}</h5>
                   <Link href={"/post/" + items[3].fields.slug}>
@@ -128,9 +122,9 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
               </div>
               <div
                 className={clsx(
-                  Grid["col-lg-4"],
-                  Grid["col-xs-12"],
-                  Landing["news__layout-item"]
+                  Grid.colLg4,
+                  Grid.colXs12,
+                  Landing.newsLayoutItem
                 )}
                 style={{ position: "relative" }}
               >
@@ -140,7 +134,7 @@ const News: React.FunctionComponent<Props> = ({ items }) => {
                   objectFit={"cover"}
                   alt={items[4].fields.fullSizeImage.fields.description || ""}
                 />
-                <div className={clsx(Landing["news__layout-item-content"])}>
+                <div className={clsx(Landing.newsLayoutItemContent)}>
                   <p>{displayCurrentTime(items[4])}</p>
                   <h5>{items[4].fields.title}</h5>
                   <Link href={"/post/" + items[4].fields.slug}>

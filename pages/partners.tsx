@@ -64,15 +64,10 @@ const Partners: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Style["hero"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div className={clsx(Grid["row"])}>
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Style["content-center"]
-                      )}
-                    >
+              <div className={clsx(Style.hero, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colXs12, Style.contentCenter)}>
                       <h1 ref={titleRef}>Be a hero for your customers.</h1>
                       <p ref={subtitleRef}>
                         Deploy Nexus to solve your customers problems.
@@ -81,21 +76,16 @@ const Partners: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={clsx(Style["value"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
+              <div className={clsx(Style.value, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={clsx(Grid["row"], Style["value__content"])}>
-                      <div
-                        className={clsx(
-                          Grid["col-lg-offset-3"],
-                          Grid["col-xs-12"]
-                        )}
-                      >
+                    <div className={clsx(Grid.row, Style.valueContent)}>
+                      <div className={clsx(Grid.colLgOffset3, Grid.colXs12)}>
                         <h3>
                           We value our friends. This is more than business for
                           us.
@@ -113,27 +103,19 @@ const Partners: React.FunctionComponent = () => {
                   </InView>
                 </div>
               </div>
-              <div className={clsx(Style["benefitsPartners"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div
-                    className={clsx(
-                      Grid["row"],
-                      Style["benefitsPartners__title"]
-                    )}
-                  >
+              <div className={clsx(Style.benefitsPartners, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row, Style.benefitsPartnersTitle)}>
                     <h3>Benefits for our partners.</h3>
                   </div>
                   <div
-                    className={clsx(
-                      Grid["row"],
-                      Style["benefitsPartners__content"]
-                    )}
+                    className={clsx(Grid.row, Style.benefitsPartnersContent)}
                   >
                     <div
                       className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-lg-3"],
-                        Style["benefitsPartners-item"]
+                        Grid.colXs12,
+                        Grid.colLg3,
+                        Style.benefitsPartnersItem
                       )}
                     >
                       <div>
@@ -153,9 +135,9 @@ const Partners: React.FunctionComponent = () => {
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-lg-3"],
-                        Style["benefitsPartners-item"]
+                        Grid.colXs12,
+                        Grid.colLg3,
+                        Style.benefitsPartnersItem
                       )}
                     >
                       <div>
@@ -172,9 +154,9 @@ const Partners: React.FunctionComponent = () => {
                     </div>
                     <div
                       className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-lg-3"],
-                        Style["benefitsPartners-item"]
+                        Grid.colXs12,
+                        Grid.colLg3,
+                        Style.benefitsPartnersItem
                       )}
                     >
                       <div>
@@ -194,15 +176,10 @@ const Partners: React.FunctionComponent = () => {
                   </div>
                 </div>
               </div>
-              <div className={clsx(Style["change"], "section")}>
-                <div className={clsx(Grid["container"], Grid["margin_center"])}>
-                  <div className={clsx(Grid["row"])}>
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Style["change__title"]
-                      )}
-                    >
+              <div className={clsx(Style.change, "section")}>
+                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colXs12, Style.changeTitle)}>
                       <h2>Help us change the world.</h2>
                       <p>Interested in becoming a partner?</p>
                       <p>

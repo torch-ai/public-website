@@ -18,34 +18,34 @@ const Footer: React.FunctionComponent = () => {
     <footer id="contact" className={clsx(Template.footer, "section")}>
       <div
         className={clsx(
-          Grid.margin_center,
+          Grid.marginCenter,
           Grid.container,
           Grid.row,
-          Template.footer__title
+          Template.footerTitle
         )}
       >
         <h3>Get in Touch With Us.</h3>
       </div>
       <div
         className={clsx(
-          Grid.margin_center,
+          Grid.marginCenter,
           Grid.container,
           Grid.row,
-          Grid["gap"],
-          Template.footer__content
+          Grid.gap,
+          Template.footerContent
         )}
       >
-        <div className={clsx(Template["footer__form-container"], "flow")}>
-          <div className={clsx(Template.footer__text)}>
+        <div className={clsx(Template.footerFormContainer, "flow")}>
+          <div className={clsx(Template.footerText)}>
             <p>Find out how Nexus can unlock your productivity.</p>
           </div>
 
           <form
             action="https://formspree.io/f/mvolablv"
             method="POST"
-            className={clsx(Template["footer__form"], "flow")}
+            className={clsx(Template.footerForm, "flow")}
           >
-            <div className={clsx(Grid.row_wrapoff)}>
+            <div className={clsx(Grid.rowWrapoff)}>
               <input
                 placeholder="Full name"
                 id="name"
@@ -55,7 +55,7 @@ const Footer: React.FunctionComponent = () => {
                 required
               />
             </div>
-            <div className={clsx(Grid.row_wrapoff, "")}>
+            <div className={clsx(Grid.rowWrapoff, "")}>
               <input
                 placeholder="Index"
                 id="organization"
@@ -75,19 +75,16 @@ const Footer: React.FunctionComponent = () => {
             </div>
             <div
               className={clsx(
-                Template["footer__form-submit"],
-                Grid["row"],
-                Grid["gap"],
+                Template.footerFormSubmit,
+                Grid.row,
+                Grid.gap,
                 "flow"
               )}
             >
-              <button
-                className={clsx(Template["footer__form-button"])}
-                type="submit"
-              >
+              <button className={clsx(Template.footerFormButton)} type="submit">
                 Send
               </button>
-              <div className={clsx(Template.socialIcons, Grid["row"], "")}>
+              <div className={clsx(Template.socialIcons, Grid.row, "")}>
                 <a
                   href="https://www.linkedin.com/company/torchai"
                   target="_blank"
@@ -107,7 +104,7 @@ const Footer: React.FunctionComponent = () => {
           </form>
         </div>
 
-        <div className={clsx(Template["footer__terms"])}>
+        <div className={clsx(Template.footerTerms)}>
           <ul>
             <li>
               <Link href={termsOfServicePageSettings.path}>
@@ -132,7 +129,7 @@ const Footer: React.FunctionComponent = () => {
           </ul>
         </div>
 
-        <div className={clsx(Template["footer__address"])}>
+        <div className={clsx(Template.footerAddress)}>
           <ul>
             <li>5250 W 116TH Pl Suite 200</li>
             <li>Leawood, KS, 66211</li>
@@ -153,10 +150,10 @@ const Footer: React.FunctionComponent = () => {
 
       <div
         className={clsx(
-          Template["footer__copy"],
-          Grid.margin_center,
+          Template.footerCopy,
+          Grid.marginCenter,
           Grid.container,
-          Grid["between_xs"],
+          Grid.betweenXs,
           Grid.row
         )}
       >

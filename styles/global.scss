@@ -135,7 +135,7 @@ div[class*="span_"] {
   padding: 1em;
 }
 
-.fullpage-wrapper {
+.fullpageWrapper {
   display: inline-block;
   overflow-x: hidden;
 }
@@ -165,7 +165,7 @@ footer .row {
 }
 
 @media (min-width: breakpoints.$breakpoint-sm) {
-  .fullpage-wrapper {
+  .fullpageWrapper {
     display: block;
   }
 }
