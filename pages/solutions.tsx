@@ -9,6 +9,7 @@ import Footer from "../components/Footer";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
