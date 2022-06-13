@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -15,13 +15,34 @@ import tools from "../img/tools.png";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import { getCustomPageAndMicrocopy } from "../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
+import Microcopy from "../components/Microcopy/Microcopy";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export const pageSettings: PageSettings = {
   path: "/partners",
   linkContent: <>Partners</>,
 };
 
-const Partners: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy("630HdbjY5Sis0xB2w2vWfP");
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Partners = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -49,10 +70,9 @@ const Partners: React.FunctionComponent = () => {
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "Partnerships",
-            "Transforming the potential of data for good",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
       <ReactFullpage
@@ -71,9 +91,17 @@ const Partners: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
                     >
-                      <h1 ref={titleRef}>Be a hero for your customers.</h1>
+                      <h1 ref={titleRef}>
+                        <Microcopy
+                          entries={microcopy}
+                          id="7u1eC2J0ll8jYlNDuQGKF9"
+                        />
+                      </h1>
                       <p ref={subtitleRef}>
-                        Deploy Nexus to solve your customers problems.
+                        <Microcopy
+                          entries={microcopy}
+                          id="5wF0UGzt38cVthUz7K6HK6"
+                        />
                       </p>
                     </div>
                   </div>
@@ -96,16 +124,16 @@ const Partners: React.FunctionComponent = () => {
                         className={`${Grid["col-lg-offset-3"]} ${Grid["col-xs-12"]}`}
                       >
                         <h3>
-                          We value our friends. This is more than business for
-                          us.
+                          <Microcopy
+                            entries={microcopy}
+                            id="2vdciL2PyJb2vuzEbipyhN"
+                          />
                         </h3>
                         <p>
-                          Torch.AI's strong partner ecosystem is foundational to
-                          our mission of "Transforming the potential of data for
-                          good.” Often, we co-invest in solutions alongside our
-                          more established partners, but we have also enjoyed
-                          great success providing support to new and emerging
-                          partners.
+                          <Microcopy
+                            entries={microcopy}
+                            id="1otFTfga7E2vw3fOVJXaZc"
+                          />
                         </p>
                       </div>
                     </div>
@@ -119,7 +147,12 @@ const Partners: React.FunctionComponent = () => {
                   <div
                     className={`${Grid["row"]} ${Style["benefitsPartners__title"]}`}
                   >
-                    <h3>Benefits for our partners.</h3>
+                    <h3>
+                      <Microcopy
+                        entries={microcopy}
+                        id="4JT7mAUm2RnmPGydZcWwXQ"
+                      />
+                    </h3>
                   </div>
                   <div
                     className={`${Grid["row"]} ${Style["benefitsPartners__content"]}`}
@@ -135,11 +168,17 @@ const Partners: React.FunctionComponent = () => {
                           }
                         />
                       </div>
-                      <h5>Training.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="zWgdevmK6hRVFneNwQNbL"
+                        />
+                      </h5>
                       <p>
-                        Access a robust set of training and enablement content.
-                        Get friendly with our Solution Architects to guarantee
-                        success of your program.
+                        <Microcopy
+                          entries={microcopy}
+                          id="4f3LTeCb56qO1BMuKj6nqP"
+                        />
                       </p>
                     </div>
                     <div
@@ -151,10 +190,17 @@ const Partners: React.FunctionComponent = () => {
                           alt={"Picture of people around a conference table"}
                         />
                       </div>
-                      <h5>Customer Opportunities.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="5eOcxVbdV4qTVx085ne9j0"
+                        />
+                      </h5>
                       <p>
-                        Our partners enjoy new sales opportunities, sourced by
-                        Torch.AI, and aligned to their core competencies.
+                        <Microcopy
+                          entries={microcopy}
+                          id="Jk3opaCKBH8T7XFa046ca"
+                        />
                       </p>
                     </div>
                     <div
@@ -168,10 +214,17 @@ const Partners: React.FunctionComponent = () => {
                           }
                         />
                       </div>
-                      <h5>Tools.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="2NJWYnm7Xv3hT1aEmVbmyR"
+                        />
+                      </h5>
                       <p>
-                        Access a wide variety of sales, marketing, ML modeling,
-                        and other technical tools.
+                        <Microcopy
+                          entries={microcopy}
+                          id="3jsTS6MdCuSkVt8gFZYGbN"
+                        />
                       </p>
                     </div>
                   </div>
@@ -185,13 +238,25 @@ const Partners: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col-xs-12"]} ${Style["change__title"]}`}
                     >
-                      <h2>Help us change the world.</h2>
-                      <p>Interested in becoming a partner?</p>
+                      <h2>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1NtGc7nTrPsBYzUFY1GCvy"
+                        />
+                      </h2>
+                      <p>
+                        <Microcopy
+                          entries={microcopy}
+                          id="6hgf0IzBfcbZyhUSqDSyn6"
+                        />
+                      </p>
                       <p>
                         Contact us for more information{" "}
                         <a href="mailto:partners@torch.ai">
-                          {" "}
-                          partners@torch.ai{" "}
+                          <Microcopy
+                            entries={microcopy}
+                            id="1YadSfD04VZrIGVswCPAJ0"
+                          />
                         </a>
                       </p>
                     </div>

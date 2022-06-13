@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
@@ -9,7 +9,10 @@ import Style from "../styles/modules/platform.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../components/Footer";
 import { gsap } from "gsap";
-
+import { getCustomPageAndMicrocopy } from "../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
+import Microcopy from "../components/Microcopy/Microcopy";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import datamodel1 from "../img/datamodel1.svg";
 import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
@@ -22,7 +25,24 @@ export const pageSettings: PageSettings = {
   linkContent: <>Platform</>,
 };
 
-const Platform: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy("2yr6rxUJNQz7QHpruI8VRw");
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Platform = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -49,10 +69,9 @@ const Platform: React.FunctionComponent = () => {
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "Highest performing data processing platform",
-            "Nexus platform",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
       <ReactFullpage
@@ -122,13 +141,17 @@ const Platform: React.FunctionComponent = () => {
                           <Image src={datamodel1} alt={""} />
                         </div>
                         <div>
-                          <h4>Ingest</h4>
+                          <h4>
+                            <Microcopy
+                              entries={microcopy}
+                              id="24tbJdhd85ELlDe1RZJtyY"
+                            />
+                          </h4>
                           <p>
-                            Extract meaningful content from any type of data,
-                            any format, any system, any structure, in the cloud
-                            or on premises.  Nexus leverages machine learning
-                            algorithms to process data instantly, before it’s
-                            stored anywhere.
+                            <Microcopy
+                              entries={microcopy}
+                              id="14Byiunh6hH79OrcBGddHQ"
+                            />
                           </p>
                         </div>
                       </div>
@@ -139,13 +162,17 @@ const Platform: React.FunctionComponent = () => {
                           <Image src={datamodel2} alt={""} />
                         </div>
                         <div>
-                          <h4>Link</h4>
+                          <h4>
+                            <Microcopy
+                              entries={microcopy}
+                              id="3LZYmzhiM1jyvJwCHzWhdC"
+                            />
+                          </h4>
                           <p>
-                            Securely connect your data sources and business
-                            systems, so your investments in infrastructure don’t
-                            go to waste. Nexus unlocks your proprietary data by
-                            fusing it with additional, public data sources—like
-                            social media and geography.
+                            <Microcopy
+                              entries={microcopy}
+                              id="5c8zgYDGXEdN5euZgFpDkw"
+                            />
                           </p>
                         </div>
                       </div>
@@ -156,12 +183,17 @@ const Platform: React.FunctionComponent = () => {
                           <Image src={datamodel3} alt={""} />
                         </div>
                         <div>
-                          <h4>Illuminate</h4>
+                          <h4>
+                            <Microcopy
+                              entries={microcopy}
+                              id="5Seg6fDHb8r2Y4v2Osork9"
+                            />
+                          </h4>
                           <p>
-                            Extract intelligence from your data in new and novel
-                            ways. Surface hidden context and correlations
-                            through a deeper, ontological understanding of your
-                            data.
+                            <Microcopy
+                              entries={microcopy}
+                              id="4Bhzsi0WDiY1wAn8YxC58X"
+                            />
                           </p>
                         </div>
                       </div>
@@ -178,19 +210,32 @@ const Platform: React.FunctionComponent = () => {
                   >
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
                       <h3>
-                        Your large scale data processor just became obsolete.
+                        <Microcopy
+                          entries={microcopy}
+                          id="2MG7aQRcsRNQzUCgGSCedC"
+                        />
                       </h3>
                       <p>
-                        Nexus software's ground-breaking compute performance, up
-                        to 10.7x faster than the leading data lake software,
-                        enables your organization to interact directly with the
-                        entirety of your authoritative data.
+                        <Microcopy
+                          entries={microcopy}
+                          id="4mJVql0cD2lWeuRnNbF2dM"
+                        />
                       </p>
                     </div>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
                       <div className={`${Style["datalake__title"]}`}>
-                        <h1>10.7x</h1>
-                        <h4>Faster compute performance.</h4>
+                        <h1>
+                          <Microcopy
+                            entries={microcopy}
+                            id="4Th1X7N4Yl4xH1acv47xFM"
+                          />
+                        </h1>
+                        <h4>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6vPtxA66tJ1c46G8i5AyoH"
+                          />
+                        </h4>
                       </div>
                       <div>
                         <table>
@@ -223,21 +268,35 @@ const Platform: React.FunctionComponent = () => {
                   >
                     <div className={`${Grid["row"]}`}>
                       <div className={`${Grid["col-lg-1"]}${Grid["col-xs-8"]}`}>
-                        <h2>As Code</h2>
+                        <h2>
+                          <Microcopy
+                            entries={microcopy}
+                            id="flK6Kh6vQ586hcloCrcmV"
+                          />
+                        </h2>
                         <p className={`${Style["code__subtitle"]}`}>
-                          The engineer-friendly approach
+                          <Microcopy
+                            entries={microcopy}
+                            id="2OLuJ7H0zrzOOfRUJMvel8"
+                          />
                         </p>
                         <p>
-                          Composable microservices invoked as code, simplifying
-                          integration with existing data infrastructure.
+                          <Microcopy
+                            entries={microcopy}
+                            id="1U9TeeGpzYzNN87Oox5tJa"
+                          />
                         </p>
                         <p>
-                          Securely provision and orchestrate multiple services
-                          at any scale.
+                          <Microcopy
+                            entries={microcopy}
+                            id="7xvp4Y0Z8yAkXBdZmcRZb4"
+                          />
                         </p>
                         <p>
-                          Rapid deployment provides your customers value within
-                          a matter of hours.
+                          <Microcopy
+                            entries={microcopy}
+                            id="x2wWMPuLKHGiQ7WzUIDYR"
+                          />
                         </p>
                       </div>
                     </div>
@@ -252,59 +311,114 @@ const Platform: React.FunctionComponent = () => {
                     <div
                       className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]}`}
                     >
-                      <h2>Features and benefits</h2>
+                      <h2>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1KfEYLOmtc69ScfZUL75f8"
+                        />
+                      </h2>
                     </div>
                   </div>
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Real-Time Data Transformation</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="skY8BLi1i1rP4PQN9ktr3"
+                        />
+                      </h5>
                       <ul>
-                        <li>Analyze data in flight in real time.</li>
-                        <li>Does not replicate authoritative data.</li>
-                        <li>Reduces infrastructure costs.</li>
+                        <li>
+                          <Microcopy
+                            entries={microcopy}
+                            id="7zDk7DI6ULFJ7uZr7EcOcQ"
+                          />
+                        </li>
+                        <li>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6Hx4TV8Acy6QSUD9uVFu8g"
+                          />
+                        </li>
+                        <li>
+                          <Microcopy
+                            entries={microcopy}
+                            id="4WbIUPz2yRyHlvNLoDdIj1"
+                          />
+                        </li>
                       </ul>
                     </div>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Unstructured Data Processing and Fusion</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="6hwpU83z36BLZfaI8x1LaQ"
+                        />
+                      </h5>
                       <ul>
                         <li>
-                          Instantly make your data totally available, usable,
-                          and valuable.
+                          <Microcopy
+                            entries={microcopy}
+                            id="4sXu4ROUrG3It9KTIVNcIS"
+                          />
                         </li>
                         <li>
-                          Utilizes AI to determine additional data objects to
-                          add to further enrich existing data.
+                          <Microcopy
+                            entries={microcopy}
+                            id="3aXKSBIHCwHooQJuC2rjxT"
+                          />
                         </li>
                         <li>
-                          Autotunes the optimal representations of data to
-                          continuously improve ML performance and accuracy.
+                          <Microcopy
+                            entries={microcopy}
+                            id="2eipJC43NSut00egHOxjEN"
+                          />
                         </li>
                       </ul>
                     </div>
                   </div>
                   <div className={`${Grid["row"]}`}>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Semantic Stitching</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="cywywbqbwJskDaGX8wNGC"
+                        />
+                      </h5>
                       <ul>
                         <li>
-                          Semantic Stitching. Proprietary no-code data retrieval
-                          system. Use business-friendly data requests instead of
-                          technical queries. Semantically understand's the
-                          wealth of enterprise data.
+                          <Microcopy
+                            entries={microcopy}
+                            id="4SGCAxIU3XmjpK37pzvjDb"
+                          />
                         </li>
                       </ul>
                     </div>
                     <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <h5>Composability</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="784a8xWLpXdLHXLWNdt2Lo"
+                        />
+                      </h5>
                       <ul>
-                        <li>Engages easily within existing architecture.</li>
                         <li>
-                          Comprised of packaged business capabilities and
-                          pluggable microservices
+                          <Microcopy
+                            entries={microcopy}
+                            id="3JZBkZYNOKPmqkd9YhGugn"
+                          />
                         </li>
                         <li>
-                          Provides class-leading pre-trained models as well
-                          support for Bring Your Own Model (BYOM).
+                          <Microcopy
+                            entries={microcopy}
+                            id="6xrmfPgwA1YGDHZ6IvWggd"
+                          />
+                        </li>
+                        <li>
+                          <Microcopy
+                            entries={microcopy}
+                            id="1TcZasCwa1KsjKchNNb5p9"
+                          />
                         </li>
                       </ul>
                     </div>

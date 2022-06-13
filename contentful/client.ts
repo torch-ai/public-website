@@ -70,7 +70,7 @@ export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
   });
 
 export const getCustomPageAndMicrocopy = async (pageId: string): Promise<{
-  customPage: Entry<TypeCustomPageFields>,
+  customPage?: Entry<TypeCustomPageFields>,
   microcopy: Entry<TypeMicrocopyFields>[],
 }> => {
   const res = await getAllEntries({
@@ -80,7 +80,7 @@ export const getCustomPageAndMicrocopy = async (pageId: string): Promise<{
   }, client.withoutUnresolvableLinks.getEntries)
 
   return {
-    customPage: (res.includesEntries as Entry<TypeCustomPageFields>[]).find(entry => entry.sys.id == pageId), // matching CustomPage guaranteed to be included because the query searches for things that have it included, and using `client.withoutUnresolvableLinks`
+    customPage: (res.includesEntries as Entry<TypeCustomPageFields>[]).find(entry => entry.sys.id == pageId),
     microcopy: res.items as Entry<TypeMicrocopyFields>[],
   }
 }
@@ -107,7 +107,7 @@ export const getAllEntries = async <Fields extends {}>(
       let newIncludes = (res.includes.Entry as EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[]).filter((includedEntry) => {
         return !includesEntries.find(existingInclude => existingInclude.sys.id == includedEntry.sys.id)
       })
-      includesEntries.concat(newIncludes)
+      includesEntries = includesEntries.concat(newIncludes)
     }
     if (res.skip + res.limit >= res.total) {
       isDone = true;

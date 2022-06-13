@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { ReactElement, useContext } from "react";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Footer from "../components/Footer";
@@ -8,19 +8,44 @@ import Head from "next/head";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import { getCustomPageAndMicrocopy } from "../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
+import Microcopy from "../components/Microcopy/Microcopy";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
   linkContent: <>PRISM</>,
 };
 
-const Prism: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy("7vYSW1kH6ruqlTFRVRxO3C");
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Prism = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
     <>
       <Head>
-        <title>{getHeadPageTitle(["PRISM", "Nexus platform"])}</title>
+        <title>
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
+        </title>
       </Head>
       <ReactFullpage
         navigation
@@ -31,9 +56,17 @@ const Prism: React.FunctionComponent = () => {
             <ReactFullpage.Wrapper>
               <section className={`section hero`}>
                 <div className="container">
-                  <h1>PRISM</h1>
+                  <h1>
+                    <Microcopy
+                      entries={microcopy}
+                      id="6aXGlt9bH2rvyjz2QcAPfM"
+                    />
+                  </h1>
                   <h4>
-                    Military-grade document intelligence. Now for insurance.
+                    <Microcopy
+                      entries={microcopy}
+                      id="5ZQR3QYrHW0MR5f3NcdyLW"
+                    />
                   </h4>
                 </div>
               </section>
@@ -45,51 +78,87 @@ const Prism: React.FunctionComponent = () => {
                 >
                   <div className="container">
                     <h3>
-                      As an insurance professional, you enable trust across
-                      entire economies.
+                      <Microcopy
+                        entries={microcopy}
+                        id="2PR1mZnbrbHMucUYg51chy"
+                      />
                     </h3>
                     <p>
-                      Prism powers that mission, simplifying how you achieve
-                      instant value from critical document data: faster,
-                      cheaper, more accurate than anyone else.
+                      <Microcopy
+                        entries={microcopy}
+                        id="ZpQqmPtb6bVckgKkrclIH"
+                      />
                     </p>
                   </div>
                 </InView>
               </section>
               <section className={`section organization`}>
                 <div className="container">
-                  <h3>Insurance organizations deal with messy data.</h3>
+                  <h3>
+                    <Microcopy
+                      entries={microcopy}
+                      id="3PPmCDev70MfolTJWApHDa"
+                    />
+                  </h3>
                   <p className="subtitle">
-                    Most of it—up to 90%—consists of documents, PDFs, scans,
-                    faxes, and images.
+                    <Microcopy entries={microcopy} id="anDyE3d02R0gNfy7K3lrh" />
                   </p>
                   <hr />
                   <div className="prismFeatures">
                     <div className="prismFeature-item">
-                      <h5>It's Expensive.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="2RI4i862xZxDiqRegFDVZb"
+                        />
+                      </h5>
                       <p>
-                        It can cost up to $220 to analyze a single document.
+                        <Microcopy
+                          entries={microcopy}
+                          id="3NbOdT88fhF5w2wCy9jNWg"
+                        />
                       </p>
                     </div>
                     <div className="prismFeature-item">
-                      <h5>It's not productive.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1xsFDvArPFh0qL77boqRT5"
+                        />
+                      </h5>
                       <p>
-                        &gt;60% of teams are manually copying and pasting
-                        document data.
+                        <Microcopy
+                          entries={microcopy}
+                          id="40f3z3OUld8OGK5Ri41J3C"
+                        />
                       </p>
                     </div>
                     <div className="prismFeature-item">
-                      <h5>It's not accurate.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="45AlgMmfESEWciRmpB9NA0"
+                        />
+                      </h5>
                       <p>
-                        Manual efforts are error prone and existing solutions
-                        can't scale.
+                        <Microcopy
+                          entries={microcopy}
+                          id="5LaIaUQvkeovd43OgG2kmQ"
+                        />
                       </p>
                     </div>
                     <div className="prismFeature-item">
-                      <h5>It's getting worse, fast.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="6ibXq6IQENFU4nBxiKb6Nk"
+                        />
+                      </h5>
                       <p>
-                        Messy data is growing 300% faster than more usable,
-                        tabular data.
+                        <Microcopy
+                          entries={microcopy}
+                          id="5FJ7mkZl1hwORBfPFJypgn"
+                        />
                       </p>
                     </div>
                   </div>
@@ -104,19 +173,36 @@ const Prism: React.FunctionComponent = () => {
                 >
                   <div className="container">
                     <div className="winPoints">
-                      <h3>Win with Prism</h3>
+                      <h3>
+                        <Microcopy
+                          entries={microcopy}
+                          id="6m5Y1WWrvanMRSGL3fkjrY"
+                        />
+                      </h3>
                       <ul>
-                        <li>Reduce operational cost.</li>
                         <li>
-                          Automate & accelerate document processing times.
+                          <Microcopy
+                            entries={microcopy}
+                            id="5UdWgojD1RlAwyU8sPcHfr"
+                          />
                         </li>
                         <li>
-                          Rely on military-grade, AI document intelligence
-                          technology.
+                          <Microcopy
+                            entries={microcopy}
+                            id="5FC4uEDfbvMHHQ8NUI3mQu"
+                          />
                         </li>
                         <li>
-                          Achieve a seamless experience for your teams. Enable
-                          trust for your clients.
+                          <Microcopy
+                            entries={microcopy}
+                            id="7spsNqltRYgHmQtbwDHN0g"
+                          />
+                        </li>
+                        <li>
+                          <Microcopy
+                            entries={microcopy}
+                            id="8F7wm9n77Vq8diNdhIMKS"
+                          />
                         </li>
                       </ul>
                     </div>
@@ -134,8 +220,10 @@ const Prism: React.FunctionComponent = () => {
               <section className={`section contact`}>
                 <div className="container">
                   <h4>
-                    Learn why Torch.AI is the world leader in document
-                    intelligence.
+                    <Microcopy
+                      entries={microcopy}
+                      id="65NH7NUwJvaUoymOJ4uEjT"
+                    />
                   </h4>
                   <form action="https://formspree.io/f/mvolablv" method="POST">
                     <div>

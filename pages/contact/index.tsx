@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { ReactElement, useContext } from "react";
 import Grid from "../../styles/modules/grid.module.scss";
 import Style from "../../styles/modules/contact.module.scss";
 import Footer from "../../components/Footer";
@@ -11,24 +11,43 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 export const pageSettings: PageSettings = {
   path: "/contact",
   linkContent: <>Contact</>,
 };
 
-const Index: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy("6ITsMPinDCSu0CljB3me4S");
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Index = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "Contact us",
-            "Unlock your potential",
-            "Talk to us",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
       <section className={`${Style["contact__container"]}`}>
@@ -41,9 +60,11 @@ const Index: React.FunctionComponent = () => {
               <div
                 className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
               >
-                <PageTitle>Contact Us.</PageTitle>
+                <PageTitle>
+                  <Microcopy entries={microcopy} id="6xt33azGkVk0pVxwLYyLE4" />
+                </PageTitle>
                 <PageSubtitle>
-                  Find out how Nexus can unlock your productivity.
+                  <Microcopy entries={microcopy} id="4Cufep8wTzibupuz0UlH2p" />
                 </PageSubtitle>
               </div>
             </div>
