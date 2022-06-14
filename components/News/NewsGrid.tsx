@@ -10,24 +10,22 @@ export interface NewsGridProps {
   className?: string;
 }
 
-const NewsGrid: FunctionComponent<NewsGridProps> = ({
-  news,
-  title = null,
-  className = "",
-}) => {
+const NewsGrid: FunctionComponent<
+  NewsGridProps & React.HTMLAttributes<HTMLDivElement>
+> = ({ news, title = null, ...props }) => {
   return (
-    <>
-      {!!title && (
+    <div {...props}>
+      {title && (
         <div className={Style.newsTitle}>
           <h3>{title}</h3>
         </div>
       )}
-      <div className={clsx(Style.newsLayout, className)}>
+      <div className={Style.newsLayout}>
         {news.map((n) => (
           <NewsItem key={n.sys.id} newsItem={n} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 

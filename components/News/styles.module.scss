@@ -1,3 +1,5 @@
+@use "/styles/breakpoints";
+
 .newsTitle {
   display: flex;
   justify-content: center;
@@ -13,9 +15,10 @@
 .newsLayout {
   display: flex;
   flex-wrap: wrap;
-  max-width: 66%;
+  max-width: 74em;
   justify-content: space-between;
   margin: 0 auto;
+  padding: 0 2em;
 }
 
 .newsLayout > .newsLayoutItem {
@@ -25,6 +28,12 @@
 .newsLayout > .newsLayoutItem:nth-child(7n),
 .newsLayout > .newsLayoutItem:nth-child(7n + 1) {
   flex-basis: 66%;
+}
+
+@media screen and (max-width: breakpoints.$breakpoint-lg) {
+  .newsLayout > .newsLayoutItem {
+    flex-basis: 100% !important;
+  }
 }
 
 .newsLayoutFeatured {

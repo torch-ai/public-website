@@ -39,11 +39,9 @@ const Index = ({
       <Head>
         <title>{getHeadPageTitle(["Newsroom"])}</title>
       </Head>
-      <div className={Style.newsroomContainer}>
-        <div className={Style.newsContent}>
-          <NewsGrid news={news} title="Newsroom" className={Style.newsItems} />
-          <Footer />
-        </div>
+      <div className={Style.newsContent}>
+        <NewsGrid news={news} title="Newsroom" className={Style.newsItems} />
+        <Footer />
       </div>
     </>
   );
