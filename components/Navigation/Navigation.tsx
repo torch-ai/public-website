@@ -2,7 +2,7 @@ import { FunctionComponent, useContext, useRef } from "react";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import Style from "./styles.module.scss";
-import Grid from "../styles/modules/grid.module.scss";
+import Grid from "../../styles/modules/grid.module.scss";
 import LayoutContext from "../layout/LayoutContext";
 import { pageSettings as solutionsPageSettings } from "../../pages/solutions";
 import { pageSettings as platformPageSettings } from "../../pages/platform";
