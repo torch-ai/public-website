@@ -3,20 +3,17 @@ import Link from "next/link";
 import { TypeNews } from "../../generated/contentful";
 import Image from "next/image";
 import Style from "./styles.module.scss";
-import clsx from "clsx";
 
 export interface NewsItemProps {
   newsItem: TypeNews;
-  className?: string;
 }
 
-const NewsItem: FunctionComponent<NewsItemProps> = ({
-  newsItem,
-  className = "",
-}) => {
+const NewsItem: FunctionComponent<
+  NewsItemProps & React.HTMLAttributes<HTMLDivElement>
+> = ({ newsItem, ...props }) => {
   return (
     <>
-      <div className={clsx(Style.newsLayoutItem, className)}>
+      <div className={Style.newsLayoutItem} {...props}>
         <Image
           src={"http:" + newsItem.fields.fullSizeImage.fields.file.url}
           layout="fill"
