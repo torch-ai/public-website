@@ -5,16 +5,16 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Image from "next/image";
-import Style from "../styles/modules/partners.module.scss";
-import Footer from "../components/Footer";
+import Style from "./styles.module.scss";
+import Footer from "../../components/Footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
 import training from "../img/training.png";
 import opportunities from "../img/oppertunities.png";
 import tools from "../img/tools.png";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
@@ -22,7 +22,7 @@ export const pageSettings: PageSettings = {
   linkContent: <>Partners</>,
 };
 
-const Partners: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -202,4 +202,4 @@ const Partners: React.FunctionComponent = () => {
   );
 };
 
-export default Partners;
+export default Index;
