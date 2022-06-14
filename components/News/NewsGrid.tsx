@@ -24,7 +24,7 @@ const NewsGrid: FunctionComponent<NewsGridProps> = ({
       )}
       <div className={clsx(Style.newsLayout, className)}>
         {news.map((n) => (
-          <NewsItem newsItem={n} />
+          <NewsItem key={n.sys.id} newsItem={n} />
         ))}
       </div>
     </>
