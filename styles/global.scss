@@ -1,7 +1,6 @@
 @use "/styles/breakpoints";
 @use "/styles/colors";
 @use "/styles/fonts";
-@use "/styles/pages/prism";
 
 :root {
   @include colors.colors;
@@ -71,12 +70,6 @@ html {
 .section:not(footer) {
   min-height: 100vh !important;
   height: auto !important;
-}
-
-.container {
-  width: 400px;
-  margin-inline: auto;
-  max-width: 90%;
 }
 
 /* A elements that don't have a class get default styles */
@@ -174,28 +167,15 @@ footer .row {
   :root {
     --type-scale: 1.25;
   }
-  .container {
-    width: 600px;
-    max-width: 90%;
-    margin-inline: auto;
-  }
 }
 
 @media (min-width: breakpoints.$breakpoint-lg) {
   :root {
     --type-scale: 1.33;
   }
-  .container {
-    width: 900px;
-    max-width: 90%;
-  }
 }
 @media (min-width: breakpoints.$breakpoint-xl) {
   :root {
     --type-scale: 1.414;
-  }
-  .container {
-    width: 1200px;
-    max-width: 90%;
   }
 }

@@ -1,3 +1,11 @@
+@use "/styles/breakpoints";
+
+.container {
+  width: 400px;
+  margin-inline: auto;
+  max-width: 90%;
+}
+
 .hero {
   display: flex;
   justify-content: center;
@@ -218,7 +226,27 @@
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: breakpoints.$breakpoint-md) {
+  .container {
+    width: 600px;
+    max-width: 90%;
+    margin-inline: auto;
+  }
+}
+
+@media (min-width: breakpoints.$breakpoint-lg) {
+  .container {
+    width: 900px;
+    max-width: 90%;
+  }
+}
+
+@media (min-width: breakpoints.$breakpoint-xl) {
+  .container {
+    width: 1200px;
+    max-width: 90%;
+  }
+
   .hero {
     animation-name: zoomies;
     animation-duration: 65s;
@@ -291,7 +319,7 @@
   }
 }
 
-@media (min-width: 1600px) {
+@media (min-width: breakpoints.$breakpoint-xxl) {
   .professional {
     background-position: 0;
     .container {
