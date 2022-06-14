@@ -2,13 +2,15 @@
 
 import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
+import router from "next/router";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
 import Landing from "../../styles/modules/landing.module.scss";
 import Image from "next/image";
 import Style from "./styles.module.scss";
-import News from "../../components/News";
+import NewsGrid from "../../components/News/NewsGrid";
+import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
@@ -18,6 +20,7 @@ import { getNewsEntries } from "../../contentful/client";
 import { TypeNews } from "../../generated/contentful";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as careersPageSettings } from "../careers";
+import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
@@ -555,7 +558,17 @@ const Index = ({
                 </div>
               </ContentOverImage>
               <div className={`${Landing["news"]} section`}>
-                <News items={news} />
+                <div className={clsx(Grid.container, Grid.margin_center)}>
+                  <NewsGrid news={news} title="Latest News" />
+                  <Button
+                    style={{ display: "block" }}
+                    onClick={() => {
+                      router.push(newsroomPageSettings.path);
+                    }}
+                  >
+                    View All
+                  </Button>
+                </div>
               </div>
               <Footer />
             </ReactFullpage.Wrapper>
