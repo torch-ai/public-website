@@ -2,7 +2,6 @@ import React, { FunctionComponent } from "react";
 import NewsItem from "./NewsItem";
 import { TypeNews } from "../../generated/contentful";
 import Style from "./styles.module.scss";
-import clsx from "clsx";
 
 export interface NewsGridProps {
   news: TypeNews[];

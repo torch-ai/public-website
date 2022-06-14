@@ -3,6 +3,7 @@ import Link from "next/link";
 import { TypeNews } from "../../generated/contentful";
 import Image from "next/image";
 import Style from "./styles.module.scss";
+import clsx from "clsx";
 
 export interface NewsItemProps {
   newsItem: TypeNews;
