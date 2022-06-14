@@ -2,13 +2,13 @@
 
 import React, { useContext } from "react";
 import Head from "next/head";
-import Style from "../styles/modules/solution.module.scss";
+import Style from "./styles.module.scss";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
+import Footer from "../../components/Footer";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
