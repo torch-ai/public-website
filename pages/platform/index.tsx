@@ -5,24 +5,24 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../styles/modules/grid.module.scss";
 import Image from "next/image";
-import Style from "../styles/modules/platform.module.scss";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer";
 import { gsap } from "gsap";
 import clsx from "clsx";
 import datamodel1 from "../img/datamodel1.svg";
 import datamodel2 from "../img/datamodel2.svg";
 import datamodel3 from "../img/datamodel3.svg";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
 
 export const pageSettings: PageSettings = {
   path: "/platform",
   linkContent: <>Platform</>,
 };
 
-const Platform: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -300,4 +300,4 @@ const Platform: React.FunctionComponent = () => {
   );
 };
 
-export default Platform;
+export default Index;
