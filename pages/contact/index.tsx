@@ -2,7 +2,7 @@
 
 import React, { useContext } from "react";
 import Grid from "../../styles/modules/grid.module.scss";
-import Style from "../../styles/modules/contact.module.scss";
+import Style from "./styles.module.scss";
 import Footer from "../../components/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
