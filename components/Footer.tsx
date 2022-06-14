@@ -11,6 +11,7 @@ import { pageSettings as termsOfServicePageSettings } from "../pages/termsofserv
 import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
 import { pageSettings as legalPageSettings } from "../pages/legal";
 import { pageSettings as careersPageSettings } from "../pages/careers";
+import { pageSettings as newsroomPageSettings } from "../pages/newsroom";
 import clsx from "clsx";
 
 const Footer: React.FunctionComponent = () => {
@@ -106,6 +107,11 @@ const Footer: React.FunctionComponent = () => {
 
         <div className={clsx(Template.footerTerms)}>
           <ul>
+            <li>
+              <Link href={newsroomPageSettings.path}>
+                <a>{newsroomPageSettings.linkContent}</a>
+              </Link>
+            </li>
             <li>
               <Link href={termsOfServicePageSettings.path}>
                 <a>{termsOfServicePageSettings.linkContent}</a>
