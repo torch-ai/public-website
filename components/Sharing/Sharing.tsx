@@ -49,7 +49,7 @@ const Sharing: FunctionComponent<SharingProps> = ({ postText, url }) => {
       />
       <FontAwesomeIcon
         icon={faLink}
-        title="Copy Path URL"
+        title="Copy Page URL"
         className={Style.sharingButton}
         onClick={async () => {
           await navigator.clipboard.writeText(url);
