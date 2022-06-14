@@ -13,7 +13,7 @@ const NewsItem: FunctionComponent<
 > = ({ newsItem, ...props }) => {
   return (
     <>
-      <div className={Style.newsLayoutItem} {...props}>
+      <div {...props} className={clsx(Style.newsLayoutItem, props.className)}>
         <Image
           src={"http:" + newsItem.fields.fullSizeImage.fields.file.url}
           layout="fill"
