@@ -6,7 +6,9 @@ import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
 import Link from "next/link";
 import Landing from "../../styles/modules/landing.module.scss";
-import News from "../../components/News";
+import NewsGrid from "../../components/News/NewsGrid";
+import Button from "../../components/Button/Button";
+import router from "next/router";
 import { InView } from "react-intersection-observer";
 import Image from "next/image";
 import Footer from "../../components/Footer";
@@ -20,6 +22,7 @@ import { pageSettings as solutionsPageSettings } from "../solutions";
 import { pageSettings as platformPageSettings } from "../platform";
 import { pageSettings as impactPageSettings } from "../impact";
 import { pageSettings as contactPageSettings } from "../contact";
+import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
@@ -780,7 +783,17 @@ const Index = ({
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <News items={news} />
+                  <div className={clsx(Grid.container, Grid.margin_center)}>
+                    <NewsGrid news={news} title="Latest News" />
+                    <Button
+                      style={{ display: "block" }}
+                      onClick={() => {
+                        router.push(newsroomPageSettings.path);
+                      }}
+                    >
+                      View all
+                    </Button>
+                  </div>
                 </InView>
               </div>
               <div className={`${Landing["statement2"]}  section`}>
