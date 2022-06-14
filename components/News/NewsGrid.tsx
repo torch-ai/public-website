@@ -7,7 +7,6 @@ import clsx from "clsx";
 export interface NewsGridProps {
   news: TypeNews[];
   title?: string;
-  className?: string;
 }
 
 const NewsGrid: FunctionComponent<
