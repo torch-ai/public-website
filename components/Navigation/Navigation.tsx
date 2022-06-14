@@ -1,18 +1,18 @@
 import { FunctionComponent, useContext, useRef } from "react";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
-import Nav from "../styles/modules/nav.module.scss";
+import Style from "./styles.module.scss";
 import Grid from "../styles/modules/grid.module.scss";
-import LayoutContext from "./layout/LayoutContext";
-import { pageSettings as solutionsPageSettings } from "../pages/solutions";
-import { pageSettings as platformPageSettings } from "../pages/platform";
-import { pageSettings as partnersPageSettings } from "../pages/partners";
-import { pageSettings as impactPageSettings } from "../pages/impact";
-import { pageSettings as companyPageSettings } from "../pages/company";
-import { pageSettings as contactPageSettings } from "../pages/contact";
-import { pageSettings as careersPageSettings } from "../pages/careers";
+import LayoutContext from "../layout/LayoutContext";
+import { pageSettings as solutionsPageSettings } from "../../pages/solutions";
+import { pageSettings as platformPageSettings } from "../../pages/platform";
+import { pageSettings as partnersPageSettings } from "../../pages/partners";
+import { pageSettings as impactPageSettings } from "../../pages/impact";
+import { pageSettings as companyPageSettings } from "../../pages/company";
+import { pageSettings as contactPageSettings } from "../../pages/contact";
+import { pageSettings as careersPageSettings } from "../../pages/careers";
 import clsx from "clsx";
-import { PageSettings } from "../types/next";
+import { PageSettings } from "../../types/next";
 
 const Navigation: FunctionComponent = () => {
   const { navColor: color } = useContext(LayoutContext);
@@ -38,8 +38,8 @@ const Navigation: FunctionComponent = () => {
     };
 
   return (
-    <header className={clsx(Nav.header)}>
-      <div className={clsx(Nav.event)}>
+    <header className={clsx(Style.header)}>
+      <div className={clsx(Style.event)}>
         <a href="https://torch.ai/post/forbes-names-torch-ai-one-of-americas-best-startup-employers">
           Torch.AI is proud to have been named one of America's Best Startup
           Employers by Forbes magazine.
@@ -48,14 +48,14 @@ const Navigation: FunctionComponent = () => {
       <div
         className={clsx(
           Grid.row,
-          Nav.NavContainer,
+          Style.NavContainer,
           Grid.marginCenter,
           Grid.container,
           Grid.betweenLg,
           Grid.betweenXs
         )}
       >
-        <div className={clsx(Nav.Logo)}>
+        <div className={clsx(Style.Logo)}>
           <Link href="/">
             <a>
               <svg
@@ -68,7 +68,7 @@ const Navigation: FunctionComponent = () => {
                 <g id="Layer_2" data-name="Layer 2">
                   <g id="Layer_1-2" data-name="Layer 1">
                     <path
-                      className={clsx(Nav.cls1)}
+                      className={clsx(Style.cls1)}
                       d="M136.27,63.51a36.5,36.5,0,0,0-13.56-14.92c-.67-.36-1.32-.74-2-1.14A34.84,34.84,0,0,1,109.17,0a35,35,0,0,0,3.31,61.74v0a20,20,0,1,1-14.92-1.19,42.65,42.65,0,0,1-9.38-13.31c-.09-.2-.16-.4-.25-.6a36.48,36.48,0,1,0,48.35,16.85Z"
                     />
                     <polygon
@@ -113,20 +113,20 @@ const Navigation: FunctionComponent = () => {
           </Link>
         </div>
         <button
-          className={clsx(Nav.mobileNavToggle)}
+          className={clsx(Style.mobileNavToggle)}
           aria-controls="primary_navigation"
           ref={buttonRef}
           onClick={toggle}
           aria-expanded="false"
         >
-          <span className={clsx(Nav.srOnly)}>menu</span>
+          <span className={clsx(Style.srOnly)}>menu</span>
         </button>
-        <nav className={clsx(Nav.parent)}>
+        <nav className={clsx(Style.parent)}>
           <ul
             id="primary_navigation"
             data-visible="false"
             ref={navRef}
-            className={clsx(Nav.primaryNavigation)}
+            className={clsx(Style.primaryNavigation)}
           >
             <li>
               <PageSettingsLevelOneLink
@@ -134,12 +134,12 @@ const Navigation: FunctionComponent = () => {
                 {...levelOneLinkProps}
               />
             </li>
-            <li className={clsx(Nav.dropdown)}>
+            <li className={clsx(Style.dropdown)}>
               <PageSettingsLevelOneLink
                 pageSettings={solutionsPageSettings}
                 {...levelOneLinkProps}
               />
-              <div className={clsx(Nav.dropdownContent)}>
+              <div className={clsx(Style.dropdownContent)}>
                 <Link
                   href={`${solutionsPageSettings.path}#infrastructure`}
                   scroll={false}
@@ -229,7 +229,7 @@ const PageSettingsLevelOneLink: FunctionComponent<
     <a
       style={{ color: color }}
       className={clsx({
-        [Nav.active]: router.pathname.startsWith(pageSettings.path),
+        [Style.active]: router.pathname.startsWith(pageSettings.path),
       })}
     >
       {pageSettings.linkContent}
