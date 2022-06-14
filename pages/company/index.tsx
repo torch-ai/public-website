@@ -566,7 +566,7 @@ const Index = ({
                       router.push(newsroomPageSettings.path);
                     }}
                   >
-                    View All
+                    View all
                   </Button>
                 </div>
               </div>

@@ -18,7 +18,7 @@ export const pageSettings: PageSettings = {
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
 }> = async () => {
-  let news = await getAllNewsEntries();
+  const news = await getAllNewsEntries();
 
   return {
     props: {
