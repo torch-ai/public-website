@@ -6,7 +6,6 @@ import router from "next/router";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
-import Landing from "../../styles/modules/landing.module.scss";
 import Image from "next/image";
 import Style from "./styles.module.scss";
 import NewsGrid from "../../components/News/NewsGrid";
@@ -560,7 +559,7 @@ const Index = ({
                   </div>
                 </ContentOverImage>
               </FullpageSection>
-              <FullpageSection className={Landing.news}>
+              <FullpageSection className={Style.news}>
                 <div className={clsx(Grid.container, Grid.margin_center)}>
                   <NewsGrid news={news} title="Latest News" />
                   <Button

@@ -5,7 +5,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
 import Link from "next/link";
-import Landing from "../../styles/modules/landing.module.scss";
+import Style from "./styles.module.scss";
 import NewsGrid from "../../components/News/NewsGrid";
 import Button from "../../components/Button/Button";
 import router from "next/router";
@@ -72,11 +72,11 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <FullpageSection className={Landing.hero}>
+              <FullpageSection className={Style.hero}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.colXs12, Landing.contentCenter)}>
+                  <div className={clsx(Grid.colXs12, Style.contentCenter)}>
                     <h1>Unlock Human Potential.</h1>
-                    <div className={clsx(Landing.circleIcon)}>
+                    <div className={clsx(Style.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -96,7 +96,7 @@ const Index = ({
                 </div>
                 <video
                   data-keepplaying
-                  className={clsx(Landing.backgroundVideo)}
+                  className={clsx(Style.backgroundVideo)}
                   id="background-video"
                   autoPlay
                   muted
@@ -107,7 +107,7 @@ const Index = ({
                   />
                 </video>
               </FullpageSection>
-              <FullpageSection className={Landing.enhance}>
+              <FullpageSection className={Style.enhance}>
                 <ContentOverImage
                   imageProps={{
                     src: enhanceBackground,
@@ -122,7 +122,7 @@ const Index = ({
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
-                    className={clsx(Grid.row, Landing.enhanceContent)}
+                    className={clsx(Grid.row, Style.enhanceContent)}
                   >
                     <div
                       className={clsx(
@@ -143,18 +143,18 @@ const Index = ({
                   </InView>
                 </ContentOverImage>
               </FullpageSection>
-              <FullpageSection className={Landing.nexus}>
+              <FullpageSection className={Style.nexus}>
                 <div
                   className={clsx(
                     Grid.container,
                     Grid.marginCenter,
-                    Landing.nexusContent
+                    Style.nexusContent
                   )}
                 >
                   <div className={clsx(Grid.container, Grid.marginCenter)}>
                     <div className={clsx(Grid.row)}>
                       <div className={clsx(Grid.colXs10, Grid.marginCenter)}>
-                        <div className={clsx(Grid.row, Landing.nexusStats)}>
+                        <div className={clsx(Grid.row, Style.nexusStats)}>
                           <div className={clsx(Grid.colXl8, Grid.colXs9)}>
                             <h2>
                               Introducing Nexus <sup>TM</sup>
@@ -165,7 +165,7 @@ const Index = ({
                             </p>
                           </div>
                           <div className={clsx(Grid.colXl2, Grid.colXs12)}>
-                            <h2 className={clsx(Landing.large)}>10.7x</h2>
+                            <h2 className={clsx(Style.large)}>10.7x</h2>
                             <p>Faster compute performance.</p>
                           </div>
                         </div>
@@ -178,7 +178,7 @@ const Index = ({
                             className={clsx(
                               Grid.row,
                               Grid.betweenXl,
-                              Landing.nexusPoints
+                              Style.nexusPoints
                             )}
                           >
                             <div className={clsx(Grid.colXl2, Grid.colXs12)}>
@@ -319,7 +319,7 @@ const Index = ({
                     </div>
                   </div>
                 </div>
-                <div className={Landing.nexusBackground}>
+                <div className={Style.nexusBackground}>
                   <Image
                     src={nexusBackground}
                     alt={""}
@@ -329,7 +329,7 @@ const Index = ({
                 </div>
               </FullpageSection>
 
-              <FullpageSection className={Landing.statement}>
+              <FullpageSection className={Style.statement}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <InView
                     as="span"
@@ -342,7 +342,7 @@ const Index = ({
                         className={clsx(
                           Grid.colXs12,
                           Grid.colXl5,
-                          Landing.statementImage
+                          Style.statementImage
                         )}
                       >
                         <Image
@@ -357,7 +357,7 @@ const Index = ({
                             className={clsx(
                               Grid.colXl6,
                               Grid.colXs12,
-                              Landing.statementItem
+                              Style.statementItem
                             )}
                           >
                             <svg
@@ -431,7 +431,7 @@ const Index = ({
                             className={clsx(
                               Grid.colXl6,
                               Grid.colXs12,
-                              Landing.statementItem
+                              Style.statementItem
                             )}
                           >
                             <svg
@@ -501,7 +501,7 @@ const Index = ({
                             className={clsx(
                               Grid.colXl6,
                               Grid.colXs12,
-                              Landing.statementItem
+                              Style.statementItem
                             )}
                           >
                             <svg
@@ -628,7 +628,7 @@ const Index = ({
                             className={clsx(
                               Grid.colXl6,
                               Grid.colXs12,
-                              Landing.statementItem
+                              Style.statementItem
                             )}
                           >
                             <svg
@@ -714,23 +714,23 @@ const Index = ({
                 </div>
               </FullpageSection>
 
-              <FullpageSection className={Landing.impact}>
+              <FullpageSection className={Style.impact}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row, "")}>
-                    <div className={clsx(Grid.colXs12, Landing.impactTitle)}>
+                    <div className={clsx(Grid.colXs12, Style.impactTitle)}>
                       <h2>Impact Studies.</h2>
                     </div>
                   </div>
-                  <div className={clsx(Grid.row, Landing.impactContainer)}>
+                  <div className={clsx(Grid.row, Style.impactContainer)}>
                     <div
                       className={clsx(
                         Grid.colXl3,
                         Grid.colXs12,
-                        Landing.impactContainerItem,
-                        Landing.impactMicrosoft
+                        Style.impactContainerItem,
+                        Style.impactMicrosoft
                       )}
                     >
-                      <div className={clsx(Landing.impactContainerContent)}>
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>MARKETING</p>
                         <h4>Microsoft</h4>
                         <Link href={impactPageSettings.path}>
@@ -742,11 +742,11 @@ const Index = ({
                       className={clsx(
                         Grid.colXl3,
                         Grid.colXs12,
-                        Landing.impactContainerItem,
-                        Landing.impactHr
+                        Style.impactContainerItem,
+                        Style.impactHr
                       )}
                     >
-                      <div className={clsx(Landing.impactContainerContent)}>
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>FINANCIAL SERVICES</p>
                         <h4>H&R Block</h4>
                         <Link href={impactPageSettings.path}>
@@ -758,11 +758,11 @@ const Index = ({
                       className={clsx(
                         Grid.colXl3,
                         Grid.colXs12,
-                        Landing.impactContainerItem,
-                        Landing.impactRaytheon
+                        Style.impactContainerItem,
+                        Style.impactRaytheon
                       )}
                     >
-                      <div className={clsx(Landing.impactContainerContent)}>
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>LOGISTICS</p>
                         <h4>Raytheon</h4>
                         <Link href={impactPageSettings.path}>
@@ -774,11 +774,11 @@ const Index = ({
                       className={clsx(
                         Grid.colXl3,
                         Grid.colXs12,
-                        Landing.impactContainerItem,
-                        Landing.impactNavy
+                        Style.impactContainerItem,
+                        Style.impactNavy
                       )}
                     >
-                      <div className={clsx(Landing.impactContainerContent)}>
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>DEFENSE & INTELLIGENCE</p>
                         <h4>U.S. Navy</h4>
                         <Link href={impactPageSettings.path}>
@@ -789,7 +789,7 @@ const Index = ({
                   </div>
                 </div>
               </FullpageSection>
-              <FullpageSection className={Landing.news}>
+              <FullpageSection className={Style.news}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
@@ -807,17 +807,15 @@ const Index = ({
                   </div>
                 </InView>
               </FullpageSection>
-              <FullpageSection className={Landing.statement2}>
+              <FullpageSection className={Style.statement2}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
-                    <div
-                      className={clsx(Grid.colXl6, Landing.statement2Content)}
-                    >
+                    <div className={clsx(Grid.colXl6, Style.statement2Content)}>
                       <h3>
                         Human productivity is stifled by the ocean of data
                         growing faster than our ability to process it.
                       </h3>
-                      <div className={clsx(Landing.statement2Button)}>
+                      <div className={clsx(Style.statement2Button)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>

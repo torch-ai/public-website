@@ -184,6 +184,17 @@
   color: white;
 }
 
+.news {
+  background-color: #ffffff;
+  background-image: url(../../img/backgrounds/mesh.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
 @keyframes zoomies {
   from {
     background-size: 100%;
