@@ -5,7 +5,7 @@ import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
 import Link from "next/link";
-import Style from "../../styles/modules/inspiration.module.scss";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
 import Footer from "../../components/Footer";
 import { gsap } from "gsap";
