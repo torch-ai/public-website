@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
@@ -79,20 +79,20 @@ const Index: React.FunctionComponent = () => {
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row, "")}>
-                    <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3 ref={titleRef}>Make your impact.</h3>
-                    </div>
-                  </div>
-                  <div
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    row
                     ref={sectorsForegroundRef}
-                    className={clsx(Grid.row, Style.galleryContainer)}
+                    className={Style.galleryContainer}
                   >
-                    <div
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryDefense
                       )}
@@ -100,11 +100,10 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Defense & Intelligence</p>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryLogistics
                       )}
@@ -112,11 +111,10 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Logistics</p>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryInsurance
                       )}
@@ -124,11 +122,10 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Insurance</p>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryMarketing
                       )}
@@ -136,16 +133,16 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Marketing</p>
                       </div>
-                    </div>
-                  </div>
-                  <div
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    row
                     ref={sectorsBackgroundsRef}
-                    className={clsx(Grid.row, Style.galleryContainer)}
+                    className={Style.galleryContainer}
                   >
-                    <div
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryFinancial
                       )}
@@ -153,11 +150,10 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Financial Services</p>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryManufacture
                       )}
@@ -165,11 +161,10 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Manufacturing</p>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryHealthcare
                       )}
@@ -177,11 +172,10 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Healthcare</p>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
                       className={clsx(
-                        Grid.colLg2,
-                        Grid.colXs12,
                         Style.galleryContainerItem,
                         Style.galleryPublicSector
                       )}
@@ -189,16 +183,16 @@ const Index: React.FunctionComponent = () => {
                       <div className={clsx(Style.galleryContainerContent)}>
                         <p>Public Sector</p>
                       </div>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
+                    </Grid>
+                  </Grid>
+                  <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                     <p ref={subtitleRef}>Find your passion below:</p>
                     <FontAwesomeIcon
                       icon={faArrowAltCircleDown as IconProp}
                       size="2x"
                     />
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection
                 data-anchor="defense"
@@ -208,12 +202,9 @@ const Index: React.FunctionComponent = () => {
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="defense"
-                    className={clsx(Grid.container, Grid.marginCenter)}
-                  >
-                    <div className={clsx(Grid.row, Style.defensesContent)}>
-                      <div className={clsx(Grid.colXs12)}>
+                  <Grid container marginCenter id="defense">
+                    <Grid row className={Style.defensesContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Defense & Intelligence.</h2>
                         <p>
                           The national security enterprise is awash with vast
@@ -225,26 +216,23 @@ const Index: React.FunctionComponent = () => {
                           warfighters and intelligence professionals in their
                           mission to bolster the defense of our nation.
                         </p>
-                      </div>
-                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection
                 data-anchor="logistics"
                 className={Style.logistics}
               >
-                <div
-                  id="logistics"
-                  className={clsx(Grid.container, Grid.marginCenter)}
-                >
-                  <div className={clsx(Grid.row, Style.logisticsContent)}>
-                    <div className={clsx(Grid.colXs8)}>
+                <Grid container marginCenter id="logistics">
+                  <Grid row className={Style.logisticsContent}>
+                    <Grid size={{ Xs: 8 }}>
                       <h2>Logistics.</h2>
                       <p>
                         Modern logistics requires the ability to orchestrate
@@ -256,22 +244,19 @@ const Index: React.FunctionComponent = () => {
                         Nexus leaves its mark by providing immediate bottom-line
                         results
                       </p>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div
-                      className={clsx(
-                        Grid.colXs8,
-                        Grid.colLg8,
-                        Style.inspirationButton
-                      )}
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid
+                      size={{ Xs: 8, Lg: 8 }}
+                      className={Style.inspirationButton}
                     >
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection
                 data-anchor="insurance"
@@ -281,12 +266,9 @@ const Index: React.FunctionComponent = () => {
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="insurance"
-                    className={clsx(Grid.container, Grid.marginCenter)}
-                  >
-                    <div className={clsx(Grid.row, Style.insuranceContent)}>
-                      <div className={clsx(Grid.colXs12)}>
+                  <Grid container marginCenter id="insurance">
+                    <Grid row className={Style.insuranceContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Insurance.</h2>
                         <p>
                           Creating new policies or certificates of insurance
@@ -299,26 +281,23 @@ const Index: React.FunctionComponent = () => {
                           COIs at an average speed of 9.8 milliseconds per page
                           and with over 96% accuracy for data extraction.
                         </p>
-                      </div>
-                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection
                 data-anchor="marketing"
                 className={Style.marketing}
               >
-                <div
-                  id="marketing"
-                  className={clsx(Grid.container, Grid.marginCenter)}
-                >
-                  <div className={clsx(Grid.row, Style.marketingContent)}>
-                    <div className={clsx(Grid.colXs12)}>
+                <Grid container marginCenter id="marketing">
+                  <Grid row className={Style.marketingContent}>
+                    <Grid size={{ Xs: 12 }}>
                       <h2>Marketing.</h2>
                       <p>
                         Innovative marketers understand the trends and
@@ -331,16 +310,16 @@ const Index: React.FunctionComponent = () => {
                         pick up tendencies before the masses, honing appropriate
                         messaging and driving increased sales.
                       </p>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Grid.colLg8)}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection
                 data-anchor="financial"
@@ -350,12 +329,9 @@ const Index: React.FunctionComponent = () => {
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="financial"
-                    className={clsx(Grid.container, Grid.marginCenter)}
-                  >
-                    <div className={clsx(Grid.row, Style.financialContent)}>
-                      <div className={clsx(Grid.colXs12)}>
+                  <Grid container marginCenter id="financial">
+                    <Grid row className={Style.financialContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Financial Services.</h2>
                         <p>
                           Financial service organizations seek to fully engage
@@ -367,31 +343,23 @@ const Index: React.FunctionComponent = () => {
                           valuable and actionable information can happen in an
                           instant.
                         </p>
-                      </div>
-                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection
                 data-anchor="manufacturing"
                 className={Style.manufacturing}
               >
-                <div
-                  id="manufacturing"
-                  className={clsx(Grid.container, Grid.marginCenter)}
-                >
-                  <div
-                    className={clsx(
-                      Grid.rowReverse,
-                      Style.manufacturingContent
-                    )}
-                  >
-                    <div className={clsx(Grid.colLg5, Grid.colXs12)}>
+                <Grid container marginCenter id="manufacturing">
+                  <Grid row reverse className={Style.manufacturingContent}>
+                    <Grid size={{ Lg: 5, Xs: 12 }}>
                       <h2>Manufacturing.</h2>
                       <p>
                         With supply chains operating on a global scale,
@@ -402,14 +370,14 @@ const Index: React.FunctionComponent = () => {
                         sole-source supplier, and economic threat, mitigating
                         perilous activity.
                       </p>
-                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection
                 data-anchor="healthcare"
@@ -419,12 +387,9 @@ const Index: React.FunctionComponent = () => {
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="healthcare"
-                    className={clsx(Grid.container, Grid.marginCenter)}
-                  >
-                    <div className={clsx(Grid.row, Style.healthcareContent)}>
-                      <div className={clsx(Grid.colXs12)}>
+                  <Grid container marginCenter id="healthcare">
+                    <Grid row className={Style.healthcareContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Healthcare.</h2>
                         <p>
                           Artificial Intelligence is revolutionizing healthcare,
@@ -434,26 +399,23 @@ const Index: React.FunctionComponent = () => {
                           systems, providing an enhanced patient profile for
                           intelligent decisioning.
                         </p>
-                      </div>
-                      <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection
                 data-anchor="publicSector"
                 className={Style.publicSector}
               >
-                <div
-                  id="public"
-                  className={clsx(Grid.container, Grid.marginCenter)}
-                >
-                  <div className={clsx(Grid.row, Style.publicSectorContent)}>
-                    <div className={clsx(Grid.colXs12)}>
+                <Grid container marginCenter id="public">
+                  <Grid row className={Style.publicSectorContent}>
+                    <Grid size={{ Xs: 12 }}>
                       <h2>Public Sector.</h2>
                       <p>
                         Governments exist to strengthen the lives of their
@@ -469,54 +431,48 @@ const Index: React.FunctionComponent = () => {
                         decision auditability, traceability, scalability and
                         security.
                       </p>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 12 }}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
-              <FullpageSection className={Style.cta}>
-                <ContentOverImage
-                  imageProps={{
-                    src: staffFlameBackground,
-                    alt: "",
-                    layout: "fill",
-                    objectPosition: "left center",
-                    objectFit: "contain",
-                  }}
+              <ContentOverImage
+                imageProps={{
+                  src: staffFlameBackground,
+                  alt: "",
+                  layout: "fill",
+                  objectPosition: "left center",
+                  objectFit: "contain",
+                }}
+                className={Style.cta}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                  >
-                    <div
-                      id="public"
-                      className={clsx(Grid.container, Grid.marginCenter)}
-                    >
-                      <div className={clsx(Grid.row, Style.ctaContent)}>
-                        <div className={clsx(Grid.colLgOffset6, Grid.colXs12)}>
-                          <h3>Let us help you make data easier to use.</h3>
-                          <p>It's time to unleash your potential.</p>
-                        </div>
-                      </div>
-                      <div className={Grid.row}>
-                        <div className={clsx(Grid.colLgOffset6, Grid.colLg12)}>
-                          <Link href={contactPageSettings.path}>
-                            <a role="button">Let's be friends</a>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </InView>
-                </ContentOverImage>
-              </FullpageSection>
+                  <Grid container marginCenter id="public">
+                    <Grid row className={Style.ctaContent}>
+                      <Grid size={{ Xs: 12 }} offset={{ Lg: 6 }}>
+                        <h3>Let us help you make data easier to use.</h3>
+                        <p>It's time to unleash your potential.</p>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid size={{ Lg: 12 }} offset={{ Lg: 6 }}>
+                        <Link href={contactPageSettings.path}>
+                          <a role="button">Let's be friends</a>
+                        </Link>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
               <Footer />
             </ReactFullpage.Wrapper>
           );

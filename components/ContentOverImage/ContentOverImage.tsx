@@ -4,6 +4,7 @@ import { ImageProps } from "next/dist/client/image";
 import Style from "./styles.module.scss";
 import Image from "next/image";
 import FullpageSection from "../FullpageSection/FullpageSection";
+import Grid from "../Grid/Grid";
 
 interface Props {
   imageProps: ImageProps;
@@ -19,12 +20,14 @@ const ContentOverImage: React.FunctionComponent<
     (typeof objectPosition === "string" && objectPosition.includes("right"));
   return (
     <FullpageSection {...props} className={clsx(Style.section, className)}>
-      <div
+      <Grid
+        container
+        marginCenter
         {...contentProps}
         className={clsx(Style.content, contentProps?.className)}
       >
         {children}
-      </div>
+      </Grid>
       <div
         className={clsx(Style.background, {
           [Style.backgroundRight]: isObjectRightAligned,

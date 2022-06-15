@@ -3,7 +3,7 @@
 import React, { ReactElement, useContext } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
 import Style from "./styles.module.scss";
 import NewsGrid from "../../components/News/NewsGrid";
@@ -73,8 +73,8 @@ const Index = ({
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.colXs12, Style.contentCenter)}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                     <h1>Unlock Human Potential.</h1>
                     <div className={clsx(Style.circleIcon)}>
                       <svg
@@ -92,8 +92,8 @@ const Index = ({
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 <video
                   data-keepplaying
                   className={clsx(Style.backgroundVideo)}
@@ -113,49 +113,33 @@ const Index = ({
                     src: enhanceBackground,
                     objectPosition: "left bottom",
                   }}
-                  contentProps={{
-                    className: clsx(Grid.container, Grid.marginCenter),
-                  }}
                 >
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
-                    className={clsx(Grid.row, Style.enhanceContent)}
                   >
-                    <div
-                      className={clsx(
-                        Grid.colXs12,
-                        Grid.colSm10,
-                        Grid.colMd10,
-                        Grid.colLg10,
-                        Grid.colXl5
-                      )}
-                    >
-                      <h2>We build AI that makes data easier to use.</h2>
-                      <p>
-                        Torch.AI's Nexus&trade; software instantly unlocks value
-                        from data and provides information needed for humans and
-                        machines to be more productive.
-                      </p>
-                    </div>
+                    <Grid row className={Style.enhanceContent}>
+                      <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
+                        <h2>We build AI that makes data easier to use.</h2>
+                        <p>
+                          Torch.AI's Nexus&trade; software instantly unlocks
+                          value from data and provides information needed for
+                          humans and machines to be more productive.
+                        </p>
+                      </Grid>
+                    </Grid>
                   </InView>
                 </ContentOverImage>
               </FullpageSection>
               <FullpageSection className={Style.nexus}>
-                <div
-                  className={clsx(
-                    Grid.container,
-                    Grid.marginCenter,
-                    Style.nexusContent
-                  )}
-                >
-                  <div className={clsx(Grid.container, Grid.marginCenter)}>
-                    <div className={clsx(Grid.row)}>
-                      <div className={clsx(Grid.colXs10, Grid.marginCenter)}>
-                        <div className={clsx(Grid.row, Style.nexusStats)}>
-                          <div className={clsx(Grid.colXl8, Grid.colXs9)}>
+                <Grid container marginCenter className={Style.nexusContent}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10 }}>
+                        <Grid row className={Style.nexusStats}>
+                          <Grid size={{ Xl: 8, Xs: 9 }}>
                             <h2>
                               Introducing Nexus <sup>TM</sup>
                             </h2>
@@ -163,25 +147,23 @@ const Index = ({
                               Nexus instantly makes your data totally available,
                               usable, and valuable.
                             </p>
-                          </div>
-                          <div className={clsx(Grid.colXl2, Grid.colXs12)}>
+                          </Grid>
+                          <Grid size={{ Xl: 2, Xs: 12 }}>
                             <h2 className={clsx(Style.large)}>10.7x</h2>
                             <p>Faster compute performance.</p>
-                          </div>
-                        </div>
+                          </Grid>
+                        </Grid>
                         <hr />
-                        <div className={clsx(Grid.row)}>
-                          <div className={clsx(Grid.colXs10)}>
+                        <Grid row>
+                          <Grid size={{ Xs: 10 }}>
                             <p>Simply put:</p>
-                          </div>
-                          <div
-                            className={clsx(
-                              Grid.row,
-                              Grid.betweenXl,
-                              Style.nexusPoints
-                            )}
+                          </Grid>
+                          <Grid
+                            row
+                            spacing={{ Xl: "between" }}
+                            className={Style.nexusPoints}
                           >
-                            <div className={clsx(Grid.colXl2, Grid.colXs12)}>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -218,8 +200,8 @@ const Index = ({
                                 Highest performance data processing platform
                                 ever built.
                               </p>
-                            </div>
-                            <div className={clsx(Grid.colXl2, Grid.colXs12)}>
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="48"
                                 height="55"
@@ -237,8 +219,8 @@ const Index = ({
                                 Radically simplifies how companies extract value
                                 from data.
                               </p>
-                            </div>
-                            <div className={clsx(Grid.colXl2, Grid.colXs12)}>
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -256,10 +238,8 @@ const Index = ({
                                 Accelerates processing times and reduces
                                 operational costs.
                               </p>
-                            </div>
-                            <div
-                              className={clsx(Grid.colXl2, Grid.colXs12, "")}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="54"
@@ -299,26 +279,20 @@ const Index = ({
                                 AI/ML-enabled automation frees workers to
                                 perform high-value work.
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={clsx(Grid.row)}>
-                      <div
-                        className={clsx(
-                          Grid.colXs10,
-                          Grid.colXl10,
-                          Grid.marginCenter
-                        )}
-                      >
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
                         <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
                 <div className={Style.nexusBackground}>
                   <Image
                     src={nexusBackground}
@@ -328,37 +302,30 @@ const Index = ({
                   />
                 </div>
               </FullpageSection>
-
               <FullpageSection className={Style.statement}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                <Grid container marginCenter>
                   <InView
                     as="span"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={clsx(Grid.row)}>
-                      <div
-                        className={clsx(
-                          Grid.colXs12,
-                          Grid.colXl5,
-                          Style.statementImage
-                        )}
+                    <Grid row>
+                      <Grid
+                        size={{ Xs: 12, Xl: 5 }}
+                        className={Style.statementImage}
                       >
                         <Image
                           src={imac}
                           alt={"Image of a force graph loading on a screen"}
                         />
-                      </div>
-                      <div className={clsx(Grid.colXl6, Grid.colXs12)}>
+                      </Grid>
+                      <Grid size={{ Xl: 6, Xs: 12 }}>
                         <h3>Make Data Work for You.</h3>
-                        <div className={clsx(Grid.row)}>
-                          <div
-                            className={clsx(
-                              Grid.colXl6,
-                              Grid.colXs12,
-                              Style.statementItem
-                            )}
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="58"
@@ -426,13 +393,10 @@ const Index = ({
                               </defs>
                             </svg>
                             <p>Operationalize data faster and efficiently</p>
-                          </div>
-                          <div
-                            className={clsx(
-                              Grid.colXl6,
-                              Grid.colXs12,
-                              Style.statementItem
-                            )}
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="61"
@@ -494,15 +458,12 @@ const Index = ({
                               </defs>
                             </svg>
                             <p>Connect to all your data sources</p>
-                          </div>
-                        </div>
-                        <div className={clsx(Grid.row)}>
-                          <div
-                            className={clsx(
-                              Grid.colXl6,
-                              Grid.colXs12,
-                              Style.statementItem
-                            )}
+                          </Grid>
+                        </Grid>
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="125"
@@ -623,13 +584,10 @@ const Index = ({
                               />
                             </svg>
                             <p>Gain access to deep insights</p>
-                          </div>
-                          <div
-                            className={clsx(
-                              Grid.colXl6,
-                              Grid.colXs12,
-                              Style.statementItem
-                            )}
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="99"
@@ -703,29 +661,28 @@ const Index = ({
                               </defs>
                             </svg>
                             <p>Reduce costs in your technology stack</p>
-                          </div>
-                        </div>
+                          </Grid>
+                        </Grid>
                         <Link href={solutionsPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
+                </Grid>
               </FullpageSection>
 
               <FullpageSection className={Style.impact}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row, "")}>
-                    <div className={clsx(Grid.colXs12, Style.impactTitle)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.impactTitle}>
                       <h2>Impact Studies.</h2>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row, Style.impactContainer)}>
-                    <div
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.impactContainer}>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
                       className={clsx(
-                        Grid.colXl3,
-                        Grid.colXs12,
                         Style.impactContainerItem,
                         Style.impactMicrosoft
                       )}
@@ -737,11 +694,10 @@ const Index = ({
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
                       className={clsx(
-                        Grid.colXl3,
-                        Grid.colXs12,
                         Style.impactContainerItem,
                         Style.impactHr
                       )}
@@ -753,11 +709,10 @@ const Index = ({
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
                       className={clsx(
-                        Grid.colXl3,
-                        Grid.colXs12,
                         Style.impactContainerItem,
                         Style.impactRaytheon
                       )}
@@ -769,11 +724,10 @@ const Index = ({
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
                       className={clsx(
-                        Grid.colXl3,
-                        Grid.colXs12,
                         Style.impactContainerItem,
                         Style.impactNavy
                       )}
@@ -785,16 +739,16 @@ const Index = ({
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.news}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className={clsx(Grid.container, Grid.margin_center)}>
+                  <Grid container marginCenter>
                     <NewsGrid news={news} title="Latest News" />
                     <Button
                       style={{ display: "block" }}
@@ -804,13 +758,13 @@ const Index = ({
                     >
                       View all
                     </Button>
-                  </div>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection className={Style.statement2}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXl6, Style.statement2Content)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xl: 6 }} className={Style.statement2Content}>
                       <h3>
                         Human productivity is stifled by the ocean of data
                         growing faster than our ability to process it.
@@ -820,8 +774,8 @@ const Index = ({
                           <a role="button">Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div className={clsx(Grid.colXl6)}>
+                    </Grid>
+                    <Grid size={{ Xl: 6 }}>
                       <video
                         controls
                         poster="./bryanPreview.png"
@@ -832,9 +786,9 @@ const Index = ({
                           type="video/mp4"
                         />
                       </video>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>

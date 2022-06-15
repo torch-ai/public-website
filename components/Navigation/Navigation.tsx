@@ -2,7 +2,7 @@ import { FunctionComponent, useContext, useRef } from "react";
 import Link from "next/link";
 import { NextRouter, useRouter } from "next/router";
 import Style from "./styles.module.scss";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../Grid/Grid";
 import LayoutContext from "../layout/LayoutContext";
 import { pageSettings as solutionsPageSettings } from "../../pages/solutions";
 import { pageSettings as platformPageSettings } from "../../pages/platform";
@@ -45,15 +45,12 @@ const Navigation: FunctionComponent = () => {
           Employers by Forbes magazine.
         </a>
       </div>
-      <div
-        className={clsx(
-          Grid.row,
-          Style.NavContainer,
-          Grid.marginCenter,
-          Grid.container,
-          Grid.betweenLg,
-          Grid.betweenXs
-        )}
+      <Grid
+        container
+        marginCenter
+        row
+        spacing={{ Xs: "between", Lg: "between" }}
+        className={Style.NavContainer}
       >
         <div className={clsx(Style.Logo)}>
           <Link href="/">
@@ -210,7 +207,7 @@ const Navigation: FunctionComponent = () => {
             </li>
           </ul>
         </nav>
-      </div>
+      </Grid>
     </header>
   );
 };

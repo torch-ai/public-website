@@ -5,9 +5,9 @@ import Link from "next/link";
 import router from "next/router";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
 import Image from "next/image";
 import Style from "./styles.module.scss";
+import Grid from "../../components/Grid/Grid";
 import NewsGrid from "../../components/News/NewsGrid";
 import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
@@ -106,15 +106,15 @@ const Index = ({
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                <Grid container marginCenter>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "white" : "black")
                     }
                   >
-                    <div className={clsx(Grid.row)}>
-                      <div className={clsx(Grid.colXs12, Style.contentCenter)}>
+                    <Grid row>
+                      <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                         <h2 ref={titleRef}>
                           We're building Kansas City's next great company.
                         </h2>
@@ -131,22 +131,15 @@ const Index = ({
                             }
                           />
                         </div>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
+                </Grid>
               </FullpageSection>
               <FullpageSection>
                 <ContentOverImage
                   data-anchor="culture"
                   className={clsx(Style.culture, "section")}
-                  contentProps={{
-                    className: clsx(
-                      Style.cultureContent,
-                      Grid.container,
-                      Grid.marginCenter
-                    ),
-                  }}
                   imageProps={{
                     src: logoBookshelf,
                     alt: "Logo made with photo!",
@@ -155,13 +148,13 @@ const Index = ({
                     objectPosition: "right bottom",
                   }}
                 >
-                  <div className={Grid.row}>
-                    <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 12 }}>
                       <h3>Total badasses.</h3>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Grid.colLg3)}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h5>Mission-Focused</h5>
                       <p>
                         We have the awesome privilege of sharing responsibility
@@ -171,8 +164,8 @@ const Index = ({
                         clients, company, and each other. Our client’s mission
                         is our mission.
                       </p>
-                    </div>
-                    <div className={clsx(Grid.colXs12, Grid.colLg8)}>
+                    </Grid>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
                       <h5>Curious & Innovative</h5>
                       <p>
                         We are always interested in finding new and better ways
@@ -180,10 +173,10 @@ const Index = ({
                         wonder constantly about "what could be” and how we might
                         "solve the unsolvable.”
                       </p>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Grid.colLg3)}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h5>Gumption</h5>
                       <p>
                         We approach everything we do with a level of passion and
@@ -191,8 +184,8 @@ const Index = ({
                         understanding that our work is important and meaningful.
                         We think and act like a start-up. Every day is Day 1.
                       </p>
-                    </div>
-                    <div className={clsx(Grid.colXs12, Grid.colLg8)}>
+                    </Grid>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
                       <h5>Do What's Right</h5>
                       <p>
                         We approach every decision, action, and interaction with
@@ -200,32 +193,23 @@ const Index = ({
                         transparent, and focused on achieving the best outcome
                         for our clients and team, rather than ourselves.
                       </p>
-                    </div>
-                  </div>
+                    </Grid>
+                  </Grid>
                 </ContentOverImage>
               </FullpageSection>
               <FullpageSection className={Style.gallery}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3>Leadership.</h3>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row, Style.galleryContainer)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryLayout)}>
-                      <div
-                        className={clsx(
-                          Grid.row,
-                          Style.galleryLayoutFeatured,
-                          ""
-                        )}
-                      >
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutFeatured}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -235,13 +219,10 @@ const Index = ({
                             <h5>Brian Weaver</h5>
                             <p>Chief Executive Officer</p>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -251,13 +232,10 @@ const Index = ({
                             <h5>Amy Bradshaw</h5>
                             <p>Chief Financial Officer</p>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -267,13 +245,10 @@ const Index = ({
                             <h5>Janet Hanofee</h5>
                             <p>Chief People Officer</p>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -283,19 +258,16 @@ const Index = ({
                             <h5>David Kervin</h5>
                             <p> Chief Solutions Officer</p>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row, Style.galleryContainer)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryLayout)}>
-                      <div className={clsx(Grid.row, Style.galleryLayoutList)}>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutList}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -305,13 +277,10 @@ const Index = ({
                             <h5>Adam Lurie</h5>
                             <p>Chief Strategy Officer</p>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -321,13 +290,10 @@ const Index = ({
                             <h5>Jason Delker</h5>
                             <p>Chief of Product</p>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -337,13 +303,10 @@ const Index = ({
                             <h5>Jon Kramer</h5>
                             <p>Chief Technology Officer</p>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -353,16 +316,16 @@ const Index = ({
                             <h5>Jennifer Utting</h5>
                             <p>General Counsel</p>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.gallery}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3>Board of Directors</h3>
                       <p>
                         Torch.AI's board members have vast domain, technology,
@@ -371,17 +334,14 @@ const Index = ({
                         to make the world a better place by advancing the use of
                         AI to change how data is put to use.
                       </p>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row, Style.galleryContainer)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryLayout)}>
-                      <div className={clsx(Grid.row, Style.galleryLayoutList)}>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutList}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -390,13 +350,10 @@ const Index = ({
                             />
                             <h5>Brian Weaver</h5>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -405,13 +362,10 @@ const Index = ({
                             />
                             <h5>Laurence Tosi</h5>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -420,13 +374,10 @@ const Index = ({
                             />
                             <h5>Christian Schnedler</h5>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -435,16 +386,16 @@ const Index = ({
                             />
                             <h5>William Beyer</h5>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.gallery}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3>Board of Advisors</h3>
                       <p>
                         Torch.AI's board of advisors have vast domain,
@@ -454,17 +405,14 @@ const Index = ({
                         the world a better place by advancing the use of AI to
                         change how data is put to use.
                       </p>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row, Style.galleryContainer)}>
-                    <div className={clsx(Grid.colXs12, Style.galleryLayout)}>
-                      <div className={clsx(Grid.row, Style.galleryLayoutList)}>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutList}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -473,13 +421,10 @@ const Index = ({
                             />
                             <h5>Kevin Marcus</h5>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -488,13 +433,10 @@ const Index = ({
                             />
                             <h5>Mark W. Perrin</h5>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -503,13 +445,10 @@ const Index = ({
                             />
                             <h5>James "Hondo" Geurts</h5>
                           </div>
-                        </div>
-                        <div
-                          className={clsx(
-                            Grid.colLg3,
-                            Grid.colXs12,
-                            Style.galleryLayoutItem
-                          )}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
@@ -518,18 +457,15 @@ const Index = ({
                             />
                             <h5>LtGen Mike Dana</h5>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection>
                 <ContentOverImage
                   className={clsx(Style.careers, "section")}
-                  contentProps={{
-                    className: clsx(Grid.container, Grid.marginCenter),
-                  }}
                   imageProps={{
                     src: galleryBackground,
                     alt: "",
@@ -538,29 +474,31 @@ const Index = ({
                     objectFit: "contain",
                   }}
                 >
-                  <div className={clsx(Grid.row, Style.careersContent)}>
-                    <div className={clsx(Grid.colXs12, Grid.colLg6)}>
-                      <h2>Careers.</h2>
-                      <p>
-                        At Torch.AI, we are passionate about building software
-                        that solves some of the world's most challenging
-                        problems. Our work is hard. It is fun. It has meaning.
-                        We have built a team of exceptional people that build
-                        great products and provide the highest quality support
-                        and services. If you are a curious pioneer looking for a
-                        challenge, let's connect.
-                      </p>
-                      <div>
-                        <Link href={careersPageSettings.path}>
-                          <a role="button">Find your job</a>
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+                  <Grid container marginCenter>
+                    <Grid row className={Style.careersContent}>
+                      <Grid size={{ Xs: 12, Lg: 6 }}>
+                        <h2>Careers.</h2>
+                        <p>
+                          At Torch.AI, we are passionate about building software
+                          that solves some of the world's most challenging
+                          problems. Our work is hard. It is fun. It has meaning.
+                          We have built a team of exceptional people that build
+                          great products and provide the highest quality support
+                          and services. If you are a curious pioneer looking for
+                          a challenge, let's connect.
+                        </p>
+                        <div>
+                          <Link href={careersPageSettings.path}>
+                            <a role="button">Find your job</a>
+                          </Link>
+                        </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </ContentOverImage>
               </FullpageSection>
               <FullpageSection className={Style.news}>
-                <div className={clsx(Grid.container, Grid.margin_center)}>
+                <Grid container marginCenter>
                   <NewsGrid news={news} title="Latest News" />
                   <Button
                     style={{ display: "block" }}
@@ -570,7 +508,7 @@ const Index = ({
                   >
                     View all
                   </Button>
-                </div>
+                </Grid>
               </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>

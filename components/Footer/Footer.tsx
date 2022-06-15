@@ -1,4 +1,4 @@
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../Grid/Grid";
 import Style from "./styles.module.scss";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -17,24 +17,14 @@ import clsx from "clsx";
 const Footer: React.FunctionComponent = () => {
   return (
     <footer id="contact" className={clsx(Style.footer, "section")}>
-      <div
-        className={clsx(
-          Grid.marginCenter,
-          Grid.container,
-          Grid.row,
-          Style.footerTitle
-        )}
-      >
+      <Grid container marginCenter row className={Style.footerTitle}>
         <h3>Get in Touch With Us.</h3>
-      </div>
-      <div
-        className={clsx(
-          Grid.marginCenter,
-          Grid.container,
-          Grid.row,
-          Grid.gap,
-          Style.footerContent
-        )}
+      </Grid>
+      <Grid
+        container
+        marginCenter
+        row
+        className={clsx(Style.gap, Style.footerContent)}
       >
         <div className={clsx(Style.footerFormContainer, "flow")}>
           <div className={clsx(Style.footerText)}>
@@ -46,7 +36,7 @@ const Footer: React.FunctionComponent = () => {
             method="POST"
             className={clsx(Style.footerForm, "flow")}
           >
-            <div className={clsx(Grid.rowWrapoff)}>
+            <Grid row nowrap>
               <input
                 placeholder="Full name"
                 id="name"
@@ -55,8 +45,8 @@ const Footer: React.FunctionComponent = () => {
                 name="name"
                 required
               />
-            </div>
-            <div className={clsx(Grid.rowWrapoff, "")}>
+            </Grid>
+            <Grid row nowrap>
               <input
                 placeholder="Index"
                 id="organization"
@@ -73,19 +63,15 @@ const Footer: React.FunctionComponent = () => {
                 name="email"
                 required
               />
-            </div>
-            <div
-              className={clsx(
-                Style.footerFormSubmit,
-                Grid.row,
-                Grid.gap,
-                "flow"
-              )}
+            </Grid>
+            <Grid
+              row
+              className={clsx(Style.footerFormSubmit, Style.gap, "flow")}
             >
               <button className={clsx(Style.footerFormButton)} type="submit">
                 Send
               </button>
-              <div className={clsx(Style.socialIcons, Grid.row, "")}>
+              <Grid row className={Style.socialIcons}>
                 <a
                   href="https://www.linkedin.com/company/torchai"
                   target="_blank"
@@ -100,8 +86,8 @@ const Footer: React.FunctionComponent = () => {
                 >
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
-              </div>
-            </div>
+              </Grid>
+            </Grid>
           </form>
         </div>
 
@@ -152,25 +138,22 @@ const Footer: React.FunctionComponent = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </Grid>
 
-      <div
-        className={clsx(
-          Style.footerCopy,
-          Grid.marginCenter,
-          Grid.container,
-          Grid.betweenXs,
-          Grid.row
-        )}
+      <Grid
+        container
+        marginCenter
+        row
+        spacing={{ Xs: "between" }}
+        className={Style.footerCopy}
       >
         <Image
           className={clsx(Style.logo)}
           src={logo}
           alt="The logo of Torch.ai"
         />
-
         <p>Copyright &copy; 2022 Torch.AI</p>
-      </div>
+      </Grid>
     </footer>
   );
 };

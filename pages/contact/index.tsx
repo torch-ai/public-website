@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { useContext } from "react";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Style from "./styles.module.scss";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
@@ -37,17 +37,17 @@ const Index: React.FunctionComponent = () => {
           as="div"
           onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
-          <div className={clsx(Grid.container, Grid.marginCenter)}>
-            <div className={clsx(Grid.row)}>
-              <div className={clsx(Grid.colXs12, Style.contactTitle)}>
+          <Grid container marginCenter>
+            <Grid row>
+              <Grid size={{ Xs: 12 }} className={Style.contactTitle}>
                 <PageTitle>Contact Us.</PageTitle>
                 <PageSubtitle>
                   Find out how Nexus can unlock your productivity.
                 </PageSubtitle>
-              </div>
-            </div>
-            <div className={clsx(Grid.row)}>
-              <div className={clsx(Grid.colXs12)}>
+              </Grid>
+            </Grid>
+            <Grid row>
+              <Grid size={{ Xs: 12 }}>
                 <form
                   className={clsx(Style.contactForm)}
                   action="https://formspree.io/f/mvolablv"
@@ -96,9 +96,9 @@ const Index: React.FunctionComponent = () => {
                     <button type="submit">Send</button>
                   </div>
                 </form>
-              </div>
-            </div>
-          </div>
+              </Grid>
+            </Grid>
+          </Grid>
         </InView>
       </section>
       <Footer />
