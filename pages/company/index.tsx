@@ -42,6 +42,7 @@ import KevinMarcus from "../../img/dotArt/KevinMarcus.png";
 import forbes from "../../img/forbes.png";
 import logoBookshelf from "./assets/logo-bookshelf.png";
 import galleryBackground from "./assets/gallerypic.png";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -105,7 +106,7 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Style.hero, "section")}>
+              <FullpageSection className={Style.hero}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <InView
                     as="div"
@@ -135,74 +136,76 @@ const Index = ({
                     </div>
                   </InView>
                 </div>
-              </div>
-              <ContentOverImage
-                data-anchor="culture"
-                className={clsx(Style.culture, "section")}
-                contentProps={{
-                  className: clsx(
-                    Style.cultureContent,
-                    Grid.container,
-                    Grid.marginCenter
-                  ),
-                }}
-                imageProps={{
-                  src: logoBookshelf,
-                  alt: "Logo made with photo!",
-                  layout: "fill",
-                  objectFit: "contain",
-                  objectPosition: "right bottom",
-                }}
-              >
-                <div className={Grid.row}>
-                  <div className={clsx(Grid.colXs12, Grid.colLg12)}>
-                    <h3>Total badasses.</h3>
+              </FullpageSection>
+              <FullpageSection>
+                <ContentOverImage
+                  data-anchor="culture"
+                  className={clsx(Style.culture, "section")}
+                  contentProps={{
+                    className: clsx(
+                      Style.cultureContent,
+                      Grid.container,
+                      Grid.marginCenter
+                    ),
+                  }}
+                  imageProps={{
+                    src: logoBookshelf,
+                    alt: "Logo made with photo!",
+                    layout: "fill",
+                    objectFit: "contain",
+                    objectPosition: "right bottom",
+                  }}
+                >
+                  <div className={Grid.row}>
+                    <div className={clsx(Grid.colXs12, Grid.colLg12)}>
+                      <h3>Total badasses.</h3>
+                    </div>
                   </div>
-                </div>
-                <div className={clsx(Grid.row)}>
-                  <div className={clsx(Grid.colXs12, Grid.colLg3)}>
-                    <h5>Mission-Focused</h5>
-                    <p>
-                      We have the awesome privilege of sharing responsibility
-                      for the security of our country and the lives of
-                      warfighters protecting that security. From this starting
-                      point, we’ve developed a deep sense of duty to our
-                      clients, company, and each other. Our client’s mission is
-                      our mission.
-                    </p>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colXs12, Grid.colLg3)}>
+                      <h5>Mission-Focused</h5>
+                      <p>
+                        We have the awesome privilege of sharing responsibility
+                        for the security of our country and the lives of
+                        warfighters protecting that security. From this starting
+                        point, we’ve developed a deep sense of duty to our
+                        clients, company, and each other. Our client’s mission
+                        is our mission.
+                      </p>
+                    </div>
+                    <div className={clsx(Grid.colXs12, Grid.colLg8)}>
+                      <h5>Curious & Innovative</h5>
+                      <p>
+                        We are always interested in finding new and better ways
+                        to do things and never satisfied with what we have. We
+                        wonder constantly about "what could be” and how we might
+                        "solve the unsolvable.”
+                      </p>
+                    </div>
                   </div>
-                  <div className={clsx(Grid.colXs12, Grid.colLg8)}>
-                    <h5>Curious & Innovative</h5>
-                    <p>
-                      We are always interested in finding new and better ways to
-                      do things and never satisfied with what we have. We wonder
-                      constantly about "what could be” and how we might "solve
-                      the unsolvable.”
-                    </p>
+                  <div className={clsx(Grid.row)}>
+                    <div className={clsx(Grid.colXs12, Grid.colLg3)}>
+                      <h5>Gumption</h5>
+                      <p>
+                        We approach everything we do with a level of passion and
+                        intensity, consistent with the knowledge and
+                        understanding that our work is important and meaningful.
+                        We think and act like a start-up. Every day is Day 1.
+                      </p>
+                    </div>
+                    <div className={clsx(Grid.colXs12, Grid.colLg8)}>
+                      <h5>Do What's Right</h5>
+                      <p>
+                        We approach every decision, action, and interaction with
+                        an unwavering commitment to being ethical, considerate,
+                        transparent, and focused on achieving the best outcome
+                        for our clients and team, rather than ourselves.
+                      </p>
+                    </div>
                   </div>
-                </div>
-                <div className={clsx(Grid.row)}>
-                  <div className={clsx(Grid.colXs12, Grid.colLg3)}>
-                    <h5>Gumption</h5>
-                    <p>
-                      We approach everything we do with a level of passion and
-                      intensity, consistent with the knowledge and understanding
-                      that our work is important and meaningful. We think and
-                      act like a start-up. Every day is Day 1.
-                    </p>
-                  </div>
-                  <div className={clsx(Grid.colXs12, Grid.colLg8)}>
-                    <h5>Do What's Right</h5>
-                    <p>
-                      We approach every decision, action, and interaction with
-                      an unwavering commitment to being ethical, considerate,
-                      transparent, and focused on achieving the best outcome for
-                      our clients and team, rather than ourselves.
-                    </p>
-                  </div>
-                </div>
-              </ContentOverImage>
-              <div className={clsx(Style.gallery, "section")}>
+                </ContentOverImage>
+              </FullpageSection>
+              <FullpageSection className={Style.gallery}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
                     <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
@@ -356,8 +359,8 @@ const Index = ({
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={clsx(Style.gallery, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Style.gallery}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
                     <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
@@ -438,8 +441,8 @@ const Index = ({
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={clsx(Style.gallery, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Style.gallery}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
                     <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
@@ -521,41 +524,43 @@ const Index = ({
                     </div>
                   </div>
                 </div>
-              </div>
-              <ContentOverImage
-                className={clsx(Style.careers, "section")}
-                contentProps={{
-                  className: clsx(Grid.container, Grid.marginCenter),
-                }}
-                imageProps={{
-                  src: galleryBackground,
-                  alt: "",
-                  layout: "fill",
-                  objectPosition: "left center",
-                  objectFit: "contain",
-                }}
-              >
-                <div className={clsx(Grid.row, Style.careersContent)}>
-                  <div className={clsx(Grid.colXs12, Grid.colLg6)}>
-                    <h2>Careers.</h2>
-                    <p>
-                      At Torch.AI, we are passionate about building software
-                      that solves some of the world's most challenging problems.
-                      Our work is hard. It is fun. It has meaning. We have built
-                      a team of exceptional people that build great products and
-                      provide the highest quality support and services. If you
-                      are a curious pioneer looking for a challenge, let's
-                      connect.
-                    </p>
-                    <div>
-                      <Link href={careersPageSettings.path}>
-                        <a role="button">Find your job</a>
-                      </Link>
+              </FullpageSection>
+              <FullpageSection>
+                <ContentOverImage
+                  className={clsx(Style.careers, "section")}
+                  contentProps={{
+                    className: clsx(Grid.container, Grid.marginCenter),
+                  }}
+                  imageProps={{
+                    src: galleryBackground,
+                    alt: "",
+                    layout: "fill",
+                    objectPosition: "left center",
+                    objectFit: "contain",
+                  }}
+                >
+                  <div className={clsx(Grid.row, Style.careersContent)}>
+                    <div className={clsx(Grid.colXs12, Grid.colLg6)}>
+                      <h2>Careers.</h2>
+                      <p>
+                        At Torch.AI, we are passionate about building software
+                        that solves some of the world's most challenging
+                        problems. Our work is hard. It is fun. It has meaning.
+                        We have built a team of exceptional people that build
+                        great products and provide the highest quality support
+                        and services. If you are a curious pioneer looking for a
+                        challenge, let's connect.
+                      </p>
+                      <div>
+                        <Link href={careersPageSettings.path}>
+                          <a role="button">Find your job</a>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </ContentOverImage>
-              <div className={clsx(Landing.news, "section")}>
+                </ContentOverImage>
+              </FullpageSection>
+              <FullpageSection className={Landing.news}>
                 <div className={clsx(Grid.container, Grid.margin_center)}>
                   <NewsGrid news={news} title="Latest News" />
                   <Button
@@ -567,7 +572,7 @@ const Index = ({
                     View all
                   </Button>
                 </div>
-              </div>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

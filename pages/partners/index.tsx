@@ -16,6 +16,7 @@ import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/partners",
@@ -64,7 +65,7 @@ const Index: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Style.hero, "section")}>
+              <FullpageSection className={Style.hero}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
                     <div className={clsx(Grid.colXs12, Style.contentCenter)}>
@@ -75,8 +76,8 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={clsx(Style.value, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Style.value}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <InView
                     as="div"
@@ -102,8 +103,8 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </InView>
                 </div>
-              </div>
-              <div className={clsx(Style.benefitsPartners, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Style.benefitsPartners}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row, Style.benefitsPartnersTitle)}>
                     <h3>Benefits for our partners.</h3>
@@ -175,8 +176,8 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={clsx(Style.change, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Style.change}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
                     <div className={clsx(Grid.colXs12, Style.changeTitle)}>
@@ -192,7 +193,7 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

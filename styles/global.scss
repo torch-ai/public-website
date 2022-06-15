@@ -67,11 +67,6 @@ html {
   padding-right: 1.5rem;
 }
 
-.section:not(footer) {
-  min-height: 100vh !important;
-  height: auto !important;
-}
-
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;

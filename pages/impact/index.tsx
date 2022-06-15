@@ -19,6 +19,7 @@ import { PageSettings } from "../../types/next";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import staffFlameBackground from "./assets/staff-flame-background.png";
 import clsx from "clsx";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
@@ -77,7 +78,7 @@ const Index: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Style.hero, "section")}>
+              <FullpageSection className={Style.hero}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row, "")}>
                     <div className={clsx(Grid.colXs12, Style.galleryTitle)}>
@@ -198,8 +199,8 @@ const Index: React.FunctionComponent = () => {
                     />
                   </div>
                 </div>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="defense"
                 className={clsx(Style.defense, "section")}
               >
@@ -233,10 +234,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="logistics"
-                className={clsx(Style.logistics, "section")}
+                className={Style.logistics}
               >
                 <div
                   id="logistics"
@@ -271,10 +272,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="insurance"
-                className={clsx(Style.insurance, "section")}
+                className={Style.insurance}
               >
                 <InView
                   as="div"
@@ -307,10 +308,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="marketing"
-                className={clsx(Style.marketing, "section")}
+                className={Style.marketing}
               >
                 <div
                   id="marketing"
@@ -340,10 +341,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="financial"
-                className={clsx(Style.financial, "section")}
+                className={Style.financial}
               >
                 <InView
                   as="div"
@@ -375,10 +376,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="manufacturing"
-                className={clsx(Style.manufacturing, "section")}
+                className={Style.manufacturing}
               >
                 <div
                   id="manufacturing"
@@ -409,10 +410,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="healthcare"
-                className={clsx(Style.healthcare, "section")}
+                className={Style.healthcare}
               >
                 <InView
                   as="div"
@@ -442,10 +443,10 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="publicSector"
-                className={clsx(Style.publicSector, "section")}
+                className={Style.publicSector}
               >
                 <div
                   id="public"
@@ -478,8 +479,8 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={clsx(Style.cta, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Style.cta}>
                 <ContentOverImage
                   imageProps={{
                     src: staffFlameBackground,
@@ -515,7 +516,7 @@ const Index: React.FunctionComponent = () => {
                     </div>
                   </InView>
                 </ContentOverImage>
-              </div>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

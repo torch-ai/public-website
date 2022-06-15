@@ -28,6 +28,7 @@ import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import enhanceBackground from "./assets/enhance-background.png";
 import nexusBackground from "./assets/nexus-background.png";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/",
@@ -71,7 +72,7 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={clsx(Landing.hero, "section")}>
+              <FullpageSection className={Landing.hero}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.colXs12, Landing.contentCenter)}>
                     <h1>Unlock Human Potential.</h1>
@@ -105,8 +106,8 @@ const Index = ({
                     type="video/mp4"
                   />
                 </video>
-              </div>
-              <div className={clsx(Landing.enhance, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Landing.enhance}>
                 <ContentOverImage
                   imageProps={{
                     src: enhanceBackground,
@@ -141,8 +142,8 @@ const Index = ({
                     </div>
                   </InView>
                 </ContentOverImage>
-              </div>
-              <div className={clsx(Landing.nexus, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Landing.nexus}>
                 <div
                   className={clsx(
                     Grid.container,
@@ -326,9 +327,9 @@ const Index = ({
                     objectFit={"cover"}
                   />
                 </div>
-              </div>
+              </FullpageSection>
 
-              <div className={`${Landing.statement}  section`}>
+              <FullpageSection className={Landing.statement}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <InView
                     as="span"
@@ -711,9 +712,9 @@ const Index = ({
                     </div>
                   </InView>
                 </div>
-              </div>
+              </FullpageSection>
 
-              <div className={`${Landing.impact}  section`}>
+              <FullpageSection className={Landing.impact}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row, "")}>
                     <div className={clsx(Grid.colXs12, Landing.impactTitle)}>
@@ -787,8 +788,8 @@ const Index = ({
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className={clsx(Landing.news, "section")}>
+              </FullpageSection>
+              <FullpageSection className={Landing.news}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
@@ -805,8 +806,8 @@ const Index = ({
                     </Button>
                   </div>
                 </InView>
-              </div>
-              <div className={`${Landing.statement2}  section`}>
+              </FullpageSection>
+              <FullpageSection className={Landing.statement2}>
                 <div className={clsx(Grid.container, Grid.marginCenter)}>
                   <div className={clsx(Grid.row)}>
                     <div
@@ -836,7 +837,7 @@ const Index = ({
                     </div>
                   </div>
                 </div>
-              </div>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

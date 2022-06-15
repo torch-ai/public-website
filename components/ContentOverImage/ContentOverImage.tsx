@@ -3,6 +3,7 @@ import clsx from "clsx";
 import { ImageProps } from "next/dist/client/image";
 import Style from "./styles.module.scss";
 import Image from "next/image";
+import FullpageSection from "../FullpageSection/FullpageSection";
 
 interface Props {
   imageProps: ImageProps;
@@ -17,7 +18,7 @@ const ContentOverImage: React.FunctionComponent<
     objectPosition === "right" ||
     (typeof objectPosition === "string" && objectPosition.includes("right"));
   return (
-    <section {...props} className={clsx(Style.section, className)}>
+    <FullpageSection {...props} className={clsx(Style.section, className)}>
       <div
         {...contentProps}
         className={clsx(Style.content, contentProps?.className)}
@@ -36,7 +37,7 @@ const ContentOverImage: React.FunctionComponent<
           {...imageProps}
         />
       </div>
-    </section>
+    </FullpageSection>
   );
 };
 
