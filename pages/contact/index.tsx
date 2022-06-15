@@ -3,7 +3,7 @@
 import React, { useContext } from "react";
 import Grid from "../../styles/modules/grid.module.scss";
 import Style from "./styles.module.scss";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";

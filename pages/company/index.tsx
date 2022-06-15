@@ -10,7 +10,7 @@ import Image from "next/image";
 import Style from "./styles.module.scss";
 import NewsGrid from "../../components/News/NewsGrid";
 import Button from "../../components/Button/Button";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";

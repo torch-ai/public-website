@@ -7,7 +7,7 @@ import Grid from "../../styles/modules/grid.module.scss";
 import Image from "next/image";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import clsx from "clsx";
 import datamodel1 from "../../img/datamodel1.svg";

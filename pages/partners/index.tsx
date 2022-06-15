@@ -6,7 +6,7 @@ import Head from "next/head";
 import Grid from "../../styles/modules/grid.module.scss";
 import Image from "next/image";
 import Style from "./styles.module.scss";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
 import training from "../../img/training.png";

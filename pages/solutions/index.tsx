@@ -5,7 +5,7 @@ import Head from "next/head";
 import Style from "./styles.module.scss";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";

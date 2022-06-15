@@ -11,7 +11,7 @@ import Button from "../../components/Button/Button";
 import router from "next/router";
 import { InView } from "react-intersection-observer";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import imac from "../../img/iMac.gif";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";

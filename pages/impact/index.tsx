@@ -7,7 +7,7 @@ import Grid from "../../styles/modules/grid.module.scss";
 import Link from "next/link";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
