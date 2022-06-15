@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
