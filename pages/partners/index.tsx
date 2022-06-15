@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Image from "next/image";
 import Style from "./styles.module.scss";
 import Footer from "../../components/Footer/Footer";
@@ -66,27 +66,27 @@ const Index: React.FunctionComponent = () => {
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Style.contentCenter)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                       <h1 ref={titleRef}>Be a hero for your customers.</h1>
                       <p ref={subtitleRef}>
                         Deploy Nexus to solve your customers problems.
                       </p>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.value}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
+                <Grid container marginCenter>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={clsx(Grid.row, Style.valueContent)}>
-                      <div className={clsx(Grid.colLgOffset3, Grid.colXs12)}>
+                    <Grid row className={Style.valueContent}>
+                      <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
                         <h3>
                           We value our friends. This is more than business for
                           us.
@@ -99,25 +99,20 @@ const Index: React.FunctionComponent = () => {
                           great success providing support to new and emerging
                           partners.
                         </p>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.benefitsPartners}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row, Style.benefitsPartnersTitle)}>
+                <Grid container marginCenter>
+                  <Grid row className={Style.benefitsPartnersTitle}>
                     <h3>Benefits for our partners.</h3>
-                  </div>
-                  <div
-                    className={clsx(Grid.row, Style.benefitsPartnersContent)}
-                  >
-                    <div
-                      className={clsx(
-                        Grid.colXs12,
-                        Grid.colLg3,
-                        Style.benefitsPartnersItem
-                      )}
+                  </Grid>
+                  <Grid row className={Style.benefitsPartnersContent}>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -133,13 +128,10 @@ const Index: React.FunctionComponent = () => {
                         Get friendly with our Solution Architects to guarantee
                         success of your program.
                       </p>
-                    </div>
-                    <div
-                      className={clsx(
-                        Grid.colXs12,
-                        Grid.colLg3,
-                        Style.benefitsPartnersItem
-                      )}
+                    </Grid>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -152,13 +144,10 @@ const Index: React.FunctionComponent = () => {
                         Our partners enjoy new sales opportunities, sourced by
                         Torch.AI, and aligned to their core competencies.
                       </p>
-                    </div>
-                    <div
-                      className={clsx(
-                        Grid.colXs12,
-                        Grid.colLg3,
-                        Style.benefitsPartnersItem
-                      )}
+                    </Grid>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -173,14 +162,14 @@ const Index: React.FunctionComponent = () => {
                         Access a wide variety of sales, marketing, ML modeling,
                         and other technical tools.
                       </p>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.change}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colXs12, Style.changeTitle)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.changeTitle}>
                       <h2>Help us change the world.</h2>
                       <p>Interested in becoming a partner?</p>
                       <p>
@@ -190,9 +179,9 @@ const Index: React.FunctionComponent = () => {
                           partners@torch.ai{" "}
                         </a>
                       </p>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>

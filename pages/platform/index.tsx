@@ -3,7 +3,7 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Image from "next/image";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
@@ -65,8 +65,8 @@ const Index: React.FunctionComponent = () => {
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.colXs12, Style.contentCenter)}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                     <h2 ref={titleRef}>
                       Nexus<sup>&trade;</sup>. The highest-performance data
                       processing platform ever built.
@@ -87,32 +87,26 @@ const Index: React.FunctionComponent = () => {
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.engines}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className={clsx(Grid.container, Grid.marginCenter)}>
-                    <div className={clsx(Grid.row)}>
-                      <div
-                        className={clsx(
-                          Grid.colLg12,
-                          Grid.colXs12,
-                          Grid.marginCenter
-                        )}
-                      >
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Lg: 12, Xs: 12 }}>
                         <h3>
                           Nexus<sup>&trade;</sup> is a transparent and
                           composable software platform bridging three powerful
                           capabilities:
                         </h3>
-                      </div>
-                    </div>
-                    <div className={clsx(Grid.row, Style.enginesModels)}>
-                      <div className={clsx(Grid.colLg4, Grid.colXs12)}>
+                      </Grid>
+                    </Grid>
+                    <Grid row className={Style.enginesModels}>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel1} alt={""} />
                         </div>
@@ -126,8 +120,8 @@ const Index: React.FunctionComponent = () => {
                             stored anywhere.
                           </p>
                         </div>
-                      </div>
-                      <div className={clsx(Grid.colLg4, Grid.colXs12)}>
+                      </Grid>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel2} alt={""} />
                         </div>
@@ -141,8 +135,8 @@ const Index: React.FunctionComponent = () => {
                             social media and geography.
                           </p>
                         </div>
-                      </div>
-                      <div className={clsx(Grid.colLg4, Grid.colXs12)}>
+                      </Grid>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel3} alt={""} />
                         </div>
@@ -155,15 +149,15 @@ const Index: React.FunctionComponent = () => {
                             data.
                           </p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection className={Style.datalake}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row, Style.datalakeContent)}>
-                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                <Grid container marginCenter>
+                  <Grid row className={Style.datalakeContent}>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h3>
                         Your large scale data processor just became obsolete.
                       </h3>
@@ -173,8 +167,8 @@ const Index: React.FunctionComponent = () => {
                         enables your organization to interact directly with the
                         entirety of your authoritative data.
                       </p>
-                    </div>
-                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <div className={clsx(Style.datalakeTitle)}>
                         <h1>10.7x</h1>
                         <h4>Faster compute performance.</h4>
@@ -196,18 +190,18 @@ const Index: React.FunctionComponent = () => {
                           </tbody>
                         </table>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <FullpageSection className={Style.code}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className={clsx(Grid.container, Grid.marginCenter)}>
-                    <div className={clsx(Grid.row)}>
-                      <div className={clsx(Grid.colXs8)}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid size={{ Xs: 8 }}>
                         <h2>As Code</h2>
                         <p className={clsx(Style.codeSubtitle)}>
                           The engineer-friendly approach
@@ -224,28 +218,28 @@ const Index: React.FunctionComponent = () => {
                           Rapid deployment provides your customers value within
                           a matter of hours.
                         </p>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection className={Style.benefits}>
-                <div className={clsx(Grid.container, Grid.marginCenter)}>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colLg12, Grid.colXs12)}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Lg: 12, Xs: 12 }}>
                       <h2>Features and benefits</h2>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Real-Time Data Transformation</h5>
                       <ul>
                         <li>Analyze data in flight in real time.</li>
                         <li>Does not replicate authoritative data.</li>
                         <li>Reduces infrastructure costs.</li>
                       </ul>
-                    </div>
-                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Unstructured Data Processing and Fusion</h5>
                       <ul>
                         <li>
@@ -261,10 +255,10 @@ const Index: React.FunctionComponent = () => {
                           continuously improve ML performance and accuracy.
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                  <div className={clsx(Grid.row)}>
-                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Semantic Stitching</h5>
                       <ul>
                         <li>
@@ -274,8 +268,8 @@ const Index: React.FunctionComponent = () => {
                           wealth of enterprise data.
                         </li>
                       </ul>
-                    </div>
-                    <div className={clsx(Grid.colLg6, Grid.colXs12)}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Composability</h5>
                       <ul>
                         <li>Engages easily within existing architecture.</li>
@@ -288,9 +282,9 @@ const Index: React.FunctionComponent = () => {
                           support for Bring Your Own Model (BYOM).
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
               </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
