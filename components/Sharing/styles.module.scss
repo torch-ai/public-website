@@ -1,0 +1,12 @@
+.sharingContainer {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.sharingButton {
+  font-size: 1.4em;
+  margin-left: 0.5em;
+  cursor: pointer;
+}

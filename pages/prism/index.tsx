@@ -1,21 +1,23 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { useContext, useRef } from "react";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
 import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import clsx from "clsx";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
   linkContent: <>PRISM</>,
 };
 
-const Prism: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const fullpageApiRef = useRef<fullpageApi>();
@@ -45,63 +47,62 @@ const Prism: React.FunctionComponent = () => {
           }
           return (
             <ReactFullpage.Wrapper>
-              <section className={`section hero`}>
-                <div className="container">
+              <section className={clsx("section", Style.hero)}>
+                <div className={Style.container}>
                   <h1>PRISM</h1>
                   <h4>
                     Military-grade document intelligence. Now for insurance.
                   </h4>
                 </div>
               </section>
-              <section className={`section professional`}>
+              <section className={clsx("section", Style.professional)}>
                 <InView
                   as="div"
-                  className="checking"
+                  className={Style.checking}
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className="container">
+                  <div className={Style.container}>
                     <h3>
                       As an insurance professional, you enable trust across
                       entire economies.
                     </h3>
                     <p>
                       Prism powers that mission, simplifying how you achieve
-                      instant value from critical document data: faster,
                       cheaper, more accurate than anyone else.
                     </p>
                   </div>
                 </InView>
               </section>
-              <section className={`section organization`}>
-                <div className="container">
+              <section className={clsx("section", Style.organization)}>
+                <div className={Style.container}>
                   <h3>Insurance organizations deal with messy data.</h3>
-                  <p className="subtitle">
+                  <p className={Style.subtitle}>
                     Most of it—up to 90%—consists of documents, PDFs, scans,
                     faxes, and images.
                   </p>
                   <hr />
-                  <div className="prismFeatures">
-                    <div className="prismFeature-item">
+                  <div className={Style.prismFeatures}>
+                    <div className={Style.prismFeatureItem}>
                       <h5>It's Expensive.</h5>
                       <p>
                         It can cost up to $220 to analyze a single document.
                       </p>
                     </div>
-                    <div className="prismFeature-item">
+                    <div className={Style.prismFeatureItem}>
                       <h5>It's not productive.</h5>
                       <p>
                         &gt;60% of teams are manually copying and pasting
                         document data.
                       </p>
                     </div>
-                    <div className="prismFeature-item">
+                    <div className={Style.prismFeatureItem}>
                       <h5>It's not accurate.</h5>
                       <p>
                         Manual efforts are error prone and existing solutions
                         can't scale.
                       </p>
                     </div>
-                    <div className="prismFeature-item">
+                    <div className={Style.prismFeatureItem}>
                       <h5>It's getting worse, fast.</h5>
                       <p>
                         Messy data is growing 300% faster than more usable,
@@ -112,14 +113,14 @@ const Prism: React.FunctionComponent = () => {
                 </div>
               </section>
 
-              <section className={`section win`}>
+              <section className={clsx("section", Style.win)}>
                 <InView
                   as="div"
-                  className="checking"
+                  className={Style.checking}
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className="container">
-                    <div className="winPoints">
+                  <div className={Style.container}>
+                    <div className={Style.winPoints}>
                       <h3>Win with Prism</h3>
                       <ul>
                         <li>Reduce operational cost.</li>
@@ -136,7 +137,7 @@ const Prism: React.FunctionComponent = () => {
                         </li>
                       </ul>
                     </div>
-                    <div className="prismVideo">
+                    <div className={Style.prismVideo}>
                       <video controls poster="/torch-video-poster.jpg">
                         <source
                           src="//videos.ctfassets.net/dtb5w0ega2aw/2PdGM8dFgBF7poRWGQGjDI/530cb7a3a89765ac820196eec7ea8dbc/prism-highlights.mp4"
@@ -147,8 +148,8 @@ const Prism: React.FunctionComponent = () => {
                   </div>
                 </InView>
               </section>
-              <section className={`section contact`}>
-                <div className="container">
+              <section className={clsx("section", Style.contact)}>
+                <div className={Style.container}>
                   <h4>
                     Learn why Torch.AI is the world leader in document
                     intelligence.
@@ -208,4 +209,4 @@ const Prism: React.FunctionComponent = () => {
   );
 };
 
-export default Prism;
+export default Index;

@@ -1,9 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { useContext } from "react";
-import Grid from "../../styles/modules/grid.module.scss";
-import Style from "../../styles/modules/contact.module.scss";
-import Footer from "../../components/Footer";
+import Grid from "../../components/Grid/Grid";
+import Style from "./styles.module.scss";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
@@ -11,6 +11,7 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/contact",
@@ -31,31 +32,29 @@ const Index: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
-      <section className={`${Style["contact__container"]}`}>
+      <section className={clsx(Style.contactContainer)}>
         <InView
           as="div"
           onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
-          <div className={`${Grid["container"]} ${Grid["margin_center"]}`}>
-            <div className={`${Grid["row"]}`}>
-              <div
-                className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
-              >
+          <Grid container marginCenter>
+            <Grid row>
+              <Grid size={{ Xs: 12 }} className={Style.contactTitle}>
                 <PageTitle>Contact Us.</PageTitle>
                 <PageSubtitle>
                   Find out how Nexus can unlock your productivity.
                 </PageSubtitle>
-              </div>
-            </div>
-            <div className={`${Grid["row"]}`}>
-              <div className={`${Grid["col-xs-12"]}`}>
+              </Grid>
+            </Grid>
+            <Grid row>
+              <Grid size={{ Xs: 12 }}>
                 <form
-                  className={`${Style["contact__form"]}`}
+                  className={clsx(Style.contactForm)}
                   action="https://formspree.io/f/mvolablv"
                   method="POST"
                 >
                   <div>
-                    <label className={`${Style["contact__names"]}`}>
+                    <label className={clsx(Style.contactNames)}>
                       <input
                         type="text"
                         name="name"
@@ -97,9 +96,9 @@ const Index: React.FunctionComponent = () => {
                     <button type="submit">Send</button>
                   </div>
                 </form>
-              </div>
-            </div>
-          </div>
+              </Grid>
+            </Grid>
+          </Grid>
         </InView>
       </section>
       <Footer />

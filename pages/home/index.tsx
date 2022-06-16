@@ -3,15 +3,15 @@
 import React, { ReactElement, useContext, useState, useRef } from "react";
 import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
-import Landing from "../../styles/modules/landing.module.scss";
+import Style from "./styles.module.scss";
 import NewsGrid from "../../components/News/NewsGrid";
 import Button from "../../components/Button/Button";
 import router from "next/router";
 import { InView } from "react-intersection-observer";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import imac from "../../img/iMac.gif";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -28,6 +28,7 @@ import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import enhanceBackground from "./assets/enhance-background.png";
 import nexusBackground from "./assets/nexus-background.png";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
@@ -86,15 +87,11 @@ const Index = ({
           }
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Landing["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Landing["content-center"]}`}
-                  >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                     <h1>Unlock Human Potential.</h1>
-                    <div className={`${Landing["circle-icon"]}`}>
+                    <div className={clsx(Style.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -110,11 +107,11 @@ const Index = ({
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 <video
                   data-keepplaying
-                  className={`${Landing["background-video"]}`}
+                  className={clsx(Style.backgroundVideo)}
                   id="background-video"
                   autoPlay
                   muted
@@ -124,64 +121,37 @@ const Index = ({
                     type="video/mp4"
                   />
                 </video>
-              </div>
-              <div className={clsx(Landing.enhance, "section")}>
-                <ContentOverImage
-                  imageProps={{
-                    src: enhanceBackground,
-                    objectPosition: "left bottom",
-                  }}
-                  contentProps={{
-                    className: clsx(Grid.container, Grid.margin_center),
-                  }}
+              </FullpageSection>
+              <ContentOverImage
+                imageProps={{
+                  src: enhanceBackground,
+                  objectPosition: "left bottom",
+                }}
+                className={Style.enhance}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                    className={clsx(Grid.row, Landing.enhance__content)}
-                  >
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-sm-10"],
-                        Grid["col-md-10"],
-                        Grid["col-lg-10"],
-                        Grid["col-xl-5"]
-                      )}
-                    >
+                  <Grid row className={Style.enhanceContent}>
+                    <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
                       <h2>We build AI that makes data easier to use.</h2>
                       <p>
                         Torch.AI's Nexus&trade; software instantly unlocks value
                         from data and provides information needed for humans and
                         machines to be more productive.
                       </p>
-                    </div>
-                  </InView>
-                </ContentOverImage>
-              </div>
-              <div className={clsx(Landing.nexus, "section")}>
-                <div
-                  className={clsx(
-                    Grid.container,
-                    Grid.margin_center,
-                    Landing.nexusContent
-                  )}
-                >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-10"]} ${Grid["margin_center"]}`}
-                      >
-                        <div
-                          className={`${Grid["row"]} ${Landing["nexus__stats"]}`}
-                        >
-                          <div
-                            className={`${Grid["col-xl-8"]} ${Grid["col-xs-9"]}`}
-                          >
+                    </Grid>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
+              <FullpageSection className={Style.nexus}>
+                <Grid container marginCenter className={Style.nexusContent}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10 }}>
+                        <Grid row className={Style.nexusStats}>
+                          <Grid size={{ Xl: 8, Xs: 9 }}>
                             <h2>
                               Introducing Nexus <sup>TM</sup>
                             </h2>
@@ -189,25 +159,23 @@ const Index = ({
                               Nexus instantly makes your data totally available,
                               usable, and valuable.
                             </p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                          >
-                            <h2 className={`${Landing["large"]}`}>10.7x</h2>
+                          </Grid>
+                          <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <h2 className={clsx(Style.large)}>10.7x</h2>
                             <p>Faster compute performance.</p>
-                          </div>
-                        </div>
+                          </Grid>
+                        </Grid>
                         <hr />
-                        <div className={`${Grid["row"]}`}>
-                          <div className={`${Grid["col-xs-10"]}`}>
+                        <Grid row>
+                          <Grid size={{ Xs: 10 }}>
                             <p>Simply put:</p>
-                          </div>
-                          <div
-                            className={`${Grid["row"]} ${Grid["between-xl"]} ${Landing["nexus__points"]}`}
+                          </Grid>
+                          <Grid
+                            row
+                            spacing={{ Xl: "between" }}
+                            className={Style.nexusPoints}
                           >
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -244,10 +212,8 @@ const Index = ({
                                 Highest performance data processing platform
                                 ever built.
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="48"
                                 height="55"
@@ -265,10 +231,8 @@ const Index = ({
                                 Radically simplifies how companies extract value
                                 from data.
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -286,10 +250,8 @@ const Index = ({
                                 Accelerates processing times and reduces
                                 operational costs.
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]} `}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="54"
@@ -329,23 +291,21 @@ const Index = ({
                                 AI/ML-enabled automation frees workers to
                                 perform high-value work.
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
-                      >
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
                         <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={Landing.nexusBackground}>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <div className={Style.nexusBackground}>
                   <Image
                     src={nexusBackground}
                     alt={""}
@@ -353,34 +313,31 @@ const Index = ({
                     objectFit={"cover"}
                   />
                 </div>
-              </div>
-
-              <div className={`${Landing["statement"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              </FullpageSection>
+              <FullpageSection className={Style.statement}>
+                <Grid container marginCenter>
                   <InView
                     as="span"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-xl-5"]} ${Landing["statement__image"]}`}
+                    <Grid row>
+                      <Grid
+                        size={{ Xs: 12, Xl: 5 }}
+                        className={Style.statementImage}
                       >
                         <Image
                           src={imac}
                           alt={"Image of a force graph loading on a screen"}
                         />
-                      </div>
-                      <div
-                        className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xl: 6, Xs: 12 }}>
                         <h3>Make Data Work for You.</h3>
-                        <div className={`${Grid["row"]}`}>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="58"
@@ -448,9 +405,10 @@ const Index = ({
                               </defs>
                             </svg>
                             <p>Operationalize data faster and efficiently</p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="61"
@@ -512,11 +470,12 @@ const Index = ({
                               </defs>
                             </svg>
                             <p>Connect to all your data sources</p>
-                          </div>
-                        </div>
-                        <div className={`${Grid["row"]}`}>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                          </Grid>
+                        </Grid>
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="125"
@@ -637,9 +596,10 @@ const Index = ({
                               />
                             </svg>
                             <p>Gain access to deep insights</p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="99"
@@ -713,92 +673,94 @@ const Index = ({
                               </defs>
                             </svg>
                             <p>Reduce costs in your technology stack</p>
-                          </div>
-                        </div>
+                          </Grid>
+                        </Grid>
                         <Link href={solutionsPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
-              </div>
+                </Grid>
+              </FullpageSection>
 
-              <div className={`${Landing["impact"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]} `}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Landing["impact__title"]}`}
-                    >
+              <FullpageSection className={Style.impact}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.impactTitle}>
                       <h2>Impact Studies.</h2>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Landing["impact__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__microsoft"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.impactContainer}>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactMicrosoft
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>MARKETING</p>
                         <h4>Microsoft</h4>
                         <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__hr"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactHr
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>FINANCIAL SERVICES</p>
                         <h4>H&R Block</h4>
                         <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__raytheon"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactRaytheon
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>LOGISTICS</p>
                         <h4>Raytheon</h4>
                         <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__navy"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactNavy
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>DEFENSE & INTELLIGENCE</p>
                         <h4>U.S. Navy</h4>
                         <Link href={impactPageSettings.path}>
                           <a>Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Landing["news"]} section`}>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.news}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className={clsx(Grid.container, Grid.margin_center)}>
+                  <Grid container marginCenter>
                     <NewsGrid news={news} title="Latest News" />
                     <Button
                       style={{ display: "block" }}
@@ -808,28 +770,24 @@ const Index = ({
                     >
                       View all
                     </Button>
-                  </div>
+                  </Grid>
                 </InView>
-              </div>
-              <div className={`${Landing["statement2"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xl-6"]} ${Landing["statement2__content"]}`}
-                    >
+              </FullpageSection>
+              <FullpageSection className={Style.statement2}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xl: 6 }} className={Style.statement2Content}>
                       <h3>
                         Human productivity is stifled by the ocean of data
                         growing faster than our ability to process it.
                       </h3>
-                      <div className={`${Landing["statement2__button"]}`}>
+                      <div className={clsx(Style.statement2Button)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
                       </div>
-                    </div>
-                    <div className={`${Grid["col-xl-6"]}`}>
+                    </Grid>
+                    <Grid size={{ Xl: 6 }}>
                       <video
                         controls
                         poster="./bryanPreview.png"
@@ -840,10 +798,10 @@ const Index = ({
                           type="video/mp4"
                         />
                       </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

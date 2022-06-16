@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { ReactElement, useEffect } from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TypePage } from "../generated/contentful";
 import { getPage } from "../contentful/client";

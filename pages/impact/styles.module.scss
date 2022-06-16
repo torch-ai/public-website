@@ -1,6 +1,6 @@
 @use "/styles/colors";
 
-.content-center {
+.contentCenter {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-.circle-icon {
+.circleIcon {
   padding: 3em 0;
 }
 
@@ -61,7 +61,7 @@
   color: #ffffff;
 }
 
-.gallery__title {
+.galleryTitle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,19 +70,19 @@
   color: #ffffff;
 }
 
-.gallery__container {
+.galleryContainer {
   display: flex;
   justify-content: space-evenly;
 }
 
-.gallery__container-item {
+.galleryContainerItem {
   position: relative;
   padding: 5em;
   margin: 1em 0;
   color: #ffffff;
 }
 
-.gallery__container-content {
+.galleryContainerContent {
   position: absolute;
   top: 0;
   left: 0;
@@ -95,41 +95,41 @@
   }
 }
 
-.gallery-logistics {
+.galleryLogistics {
   background-size: cover;
   background: url(../../img/gallery/logistics.png) no-repeat center center;
 }
 
-.gallery-defense {
+.galleryDefense {
   background: url(../../img/gallery/defense.png) center center no-repeat;
   background-size: cover;
 }
 
-.gallery-insurance {
+.galleryInsurance {
   background: url(../../img/gallery/insurance.png) center center no-repeat;
   background-size: cover;
 }
 
-.gallery-publicSector {
+.galleryPublicSector {
   background: url(../../img/gallery/publicsector.png) center center no-repeat;
   background-size: cover;
 }
 
-.gallery-manufacture {
+.galleryManufacture {
   background: url(../../img/gallery/manufacturing.png) center center no-repeat;
   background-size: cover;
 }
-.gallery-financial {
+.galleryFinancial {
   background: url(../../img/gallery/finance.png) center center no-repeat;
   background-size: cover;
 }
 
-.gallery-marketing {
+.galleryMarketing {
   background: url(../../img/gallery/marketing.png) center center no-repeat;
   background-size: cover;
 }
 
-.gallery-healthcare {
+.galleryHealthcare {
   background: url(../../img/gallery/healthcare.png) center center no-repeat;
   background-size: cover;
 }
@@ -143,15 +143,15 @@
   background-size: cover;
 }
 
-.logistics__content {
+.logisticsContent {
 }
 
-.logistics__content h2 {
+.logisticsContent h2 {
   padding: 1em 0;
   color: #fff;
 }
 
-.logistics__content h2::after {
+.logisticsContent h2::after {
   content: "";
   border-bottom: 5px solid #ffffff;
   padding-bottom: 0.5em;
@@ -162,7 +162,7 @@
   height: 10px;
 }
 
-.logistics__content p {
+.logisticsContent p {
   padding: 1em 0;
   color: #fff;
 }
@@ -177,16 +177,16 @@
   background-color: #ffffff;
 }
 
-.defenses__content {
+.defensesContent {
 }
 
-.defenses__content h2 {
+.defensesContent h2 {
   padding: 1em 0;
   color: black;
   max-width: 15ch;
 }
 
-.defenses__content h2::after {
+.defensesContent h2::after {
   content: "";
   border-bottom: 5px solid black;
   padding-bottom: 0.5em;
@@ -197,18 +197,18 @@
   height: 10px;
 }
 
-.defenses__content p {
+.defensesContent p {
   padding: 1em 0;
   color: black;
 }
 
-.defenses__content a[role="button"] {
+.defensesContent a[role="button"] {
   color: black;
   border: 1px solid black;
   margin-top: 1em;
 }
 
-.defenses__content a[role="button"]:hover {
+.defensesContent a[role="button"]:hover {
   background-color: black;
   color: white;
 }
@@ -224,15 +224,15 @@
   background-color: white;
 }
 
-.insurance__content {
+.insuranceContent {
 }
 
-.insurance__content h2 {
+.insuranceContent h2 {
   padding: 1em 0;
   color: black;
 }
 
-.insurance__content h2::after {
+.insuranceContent h2::after {
   content: "";
   border-bottom: 5px solid black;
   padding-bottom: 0.5em;
@@ -243,18 +243,18 @@
   height: 10px;
 }
 
-.insurance__content p {
+.insuranceContent p {
   padding: 1em 0;
   color: black;
 }
 
-.insurance__content a[role="button"] {
+.insuranceContent a[role="button"] {
   color: black;
   border: 1px solid black;
   margin-top: 1em;
 }
 
-.insurance__content a[role="button"]:hover {
+.insuranceContent a[role="button"]:hover {
   background-color: black;
   color: white;
 }
@@ -270,15 +270,15 @@
   background-size: cover;
 }
 
-.marketing__content {
+.marketingContent {
 }
 
-.marketing__content h2 {
+.marketingContent h2 {
   padding: 1em 0;
   color: #fff;
 }
 
-.marketing__content h2::after {
+.marketingContent h2::after {
   content: "";
   border-bottom: 5px solid #ffffff;
   padding-bottom: 0.5em;
@@ -289,7 +289,7 @@
   height: 10px;
 }
 
-.marketing__content p {
+.marketingContent p {
   padding: 1em 0;
   color: #fff;
 }
@@ -306,16 +306,16 @@
   background-size: cover;
 }
 
-.manufacturing__content {
+.manufacturingContent {
   justify-content: end;
 }
 
-.manufacturing__content h2 {
+.manufacturingContent h2 {
   padding: 1em 0;
   color: white;
 }
 
-.manufacturing__content h2::after {
+.manufacturingContent h2::after {
   content: "";
   border-bottom: 5px solid white;
   padding-bottom: 0.5em;
@@ -326,18 +326,18 @@
   height: 10px;
 }
 
-.manufacturing__content p {
+.manufacturingContent p {
   padding: 1em 0;
   color: white;
 }
 
-.manufacturing__content a[role="button"] {
+.manufacturingContent a[role="button"] {
   color: white;
   border: 1px solid white;
   margin-top: 1em;
 }
 
-.manufacturing__content a[role="button"]:hover {
+.manufacturingContent a[role="button"]:hover {
   background-color: white;
   color: black;
 }
@@ -352,12 +352,12 @@
   background: white;
 }
 
-.financial__content h2 {
+.financialContent h2 {
   padding: 1em 0;
   color: black;
 }
 
-.financial__content h2::after {
+.financialContent h2::after {
   content: "";
   border-bottom: 5px solid black;
   padding-bottom: 0.5em;
@@ -368,18 +368,18 @@
   height: 10px;
 }
 
-.financial__content p {
+.financialContent p {
   padding: 1em 0;
   color: black;
 }
 
-.financial__content a[role="button"] {
+.financialContent a[role="button"] {
   color: black;
   border: 1px solid black;
   margin-top: 1em;
 }
 
-.financial__content a[role="button"]:hover {
+.financialContent a[role="button"]:hover {
   background-color: black;
   color: white;
 }
@@ -396,12 +396,12 @@
   background-size: cover;
 }
 
-.publicSector__content h2 {
+.publicSectorContent h2 {
   padding: 1em 0;
   color: #fff;
 }
 
-.publicSector__content h2::after {
+.publicSectorContent h2::after {
   content: "";
   border-bottom: 5px solid #ffffff;
   padding-bottom: 0.5em;
@@ -412,7 +412,7 @@
   height: 10px;
 }
 
-.publicSector__content p {
+.publicSectorContent p {
   padding: 1em 0;
   color: #fff;
 }
@@ -425,12 +425,12 @@
   background-color: white;
 }
 
-.cta__content h3 {
+.ctaContent h3 {
   padding-bottom: 0.5em;
   color: black;
 }
 
-.cta__content h3::after {
+.ctaContent h3::after {
   content: "";
   border-bottom: 5px solid black;
   padding-bottom: 0.5em;
@@ -441,7 +441,7 @@
   height: 10px;
 }
 
-.cta__content p {
+.ctaContent p {
   padding: 1em 0;
   color: black;
 }
@@ -467,12 +467,12 @@
   background-color: #ffffff;
 }
 
-.healthcare__content h2 {
+.healthcareContent h2 {
   padding: 1em 0;
   color: black;
 }
 
-.healthcare__content h2::after {
+.healthcareContent h2::after {
   content: "";
   border-bottom: 5px solid black;
   padding-bottom: 0.5em;
@@ -483,18 +483,18 @@
   height: 10px;
 }
 
-.healthcare__content p {
+.healthcareContent p {
   padding: 1em 0;
   color: black;
 }
 
-.healthcare__content a[role="button"] {
+.healthcareContent a[role="button"] {
   color: black;
   border: 1px solid black;
   margin-top: 1em;
 }
 
-.healthcare__content a[role="button"]:hover {
+.healthcareContent a[role="button"]:hover {
   background-color: black;
   color: white;
 }
@@ -509,7 +509,7 @@
 }
 
 @media only screen and (min-width: 75em) {
-  .gallery-item {
+  .galleryItem {
     margin: 0.5em 0;
   }
 

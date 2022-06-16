@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import React, { ReactElement } from "react";

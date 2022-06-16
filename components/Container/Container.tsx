@@ -1,16 +1,12 @@
 import React from "react";
-import Grid from "../../styles/modules/grid.module.scss";
-import clsx from "clsx";
+import Grid from "../Grid/Grid";
 
 interface Props {}
 const Container: React.FunctionComponent<
   Props & React.HTMLAttributes<HTMLDivElement>
 > = ({ children, ...props }) => (
-  <div
-    {...props}
-    className={clsx(Grid.container, Grid.margin_center, props.className)}
-  >
+  <Grid container marginCenter className={props.className} {...props}>
     {children}
-  </div>
+  </Grid>
 );
 export default Container;

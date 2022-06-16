@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { ReactElement } from "react";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TypePage } from "../../generated/contentful";
@@ -33,7 +33,11 @@ const Index = ({
           {getHeadPageTitle([page.fields.title || "Content not found"])}
         </title>
       </Head>
-      <ContentfulPage page={page} asideChildren={<Form />} />
+      <ContentfulPage
+        page={page}
+        asideChildren={<Form />}
+        sharingUrl="https://torch.ai/tei-april-2022"
+      />
       <Footer />
     </>
   );
