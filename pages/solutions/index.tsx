@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
+import React, { useContext } from "react";
 import Head from "next/head";
 import Style from "./styles.module.scss";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
@@ -10,44 +10,22 @@ import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
-import { getCustomPageAndMicrocopy } from "../../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
-import Microcopy from "../../components/Microcopy/Microcopy";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
   linkContent: <>Solutions</>,
 };
 
-export const getStaticProps: GetStaticProps<{
-  microcopy: TypeMicrocopy[];
-  customPage?: TypeCustomPage;
-}> = async () => {
-  const content = await getCustomPageAndMicrocopy(pageIds.solutions);
-
-  return {
-    props: {
-      microcopy: content.microcopy,
-      customPage: content.customPage || null,
-    },
-  };
-};
-
-const Solutions = ({
-  microcopy,
-  customPage,
-}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+const Solutions: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
     <>
       <Head>
         <title>
-          {getHeadPageTitle(
-            !!customPage ? customPage.fields.pageHeadTitle : []
-          )}
+          {getHeadPageTitle([
+            "Drive value from data with a system of intelligence",
+          ])}
         </title>
       </Head>
       <section className={clsx(Style.wrap)}>
@@ -62,11 +40,10 @@ const Solutions = ({
               speed={2.5}
             >
               <div className={clsx(Style.container)}>
-                <h2>
-                  <Microcopy entries={microcopy} id="6XjILsMC9rJHZb42LGvQnz" />
-                </h2>
+                <h2>A system of intelligence across your organization. </h2>
                 <p>
-                  <Microcopy entries={microcopy} id="50pI2pTGSmUgEMCAINvP2C" />
+                  Drive value from data across all enterprise functions using
+                  Nexus' microservices.
                 </p>
 
                 <div className={clsx(Style.index)}>
@@ -75,63 +52,32 @@ const Solutions = ({
                       href="#infrastructure"
                       className={clsx(Style.indexContent)}
                     >
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="2nqPqgtH5H6zv12EoRa60A"
-                        />
-                      </h5>
+                      <h5>Infrastructure</h5>
                     </a>
                   </div>
                   <div className={clsx(Style.indexItem)}>
                     <a href="#analytics" className={clsx(Style.indexContent)}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="3RWWJDnMeXft6MD5HHAqNQ"
-                        />
-                      </h5>
+                      <h5>Analytics</h5>
                     </a>
                   </div>
                   <div className={clsx(Style.indexItem)}>
                     <a href="#machine" className={clsx(Style.indexContent)}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="7FbhlDst4QKtuqbCplBV9P"
-                        />
-                        I
-                      </h5>
+                      <h5>Machine learning & AI</h5>
                     </a>
                   </div>
                   <div className={clsx(Style.indexItem)}>
                     <a href="#enterprise" className={clsx(Style.indexContent)}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="3s69DqQHUZXqLAmYGzMmOI"
-                        />
-                      </h5>
+                      <h5>Enterprise Applications</h5>
                     </a>
                   </div>
                   <div className={clsx(Style.indexItem)}>
                     <a href="#openSource" className={clsx(Style.indexContent)}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="1CvSOb4NZFGLNsqeSnYp29"
-                        />
-                      </h5>
+                      <h5>Open Source</h5>
                     </a>
                   </div>
                   <div className={clsx(Style.indexItem)}>
                     <a href="#dataApis" className={clsx(Style.indexContent)}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="2nlSq9SVPI3lP0M4MhaVkt"
-                        />
-                      </h5>
+                      <h5>Data APIs</h5>
                     </a>
                   </div>
                 </div>
@@ -150,11 +96,13 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleInfra)}>
-                  <Microcopy entries={microcopy} id="5bXBdXXJuZHeso1bIrXwI1" />
-                </h3>
+                <h3 className={clsx(Style.titleInfra)}>Infrastructure</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="5h1yxzu89hoJmwEbDeWNvm" />
+                  Data infrastructure is the entire backend computing support
+                  system required to process, store, transfer, and safeguard
+                  data. It is an essential aspect of data processing and
+                  analysis. Businesses and organizations cannot create value out
+                  of data without having the proper data infrastructures.
                 </p>
               </div>
             </ParallaxLayer>
@@ -166,11 +114,13 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container, Style.mobileOnly)}>
-                <h3 className={clsx(Style.titleInfra)}>
-                  <Microcopy entries={microcopy} id="12zBPZUh0OLJzPFbbvdJT4" />
-                </h3>
+                <h3 className={clsx(Style.titleInfra)}>Infrastructure</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="5ETVuZWGKqd1v7G2WSybTF" />
+                  Data infrastructure is the entire backend computing support
+                  system required to process, store, transfer, and safeguard
+                  data. It is an essential aspect of data processing and
+                  analysis. Businesses and organizations cannot create value out
+                  of data without having the proper data infrastructures.
                 </p>
               </div>
             </ParallaxLayer>
@@ -182,43 +132,35 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle, "")}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3eICwpeWk43rbeC3VsJLHk"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3rvsj5adkSS4u06czZsfrV"
-                    />
-                  </p>
+                  <h3>Data lake</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="26fiECcebORCb7DIg2Ho4S"
-                    />
+                    A storage repository that holds a vast amount of raw data in
+                    its native format until it is needed for analytics
+                    applications.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1VpEQIJK9CaOAHiej5ggad"
-                    />
+                    &nbsp; Does not resemble the highly structured relational
+                    databases of the past. Locks value away in unstructured data
+                    such as documents, free text, or spoken language. Manually
+                    analyzing and processing this unstructured data is
+                    demanding, inefficient, and prone to errors. Contains copies
+                    of data outside of its authoritative source.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="34fA1EsUJaoyQN5Daxt8zq"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus does not replicate authoritative data to enable
+                    its analysis, transformation, and enrichment. Nexus' ability
+                    to analyze data in real time absolves an enterprise from
+                    unnecessary infrastructure costs, without undermining speed,
+                    reliability, or even compliance.
                   </p>
                 </div>
               </div>
@@ -231,40 +173,28 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1ysc4s4fgnyV35XHmivBr8"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7lRTrPEilQivKlsJXrrUZK"
-                    />
-                  </p>
+                  <h3>Streaming</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6jPQgqEWtEsj1PbNQEGWFs"
-                    />
+                    Data that is continuously generated by different sources.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="vag7Tjosg00e6aH6S8fMu" />
+                    &nbsp; Streaming data adds to the variety and velocity that
+                    organizations must keep up with. Real time processing of
+                    streaming data can be an insurmountable challenge.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3ILCGPmp8O0pTSgSIEqaLD"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus applies ML and statistic models to analyze data
+                    in flight, in real time, the moment it enters the data
+                    ecosystem.
                   </p>
                 </div>
               </div>
@@ -277,43 +207,32 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3A44j4VNQtDsqfovhgc8vl"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6iKM9PiyiOEbRCPVASUQhT"
-                    />
-                  </p>
+                  <h3>Graph DB</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1AgOqugyt2NHflOPznzBYC"
-                    />
+                    A database that uses graph structures for semantic queries
+                    with nodes, edges, and properties to represent and store
+                    data
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="66Wrz5ZgIQttzrDn1vB6Nj"
-                    />
+                    &nbsp; Graph databases are expensive and complex to create.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7s9w34XOqbF5VbBuWEx6K2"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides out-of-the-box features to generate
+                    instant relationships, enabling instant interaction with
+                    native graph databases. These features enable clients to
+                    take advantage of graph databases without any knowledge of
+                    the graph data underneath. Analysts can interact with the
+                    data through concepts they understand, such as objects and
+                    relationship types.
                   </p>
                 </div>
               </div>
@@ -326,40 +245,30 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2ONO7mFehjpVgwsoQZtG52"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy entries={microcopy} id="Q0fMSVCsUrPEuyQ0I3ndi" />
-                  </p>
+                  <h3>Data integration</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1xhw2jH8MV7LqJcfvmg46y"
-                    />
+                    Connecting disparate, siloed data stores so that they can
+                    share information.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5ywMv6WL1L96fX9G4pAGbK"
-                    />
+                    &nbsp; Data integration can be a brittle, labor-intensive
+                    process to build and maintain.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2oatKq7cA7XRQFIjm1rQ1T"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus' flexible, adaptive data mesh architecture
+                    enables organizations to compose the perfect solution for
+                    their unique data needs. Experience APIs assure that minimal
+                    (if any) effort is required to harmoniously insert Nexus
+                    into an existing architecture.
                   </p>
                 </div>
               </div>
@@ -372,40 +281,36 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5FAyk5g9dnqNmw9rgLzFQF"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7H0Wc5EewwmWJHFdvg92wH"
-                    />
-                  </p>
+                  <h3>ETL/ELT</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy entries={microcopy} id="5MWlwBgdWUr9bEWlcm2BX" />
+                    Extract, Transform, Load (ETL) and Extract, Load, Transform
+                    (ELT) are data integration methods that transfer data from a
+                    source to a data warehouse.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2JarEKUdOysFPvaAiHDW4L"
-                    />
+                    &nbsp; Data transformations are rule-based definitions that
+                    require a human to configure and maintain. While the analyst
+                    can derive powerful insights by fusing data from disparate
+                    sources, it is a laborious undertaking with traditional data
+                    schemas. Data curation tasks such as adding a new dimension
+                    or normalizing data to the next level requires defined
+                    processes and human effort. In short, modern data analysis
+                    requires a hefty amount of human labor.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6frZ3dHB3mQc2ZJXZkXlUQ"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; The Nexus Knowledge Layer frees the analyst from the
+                    mundane operations, enabling them to focus on the
+                    fundamental business problems. Domain and database expertise
+                    not required.
                   </p>
                 </div>
               </div>
@@ -418,43 +323,33 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7EwfjkXe0oO5EKKS6fXr2q"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3H9nVKN7lygrM6bmWtFGVC"
-                    />
-                  </p>
+                  <h3>Privacy & Security</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1nn8KoUKFwvsWUJTV7hFv9"
-                    />
+                    Data lakes aggregate and replicate data, including
+                    personally identifiable information (PII), to enable its
+                    analysis
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1yBdf6lltigmEujILUUbBF"
-                    />
+                    &nbsp; Organizations inadvertently store PII on systems
+                    outside the trusted, authoritative source, thereby creating
+                    privacy, security, and compliance risks.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2pHguYzHewAVr9eBXrozCW"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus does not persist sensitive data, such as PII.
+                    This data remains at rest on the intended authoritative
+                    system with the appropriate governance controls. Nexus's
+                    ability to categorize object-level information at the moment
+                    of existence can prevent sensitive information from ever
+                    coming to rest in a data store or system.
                   </p>
                 </div>
               </div>
@@ -467,40 +362,31 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7ntdFsGQqfi2GiZSaJ9Fe5"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7ANRRfqAXsqOQvbgtTI549"
-                    />
-                  </p>
+                  <h3>Data Observability</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy entries={microcopy} id="PPuKv1errjf8KFPmgwMWl" />
+                    Ability to understand the health and state of the data in
+                    the eco-system.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4cFDfMsk8LbpBy3jmwgw5w"
-                    />
+                    &nbsp; Organizations are awash in an ocean of data, but they
+                    can’t use it efficiently. Real-time processing of data can
+                    be an insurmountable challenge.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5ohsRZXdN6taHh1PV2ayPv"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus deploys machine learning to process data
+                    instantly before it’s stored anywhere. By using ML, Nexus
+                    can ingest and decompose data in-flight, without the need
+                    for a data lake or warehouse. Any type of data, any format,
+                    any system, any structure, in the cloud or on premises.
                   </p>
                 </div>
               </div>
@@ -513,43 +399,33 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4VnhsZtivMEp7NZUJ7cfQB"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6XJ6SCkFN06vzVKRl8CfKw"
-                    />
-                  </p>
+                  <h3>Monitoring</h3>
+                  <p>Infrastructure</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7fhzPJCRLbd0VSCX4mld5L"
-                    />
+                    Ability to measure the fitness of data for use across the
+                    eco-system.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2gYq1GwAhtdbcIM91cgNyG"
-                    />
+                    &nbsp; Monitoring is typically a myopic process performed at
+                    the application or individual level of the source. It fails
+                    to provide a holistic, end-to-end view of the data.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2AjJ77MluT8Dy2AhBmB3Dq"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; The Nexus Knowledge Layer accounts for all data
+                    within the ecosystem for real-time alert generation. It acts
+                    as the contextual overlay across the entire data landscape,
+                    establishing a clear view of meaningful entities,
+                    relationships, and insights while retaining attribution and
+                    lineage to the authoritative data for secure, governed, and
+                    trusted data discovery.
                   </p>
                 </div>
               </div>
@@ -566,11 +442,14 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3>
-                  <Microcopy entries={microcopy} id="3vGG0rIdAwfr5xNaUwsa9J" />
-                </h3>
+                <h3>Analytics</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="2Nxk0xBXclwJtzt6gaypGR" />
+                  Data analytics empowers organizations to derive insights and
+                  make conclusions from their data. Many of the techniques have
+                  been automated into mechanical processes and algorithms that
+                  process the raw data for human consumption. Analytical tools
+                  can be used to convert business data into reports, dashboards,
+                  and other visualizations.
                 </p>
               </div>
             </ParallaxLayer>
@@ -582,11 +461,14 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleAnalytics)}>
-                  <Microcopy entries={microcopy} id="77b1ls9oYC8ZQ1B70lZUK0" />
-                </h3>
+                <h3 className={clsx(Style.titleAnalytics)}>Analytics</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="7m75ybAiIFz4IRje3LWx35" />
+                  Data analytics empowers organizations to derive insights and
+                  make conclusions from their data. Many of the techniques have
+                  been automated into mechanical processes and algorithms that
+                  process the raw data for human consumption. Analytical tools
+                  can be used to convert business data into reports, dashboards,
+                  and other visualizations.
                 </p>
               </div>
             </ParallaxLayer>
@@ -598,40 +480,32 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy entries={microcopy} id="GecKyCLO8aUYZvEQsIf6z" />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3C3gjDDfVd7Q5q8grGfW2x"
-                    />
-                  </p>
+                  <h3>Platform support</h3>
+                  <p>Analytics</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5ZGqfCkFL25LnnzDraWnWS"
-                    />
+                    Modern data ecosystems typically include a variety of
+                    disparate platforms.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6vopieUSFn0XJw8uBoqloC"
-                    />
+                    &nbsp; Platform integration can be a brittle,
+                    labor-intensive process to build and maintain.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4R1aTkYkawtYgJtpT1Pv3j"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides out-of-the-box connectors for
+                    virtually every meaningful cloud service or system. For
+                    bespoke integrations, we have integration points that
+                    provide a rapid, straightforward process for developing
+                    reusable connectors. We have yet to come across a system
+                    that we can’t integrate with…and we have come across some
+                    interesting ones!
                   </p>
                 </div>
               </div>
@@ -644,43 +518,31 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7wN2IDQBWCF0b4X1hPHSA2"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7JdJ8CP1gjFQ26Nv3BJORa"
-                    />
-                  </p>
+                  <h3>Visualization support</h3>
+                  <p>Analytics</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="10bY73YUed2bjmFYd9RAav"
-                    />
+                    Visualization tools can convert business data into reports,
+                    dashboards, and other visualizations.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="45jq6kuy63tA67vR9WECH2"
-                    />
+                    &nbsp; Visualization tools are non-extensible, and their
+                    configuration requires an understanding of the underlying
+                    complex data model.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1G9z0lEyo21MsnxGfnsKhC"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; We have out-of-the-box connectors for virtually every
+                    meaningful cloud service or system, such as Tableau,
+                    PowerBI, and Qlik. Nexus converts business-friendly data
+                    requests into optimized technical queries, enabling a "no
+                    code” mechanism for data access and discovery.
                   </p>
                 </div>
               </div>
@@ -693,43 +555,33 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1C3M1sAfs50nRgdbe8m6po"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="61pieNCIaWS3kbxllh7i9U"
-                    />
-                  </p>
+                  <h3>Data analysts and data science</h3>
+                  <p>Analytics</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3HT9j4HW9b5sfFmT8vm7OO"
-                    />
+                    Data analytics focuses on viewing the historical data in
+                    context while data science focuses on machine learning and
+                    predictive modeling.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7isjt5Mi5yZX57SCI0ETCW"
-                    />
+                    &nbsp; Labor intensive to process, cleanse, and verify the
+                    integrity and quality of the data.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3U2H4YAnRhI2lUf2XMMjHa"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides cleansed, ready-to-use data for both
+                    the analyst and the data scientist. Nexus streamlines
+                    visualization and KPIs. Nexus also supports Bring Your Own
+                    Model (BYOM) to wrap your existing data science artifacts in
+                    our MLOps environment, freeing data scientists to focus on
+                    innovation rather than mundane model operations and
+                    maintenance.
                   </p>
                 </div>
               </div>
@@ -742,43 +594,34 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5FqKmWBoTVRKVcQKvuhKSU"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7dbm1zBuePdrfnkjKm0ofY"
-                    />
-                  </p>
+                  <h3>Data catalog and discovery</h3>
+                  <p>Analytics</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1dCBv2T0j6X5hjYjqKVQrn"
-                    />
+                    An organized inventory of data assets in the organization.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5mKWHUdPToanSsPeUhoLYa"
-                    />
+                    &nbsp; Unmanaged data lakes create a data swamp littered
+                    with hard-to-understand data across silos. There is no
+                    single place to find, understand, and govern data across the
+                    ecosystem. Extracting intelligence requires a permanent
+                    transformation process, typically configured by human
+                    engineers and consuming additional computing resources.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="380nbfUaT44Lz756HgxZEk"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus enables organizations to semantically
+                    understand the wealth of information in their unstructured
+                    data, and then use that knowledge to contextualize and
+                    correlate their entire data ecosystem. It provides a
+                    holistic view of enterprise data that unleashes new insights
+                    and speeds decisioning.
                   </p>
                 </div>
               </div>
@@ -791,43 +634,32 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4LJmF6PjtKEO67oRAhXnUU"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2r3EqiodhDL9MV7Ts6b9ib"
-                    />
-                  </p>
+                  <h3>Query engine</h3>
+                  <p>Analytics</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7oSuW80PPIspTMDszvwZ9n"
-                    />
+                    Software that executes queries against data in various data
+                    sources to provide answers for users or applications.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3lZ5AE5FaJihDD4Lfj5AOt"
-                    />
+                    &nbsp; Current query engines are not data agnostic. They
+                    require the user to understand the underlying data
+                    structure. No single unified query access across all data
+                    sources.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5OUjMyPMq7YvjlKhrf7W7i"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides a proprietary "no code” data retrieval
+                    system which converts business-friendly data requests into
+                    optimized technical queries. Queries are made across
+                    federated data sources. Nexus users and decision-makers do
+                    not require knowledge of SQL queries or programming skills.
                   </p>
                 </div>
               </div>
@@ -845,10 +677,15 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="f7AVVbtEoaHRNbWRhD4pB" />
+                  Machine learning & AI
                 </h3>
                 <p>
-                  <Microcopy entries={microcopy} id="3FdcBna3mjJBbQjzF00BSn" />
+                  Machine learning is an application of artificial intelligence
+                  (AI) that enables systems to automatically learn and improve
+                  from experience without being explicitly programmed. The
+                  learning process begins with a large data set, and the model
+                  looks for patterns in the data to make better decisions in the
+                  future.
                 </p>
               </div>
             </ParallaxLayer>
@@ -861,10 +698,15 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="m6OzKVsIplGJvyH7ups2t" />
+                  Machine learning & AI
                 </h3>
                 <p>
-                  <Microcopy entries={microcopy} id="6WfoQsjq7BPcSe5zeoMryd" />
+                  Machine learning is an application of artificial intelligence
+                  (AI) that enables systems to automatically learn and improve
+                  from experience without being explicitly programmed. The
+                  learning process begins with a large data set, and the model
+                  looks for patterns in the data to make better decisions in the
+                  future.
                 </p>
               </div>
             </ParallaxLayer>
@@ -876,40 +718,31 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3VxDh2hRzK6D5i8EoztfRW"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy entries={microcopy} id="Wnvo34tOEgBn4Qk2FrmrI" />
-                  </p>
+                  <h3>Data science platforms</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1S44zbBcRnJ6g1y1KUN2ap"
-                    />
+                    Modern data science typically encompasses a variety of
+                    unique platforms.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3iNKyeBTPik0yaWl35ttj0"
-                    />
+                    &nbsp; Data science projects fail frequently. Data is often
+                    difficult to access, in different formats, in different data
+                    stores, and with different security and privacy
+                    requirements.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7FAz7EzmAH3DoLAHEX2STa"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus data mesh architecture seamless integrates with
+                    upstream and downstream systems, connecting the silos and
+                    enabling analysts to interact with the totality of their
+                    data.
                   </p>
                 </div>
               </div>
@@ -922,43 +755,28 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6mLBAFgdN7odvrTAsgK6QA"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7vQm9PaxBEAuyJ0DVyRASD"
-                    />
-                  </p>
+                  <h3>ML platform</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1tmmPB8VGznynxAx8opg3h"
-                    />
+                    Supports the integration of ML models to facilitate data
+                    analysis.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2OgnEMDeBygaFXqInBPyUE"
-                    />
+                    &nbsp; Building and deploying effective ML models requires
+                    significant expertise and investment.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3kUhAdIMzT7xfnw727pjcI"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus’ holistic nature of data analysis enables ML
+                    automation. Models can be quickly built and deployed within
+                    workflows.
                   </p>
                 </div>
               </div>
@@ -971,34 +789,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6BU1fewptackaNbbHVPYkD"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6Xge75VqZKET0jaJv0Z55m"
-                    />
-                  </p>
+                  <h3>Data generation and labeling</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy entries={microcopy} id="9nvwXrGvDMQIMkRL5CCLi" />
+                    Large amounts of high quality, labeled data is required to
+                    train effective machine learning models.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="HDPuj44gWWCMRnXZz2i75" />
+                    &nbsp; High quality labeled data is expensive to produce and
+                    may still contain errors.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy entries={microcopy} id="nAXISeshVbycHdkLwX8mt" />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus Dynamic Data Extraction (DDE) automates the
+                    data labeling process by analyzing any type of input,
+                    structured or unstructured, and tagging the relevant data
+                    within.
                   </p>
                 </div>
               </div>
@@ -1011,43 +824,30 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="622nWmwmnhCwoGasftMgRu"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4rqFsoJ2GgNOP9LuLfzIR2"
-                    />
-                  </p>
+                  <h3>Model building</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6dx4jxEF9wDOpJuSgamdwk"
-                    />
+                    Machine learning algorithms build models based on sample
+                    data.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1kpsaiGSifxByCq3pq7nOJ"
-                    />
+                    &nbsp; Building and deploying effective ML models requires
+                    significant expertise and investment.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2JBsKXvIEdOEOwS0h7npBQ"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides best-in class, pre-built models for
+                    any natural language processing (NLP) and image processing
+                    (CV) task. Nexus also supports Bring Your Own Model (BYOM)
+                    to wrap existing data science artifacts in our MLOps
+                    environment.
                   </p>
                 </div>
               </div>
@@ -1060,43 +860,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3lABvQMjeODxeBBBTm8i89"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2eyVLOHJhjPAbU9Ko67PcR"
-                    />
-                  </p>
+                  <h3>Deployment and production</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4sQr7LHQusgkmArWtrhMu9"
-                    />
+                    Once trained and tested, machine learning models are
+                    deployed into production workflows.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5lKQoE4PbeDEhVFl8AYfLt"
-                    />
+                    &nbsp; The process of deploying machine learning models
+                    requires significant hands-on expertise and involvement with
+                    the production workflow.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3LuneuPAIES42vofLR14Hd"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus fully manages the deployment of machine
+                    learning models into production workflows through a low-code
+                    or no-code interface.
                   </p>
                 </div>
               </div>
@@ -1109,34 +895,28 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy entries={microcopy} id="biIoi5OTbyq4MfcmSWiEJ" />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6AS4n3UFZsBc8DrKWHGxeM"
-                    />
-                  </p>
+                  <h3>Model monitoring</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy entries={microcopy} id="NlYNsleRWHgiTn8zCjGbO" />
+                    Production models must be closely monitored in order to
+                    evaluate their effectiveness.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="ukEXrQzDJ84gIEZphvvkg" />
+                    &nbsp; There is typically a delay or latency in gathering
+                    information, and additional tools may be needed for event
+                    notifications and other feedback.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4AvoCcIXrwA0jd9CWuwYL0"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus collects and analyzes data in real time and
+                    provides automated alerts, notifications, and health checks.
                   </p>
                 </div>
               </div>
@@ -1150,42 +930,37 @@ const Solutions = ({
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
                   <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7wU5GXTtdOx7KJPoqzxMov"
-                    />
+                    Computer Vision, Speech Analysis, and Natural Language
+                    Processing
                   </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="25ZnRWfFpb0FRX8lgowiLm"
-                    />
-                  </p>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2HTXNJjYNEFhP6TtBD6eMK"
-                    />
+                    Modern machine learning models can perform tasks related to
+                    computer vision (CV), speech analysis, and natural language
+                    processing (NLP).
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2FoO71YDTAwPpiC5ETNutm"
-                    />
+                    &nbsp; Limited number of pre-trained models available for
+                    use. No support for Bring Your Own Model (BYOM).
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6daeY6o3ns7pJzm5yTYZ5H"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides best-in class, pre-built models for
+                    any natural language processing (NLP) and image processing
+                    (CV) task or use case. NLP models include machine
+                    translation, sentiment analysis, question answering, named
+                    entity recognition, and text classification. CV models
+                    include segmentation, detection, classification, and
+                    recognition. Nexus also supports Bring Your Own Model (BYOM)
+                    to wrap existing data science artifacts in its MLOps
+                    environment.
                   </p>
                 </div>
               </div>
@@ -1198,40 +973,27 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4322BtclOBU4ZNWFGsiYdE"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1tLicSdwwHtJ778vr8TlDi"
-                    />
-                  </p>
+                  <h3>Synthetic media</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5DmYopRtfIApaAWnDm3NdN"
-                    />
+                    Artificial intelligence can create realistic synthetic media
+                    or data objects.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="vFhVOGb50A5t4qmifJ4sj" />
+                    &nbsp; Synthetic media is a state-of-the-art technology that
+                    requires significant expertise and investment.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4q9Qlvr7q2VrRbjXTa6zkH"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus has created and deployed industrial grade
+                    synthetic media for existing customers.
                   </p>
                 </div>
               </div>
@@ -1244,40 +1006,27 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6r8OHnbn5EKUKLCoOKYtFA"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3a4clSHBVBAyQwxBSs72AY"
-                    />
-                  </p>
+                  <h3>AI hardware optimization</h3>
+                  <p>Machine learning & AI</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4PjQ71riz44dJZcK7dpZpU"
-                    />
+                    Machine learning models require computing resources to
+                    train.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="XQePSDmCRdOQ2vo3zwHsW" />
+                    &nbsp; The training process is computationally expensive and
+                    requires GPUs.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4F06HC0u0W1d5dRx86YtfW"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus is optimized to train models using
+                    off-the-shelf hardware.
                   </p>
                 </div>
               </div>
@@ -1295,10 +1044,14 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="3U45RNRTZXsALSuGKPN6ml" />
+                  Enterprise Applications
                 </h3>
                 <p>
-                  <Microcopy entries={microcopy} id="75rlNmNHcCkWwWZiYujmJ3" />
+                  An enterprise application (EA) is a scalable software system
+                  designed for a large business or government agency. EAs are
+                  complex, distributed, and mission critical. EAs are developed
+                  using enterprise architecture and are a critical component of
+                  computer-based information systems.
                 </p>
               </div>
             </ParallaxLayer>
@@ -1311,10 +1064,14 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="2vZzW3U2OFbqJi8yldC7mG" />
+                  Enterprise Applications
                 </h3>
                 <p>
-                  <Microcopy entries={microcopy} id="2aJFHtHkpLELi1eAmUpO17" />
+                  An enterprise application (EA) is a scalable software system
+                  designed for a large business or government agency. EAs are
+                  complex, distributed, and mission critical. EAs are developed
+                  using enterprise architecture and are a critical component of
+                  computer-based information systems.
                 </p>
               </div>
             </ParallaxLayer>
@@ -1326,43 +1083,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4759SsmiX7sXdzVB5ezi43"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3OfQwVYpgiaICcEOjQSEXf"
-                    />
-                  </p>
+                  <h3>Decisioning platforms</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2i5uYcO8ALiGmR7BsOPgsS"
-                    />
+                    Software with defined decision logic used to automate an
+                    intelligent process.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4Lh1yVCCJtagUKo2Dhg3iD"
-                    />
+                    &nbsp; Relies on humans to define and build workflows that
+                    are often based on flawed legacy processes.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3BjmBxergLmfkkfw1fHzCC"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus automatically surfaces meaningful intelligence
+                    from data across multiple sources. Users and decision-makers
+                    can leverage the intelligence within their data without
+                    knowledge of SQL queries or programming skills.
                   </p>
                 </div>
               </div>
@@ -1375,43 +1118,30 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7o3y09ReyIcSbk9QMOcS0N"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3o5mtL8krOTxKAd9cMhwXw"
-                    />
-                  </p>
+                  <h3>Sales enablement</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6xWrFFFRk18nj7PHc6fnVG"
-                    />
+                    Software that provides visibility across the sales
+                    lifecycle.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6PnYaS4XOWtwmrNOckIca4"
-                    />
+                    &nbsp; Current sales enablement solutions are prone to
+                    flawed, limited data, providing questionable insight and
+                    low-impact observations.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="53ORxZmPUfSN1t6DGRxODZ"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus automatically surfaces meaningful intelligence
+                    from data across multiple sources. It processes all data to
+                    feed relationship and behavioral intelligence models, which
+                    generates specific sales targets and context.
                   </p>
                 </div>
               </div>
@@ -1424,43 +1154,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3llZFhnUR3X0GGTIqqTPyz"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1whDQh3Z9WWtc1MqzIyce9"
-                    />
-                  </p>
+                  <h3>Marketing</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4P6ocXxcNw2H2vkRreMsd0"
-                    />
+                    Software that enables marketing organizations to centralize
+                    and streamline their processes.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4CTAMBtjNh8YlJIc46X2U9"
-                    />
+                    &nbsp; Marketing solutions have manually defined schemas and
+                    rules which are bound by human expertise.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1rJnVqCj8HJkp1nquC0g4P"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus automatically surfaces meaningful intelligence
+                    from data across multiple sources. It enables real-time
+                    detection of emerging communities or anomalies relevant to
+                    marketing strategy and execution.
                   </p>
                 </div>
               </div>
@@ -1473,34 +1189,30 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy entries={microcopy} id="wsUaDDFprCZjUvPoZjVNP" />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3ZVTRyX3oRDgU0ute1RjIw"
-                    />
-                  </p>
+                  <h3>Customer experience</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy entries={microcopy} id="FIQzuFYCX9xd5voJuzqaD" />
+                    Software that helps companies establish their customer
+                    interaction goals.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4Eyo4xtC9LZfSjiDWY9GJI"
-                    />
+                    &nbsp; Customer experience solutions rely on direct
+                    interactivity with the customer and are unable to acquire
+                    feedback from external sources.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy entries={microcopy} id="XxxUsSAgsmGBzJ33ALfFW" />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus semantically understands unstructured feedback
+                    through channels such as social media. It can correlate
+                    sentiment with resolved entities in real time to create a
+                    holistic analysis of customer engagement.
                   </p>
                 </div>
               </div>
@@ -1513,43 +1225,32 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3tmGuwOzMnJgZtfZ9OQZFt"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2bLSiCrSrg0tYDoFpLUUQN"
-                    />
-                  </p>
+                  <h3>Human capital management</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4NOIlWCdkFlLd4Ud6fK5zs"
-                    />
+                    Software that attempts to transform the traditional
+                    functions of human resources departments into opportunities
+                    that drive engagement, productivity, and business value.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="21QQJTBzpLTjmlwjsS3iwA"
-                    />
+                    &nbsp; Human capital management systems are limited by the
+                    data they manage, creating an incomplete, myopic view of
+                    human capital.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2zOjnWLOoKYUYhwH699bds"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus assimilates first and third-party data sources,
+                    including publicly available information, to provide a
+                    360-degree view of people and their associated entities.
+                    Nexus automatically surfaces intelligence relevant to
+                    decision makers.
                   </p>
                 </div>
               </div>
@@ -1562,43 +1263,30 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6JvHFCvp6ABeEuRvBjJxuI"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7JjDg0blu7pVN5J4fjSTnI"
-                    />
-                  </p>
+                  <h3>Compliance</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4ghimZfqGD4rt0bh2JywDu"
-                    />
+                    Software that tracks, monitors, and audits business
+                    processes to ensure they comply with policies and standards.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6Aet7SsKlOqksVGp0WKjVm"
-                    />
+                    &nbsp; Compliance solutions can document governance rules,
+                    but they cannot enforce the rules in a production
+                    environment without expensive customization.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5OrNGPF6uWbyYicg4osYGb"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus seamlessly pairs with compliance solutions to
+                    enact and enforce defined policies on data in motion and at
+                    rest to ensure fine-grained governance on any data type and
+                    any system.
                   </p>
                 </div>
               </div>
@@ -1611,37 +1299,31 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy entries={microcopy} id="kg3uARNwHb3JduIE1vIc9" />
-                  </h3>
-                  <p>
-                    <Microcopy entries={microcopy} id="oCT880yH6RrZ7YjnMmexc" />
-                  </p>
+                  <h3>Security</h3>
+                  <p>Enterprise Applications</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1lYLuXS7C1qsVcjhOkWigs"
-                    />
+                    Software that secures and protects a computer, network, or
+                    computing-enabled device.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6gyFiqSW6SwXlMhypgPtzD"
-                    />
+                    &nbsp; Current solutions cannot perform real-time data
+                    correlation across an entire data ecosystem and thus have a
+                    narrow view of the context of events.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7Iy7sEcKKHFd5BfReogOH3"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus processes, enriches, and analyzes logs in real
+                    time to create a more holistic view of the security
+                    landscape. This enables Nexus to more effectively identify
+                    anomalies, unexpected content, and exceeded thresholds,
+                    which can then trigger countermeasures.
                   </p>
                 </div>
               </div>
@@ -1658,11 +1340,13 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="1ch1zoHhJh4B0xjMv9CHdx" />
-                </h3>
+                <h3 className={clsx(Style.titleMachine)}>Open Source</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="1MbCtwbqVrwAChkuXQcebx" />
+                  Open source software is developed in a decentralized and
+                  collaborative way, relying on peer review and community
+                  production. It has become a movement and a way of working that
+                  finds new ways to solve problems in communities and
+                  industries.
                 </p>
               </div>
             </ParallaxLayer>
@@ -1674,11 +1358,13 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleOpenSource)}>
-                  <Microcopy entries={microcopy} id="2SmzNqnUOF4XXA4dLnq8ld" />
-                </h3>
+                <h3 className={clsx(Style.titleOpenSource)}>Open Source</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="1wgzweK3EM3K68sEFoBBdJ" />
+                  Open source software is developed in a decentralized and
+                  collaborative way, relying on peer review and community
+                  production. It has become a movement and a way of working that
+                  finds new ways to solve problems in communities and
+                  industries.
                 </p>
               </div>
             </ParallaxLayer>
@@ -1690,40 +1376,30 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3D2Bnxi1J00YRK9UctKZQI"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5xtSAqNXAS8hiKA4NHQGUn"
-                    />
-                  </p>
+                  <h3>Orchestration</h3>
+                  <p>Open Source</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1E3PMJJoaqM0ZrhknosVWK"
-                    />
+                    Orchestration software requires detailed knowledge of both
+                    the software systems and the enablers that are being
+                    aggregated.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="lmp1Zyvpv4SwJf00RxpEH" />
+                    &nbsp; Orchestration software requires detailed knowledge of
+                    both the software systems and the enablers that are being
+                    aggregated.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6PdxjU6aRwp7QVVEKdGTsF"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus natively implements workflow, security, ML/AI,
+                    and integration functionality into a single platform,
+                    streamlining the ability to create data workflows.
                   </p>
                 </div>
               </div>
@@ -1736,43 +1412,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6qYwlpOP2KTV5VoyuqoSqr"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="50mhYUZflWp34hMu1XYsU4"
-                    />
-                  </p>
+                  <h3>Query and data flow</h3>
+                  <p>Open Source</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
+                  <p>Software that moves data along concurrent pipelines.</p>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="37OCH4L5yp8JUOlPTW5iOO"
-                    />
+                    <span className={clsx(Style.subContentAccent)}>
+                      Challenge:
+                    </span>
+                    &nbsp; The different products in this domain use specialized
+                    methods to retrieve data, but they rely on humans to
+                    reactively define and execute the queries on the centralized
+                    data store.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7Gzv3npO2crwBJww0Eq78j"
-                    />
-                  </p>
-                  <p>
-                    <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5CoNWPP06O4jdM8rKCzLDZ"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus is a data-centric solution that aggregates the
+                    objects, concepts, and relationships within the data
+                    ecosystem in the Knowledge Layer. It not only responds to
+                    query requests, but it can proactively suggest the data
+                    objects necessary to perform a business function.
                   </p>
                 </div>
               </div>
@@ -1785,40 +1447,32 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy entries={microcopy} id="bdUnGusME8mFjk9Z2Xb7r" />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="38PGD1A3ANjsjh986nI5q2"
-                    />
-                  </p>
+                  <h3>AI and ML</h3>
+                  <p>Open Source</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5hmSsOAQxTE9i7cRefIRBO"
-                    />
+                    Software that wraps the mathematics necessary to create
+                    specialized ML models.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2m1QvGAnZw99jooBOteQkz"
-                    />
+                    &nbsp; AI/ML frameworks require data scientists and domain
+                    experts to have knowledge of enterprise architecture,
+                    scalability practices, and auditing.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1epCrPdWya5J6thXcbmrGY"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus provides over fifty pre-built models that
+                    provide best-in-class data operations. Nexus also supports
+                    Bring Your Own Model (BYOM) to wrap your existing data
+                    science artifacts in our MLOps environment, freeing data
+                    scientists to focus on innovation rather than mundane model
+                    operations and maintenance.
                   </p>
                 </div>
               </div>
@@ -1831,40 +1485,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3irO9MiJm5n5jEj9uEGDV1"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2sfQZt8d89fbhH2V10cSpJ"
-                    />
-                  </p>
+                  <h3>Monitoring</h3>
+                  <p>Open Source</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5hY6xUys8KqKf9QS6eKTwj"
-                    />
+                    Software that provides insights into the operation of a
+                    system.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6w7r861hXWNcl3xgy75j4m"
-                    />
+                    &nbsp; Current monitoring solutions cannot perform real-time
+                    data correlation and thus have a narrow view on the context
+                    of events.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy entries={microcopy} id="kHWdOSZOZOgB0ICG91CnG" />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; For appropriate event-generation accuracy and
+                    timeliness, Nexus correlates data across first and third
+                    party data sources, enabling whole-entity analysis.
                   </p>
                 </div>
               </div>
@@ -1877,40 +1520,31 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2WTLaNHluQQRYcbxYIJjbx"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1ljwZr6LSIVgjRFVTuMZqj"
-                    />
-                  </p>
+                  <h3>Security</h3>
+                  <p>Open Source</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1jUU51aQadjGY760dUbptX"
-                    />
+                    Software that secures and protects a computer, network, or
+                    computing-enabled device.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6FhvSYTuZahDt7gMXVctlX"
-                    />
+                    &nbsp; Current solutions cannot perform real-time data
+                    correlation across an entire data ecosystem and thus have a
+                    narrow view on the context of events.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy entries={microcopy} id="M5nqa4xnPQMlaXbTvosZw" />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus processes, enriches, and analyzes logs in real
+                    time to create a more holistic view of the security
+                    landscape. This enables Nexus to more effectively identify
+                    anomalies, unexpected content, and exceeded thresholds,
+                    which can then trigger countermeasures.
                   </p>
                 </div>
               </div>
@@ -1927,11 +1561,12 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="51pvjP3a4kQC2TjggUDWSO" />
-                </h3>
+                <h3 className={clsx(Style.titleMachine)}>Data APIs</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="3K6DJKoDNzD4QxLrofzXlX" />
+                  Application Programming Interface (API) is a software
+                  intermediary that allows two applications to talk to each
+                  other. It opens up software features for use by external third
+                  parties, partners, and associates.
                 </p>
               </div>
             </ParallaxLayer>
@@ -1943,11 +1578,12 @@ const Solutions = ({
               speed={0.5}
             >
               <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleOpenSource)}>
-                  <Microcopy entries={microcopy} id="6qKIgEouYG7oNYiTKJj2hb" />
-                </h3>
+                <h3 className={clsx(Style.titleOpenSource)}>Data APIs</h3>
                 <p>
-                  <Microcopy entries={microcopy} id="3lolvTKiKBJzyZm6eVdY7M" />
+                  Application Programming Interface (API) is a software
+                  intermediary that allows two applications to talk to each
+                  other. It opens up software features for use by external third
+                  parties, partners, and associates.
                 </p>
               </div>
             </ParallaxLayer>
@@ -1959,43 +1595,34 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1FKZ0KvBAVZ6GKjaRz8utZ"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3LmWEWp29GXG63qd3P2hwD"
-                    />
-                  </p>
+                  <h3>People & entities</h3>
+                  <p>Data APIs</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5tdOsRLNRZJ1agzMK59IPO"
-                    />
+                    Software that provides information on people and entities.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1b70LZFCmJWXZthKNDMBIO"
-                    />
+                    &nbsp; Rigid definitions of people do not take advantage of
+                    all discoverable data points and cannot properly resolve
+                    ambiguities in aggregated data.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="467ZSYwGvTNieGpd2cuutj"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Torch.AI has pioneered an approach for acquiring and
+                    enriching publicly available information (PAI) that enables
+                    intelligence analysts to hone operational targets more
+                    efficiently and effectively. This process gathers structured
+                    and unstructured data (e.g., text, audio, video) in various
+                    languages from throughout the internet and dark web, uses
+                    machine learning models to extract and correlate entities
+                    and their relationships in a knowledge graph, and makes this
+                    data available for analyst search and discovery.
                   </p>
                 </div>
               </div>
@@ -2008,43 +1635,35 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1O2wpGTQFO9i4AlvlrN4ZS"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5uUvfddFuugEJvS1W6GAjm"
-                    />
-                  </p>
+                  <h3>Financial</h3>
+                  <p>Data APIs</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="328CagX7edWOouUJkhPWtr"
-                    />
+                    Software that provides financial-related information on
+                    organizations and entities.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4e92prsEBcNyk8MZ6FICZa"
-                    />
+                    &nbsp; Financial analysis requires countless manual
+                    processes to integrate information from a wide variety of
+                    sources, both internal and external.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4ovM06d6mTxy5IvxmQissx"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Torch.AI has pioneered an approach for acquiring and
+                    enriching publicly available information (PAI) that enables
+                    intelligence analysts to hone operational targets more
+                    efficiently and effectively. This process gathers structured
+                    and unstructured data (e.g., text, audio, video) in various
+                    languages from throughout the internet and dark web, uses
+                    machine learning models to extract and correlate entities
+                    and their relationships in a knowledge graph, and makes this
+                    data available for analyst search and discovery.
                   </p>
                 </div>
               </div>
@@ -2057,40 +1676,29 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="7kLxAWOK4i5HNPHqkAhOCf"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="39AkDEIpy9PSIe5xZbVHJU"
-                    />
-                  </p>
+                  <h3>Air-space and sea</h3>
+                  <p>Data APIs</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6an0Dy9L0Z3BlEOtJXKiHF"
-                    />
+                    Software that provides air-space and sea-related information
+                    to organizations in any domain.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="9dzed0PFdC5pjdjkGXjKj" />
+                    &nbsp; Limited processing power and connectivity leads to
+                    challenges in creating actionable intelligence at the edge.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4RIRZU6c63GsA0ayjFYMCG"
-                    />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus Dynamic Data Extraction (DDE) categorizes data
+                    objects and creates atomic information about data on the
+                    edge so that workflows can be actioned on in the field and
+                    aggregated when compute/network is available.
                   </p>
                 </div>
               </div>
@@ -2103,37 +1711,28 @@ const Solutions = ({
             >
               <div className={clsx(Style.container)}>
                 <div className={clsx(Style.subContentTitle)}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="2FPhS1LVvEi0PwFF8Drxb1"
-                    />
-                  </h3>
-                  <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="1xFk8YkwgimIskvOdAb7sz"
-                    />
-                  </p>
+                  <h3>Location intelligence</h3>
+                  <p>Data APIs</p>
                 </div>
                 <div className={clsx(Style.subContent)}>
                   <p>
-                    <Microcopy
-                      entries={microcopy}
-                      id="4kDODp4xxNemtWX83Z9ZCd"
-                    />
+                    Software that extracts information and derives insights from
+                    geo-spatial data.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Challenge:&nbsp;
+                      Challenge:
                     </span>
-                    <Microcopy entries={microcopy} id="cuPJ8tVkwY83FHMgpOiIv" />
+                    &nbsp; Geographical entities are subject to problems with
+                    ambiguities and do not consider context, especially within
+                    unstructured data.
                   </p>
                   <p>
                     <span className={clsx(Style.subContentAccent)}>
-                      Solution:&nbsp;
-                    </span>
-                    <Microcopy entries={microcopy} id="Dm6HLfYxG2TTsmF0CweB3" />
+                      Solution:
+                    </span>{" "}
+                    &nbsp; Nexus uses geographical data to resolve entity
+                    information and correlate locations with external data sets.
                   </p>
                 </div>
               </div>

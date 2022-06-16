@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, ReactElement } from "react";
+import React, { useContext } from "react";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
@@ -9,46 +9,20 @@ import Head from "next/head";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
-import { getCustomPageAndMicrocopy } from "../../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
-import Microcopy from "../../components/Microcopy/Microcopy";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import pageIds from "../../contentful/pages";
-import FullpageSection from "../../components/FullpageSection/FullpageSection";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
   linkContent: <>PRISM</>,
 };
 
-export const getStaticProps: GetStaticProps<{
-  microcopy: TypeMicrocopy[];
-  customPage?: TypeCustomPage;
-}> = async () => {
-  const content = await getCustomPageAndMicrocopy(pageIds.prism);
-
-  return {
-    props: {
-      microcopy: content.microcopy,
-      customPage: content.customPage || null,
-    },
-  };
-};
-
-const Index = ({
-  microcopy,
-  customPage,
-}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
     <>
       <Head>
-        <title>
-          {getHeadPageTitle(
-            !!customPage ? customPage.fields.pageHeadTitle : []
-          )}
-        </title>
+        <title>{getHeadPageTitle(["PRISM", "Nexus platform"])}</title>
       </Head>
       <ReactFullpage
         navigation
@@ -57,23 +31,15 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <FullpageSection className={Style.hero}>
+              <section className={clsx("section", Style.hero)}>
                 <div className={Style.container}>
-                  <h1>
-                    <Microcopy
-                      entries={microcopy}
-                      id="6aXGlt9bH2rvyjz2QcAPfM"
-                    />
-                  </h1>
+                  <h1>PRISM</h1>
                   <h4>
-                    <Microcopy
-                      entries={microcopy}
-                      id="5ZQR3QYrHW0MR5f3NcdyLW"
-                    />
+                    Military-grade document intelligence. Now for insurance.
                   </h4>
                 </div>
-              </FullpageSection>
-              <FullpageSection className={Style.professional}>
+              </section>
+              <section className={clsx("section", Style.professional)}>
                 <InView
                   as="div"
                   className={Style.checking}
@@ -81,94 +47,57 @@ const Index = ({
                 >
                   <div className={Style.container}>
                     <h3>
-                      <Microcopy
-                        entries={microcopy}
-                        id="2PR1mZnbrbHMucUYg51chy"
-                      />
+                      As an insurance professional, you enable trust across
+                      entire economies.
                     </h3>
                     <p>
-                      <Microcopy
-                        entries={microcopy}
-                        id="ZpQqmPtb6bVckgKkrclIH"
-                      />
+                      Prism powers that mission, simplifying how you achieve
+                      cheaper, more accurate than anyone else.
                     </p>
                   </div>
                 </InView>
-              </FullpageSection>
-              <FullpageSection className={Style.organization}>
+              </section>
+              <section className={clsx("section", Style.organization)}>
                 <div className={Style.container}>
-                  <h3>
-                    <Microcopy
-                      entries={microcopy}
-                      id="3PPmCDev70MfolTJWApHDa"
-                    />
-                  </h3>
+                  <h3>Insurance organizations deal with messy data.</h3>
                   <p className={Style.subtitle}>
-                    <Microcopy entries={microcopy} id="anDyE3d02R0gNfy7K3lrh" />
+                    Most of it—up to 90%—consists of documents, PDFs, scans,
+                    faxes, and images.
                   </p>
                   <hr />
                   <div className={Style.prismFeatures}>
                     <div className={Style.prismFeatureItem}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="2RI4i862xZxDiqRegFDVZb"
-                        />
-                      </h5>
+                      <h5>It's Expensive.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="3NbOdT88fhF5w2wCy9jNWg"
-                        />
+                        It can cost up to $220 to analyze a single document.
                       </p>
                     </div>
                     <div className={Style.prismFeatureItem}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="1xsFDvArPFh0qL77boqRT5"
-                        />
-                      </h5>
+                      <h5>It's not productive.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="40f3z3OUld8OGK5Ri41J3C"
-                        />
+                        &gt;60% of teams are manually copying and pasting
+                        document data.
                       </p>
                     </div>
                     <div className={Style.prismFeatureItem}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="45AlgMmfESEWciRmpB9NA0"
-                        />
-                      </h5>
+                      <h5>It's not accurate.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="5LaIaUQvkeovd43OgG2kmQ"
-                        />
+                        Manual efforts are error prone and existing solutions
+                        can't scale.
                       </p>
                     </div>
                     <div className={Style.prismFeatureItem}>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="6ibXq6IQENFU4nBxiKb6Nk"
-                        />
-                      </h5>
+                      <h5>It's getting worse, fast.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="5FJ7mkZl1hwORBfPFJypgn"
-                        />
+                        Messy data is growing 300% faster than more usable,
+                        tabular data.
                       </p>
                     </div>
                   </div>
                 </div>
-              </FullpageSection>
+              </section>
 
-              <FullpageSection className={Style.win}>
+              <section className={clsx("section", Style.win)}>
                 <InView
                   as="div"
                   className={Style.checking}
@@ -176,36 +105,19 @@ const Index = ({
                 >
                   <div className={Style.container}>
                     <div className={Style.winPoints}>
-                      <h3>
-                        <Microcopy
-                          entries={microcopy}
-                          id="6m5Y1WWrvanMRSGL3fkjrY"
-                        />
-                      </h3>
+                      <h3>Win with Prism</h3>
                       <ul>
+                        <li>Reduce operational cost.</li>
                         <li>
-                          <Microcopy
-                            entries={microcopy}
-                            id="5UdWgojD1RlAwyU8sPcHfr"
-                          />
+                          Automate & accelerate document processing times.
                         </li>
                         <li>
-                          <Microcopy
-                            entries={microcopy}
-                            id="5FC4uEDfbvMHHQ8NUI3mQu"
-                          />
+                          Rely on military-grade, AI document intelligence
+                          technology.
                         </li>
                         <li>
-                          <Microcopy
-                            entries={microcopy}
-                            id="7spsNqltRYgHmQtbwDHN0g"
-                          />
-                        </li>
-                        <li>
-                          <Microcopy
-                            entries={microcopy}
-                            id="8F7wm9n77Vq8diNdhIMKS"
-                          />
+                          Achieve a seamless experience for your teams. Enable
+                          trust for your clients.
                         </li>
                       </ul>
                     </div>
@@ -219,14 +131,12 @@ const Index = ({
                     </div>
                   </div>
                 </InView>
-              </FullpageSection>
-              <FullpageSection className={Style.contact}>
+              </section>
+              <section className={clsx("section", Style.contact)}>
                 <div className={Style.container}>
                   <h4>
-                    <Microcopy
-                      entries={microcopy}
-                      id="65NH7NUwJvaUoymOJ4uEjT"
-                    />
+                    Learn why Torch.AI is the world leader in document
+                    intelligence.
                   </h4>
                   <form action="https://formspree.io/f/mvolablv" method="POST">
                     <div>
@@ -273,7 +183,7 @@ const Index = ({
                     </div>
                   </form>
                 </div>
-              </FullpageSection>
+              </section>
               <Footer />
             </ReactFullpage.Wrapper>
           );

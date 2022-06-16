@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext, useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../components/Grid/Grid";
@@ -15,11 +15,7 @@ import tools from "../../img/tools.png";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
-import { getCustomPageAndMicrocopy } from "../../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
-import Microcopy from "../../components/Microcopy/Microcopy";
-import { GetStaticProps, InferGetStaticPropsType } from "next";
-import pageIds from "../../contentful/pages";
+import clsx from "clsx";
 import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
@@ -27,24 +23,7 @@ export const pageSettings: PageSettings = {
   linkContent: <>Partners</>,
 };
 
-export const getStaticProps: GetStaticProps<{
-  microcopy: TypeMicrocopy[];
-  customPage?: TypeCustomPage;
-}> = async () => {
-  const content = await getCustomPageAndMicrocopy(pageIds.partners);
-
-  return {
-    props: {
-      microcopy: content.microcopy,
-      customPage: content.customPage || null,
-    },
-  };
-};
-
-const Index = ({
-  microcopy,
-  customPage,
-}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -72,9 +51,10 @@ const Index = ({
     <>
       <Head>
         <title>
-          {getHeadPageTitle(
-            !!customPage ? customPage.fields.pageHeadTitle : []
-          )}
+          {getHeadPageTitle([
+            "Partnerships",
+            "Transforming the potential of data for good",
+          ])}
         </title>
       </Head>
       <ReactFullpage
@@ -89,17 +69,9 @@ const Index = ({
                 <Grid container marginCenter>
                   <Grid row>
                     <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
-                      <h1 ref={titleRef}>
-                        <Microcopy
-                          entries={microcopy}
-                          id="7u1eC2J0ll8jYlNDuQGKF9"
-                        />
-                      </h1>
+                      <h1 ref={titleRef}>Be a hero for your customers.</h1>
                       <p ref={subtitleRef}>
-                        <Microcopy
-                          entries={microcopy}
-                          id="5wF0UGzt38cVthUz7K6HK6"
-                        />
+                        Deploy Nexus to solve your customers problems.
                       </p>
                     </Grid>
                   </Grid>
@@ -116,16 +88,16 @@ const Index = ({
                     <Grid row className={Style.valueContent}>
                       <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
                         <h3>
-                          <Microcopy
-                            entries={microcopy}
-                            id="2vdciL2PyJb2vuzEbipyhN"
-                          />
+                          We value our friends. This is more than business for
+                          us.
                         </h3>
                         <p>
-                          <Microcopy
-                            entries={microcopy}
-                            id="1otFTfga7E2vw3fOVJXaZc"
-                          />
+                          Torch.AI's strong partner ecosystem is foundational to
+                          our mission of "Transforming the potential of data for
+                          good.” Often, we co-invest in solutions alongside our
+                          more established partners, but we have also enjoyed
+                          great success providing support to new and emerging
+                          partners.
                         </p>
                       </Grid>
                     </Grid>
@@ -135,17 +107,12 @@ const Index = ({
               <FullpageSection className={Style.benefitsPartners}>
                 <Grid container marginCenter>
                   <Grid row className={Style.benefitsPartnersTitle}>
-                    <h3>
-                      <Microcopy
-                        entries={microcopy}
-                        id="4JT7mAUm2RnmPGydZcWwXQ"
-                      />
-                    </h3>
+                    <h3>Benefits for our partners.</h3>
                   </Grid>
                   <Grid row className={Style.benefitsPartnersContent}>
                     <Grid
                       size={{ Xs: 12, Lg: 3 }}
-                      className={Style.benefitsPartnersItem}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -155,22 +122,16 @@ const Index = ({
                           }
                         />
                       </div>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="zWgdevmK6hRVFneNwQNbL"
-                        />
-                      </h5>
+                      <h5>Training.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="4f3LTeCb56qO1BMuKj6nqP"
-                        />
+                        Access a robust set of training and enablement content.
+                        Get friendly with our Solution Architects to guarantee
+                        success of your program.
                       </p>
                     </Grid>
                     <Grid
                       size={{ Xs: 12, Lg: 3 }}
-                      className={Style.benefitsPartnersItem}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -178,22 +139,15 @@ const Index = ({
                           alt={"Picture of people around a conference table"}
                         />
                       </div>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="5eOcxVbdV4qTVx085ne9j0"
-                        />
-                      </h5>
+                      <h5>Customer Opportunities.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="Jk3opaCKBH8T7XFa046ca"
-                        />
+                        Our partners enjoy new sales opportunities, sourced by
+                        Torch.AI, and aligned to their core competencies.
                       </p>
                     </Grid>
                     <Grid
                       size={{ Xs: 12, Lg: 3 }}
-                      className={Style.benefitsPartnersItem}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -203,17 +157,10 @@ const Index = ({
                           }
                         />
                       </div>
-                      <h5>
-                        <Microcopy
-                          entries={microcopy}
-                          id="2NJWYnm7Xv3hT1aEmVbmyR"
-                        />
-                      </h5>
+                      <h5>Tools.</h5>
                       <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="3jsTS6MdCuSkVt8gFZYGbN"
-                        />
+                        Access a wide variety of sales, marketing, ML modeling,
+                        and other technical tools.
                       </p>
                     </Grid>
                   </Grid>
@@ -223,25 +170,13 @@ const Index = ({
                 <Grid container marginCenter>
                   <Grid row>
                     <Grid size={{ Xs: 12 }} className={Style.changeTitle}>
-                      <h2>
-                        <Microcopy
-                          entries={microcopy}
-                          id="1NtGc7nTrPsBYzUFY1GCvy"
-                        />
-                      </h2>
-                      <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="6hgf0IzBfcbZyhUSqDSyn6"
-                        />
-                      </p>
+                      <h2>Help us change the world.</h2>
+                      <p>Interested in becoming a partner?</p>
                       <p>
                         Contact us for more information{" "}
                         <a href="mailto:partners@torch.ai">
-                          <Microcopy
-                            entries={microcopy}
-                            id="1YadSfD04VZrIGVswCPAJ0"
-                          />
+                          {" "}
+                          partners@torch.ai{" "}
                         </a>
                       </p>
                     </Grid>
