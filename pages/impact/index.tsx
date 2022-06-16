@@ -3,11 +3,11 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
-import Style from "../../styles/modules/inspiration.module.scss";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
@@ -19,6 +19,7 @@ import { PageSettings } from "../../types/next";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import staffFlameBackground from "./assets/staff-flame-background.png";
 import clsx from "clsx";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
@@ -77,110 +78,133 @@ const Index: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]} `}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
-                    >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3 ref={titleRef}>Make your impact.</h3>
-                    </div>
-                  </div>
-                  <div
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    row
                     ref={sectorsForegroundRef}
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={Style.galleryContainer}
                   >
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-defense"]}`}
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryDefense
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Defense & Intelligence</p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-logistics"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryLogistics
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Logistics</p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-insurance"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryInsurance
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Insurance</p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-marketing"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryMarketing
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Marketing</p>
                       </div>
-                    </div>
-                  </div>
-                  <div
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    row
                     ref={sectorsBackgroundsRef}
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={Style.galleryContainer}
                   >
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-financial"]}`}
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryFinancial
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Financial Services</p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-manufacture"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryManufacture
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Manufacturing</p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-healthcare"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryHealthcare
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Healthcare</p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-publicSector"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryPublicSector
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>Public Sector</p>
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
-                  >
+                    </Grid>
+                  </Grid>
+                  <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                     <p ref={subtitleRef}>Find your passion below:</p>
                     <FontAwesomeIcon
                       icon={faArrowAltCircleDown as IconProp}
                       size="2x"
                     />
-                  </div>
-                </div>
-              </div>
-              <div
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="defense"
-                className={`${Style["defense"]} section`}
+                className={clsx(Style.defense, "section")}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="defense"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["defenses__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="defense">
+                    <Grid row className={Style.defensesContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Defense & Intelligence.</h2>
                         <p>
                           The national security enterprise is awash with vast
@@ -192,30 +216,23 @@ const Index: React.FunctionComponent = () => {
                           warfighters and intelligence professionals in their
                           mission to bolster the defense of our nation.
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="logistics"
-                className={`${Style["logistics"]} section`}
+                className={Style.logistics}
               >
-                <div
-                  id="logistics"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["logistics__content"]}`}
-                  >
-                    <div className={`${Grid["col_xs_8"]}`}>
+                <Grid container marginCenter id="logistics">
+                  <Grid row className={Style.logisticsContent}>
+                    <Grid size={{ Xs: 8 }}>
                       <h2>Logistics.</h2>
                       <p>
                         Modern logistics requires the ability to orchestrate
@@ -227,35 +244,31 @@ const Index: React.FunctionComponent = () => {
                         Nexus leaves its mark by providing immediate bottom-line
                         results
                       </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col_xs_8"]} ${Grid["col_lg_8"]} ${Style["inspiration__button"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid
+                      size={{ Xs: 8, Lg: 8 }}
+                      className={Style.inspirationButton}
                     >
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="insurance"
-                className={`${Style["insurance"]} section`}
+                className={Style.insurance}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="insurance"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["insurance__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="insurance">
+                    <Grid row className={Style.insuranceContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Insurance.</h2>
                         <p>
                           Creating new policies or certificates of insurance
@@ -268,30 +281,23 @@ const Index: React.FunctionComponent = () => {
                           COIs at an average speed of 9.8 milliseconds per page
                           and with over 96% accuracy for data extraction.
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="marketing"
-                className={`${Style["marketing"]} section`}
+                className={Style.marketing}
               >
-                <div
-                  id="marketing"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["marketing__content"]}`}
-                  >
-                    <div className={`${Grid["col-xs-12"]}`}>
+                <Grid container marginCenter id="marketing">
+                  <Grid row className={Style.marketingContent}>
+                    <Grid size={{ Xs: 12 }}>
                       <h2>Marketing.</h2>
                       <p>
                         Innovative marketers understand the trends and
@@ -304,33 +310,28 @@ const Index: React.FunctionComponent = () => {
                         pick up tendencies before the masses, honing appropriate
                         messaging and driving increased sales.
                       </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col_lg_8"]}`}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="financial"
-                className={`${Style["financial"]} section`}
+                className={Style.financial}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="financial"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["financial__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="financial">
+                    <Grid row className={Style.financialContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Financial Services.</h2>
                         <p>
                           Financial service organizations seek to fully engage
@@ -342,30 +343,23 @@ const Index: React.FunctionComponent = () => {
                           valuable and actionable information can happen in an
                           instant.
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="manufacturing"
-                className={`${Style["manufacturing"]} section`}
+                className={Style.manufacturing}
               >
-                <div
-                  id="manufacturing"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row-reverse"]} ${Style["manufacturing__content"]}`}
-                  >
-                    <div className={`${Grid["col-lg-5"]} ${Grid["col-xs-12"]}`}>
+                <Grid container marginCenter id="manufacturing">
+                  <Grid row reverse className={Style.manufacturingContent}>
+                    <Grid size={{ Lg: 5, Xs: 12 }}>
                       <h2>Manufacturing.</h2>
                       <p>
                         With supply chains operating on a global scale,
@@ -376,33 +370,26 @@ const Index: React.FunctionComponent = () => {
                         sole-source supplier, and economic threat, mitigating
                         perilous activity.
                       </p>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="healthcare"
-                className={`${Style["healthcare"]} section`}
+                className={Style.healthcare}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="healthcare"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["healthcare__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="healthcare">
+                    <Grid row className={Style.healthcareContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>Healthcare.</h2>
                         <p>
                           Artificial Intelligence is revolutionizing healthcare,
@@ -412,30 +399,23 @@ const Index: React.FunctionComponent = () => {
                           systems, providing an enhanced patient profile for
                           intelligent decisioning.
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">Request Brief</a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="publicSector"
-                className={`${Style["publicSector"]} section`}
+                className={Style.publicSector}
               >
-                <div
-                  id="public"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["publicSector__content"]}`}
-                  >
-                    <div className={`${Grid["col-xs-12"]}`}>
+                <Grid container marginCenter id="public">
+                  <Grid row className={Style.publicSectorContent}>
+                    <Grid size={{ Xs: 12 }}>
                       <h2>Public Sector.</h2>
                       <p>
                         Governments exist to strengthen the lives of their
@@ -451,66 +431,48 @@ const Index: React.FunctionComponent = () => {
                         decision auditability, traceability, scalability and
                         security.
                       </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                    >
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 12 }}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">Request Brief</a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["cta"]} section`}>
-                <ContentOverImage
-                  imageProps={{
-                    src: staffFlameBackground,
-                    alt: "",
-                    layout: "fill",
-                    objectPosition: "left center",
-                    objectFit: "contain",
-                  }}
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <ContentOverImage
+                imageProps={{
+                  src: staffFlameBackground,
+                  alt: "",
+                  layout: "fill",
+                  objectPosition: "left center",
+                  objectFit: "contain",
+                }}
+                className={Style.cta}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                  >
-                    <div
-                      id="public"
-                      className={clsx(Grid.container, Grid.margin_center)}
-                    >
-                      <div className={clsx(Grid.row, Style.cta__content)}>
-                        <div
-                          className={clsx(
-                            Grid["col-lg-offset-6"],
-                            Grid["col-xs-12"]
-                          )}
-                        >
-                          <h3>Let us help you make data easier to use.</h3>
-                          <p>It's time to unleash your potential.</p>
-                        </div>
-                      </div>
-                      <div className={Grid.row}>
-                        <div
-                          className={clsx(
-                            Grid["col-lg-offset-6"],
-                            Grid["col-lg-12"]
-                          )}
-                        >
-                          <Link href={contactPageSettings.path}>
-                            <a role="button">Let's be friends</a>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </InView>
-                </ContentOverImage>
-              </div>
+                  <Grid container marginCenter id="public">
+                    <Grid row className={Style.ctaContent}>
+                      <Grid size={{ Xs: 12 }} offset={{ Lg: 6 }}>
+                        <h3>Let us help you make data easier to use.</h3>
+                        <p>It's time to unleash your potential.</p>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid size={{ Lg: 12 }} offset={{ Lg: 6 }}>
+                        <Link href={contactPageSettings.path}>
+                          <a role="button">Let's be friends</a>
+                        </Link>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
               <Footer />
             </ReactFullpage.Wrapper>
           );

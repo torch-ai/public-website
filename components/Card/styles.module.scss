@@ -13,17 +13,17 @@
 }
 
 .elevation1 {
-  @include shadows.box-shadow-elevation-1;
+  @include shadows.boxShadowElevation1;
 }
 
 .elevation2 {
-  @include shadows.box-shadow-elevation-2;
+  @include shadows.boxShadowElevation2;
 }
 
 .elevation3 {
-  @include shadows.box-shadow-elevation-3;
+  @include shadows.boxShadowElevation3;
 }
 
 .elevation4 {
-  @include shadows.box-shadow-elevation-4;
+  @include shadows.boxShadowElevation4;
 }

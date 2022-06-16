@@ -1,40 +1,42 @@
-import Grid from "../styles/modules/grid.module.scss";
-import Template from "../styles/modules/template.module.scss";
+import Grid from "../Grid/Grid";
+import Style from "./styles.module.scss";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import logo from "../img/logo.svg";
-import forbes from "../img/forbes.png";
+import logo from "../../img/logo.svg";
+import forbes from "../../img/forbes.png";
 import { faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
 import React from "react";
-import { pageSettings as termsOfServicePageSettings } from "../pages/termsofservice";
-import { pageSettings as privacyPolicyPageSettings } from "../pages/privacypolicy";
-import { pageSettings as legalPageSettings } from "../pages/legal";
-import { pageSettings as careersPageSettings } from "../pages/careers";
-import { pageSettings as newsroomPageSettings } from "../pages/newsroom";
+import { pageSettings as termsOfServicePageSettings } from "../../pages/termsofservice";
+import { pageSettings as privacyPolicyPageSettings } from "../../pages/privacypolicy";
+import { pageSettings as legalPageSettings } from "../../pages/legal";
+import { pageSettings as careersPageSettings } from "../../pages/careers";
+import { pageSettings as newsroomPageSettings } from "../../pages/newsroom";
+import clsx from "clsx";
 
 const Footer: React.FunctionComponent = () => {
   return (
-    <footer id="contact" className={`${Template.footer} section`}>
-      <div
-        className={`${Grid.margin_center} ${Grid.container} ${Grid.row}  ${Template.footer__title}`}
-      >
+    <footer id="contact" className={clsx(Style.footer, "section")}>
+      <Grid container marginCenter row className={Style.footerTitle}>
         <h3>Get in Touch With Us.</h3>
-      </div>
-      <div
-        className={`${Grid.margin_center} ${Grid.container} ${Grid.row} ${Grid["gap"]} ${Template.footer__content}`}
+      </Grid>
+      <Grid
+        container
+        marginCenter
+        row
+        className={clsx(Style.gap, Style.footerContent)}
       >
-        <div className={`${Template["footer__form-container"]} flow`}>
-          <div className={`${Template.footer__text}`}>
+        <div className={clsx(Style.footerFormContainer, Style.flow)}>
+          <div className={clsx(Style.footerText)}>
             <p>Find out how Nexus can unlock your productivity.</p>
           </div>
 
           <form
             action="https://formspree.io/f/mvolablv"
             method="POST"
-            className={`${Template["footer__form"]} flow`}
+            className={clsx(Style.footerForm, Style.flow)}
           >
-            <div className={`${Grid.row_wrapoff}`}>
+            <Grid row nowrap>
               <input
                 placeholder="Full name"
                 id="name"
@@ -43,8 +45,8 @@ const Footer: React.FunctionComponent = () => {
                 name="name"
                 required
               />
-            </div>
-            <div className={`${Grid.row_wrapoff} `}>
+            </Grid>
+            <Grid row nowrap>
               <input
                 placeholder="Index"
                 id="organization"
@@ -61,17 +63,15 @@ const Footer: React.FunctionComponent = () => {
                 name="email"
                 required
               />
-            </div>
-            <div
-              className={`${Template["footer__form-submit"]} ${Grid["row"]} ${Grid["gap"]} flow`}
+            </Grid>
+            <Grid
+              row
+              className={clsx(Style.footerFormSubmit, Style.gap, Style.flow)}
             >
-              <button
-                className={`${Template["footer__form-button"]}`}
-                type="submit"
-              >
+              <button className={clsx(Style.footerFormButton)} type="submit">
                 Send
               </button>
-              <div className={`${Template.socialIcons} ${Grid["row"]} `}>
+              <Grid row className={Style.socialIcons}>
                 <a
                   href="https://www.linkedin.com/company/torchai"
                   target="_blank"
@@ -86,12 +86,12 @@ const Footer: React.FunctionComponent = () => {
                 >
                   <FontAwesomeIcon icon={faTwitter} size="2x" />
                 </a>
-              </div>
-            </div>
+              </Grid>
+            </Grid>
           </form>
         </div>
 
-        <div className={`${Template["footer__terms"]}`}>
+        <div className={clsx(Style.footerTerms)}>
           <ul>
             <li>
               <Link href={newsroomPageSettings.path}>
@@ -121,7 +121,7 @@ const Footer: React.FunctionComponent = () => {
           </ul>
         </div>
 
-        <div className={`${Template["footer__address"]}`}>
+        <div className={clsx(Style.footerAddress)}>
           <ul>
             <li>5250 W 116TH Pl Suite 200</li>
             <li>Leawood, KS, 66211</li>
@@ -138,19 +138,22 @@ const Footer: React.FunctionComponent = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </Grid>
 
-      <div
-        className={`${Template["footer__copy"]} ${Grid.margin_center} ${Grid.container} ${Grid["between_xs"]} ${Grid.row}`}
+      <Grid
+        container
+        marginCenter
+        row
+        spacing={{ Xs: "between" }}
+        className={Style.footerCopy}
       >
         <Image
-          className={`${Template.logo}`}
+          className={clsx(Style.logo)}
           src={logo}
           alt="The logo of Torch.ai"
         />
-
         <p>Copyright &copy; 2022 Torch.AI</p>
-      </div>
+      </Grid>
     </footer>
   );
 };

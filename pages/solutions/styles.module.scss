@@ -10,7 +10,7 @@
   background-image: url(../../img/backgrounds/mesh.png);
 }
 
-.sol-title {
+.solTitle {
   padding-top: 50em;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,7 @@
   }
 }
 
-.sol-subtitle {
+.solSubtitle {
   display: flex;
   align-items: center;
   height: 100%;
@@ -63,7 +63,7 @@
   }
 }
 
-.sol-content {
+.solContent {
   .container {
     display: flex;
     justify-content: center;
@@ -86,14 +86,14 @@
     color: white;
   }
 
-  .sub-content-title {
+  .subContentTitle {
     p {
       color: hsl(33deg 93% 54%);
     }
   }
 }
 
-.sub-content-accent {
+.subContentAccent {
   color: rgb(211, 151, 79);
 }
 
@@ -104,7 +104,7 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
-.index-item {
+.indexItem {
   padding: 8em 1em;
   position: relative;
   background: white url(../../img/backgrounds/14.png);
@@ -133,7 +133,7 @@
   }
 }
 
-.index-content {
+.indexContent {
   color: white;
   display: flex;
   justify-content: center;
@@ -147,7 +147,7 @@
   height: 100%;
 }
 
-.desktop-only {
+.desktopOnly {
   display: none;
 }
 
@@ -207,11 +207,11 @@
 }
 
 @media (min-width: 75em) {
-  .mobile-only {
+  .mobileOnly {
     display: none;
   }
 
-  .desktop-only {
+  .desktopOnly {
     display: flex;
   }
 }
@@ -220,7 +220,7 @@
   .index {
     grid-template-columns: repeat(3, 1fr);
   }
-  .sol-content {
+  .solContent {
     .container {
       display: flex;
       justify-content: center;
@@ -234,7 +234,7 @@
     }
   }
 
-  .sol-title {
+  .solTitle {
     padding-top: 30em;
   }
 }

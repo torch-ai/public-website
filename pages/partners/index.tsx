@@ -3,25 +3,27 @@
 import React, { useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Image from "next/image";
-import Style from "../styles/modules/partners.module.scss";
-import Footer from "../components/Footer";
+import Style from "./styles.module.scss";
+import Footer from "../../components/Footer/Footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
-import training from "../img/training.png";
-import opportunities from "../img/oppertunities.png";
-import tools from "../img/tools.png";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
+import training from "../../img/training.png";
+import opportunities from "../../img/oppertunities.png";
+import tools from "../../img/tools.png";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import clsx from "clsx";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/partners",
   linkContent: <>Partners</>,
 };
 
-const Partners: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -63,38 +65,28 @@ const Partners: React.FunctionComponent = () => {
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
-                    >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                       <h1 ref={titleRef}>Be a hero for your customers.</h1>
                       <p ref={subtitleRef}>
                         Deploy Nexus to solve your customers problems.
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["value"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.value}>
+                <Grid container marginCenter>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div
-                      className={`${Grid["row"]} ${Style["value__content"]}`}
-                    >
-                      <div
-                        className={`${Grid["col-lg-offset-3"]} ${Grid["col-xs-12"]}`}
-                      >
+                    <Grid row className={Style.valueContent}>
+                      <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
                         <h3>
                           We value our friends. This is more than business for
                           us.
@@ -107,25 +99,20 @@ const Partners: React.FunctionComponent = () => {
                           great success providing support to new and emerging
                           partners.
                         </p>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
-              </div>
-              <div className={`${Style["benefitsPartners"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["benefitsPartners__title"]}`}
-                  >
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.benefitsPartners}>
+                <Grid container marginCenter>
+                  <Grid row className={Style.benefitsPartnersTitle}>
                     <h3>Benefits for our partners.</h3>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Style["benefitsPartners__content"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                  </Grid>
+                  <Grid row className={Style.benefitsPartnersContent}>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -141,9 +128,10 @@ const Partners: React.FunctionComponent = () => {
                         Get friendly with our Solution Architects to guarantee
                         success of your program.
                       </p>
-                    </div>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -156,9 +144,10 @@ const Partners: React.FunctionComponent = () => {
                         Our partners enjoy new sales opportunities, sourced by
                         Torch.AI, and aligned to their core competencies.
                       </p>
-                    </div>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={clsx(Style.benefitsPartnersItem)}
                     >
                       <div>
                         <Image
@@ -173,18 +162,14 @@ const Partners: React.FunctionComponent = () => {
                         Access a wide variety of sales, marketing, ML modeling,
                         and other technical tools.
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["change"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["change__title"]}`}
-                    >
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.change}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.changeTitle}>
                       <h2>Help us change the world.</h2>
                       <p>Interested in becoming a partner?</p>
                       <p>
@@ -194,10 +179,10 @@ const Partners: React.FunctionComponent = () => {
                           partners@torch.ai{" "}
                         </a>
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );
@@ -207,4 +192,4 @@ const Partners: React.FunctionComponent = () => {
   );
 };
 
-export default Partners;
+export default Index;
