@@ -201,7 +201,7 @@ const Index: React.FunctionComponent = () => {
                 >
                   <Grid container marginCenter>
                     <Grid row>
-                      <Grid size={{ Xs: 8 }}>
+                      <div>
                         <h2>As Code</h2>
                         <p className={clsx(Style.codeSubtitle)}>
                           The engineer-friendly approach
@@ -218,7 +218,7 @@ const Index: React.FunctionComponent = () => {
                           Rapid deployment provides your customers value within
                           a matter of hours.
                         </p>
-                      </Grid>
+                      </div>
                     </Grid>
                   </Grid>
                 </InView>

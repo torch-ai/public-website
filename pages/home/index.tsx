@@ -282,11 +282,7 @@ const Index = ({
                       </Grid>
                     </Grid>
                     <Grid row>
-                      <Grid
-                        marginCenter
-                        size={{ Xs: 10, Xl: 10 }}
-                        className={Style.statement2Button}
-                      >
+                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
                         <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
