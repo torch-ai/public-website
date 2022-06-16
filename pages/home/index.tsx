@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
+import React, { ReactElement, useContext, useState, useRef } from "react";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
@@ -37,6 +37,7 @@ import ContentOverImage from "../../components/ContentOverImage/ContentOverImage
 import enhanceBackground from "./assets/enhance-background.png";
 import nexusBackground from "./assets/nexus-background.png";
 import FullpageSection from "../../components/FullpageSection/FullpageSection";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
@@ -70,6 +71,7 @@ const Index = ({
   customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+  const fullpageApiRef = useRef<fullpageApi>();
 
   return (
     <>
@@ -80,12 +82,25 @@ const Index = ({
           )}
         </title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>

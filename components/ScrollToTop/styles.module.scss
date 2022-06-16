@@ -1,0 +1,20 @@
+.scrollToTop {
+  background: white;
+  border-radius: 50%;
+  position: fixed;
+  bottom: 5em;
+  right: 3em;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0;
+  transition: all 200ms ease-in-out;
+}
+
+.scrollToTop.visible {
+  opacity: 1;
+}

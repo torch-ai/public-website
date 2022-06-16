@@ -20,6 +20,7 @@ import { getCustomPageAndMicrocopy } from "../../contentful/client";
 import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
 import Microcopy from "../../components/Microcopy/Microcopy";
 import pageIds from "../../contentful/pages";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/careers",
@@ -73,6 +74,7 @@ const Index = ({
           )}
         </title>
       </Head>
+      <ScrollToTop scrollType="window" />
       <PageHeader>
         <div className={Styles.headerGrid}>
           <div className={Styles.headerGridTitle}>

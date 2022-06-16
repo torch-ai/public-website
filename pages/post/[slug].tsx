@@ -11,8 +11,10 @@ import PageHeader from "../../components/PageHeader/PageHeader";
 import Container from "../../components/Container/Container";
 import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
+import Sharing from "../../components/Sharing/Sharing";
 import Styles from "./styles.module.scss";
 import { getHeadPageTitle } from "../../utils/meta";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAllNewsEntries();
@@ -51,7 +53,12 @@ const Slug = ({
       <PageHeader>
         <PageTitle>{item.fields.title}.</PageTitle>
         <PageSubtitle>{item.fields.summary}</PageSubtitle>
+        <Sharing
+          postText={item.fields.title}
+          url={`https://torch.ai/post/${item.fields.slug}`}
+        />
       </PageHeader>
+      <ScrollToTop scrollType="window" />
       <Container>
         <main className={Styles.main}>
           <ContentfulContent className={Styles.content} content={content} />

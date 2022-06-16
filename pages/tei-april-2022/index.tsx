@@ -33,7 +33,11 @@ const Index = ({
           {getHeadPageTitle([page.fields.title || "Content not found"])}
         </title>
       </Head>
-      <ContentfulPage page={page} asideChildren={<Form />} />
+      <ContentfulPage
+        page={page}
+        asideChildren={<Form />}
+        sharingUrl="https://torch.ai/tei-april-2022"
+      />
       <Footer />
     </>
   );
