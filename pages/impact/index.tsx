@@ -3,11 +3,11 @@
 import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
-import Style from "../../styles/modules/inspiration.module.scss";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowAltCircleDown } from "@fortawesome/free-solid-svg-icons";
@@ -24,6 +24,7 @@ import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
 import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import pageIds from "../../contentful/pages";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
@@ -101,30 +102,31 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]} `}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
-                    >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3 ref={titleRef}>
                         <Microcopy
                           entries={microcopy}
                           id="31GQCkdXK0O5CL9WioPS6n"
                         />
                       </h3>
-                    </div>
-                  </div>
-                  <div
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    row
                     ref={sectorsForegroundRef}
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={Style.galleryContainer}
                   >
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-defense"]}`}
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryDefense
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -132,11 +134,15 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-logistics"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryLogistics
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -144,11 +150,15 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-insurance"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryInsurance
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -156,11 +166,15 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-marketing"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryMarketing
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -168,16 +182,21 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                  </div>
-                  <div
+                    </Grid>
+                  </Grid>
+                  <Grid
+                    row
                     ref={sectorsBackgroundsRef}
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
+                    className={Style.galleryContainer}
                   >
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-financial"]}`}
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryFinancial
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -185,11 +204,15 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-manufacture"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryManufacture
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -197,11 +220,15 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-healthcare"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryHealthcare
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -209,11 +236,15 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-lg-2"]} ${Grid["col-xs-12"]} ${Style["gallery__container-item"]} ${Style["gallery-publicSector"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Lg: 2, Xs: 12 }}
+                      className={clsx(
+                        Style.galleryContainerItem,
+                        Style.galleryPublicSector
+                      )}
                     >
-                      <div className={`${Style["gallery__container-content"]}`}>
+                      <div className={clsx(Style.galleryContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -221,11 +252,9 @@ const Index = ({
                           />
                         </p>
                       </div>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Style["gallery__title"]}`}
-                  >
+                    </Grid>
+                  </Grid>
+                  <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                     <p ref={subtitleRef}>
                       <Microcopy
                         entries={microcopy}
@@ -236,25 +265,20 @@ const Index = ({
                       icon={faArrowAltCircleDown as IconProp}
                       size="2x"
                     />
-                  </div>
-                </div>
-              </div>
-              <div
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="defense"
-                className={`${Style["defense"]} section`}
+                className={clsx(Style.defense, "section")}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="defense"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["defenses__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="defense">
+                    <Grid row className={Style.defensesContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -267,10 +291,8 @@ const Index = ({
                             id="2XCbWYToiin21v5IlSYwE3"
                           />
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -279,23 +301,18 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="logistics"
-                className={`${Style["logistics"]} section`}
+                className={Style.logistics}
               >
-                <div
-                  id="logistics"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["logistics__content"]}`}
-                  >
-                    <div className={`${Grid["col_xs_8"]}`}>
+                <Grid container marginCenter id="logistics">
+                  <Grid row className={Style.logisticsContent}>
+                    <Grid size={{ Xs: 8 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -308,11 +325,12 @@ const Index = ({
                           id="2Yq6nuJpLRy6MiDkLg2KAX"
                         />
                       </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col_xs_8"]} ${Grid["col_lg_8"]} ${Style["inspiration__button"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid
+                      size={{ Xs: 8, Lg: 8 }}
+                      className={Style.inspirationButton}
                     >
                       <Link href={contactPageSettings.path}>
                         <a role="button">
@@ -322,26 +340,21 @@ const Index = ({
                           />
                         </a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="insurance"
-                className={`${Style["insurance"]} section`}
+                className={Style.insurance}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="insurance"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["insurance__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="insurance">
+                    <Grid row className={Style.insuranceContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -354,10 +367,8 @@ const Index = ({
                             id="7r1Kmw8KQjRKbrnlM45jJm"
                           />
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -366,23 +377,18 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="marketing"
-                className={`${Style["marketing"]} section`}
+                className={Style.marketing}
               >
-                <div
-                  id="marketing"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["marketing__content"]}`}
-                  >
-                    <div className={`${Grid["col-xs-12"]}`}>
+                <Grid container marginCenter id="marketing">
+                  <Grid row className={Style.marketingContent}>
+                    <Grid size={{ Xs: 12 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -395,10 +401,10 @@ const Index = ({
                           id="5qqWrQcgYss6bP8mpNKYi6"
                         />
                       </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-xs-12"]} ${Grid["col_lg_8"]}`}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">
                           <Microcopy
@@ -407,26 +413,21 @@ const Index = ({
                           />
                         </a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="financial"
-                className={`${Style["financial"]} section`}
+                className={Style.financial}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="financial"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["financial__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="financial">
+                    <Grid row className={Style.financialContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -439,10 +440,8 @@ const Index = ({
                             id="5N8v0mngiLvU04ZLBeyWSI"
                           />
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -451,23 +450,18 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="manufacturing"
-                className={`${Style["manufacturing"]} section`}
+                className={Style.manufacturing}
               >
-                <div
-                  id="manufacturing"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row-reverse"]} ${Style["manufacturing__content"]}`}
-                  >
-                    <div className={`${Grid["col-lg-5"]} ${Grid["col-xs-12"]}`}>
+                <Grid container marginCenter id="manufacturing">
+                  <Grid row reverse className={Style.manufacturingContent}>
+                    <Grid size={{ Lg: 5, Xs: 12 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -480,9 +474,7 @@ const Index = ({
                           id="3tQ7G0ZXYUYxJXAA1FIRZa"
                         />
                       </p>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -491,27 +483,22 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="healthcare"
-                className={`${Style["healthcare"]} section`}
+                className={Style.healthcare}
               >
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    id="healthcare"
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div
-                      className={`${Grid["row"]} ${Style["healthcare__content"]}`}
-                    >
-                      <div className={`${Grid["col-xs-12"]}`}>
+                  <Grid container marginCenter id="healthcare">
+                    <Grid row className={Style.healthcareContent}>
+                      <Grid size={{ Xs: 12 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -524,10 +511,8 @@ const Index = ({
                             id="2CIFgyAmiSJQptuBI57Oof"
                           />
                         </p>
-                      </div>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xs: 12, Lg: 12 }}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -536,23 +521,18 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div
+              </FullpageSection>
+              <FullpageSection
                 data-anchor="publicSector"
-                className={`${Style["publicSector"]} section`}
+                className={Style.publicSector}
               >
-                <div
-                  id="public"
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["publicSector__content"]}`}
-                  >
-                    <div className={`${Grid["col-xs-12"]}`}>
+                <Grid container marginCenter id="public">
+                  <Grid row className={Style.publicSectorContent}>
+                    <Grid size={{ Xs: 12 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -565,12 +545,10 @@ const Index = ({
                           id="5831ewhHGJAmAVcMdfkVw6"
                         />
                       </p>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}
-                    >
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 12 }}>
                       <Link href={contactPageSettings.path}>
                         <a role="button">
                           <Microcopy
@@ -579,72 +557,56 @@ const Index = ({
                           />
                         </a>
                       </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["cta"]} section`}>
-                <ContentOverImage
-                  imageProps={{
-                    src: staffFlameBackground,
-                    alt: "",
-                    layout: "fill",
-                    objectPosition: "left center",
-                    objectFit: "contain",
-                  }}
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <ContentOverImage
+                imageProps={{
+                  src: staffFlameBackground,
+                  alt: "",
+                  layout: "fill",
+                  objectPosition: "left center",
+                  objectFit: "contain",
+                }}
+                className={Style.cta}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                  >
-                    <div
-                      id="public"
-                      className={clsx(Grid.container, Grid.margin_center)}
-                    >
-                      <div className={clsx(Grid.row, Style.cta__content)}>
-                        <div
-                          className={clsx(
-                            Grid["col-lg-offset-6"],
-                            Grid["col-xs-12"]
-                          )}
-                        >
-                          <h3>
+                  <Grid container marginCenter id="public">
+                    <Grid row className={Style.ctaContent}>
+                      <Grid size={{ Xs: 12 }} offset={{ Lg: 6 }}>
+                        <h3>
+                          <Microcopy
+                            entries={microcopy}
+                            id="3pQLuZSq2rKd0LBA3xpK7i"
+                          />
+                        </h3>
+                        <p>
+                          <Microcopy
+                            entries={microcopy}
+                            id="3482laEjwULQZ7d3Q3lmdm"
+                          />
+                        </p>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid size={{ Lg: 12 }} offset={{ Lg: 6 }}>
+                        <Link href={contactPageSettings.path}>
+                          <a role="button">
                             <Microcopy
                               entries={microcopy}
-                              id="3pQLuZSq2rKd0LBA3xpK7i"
+                              id="3570dxwhzqrHA64QccuBAL"
                             />
-                          </h3>
-                          <p>
-                            <Microcopy
-                              entries={microcopy}
-                              id="3482laEjwULQZ7d3Q3lmdm"
-                            />
-                          </p>
-                        </div>
-                      </div>
-                      <div className={Grid.row}>
-                        <div
-                          className={clsx(
-                            Grid["col-lg-offset-6"],
-                            Grid["col-lg-12"]
-                          )}
-                        >
-                          <Link href={contactPageSettings.path}>
-                            <a role="button">
-                              <Microcopy
-                                entries={microcopy}
-                                id="3570dxwhzqrHA64QccuBAL"
-                              />
-                            </a>
-                          </Link>
-                        </div>
-                      </div>
-                    </div>
-                  </InView>
-                </ContentOverImage>
-              </div>
+                          </a>
+                        </Link>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
               <Footer />
             </ReactFullpage.Wrapper>
           );

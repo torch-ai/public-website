@@ -2,14 +2,15 @@
 
 import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
+import router from "next/router";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
-import Landing from "../../styles/modules/landing.module.scss";
 import Image from "next/image";
 import Style from "./styles.module.scss";
-import News from "../../components/News";
-import Footer from "../../components/Footer";
+import Grid from "../../components/Grid/Grid";
+import NewsGrid from "../../components/News/NewsGrid";
+import Button from "../../components/Button/Button";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
@@ -26,6 +27,7 @@ import {
 import Microcopy from "../../components/Microcopy/Microcopy";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as careersPageSettings } from "../careers";
+import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
@@ -47,6 +49,7 @@ import KevinMarcus from "../../img/dotArt/KevinMarcus.png";
 import forbes from "../../img/forbes.png";
 import logoBookshelf from "./assets/logo-bookshelf.png";
 import galleryBackground from "./assets/gallerypic.png";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
@@ -118,20 +121,16 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "white" : "black")
                     }
                   >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
-                      >
+                    <Grid row>
+                      <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                         <h2 ref={titleRef}>
                           <Microcopy
                             entries={microcopy}
@@ -144,140 +143,119 @@ const Index = ({
                             id="3P0Qo0eHKZlDFTfYh9o6z8"
                           />
                         </p>
-                        <div className={`${Style["forbes"]}`}>
+                        <div className={clsx(Style.forbes)}>
                           <Image
-                            className={`${Style["forbes-img"]}`}
+                            className={clsx(Style.forbesImg)}
                             src={forbes}
                             alt={
                               "Recognized by Forbes as one of America's best startups employers for 2022"
                             }
                           />
                         </div>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
-              </div>
-              <ContentOverImage
-                data-anchor="culture"
-                className={clsx(Style.culture, "section")}
-                contentProps={{
-                  className: clsx(
-                    Style.culture__content,
-                    Grid.container,
-                    Grid.margin_center
-                  ),
-                }}
-                imageProps={{
-                  src: logoBookshelf,
-                  alt: "Logo made with photo!",
-                  layout: "fill",
-                  objectFit: "contain",
-                  objectPosition: "right bottom",
-                }}
-              >
-                <div className={Grid.row}>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-12"]}`}>
-                    <h3>
-                      <Microcopy
-                        entries={microcopy}
-                        id="3ygbPcVyaAM61oVIjWTK93"
-                      />
-                    </h3>
-                  </div>
-                </div>
-                <div className={`${Grid["row"]}`}>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
-                    <h5>
-                      <Microcopy
-                        entries={microcopy}
-                        id="4ifgiXYI1Z7gWkseff1CXI"
-                      />
-                    </h5>
-                    <p>
-                      <Microcopy
-                        entries={microcopy}
-                        id="1EZp5AZAReREFTQQ46pNB9"
-                      />
-                    </p>
-                  </div>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
-                    <h5>
-                      <Microcopy
-                        entries={microcopy}
-                        id="1csSg4cQiPXH6fdwHxyil0"
-                      />
-                    </h5>
-                    <p>
-                      <Microcopy
-                        entries={microcopy}
-                        id="5IqvM2y4XENoOidq9umX3z"
-                      />
-                    </p>
-                  </div>
-                </div>
-                <div className={`${Grid["row"]}`}>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]}`}>
-                    <h5>
-                      <Microcopy
-                        entries={microcopy}
-                        id="4AuB1mTnVNpWnLZLrrafMB"
-                      />
-                    </h5>
-                    <p>
-                      <Microcopy
-                        entries={microcopy}
-                        id="2jL4viZtSh0JrfxdQoSTKG"
-                      />
-                    </p>
-                  </div>
-                  <div className={`${Grid["col-xs-12"]} ${Grid["col-lg-8"]}`}>
-                    <h5>
-                      <Microcopy
-                        entries={microcopy}
-                        id="2kwofJ1BbHDb6SHTODZYEI"
-                      />
-                    </h5>
-                    <p>
-                      <Microcopy
-                        entries={microcopy}
-                        id="3GElBd2wnOO2DS8vhiT1KJ"
-                      />
-                    </p>
-                  </div>
-                </div>
-              </ContentOverImage>
-              <div className={`${Style["gallery"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
+                </Grid>
+              </FullpageSection>
+              <FullpageSection>
+                <ContentOverImage
+                  data-anchor="culture"
+                  className={clsx(Style.culture, "section")}
+                  imageProps={{
+                    src: logoBookshelf,
+                    alt: "Logo made with photo!",
+                    layout: "fill",
+                    objectFit: "contain",
+                    objectPosition: "right bottom",
+                  }}
                 >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
-                    >
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 12 }}>
                       <h3>
                         <Microcopy
                           entries={microcopy}
-                          id="4pJ1ZPTkt61ffeWedHaNgx"
+                          id="3ygbPcVyaAM61oVIjWTK93"
                         />
                       </h3>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
-                    >
-                      <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-featured"]} `}
-                      >
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="4ifgiXYI1Z7gWkseff1CXI"
+                        />
+                      </h5>
+                      <p>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1EZp5AZAReREFTQQ46pNB9"
+                        />
+                      </p>
+                    </Grid>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1csSg4cQiPXH6fdwHxyil0"
+                        />
+                      </h5>
+                      <p>
+                        <Microcopy
+                          entries={microcopy}
+                          id="5IqvM2y4XENoOidq9umX3z"
+                        />
+                      </p>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="4AuB1mTnVNpWnLZLrrafMB"
+                        />
+                      </h5>
+                      <p>
+                        <Microcopy
+                          entries={microcopy}
+                          id="2jL4viZtSh0JrfxdQoSTKG"
+                        />
+                      </p>
+                    </Grid>
+                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="2kwofJ1BbHDb6SHTODZYEI"
+                        />
+                      </h5>
+                      <p>
+                        <Microcopy
+                          entries={microcopy}
+                          id="3GElBd2wnOO2DS8vhiT1KJ"
+                        />
+                      </p>
+                    </Grid>
+                  </Grid>
+                </ContentOverImage>
+              </FullpageSection>
+              <FullpageSection className={Style.gallery}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
+                      <h3>Leadership.</h3>
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutFeatured}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={BrainWeaver}
                               alt={"Drawing of Brian Weaver"}
@@ -295,13 +273,12 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={AmyBradshaw}
                               alt={"Drawing of Amy Bradshaw"}
@@ -319,13 +296,12 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={JanetHanofee}
                               alt={"Drawing of Janet Hanofee"}
@@ -343,13 +319,12 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={DavidKern}
                               alt={"Drawing of David Kervin"}
@@ -367,25 +342,18 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
-                    >
-                      <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-list"]}`}
-                      >
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutList}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={AdamLurie}
                               alt={"Drawing of Adam Lurie"}
@@ -403,13 +371,12 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]}  ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={JasonDelker}
                               alt={"Drawing of Jason Delker"}
@@ -427,13 +394,12 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={JonKramer}
                               alt={"Drawing of Jon Kramer"}
@@ -451,13 +417,12 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={JenniferUtting}
                               alt={"Drawing of Jennifer Utting"}
@@ -475,20 +440,16 @@ const Index = ({
                               />
                             </p>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["gallery"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
-                    >
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.gallery}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -501,23 +462,16 @@ const Index = ({
                           id="3qc2rh6iLDmymMmRadozVX"
                         />
                       </p>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
-                    >
-                      <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-list"]}`}
-                      >
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutList}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={BrainWeaver}
                               alt={"Drawing of Brian Weaver"}
@@ -529,13 +483,12 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]}  ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={LaurenceTosi}
                               alt={"Drawing of Laurence Tosi"}
@@ -547,13 +500,12 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={ChristanSchnedler}
                               alt={"Drawing of Christian Schnedler"}
@@ -565,13 +517,12 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={WilliamBeyer}
                               alt={"Drawing of William Beyer"}
@@ -583,20 +534,16 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["gallery"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]}  ${Style["gallery__title"]}`}
-                    >
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.gallery}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -609,23 +556,16 @@ const Index = ({
                           id="6QxA7qcoXysSRYR1ARTYaw"
                         />
                       </p>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Style["gallery__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["gallery__layout"]}`}
-                    >
-                      <div
-                        className={`${Grid["row"]} ${Style["gallery__layout-list"]}`}
-                      >
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.galleryContainer}>
+                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                      <Grid row className={Style.galleryLayoutList}>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={KevinMarcus}
                               alt={"Drawing of Kevin Marcus"}
@@ -637,13 +577,12 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]}  ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={MarkPerrin}
                               alt={"Drawing of Mark W. Perrin"}
@@ -655,13 +594,12 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={HondoGeruts}
                               alt={'Drawing of James "Hondo" Geurts'}
@@ -673,13 +611,12 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                        <div
-                          className={`${Grid["col-lg-3"]} ${Grid["col-xs-12"]} ${Style["gallery__layout-item"]}`}
+                        </Grid>
+                        <Grid
+                          size={{ Lg: 3, Xs: 12 }}
+                          className={Style.galleryLayoutItem}
                         >
-                          <div
-                            className={`${Style["gallery__layout-item-content"]}`}
-                          >
+                          <div className={clsx(Style.galleryLayoutItemContent)}>
                             <Image
                               src={MikeDanda}
                               alt={"Drawing of LtGen Mike Dana"}
@@ -691,55 +628,66 @@ const Index = ({
                               />
                             </h5>
                           </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <ContentOverImage
-                className={clsx(Style.careers, "section")}
-                contentProps={{
-                  className: clsx(Grid.container, Grid.margin_center),
-                }}
-                imageProps={{
-                  src: galleryBackground,
-                  alt: "",
-                  layout: "fill",
-                  objectPosition: "left center",
-                  objectFit: "contain",
-                }}
-              >
-                <div className={clsx(Grid.row, Style.careers__content)}>
-                  <div className={clsx(Grid["col-xs-12"], Grid["col-lg-6"])}>
-                    <h2>
-                      <Microcopy
-                        entries={microcopy}
-                        id="65hvS4h0kwdOieAKPSTM9f"
-                      />
-                    </h2>
-                    <p>
-                      <Microcopy
-                        entries={microcopy}
-                        id="6AcP8ezk701A5LGEao0wr3"
-                      />
-                    </p>
-                    <div>
-                      <Link href={careersPageSettings.path}>
-                        <a role="button">
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection>
+                <ContentOverImage
+                  className={clsx(Style.careers, "section")}
+                  imageProps={{
+                    src: galleryBackground,
+                    alt: "",
+                    layout: "fill",
+                    objectPosition: "left center",
+                    objectFit: "contain",
+                  }}
+                >
+                  <Grid container marginCenter>
+                    <Grid row className={Style.careersContent}>
+                      <Grid size={{ Xs: 12, Lg: 6 }}>
+                        <h2>
                           <Microcopy
                             entries={microcopy}
-                            id="3sTrnyb7jga2Fey4XwLpAy"
+                            id="65hvS4h0kwdOieAKPSTM9f"
                           />
-                        </a>
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </ContentOverImage>
-              <div className={`${Landing["news"]} section`}>
-                <News items={news} />
-              </div>
+                        </h2>
+                        <p>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6AcP8ezk701A5LGEao0wr3"
+                          />
+                        </p>
+                        <div>
+                          <Link href={careersPageSettings.path}>
+                            <a role="button">
+                              <Microcopy
+                                entries={microcopy}
+                                id="3sTrnyb7jga2Fey4XwLpAy"
+                              />
+                            </a>
+                          </Link>
+                        </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </ContentOverImage>
+              </FullpageSection>
+              <FullpageSection className={Style.news}>
+                <Grid container marginCenter>
+                  <NewsGrid news={news} title="Latest News" />
+                  <Button
+                    style={{ display: "block" }}
+                    onClick={() => {
+                      router.push(newsroomPageSettings.path);
+                    }}
+                  >
+                    View all
+                  </Button>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

@@ -3,7 +3,7 @@
 import React, { ReactElement, useEffect } from "react";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import forbes from "../../img/forbes.png";
 import PageHeader from "../../components/PageHeader/PageHeader";

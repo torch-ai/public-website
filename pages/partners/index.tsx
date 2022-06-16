@@ -3,23 +3,24 @@
 import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Image from "next/image";
-import Style from "../styles/modules/partners.module.scss";
-import Footer from "../components/Footer";
+import Style from "./styles.module.scss";
+import Footer from "../../components/Footer/Footer";
 import { InView } from "react-intersection-observer";
 import { gsap } from "gsap";
-import training from "../img/training.png";
-import opportunities from "../img/oppertunities.png";
-import tools from "../img/tools.png";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
-import { getCustomPageAndMicrocopy } from "../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
-import Microcopy from "../components/Microcopy/Microcopy";
+import training from "../../img/training.png";
+import opportunities from "../../img/oppertunities.png";
+import tools from "../../img/tools.png";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import pageIds from "../contentful/pages";
+import pageIds from "../../contentful/pages";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/partners",
@@ -40,7 +41,7 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const Partners = ({
+const Index = ({
   microcopy,
   customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
@@ -84,14 +85,10 @@ const Partners = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
-                    >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                       <h1 ref={titleRef}>
                         <Microcopy
                           entries={microcopy}
@@ -104,26 +101,20 @@ const Partners = ({
                           id="5wF0UGzt38cVthUz7K6HK6"
                         />
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["value"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.value}>
+                <Grid container marginCenter>
                   <InView
                     as="div"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div
-                      className={`${Grid["row"]} ${Style["value__content"]}`}
-                    >
-                      <div
-                        className={`${Grid["col-lg-offset-3"]} ${Grid["col-xs-12"]}`}
-                      >
+                    <Grid row className={Style.valueContent}>
+                      <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
                         <h3>
                           <Microcopy
                             entries={microcopy}
@@ -136,30 +127,25 @@ const Partners = ({
                             id="1otFTfga7E2vw3fOVJXaZc"
                           />
                         </p>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
-              </div>
-              <div className={`${Style["benefitsPartners"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["benefitsPartners__title"]}`}
-                  >
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.benefitsPartners}>
+                <Grid container marginCenter>
+                  <Grid row className={Style.benefitsPartnersTitle}>
                     <h3>
                       <Microcopy
                         entries={microcopy}
                         id="4JT7mAUm2RnmPGydZcWwXQ"
                       />
                     </h3>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Style["benefitsPartners__content"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                  </Grid>
+                  <Grid row className={Style.benefitsPartnersContent}>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={Style.benefitsPartnersItem}
                     >
                       <div>
                         <Image
@@ -181,9 +167,10 @@ const Partners = ({
                           id="4f3LTeCb56qO1BMuKj6nqP"
                         />
                       </p>
-                    </div>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={Style.benefitsPartnersItem}
                     >
                       <div>
                         <Image
@@ -203,9 +190,10 @@ const Partners = ({
                           id="Jk3opaCKBH8T7XFa046ca"
                         />
                       </p>
-                    </div>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Grid["col-lg-3"]} ${Style["benefitsPartners-item"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xs: 12, Lg: 3 }}
+                      className={Style.benefitsPartnersItem}
                     >
                       <div>
                         <Image
@@ -227,18 +215,14 @@ const Partners = ({
                           id="3jsTS6MdCuSkVt8gFZYGbN"
                         />
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["change"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Style["change__title"]}`}
-                    >
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.change}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.changeTitle}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -260,10 +244,10 @@ const Partners = ({
                           />
                         </a>
                       </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );
@@ -273,4 +257,4 @@ const Partners = ({
   );
 };
 
-export default Partners;
+export default Index;

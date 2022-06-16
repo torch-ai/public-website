@@ -3,23 +3,24 @@
 import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Image from "next/image";
-import Style from "../styles/modules/platform.module.scss";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
-import { getCustomPageAndMicrocopy } from "../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
-import Microcopy from "../components/Microcopy/Microcopy";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import datamodel1 from "../img/datamodel1.svg";
-import datamodel2 from "../img/datamodel2.svg";
-import datamodel3 from "../img/datamodel3.svg";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
-import pageIds from "../contentful/pages";
+import datamodel1 from "../../img/datamodel1.svg";
+import datamodel2 from "../../img/datamodel2.svg";
+import datamodel3 from "../../img/datamodel3.svg";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import pageIds from "../../contentful/pages";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/platform",
@@ -40,7 +41,7 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const Platform = ({
+const Index = ({
   microcopy,
   customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
@@ -83,18 +84,14 @@ const Platform = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={` ${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
-                  >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                     <h2 ref={titleRef}>
                       Nexus<sup>&trade;</sup>. The highest-performance data
                       processing platform ever built.
                     </h2>
-                    <div ref={arrowRef} className={`${Style["circle-icon"]}`}>
+                    <div ref={arrowRef} className={Style.circleIcon}>
                       <svg
                         width="50"
                         height="50"
@@ -110,34 +107,26 @@ const Platform = ({
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["engines"]} section`}>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.engines}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]} ${Grid["margin_center"]}`}
-                      >
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Lg: 12, Xs: 12 }}>
                         <h3>
                           Nexus<sup>&trade;</sup> is a transparent and
                           composable software platform bridging three powerful
                           capabilities:
                         </h3>
-                      </div>
-                    </div>
-                    <div
-                      className={`${Grid["row"]} ${Style["engines__models"]}`}
-                    >
-                      <div
-                        className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                    </Grid>
+                    <Grid row className={Style.enginesModels}>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel1} alt={""} />
                         </div>
@@ -155,10 +144,8 @@ const Platform = ({
                             />
                           </p>
                         </div>
-                      </div>
-                      <div
-                        className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel2} alt={""} />
                         </div>
@@ -176,10 +163,8 @@ const Platform = ({
                             />
                           </p>
                         </div>
-                      </div>
-                      <div
-                        className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel3} alt={""} />
                         </div>
@@ -197,19 +182,15 @@ const Platform = ({
                             />
                           </p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div className={`${Style["datalake"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["datalake__content"]}`}
-                  >
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+              </FullpageSection>
+              <FullpageSection className={Style.datalake}>
+                <Grid container marginCenter>
+                  <Grid row className={Style.datalakeContent}>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -222,9 +203,9 @@ const Platform = ({
                           id="4mJVql0cD2lWeuRnNbF2dM"
                         />
                       </p>
-                    </div>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <div className={`${Style["datalake__title"]}`}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
+                      <div className={Style.datalakeTitle}>
                         <h1>
                           <Microcopy
                             entries={microcopy}
@@ -255,27 +236,25 @@ const Platform = ({
                           </tbody>
                         </table>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["code"]} section`}>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.code}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div className={`${Grid["col-lg-1"]}${Grid["col-xs-8"]}`}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <div>
                         <h2>
                           <Microcopy
                             entries={microcopy}
                             id="flK6Kh6vQ586hcloCrcmV"
                           />
                         </h2>
-                        <p className={`${Style["code__subtitle"]}`}>
+                        <p className={Style.codeSubtitle}>
                           <Microcopy
                             entries={microcopy}
                             id="2OLuJ7H0zrzOOfRUJMvel8"
@@ -300,28 +279,24 @@ const Platform = ({
                           />
                         </p>
                       </div>
-                    </div>
-                  </div>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div className={`${Style["benefits"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]}`}
-                    >
+              </FullpageSection>
+              <FullpageSection className={Style.benefits}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Lg: 12, Xs: 12 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
                           id="1KfEYLOmtc69ScfZUL75f8"
                         />
                       </h2>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -348,8 +323,8 @@ const Platform = ({
                           />
                         </li>
                       </ul>
-                    </div>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -376,10 +351,10 @@ const Platform = ({
                           />
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -394,8 +369,8 @@ const Platform = ({
                           />
                         </li>
                       </ul>
-                    </div>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -422,10 +397,10 @@ const Platform = ({
                           />
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );
@@ -435,4 +410,4 @@ const Platform = ({
   );
 };
 
-export default Platform;
+export default Index;

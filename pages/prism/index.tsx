@@ -1,18 +1,20 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
+import React, { useContext, ReactElement } from "react";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
 import ReactFullpage from "@fullpage/react-fullpage";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
-import { getCustomPageAndMicrocopy } from "../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
-import Microcopy from "../components/Microcopy/Microcopy";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import pageIds from "../contentful/pages";
+import pageIds from "../../contentful/pages";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
@@ -33,7 +35,7 @@ export const getStaticProps: GetStaticProps<{
   };
 };
 
-const Prism = ({
+const Index = ({
   microcopy,
   customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
@@ -55,8 +57,8 @@ const Prism = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <section className={`section hero`}>
-                <div className="container">
+              <FullpageSection className={Style.hero}>
+                <div className={Style.container}>
                   <h1>
                     <Microcopy
                       entries={microcopy}
@@ -70,14 +72,14 @@ const Prism = ({
                     />
                   </h4>
                 </div>
-              </section>
-              <section className={`section professional`}>
+              </FullpageSection>
+              <FullpageSection className={Style.professional}>
                 <InView
                   as="div"
-                  className="checking"
+                  className={Style.checking}
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className="container">
+                  <div className={Style.container}>
                     <h3>
                       <Microcopy
                         entries={microcopy}
@@ -92,21 +94,21 @@ const Prism = ({
                     </p>
                   </div>
                 </InView>
-              </section>
-              <section className={`section organization`}>
-                <div className="container">
+              </FullpageSection>
+              <FullpageSection className={Style.organization}>
+                <div className={Style.container}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
                       id="3PPmCDev70MfolTJWApHDa"
                     />
                   </h3>
-                  <p className="subtitle">
+                  <p className={Style.subtitle}>
                     <Microcopy entries={microcopy} id="anDyE3d02R0gNfy7K3lrh" />
                   </p>
                   <hr />
-                  <div className="prismFeatures">
-                    <div className="prismFeature-item">
+                  <div className={Style.prismFeatures}>
+                    <div className={Style.prismFeatureItem}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -120,7 +122,7 @@ const Prism = ({
                         />
                       </p>
                     </div>
-                    <div className="prismFeature-item">
+                    <div className={Style.prismFeatureItem}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -134,7 +136,7 @@ const Prism = ({
                         />
                       </p>
                     </div>
-                    <div className="prismFeature-item">
+                    <div className={Style.prismFeatureItem}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -148,7 +150,7 @@ const Prism = ({
                         />
                       </p>
                     </div>
-                    <div className="prismFeature-item">
+                    <div className={Style.prismFeatureItem}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -164,16 +166,16 @@ const Prism = ({
                     </div>
                   </div>
                 </div>
-              </section>
+              </FullpageSection>
 
-              <section className={`section win`}>
+              <FullpageSection className={Style.win}>
                 <InView
                   as="div"
-                  className="checking"
+                  className={Style.checking}
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div className="container">
-                    <div className="winPoints">
+                  <div className={Style.container}>
+                    <div className={Style.winPoints}>
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -207,7 +209,7 @@ const Prism = ({
                         </li>
                       </ul>
                     </div>
-                    <div className="prismVideo">
+                    <div className={Style.prismVideo}>
                       <video controls poster="/torch-video-poster.jpg">
                         <source
                           src="//videos.ctfassets.net/dtb5w0ega2aw/2PdGM8dFgBF7poRWGQGjDI/530cb7a3a89765ac820196eec7ea8dbc/prism-highlights.mp4"
@@ -217,9 +219,9 @@ const Prism = ({
                     </div>
                   </div>
                 </InView>
-              </section>
-              <section className={`section contact`}>
-                <div className="container">
+              </FullpageSection>
+              <FullpageSection className={Style.contact}>
+                <div className={Style.container}>
                   <h4>
                     <Microcopy
                       entries={microcopy}
@@ -271,7 +273,7 @@ const Prism = ({
                     </div>
                   </form>
                 </div>
-              </section>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );
@@ -281,4 +283,4 @@ const Prism = ({
   );
 };
 
-export default Prism;
+export default Index;

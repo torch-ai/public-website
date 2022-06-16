@@ -1,9 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
-import Grid from "../../styles/modules/grid.module.scss";
-import Style from "../../styles/modules/contact.module.scss";
-import Footer from "../../components/Footer";
+import React, { useContext, ReactElement } from "react";
+import Grid from "../../components/Grid/Grid";
+import Style from "./styles.module.scss";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
@@ -16,6 +16,7 @@ import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
 import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import pageIds from "../../contentful/pages";
+import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
   path: "/contact",
@@ -51,33 +52,31 @@ const Index = ({
           )}
         </title>
       </Head>
-      <section className={`${Style["contact__container"]}`}>
+      <section className={clsx(Style.contactContainer)}>
         <InView
           as="div"
           onChange={(inView) => setNavColor(inView ? "black" : "white")}
         >
-          <div className={`${Grid["container"]} ${Grid["margin_center"]}`}>
-            <div className={`${Grid["row"]}`}>
-              <div
-                className={`${Grid["col-xs-12"]} ${Style["contact__title"]}`}
-              >
+          <Grid container marginCenter>
+            <Grid row>
+              <Grid size={{ Xs: 12 }} className={Style.contactTitle}>
                 <PageTitle>
                   <Microcopy entries={microcopy} id="6xt33azGkVk0pVxwLYyLE4" />
                 </PageTitle>
                 <PageSubtitle>
                   <Microcopy entries={microcopy} id="4Cufep8wTzibupuz0UlH2p" />
                 </PageSubtitle>
-              </div>
-            </div>
-            <div className={`${Grid["row"]}`}>
-              <div className={`${Grid["col-xs-12"]}`}>
+              </Grid>
+            </Grid>
+            <Grid row>
+              <Grid size={{ Xs: 12 }}>
                 <form
-                  className={`${Style["contact__form"]}`}
+                  className={clsx(Style.contactForm)}
                   action="https://formspree.io/f/mvolablv"
                   method="POST"
                 >
                   <div>
-                    <label className={`${Style["contact__names"]}`}>
+                    <label className={clsx(Style.contactNames)}>
                       <input
                         type="text"
                         name="name"
@@ -119,9 +118,9 @@ const Index = ({
                     <button type="submit">Send</button>
                   </div>
                 </form>
-              </div>
-            </div>
-          </div>
+              </Grid>
+            </Grid>
+          </Grid>
         </InView>
       </section>
       <Footer />

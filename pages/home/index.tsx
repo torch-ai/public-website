@@ -3,13 +3,15 @@
 import React, { ReactElement, useContext } from "react";
 import ReactFullpage from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
-import Landing from "../../styles/modules/landing.module.scss";
-import News from "../../components/News";
+import Style from "./styles.module.scss";
+import NewsGrid from "../../components/News/NewsGrid";
+import Button from "../../components/Button/Button";
+import router from "next/router";
 import { InView } from "react-intersection-observer";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import imac from "../../img/iMac.gif";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
@@ -28,11 +30,13 @@ import { pageSettings as solutionsPageSettings } from "../solutions";
 import { pageSettings as platformPageSettings } from "../platform";
 import { pageSettings as impactPageSettings } from "../impact";
 import { pageSettings as contactPageSettings } from "../contact";
+import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import enhanceBackground from "./assets/enhance-background.png";
 import nexusBackground from "./assets/nexus-background.png";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
 import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
@@ -84,20 +88,16 @@ const Index = ({
         render={() => {
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Landing["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Landing["content-center"]}`}
-                  >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                     <h1>
                       <Microcopy
                         entries={microcopy}
                         id="4UBhAXFFTZVG1RzckmxQEl"
                       />
                     </h1>
-                    <div className={`${Landing["circle-icon"]}`}>
+                    <div className={clsx(Style.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -113,11 +113,11 @@ const Index = ({
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 <video
                   data-keepplaying
-                  className={`${Landing["background-video"]}`}
+                  className={clsx(Style.backgroundVideo)}
                   id="background-video"
                   autoPlay
                   muted
@@ -127,33 +127,20 @@ const Index = ({
                     type="video/mp4"
                   />
                 </video>
-              </div>
-              <div className={clsx(Landing.enhance, "section")}>
-                <ContentOverImage
-                  imageProps={{
-                    src: enhanceBackground,
-                    objectPosition: "left bottom",
-                  }}
-                  contentProps={{
-                    className: clsx(Grid.container, Grid.margin_center),
-                  }}
+              </FullpageSection>
+              <ContentOverImage
+                imageProps={{
+                  src: enhanceBackground,
+                  objectPosition: "left bottom",
+                }}
+                className={Style.enhance}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                    className={clsx(Grid.row, Landing.enhance__content)}
-                  >
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-sm-10"],
-                        Grid["col-md-10"],
-                        Grid["col-lg-10"],
-                        Grid["col-xl-5"]
-                      )}
-                    >
+                  <Grid row className={Style.enhanceContent}>
+                    <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -166,31 +153,17 @@ const Index = ({
                           id="6w3gCqWqZrMc7TYOM4YWpK"
                         />
                       </p>
-                    </div>
-                  </InView>
-                </ContentOverImage>
-              </div>
-              <div className={clsx(Landing.nexus, "section")}>
-                <div
-                  className={clsx(
-                    Grid.container,
-                    Grid.margin_center,
-                    Landing.nexusContent
-                  )}
-                >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-10"]} ${Grid["margin_center"]}`}
-                      >
-                        <div
-                          className={`${Grid["row"]} ${Landing["nexus__stats"]}`}
-                        >
-                          <div
-                            className={`${Grid["col-xl-8"]} ${Grid["col-xs-9"]}`}
-                          >
+                    </Grid>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
+              <FullpageSection className={Style.nexus}>
+                <Grid container marginCenter className={Style.nexusContent}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10 }}>
+                        <Grid row className={Style.nexusStats}>
+                          <Grid size={{ Xl: 8, Xs: 9 }}>
                             <h2>
                               Introducing Nexus <sup>TM</sup>
                             </h2>
@@ -200,11 +173,9 @@ const Index = ({
                                 id="32NSJknoaoZxX7W4fE7UzL"
                               />
                             </p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                          >
-                            <h2 className={`${Landing["large"]}`}>
+                          </Grid>
+                          <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <h2 className={clsx(Style.large)}>
                               <Microcopy
                                 entries={microcopy}
                                 id="1zQtcMbxParMBzxeuAdaFz"
@@ -216,24 +187,24 @@ const Index = ({
                                 id="42Wblep1W2U5HK0rFTOHEW"
                               />
                             </p>
-                          </div>
-                        </div>
+                          </Grid>
+                        </Grid>
                         <hr />
-                        <div className={`${Grid["row"]}`}>
-                          <div className={`${Grid["col-xs-10"]}`}>
+                        <Grid row>
+                          <Grid size={{ Xs: 10 }}>
                             <p>
                               <Microcopy
                                 entries={microcopy}
                                 id="29ehqXL4bu9QGKR7YhUOM1"
                               />
                             </p>
-                          </div>
-                          <div
-                            className={`${Grid["row"]} ${Grid["between-xl"]} ${Landing["nexus__points"]}`}
+                          </Grid>
+                          <Grid
+                            row
+                            spacing={{ Xl: "between" }}
+                            className={Style.nexusPoints}
                           >
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -272,10 +243,8 @@ const Index = ({
                                   id="hv0esjOuPJFAkP3zOFpZX"
                                 />
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="48"
                                 height="55"
@@ -295,10 +264,8 @@ const Index = ({
                                   id="3ODQ1NWWOSQlWQofpynsTB"
                                 />
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -318,10 +285,8 @@ const Index = ({
                                   id="rcjbSzupwPBZ2Uh68LayP"
                                 />
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]} `}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="54"
@@ -363,15 +328,13 @@ const Index = ({
                                   id="wywdEJ9vPYoIrqCVcUhEq"
                                 />
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
-                      >
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
                         <Link href={platformPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -380,11 +343,11 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={Landing.nexusBackground}>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <div className={Style.nexusBackground}>
                   <Image
                     src={nexusBackground}
                     alt={""}
@@ -392,39 +355,36 @@ const Index = ({
                     objectFit={"cover"}
                   />
                 </div>
-              </div>
-
-              <div className={`${Landing["statement"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              </FullpageSection>
+              <FullpageSection className={Style.statement}>
+                <Grid container marginCenter>
                   <InView
                     as="span"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-xl-5"]} ${Landing["statement__image"]}`}
+                    <Grid row>
+                      <Grid
+                        size={{ Xs: 12, Xl: 5 }}
+                        className={Style.statementImage}
                       >
                         <Image
                           src={imac}
                           alt={"Image of a force graph loading on a screen"}
                         />
-                      </div>
-                      <div
-                        className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Xl: 6, Xs: 12 }}>
                         <h3>
                           <Microcopy
                             entries={microcopy}
                             id="6BCma241qSzElB9jU5T4QB"
                           />
                         </h3>
-                        <div className={`${Grid["row"]}`}>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="58"
@@ -497,9 +457,10 @@ const Index = ({
                                 id="PAPIfa7H3WqYXOHdS29K0"
                               />
                             </p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="61"
@@ -566,11 +527,12 @@ const Index = ({
                                 id="2emcgj30J105TlICxnK7g0"
                               />
                             </p>
-                          </div>
-                        </div>
-                        <div className={`${Grid["row"]}`}>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                          </Grid>
+                        </Grid>
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="125"
@@ -696,9 +658,10 @@ const Index = ({
                                 id="29omCw4jpoHYJd04X5nZ5s"
                               />
                             </p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="99"
@@ -777,8 +740,8 @@ const Index = ({
                                 id="4FnKoifxYrdF50Az2jVFaH"
                               />
                             </p>
-                          </div>
-                        </div>
+                          </Grid>
+                        </Grid>
                         <Link href={solutionsPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -787,37 +750,33 @@ const Index = ({
                             />
                           </a>
                         </Link>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
-              </div>
+                </Grid>
+              </FullpageSection>
 
-              <div className={`${Landing["impact"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]} `}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Landing["impact__title"]}`}
-                    >
+              <FullpageSection className={Style.impact}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.impactTitle}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
                           id="7txC5Laq4aY36Nr8i28kRd"
                         />
                       </h2>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Landing["impact__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__microsoft"]}`}
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.impactContainer}>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactMicrosoft
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -839,13 +798,15 @@ const Index = ({
                           </a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__hr"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactHr
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -867,13 +828,15 @@ const Index = ({
                           </a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__raytheon"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactRaytheon
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -895,13 +858,15 @@ const Index = ({
                           </a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__navy"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactNavy
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
+                      <div className={clsx(Style.impactContainerContent)}>
                         <p>
                           <Microcopy
                             entries={microcopy}
@@ -923,33 +888,39 @@ const Index = ({
                           </a>
                         </Link>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Landing["news"]} section`}>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.news}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <News items={news} />
-                </InView>
-              </div>
-              <div className={`${Landing["statement2"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xl-6"]} ${Landing["statement2__content"]}`}
+                  <Grid container marginCenter>
+                    <NewsGrid news={news} title="Latest News" />
+                    <Button
+                      style={{ display: "block" }}
+                      onClick={() => {
+                        router.push(newsroomPageSettings.path);
+                      }}
                     >
+                      View all
+                    </Button>
+                  </Grid>
+                </InView>
+              </FullpageSection>
+              <FullpageSection className={Style.statement2}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xl: 6 }} className={Style.statement2Content}>
                       <h3>
                         <Microcopy
                           entries={microcopy}
                           id="UCb8XhnaZSvr7gzUqVijo"
                         />
                       </h3>
-                      <div className={`${Landing["statement2__button"]}`}>
+                      <div className={clsx(Style.statement2Button)}>
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -959,8 +930,8 @@ const Index = ({
                           </a>
                         </Link>
                       </div>
-                    </div>
-                    <div className={`${Grid["col-xl-6"]}`}>
+                    </Grid>
+                    <Grid size={{ Xl: 6 }}>
                       <video
                         controls
                         poster="./bryanPreview.png"
@@ -971,10 +942,10 @@ const Index = ({
                           type="video/mp4"
                         />
                       </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );

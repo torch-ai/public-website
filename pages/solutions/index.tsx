@@ -2,18 +2,19 @@
 
 import React, { ReactElement, useContext } from "react";
 import Head from "next/head";
-import Style from "../styles/modules/solution.module.scss";
+import Style from "./styles.module.scss";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
-import { getCustomPageAndMicrocopy } from "../contentful/client";
-import { TypeMicrocopy, TypeCustomPage } from "../generated/contentful";
-import Microcopy from "../components/Microcopy/Microcopy";
+import Footer from "../../components/Footer/Footer";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import clsx from "clsx";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import pageIds from "../contentful/pages";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
@@ -49,18 +50,18 @@ const Solutions = ({
           )}
         </title>
       </Head>
-      <section className={`${Style["wrap"]}`}>
+      <section className={clsx(Style.wrap)}>
         <InView
           as="span"
           onChange={(inView) => setNavColor(inView ? "white" : "white")}
         >
-          <Parallax pages={46} className={`${Style["wrapper"]}`}>
+          <Parallax pages={46} className={clsx(Style.wrapper)}>
             <ParallaxLayer
-              className={`${Style["sol-title"]}`}
+              className={clsx(Style.solTitle)}
               offset={0}
               speed={2.5}
             >
-              <div className={`${Style["container"]}`}>
+              <div className={clsx(Style.container)}>
                 <h2>
                   <Microcopy entries={microcopy} id="6XjILsMC9rJHZb42LGvQnz" />
                 </h2>
@@ -68,11 +69,11 @@ const Solutions = ({
                   <Microcopy entries={microcopy} id="50pI2pTGSmUgEMCAINvP2C" />
                 </p>
 
-                <div className={`${Style["index"]}`}>
-                  <div className={`${Style["index-item"]}`}>
+                <div className={clsx(Style.index)}>
+                  <div className={clsx(Style.indexItem)}>
                     <a
                       href="#infrastructure"
-                      className={`${Style["index-content"]}`}
+                      className={clsx(Style.indexContent)}
                     >
                       <h5>
                         <Microcopy
@@ -82,11 +83,8 @@ const Solutions = ({
                       </h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a
-                      href="#analytics"
-                      className={`${Style["index-content"]}`}
-                    >
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#analytics" className={clsx(Style.indexContent)}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -95,21 +93,19 @@ const Solutions = ({
                       </h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a href="#machine" className={`${Style["index-content"]}`}>
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#machine" className={clsx(Style.indexContent)}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
                           id="7FbhlDst4QKtuqbCplBV9P"
                         />
+                        I
                       </h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a
-                      href="#enterprise"
-                      className={`${Style["index-content"]}`}
-                    >
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#enterprise" className={clsx(Style.indexContent)}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -118,11 +114,8 @@ const Solutions = ({
                       </h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a
-                      href="#openSource"
-                      className={`${Style["index-content"]}`}
-                    >
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#openSource" className={clsx(Style.indexContent)}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -131,8 +124,8 @@ const Solutions = ({
                       </h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a href="#dataApis" className={`${Style["index-content"]}`}>
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#dataApis" className={clsx(Style.indexContent)}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -145,19 +138,19 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={1} speed={0.9} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={1} speed={0.9} className={clsx(Style['sol-background'])} /> */}
 
             {/* Section Infrastructure */}
 
             <ParallaxLayer
               sticky={{ start: 1, end: 9 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="infrastructure"
               offset={1}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-infra"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleInfra)}>
                   <Microcopy entries={microcopy} id="5bXBdXXJuZHeso1bIrXwI1" />
                 </h3>
                 <p>
@@ -167,13 +160,13 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]}`}
+              className={clsx(Style.solSubtitle)}
               offset={1}
               // id='infrastructure'
               speed={0.5}
             >
-              <div className={`${Style["container"]} ${Style["mobile-only"]}`}>
-                <h3 className={`${Style["title-infra"]}`}>
+              <div className={clsx(Style.container, Style.mobileOnly)}>
+                <h3 className={clsx(Style.titleInfra)}>
                   <Microcopy entries={microcopy} id="12zBPZUh0OLJzPFbbvdJT4" />
                 </h3>
                 <p>
@@ -183,12 +176,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={2}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]} `}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle, "")}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -202,7 +195,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -210,7 +203,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -219,7 +212,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -232,12 +225,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={3}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -251,7 +244,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -259,13 +252,13 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="vag7Tjosg00e6aH6S8fMu" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -278,12 +271,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={4}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -297,7 +290,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -305,7 +298,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -314,7 +307,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -327,12 +320,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={5}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -343,7 +336,7 @@ const Solutions = ({
                     <Microcopy entries={microcopy} id="Q0fMSVCsUrPEuyQ0I3ndi" />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -351,7 +344,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -360,7 +353,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -373,12 +366,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={6}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -392,12 +385,12 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy entries={microcopy} id="5MWlwBgdWUr9bEWlcm2BX" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -406,7 +399,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -419,12 +412,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={7}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -438,7 +431,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -446,7 +439,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -455,7 +448,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -468,12 +461,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={8}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -487,12 +480,12 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy entries={microcopy} id="PPuKv1errjf8KFPmgwMWl" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -501,7 +494,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -514,12 +507,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={9}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -533,7 +526,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -541,7 +534,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -550,7 +543,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -562,17 +555,17 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Analytics */}
 
             <ParallaxLayer
               sticky={{ start: 10, end: 15 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="analytics"
               offset={10}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
+              <div className={clsx(Style.container)}>
                 <h3>
                   <Microcopy entries={microcopy} id="3vGG0rIdAwfr5xNaUwsa9J" />
                 </h3>
@@ -583,13 +576,13 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={10}
               // id='analytics'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-analytics"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleAnalytics)}>
                   <Microcopy entries={microcopy} id="77b1ls9oYC8ZQ1B70lZUK0" />
                 </h3>
                 <p>
@@ -599,12 +592,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={11}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy entries={microcopy} id="GecKyCLO8aUYZvEQsIf6z" />
                   </h3>
@@ -615,7 +608,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -623,7 +616,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -632,7 +625,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -645,12 +638,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={12}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -664,7 +657,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -672,7 +665,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -681,7 +674,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -694,12 +687,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={13}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -713,7 +706,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -721,7 +714,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -730,7 +723,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -743,12 +736,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={14}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -762,7 +755,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -770,7 +763,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -779,7 +772,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -792,12 +785,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={15}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -811,7 +804,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -819,7 +812,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -828,7 +821,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -840,18 +833,18 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Machine learning & AI */}
 
             <ParallaxLayer
               sticky={{ start: 16, end: 25 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="machine"
               offset={16}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   <Microcopy entries={microcopy} id="f7AVVbtEoaHRNbWRhD4pB" />
                 </h3>
                 <p>
@@ -861,13 +854,13 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={16}
               // id='machine'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   <Microcopy entries={microcopy} id="m6OzKVsIplGJvyH7ups2t" />
                 </h3>
                 <p>
@@ -877,12 +870,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={17}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -893,7 +886,7 @@ const Solutions = ({
                     <Microcopy entries={microcopy} id="Wnvo34tOEgBn4Qk2FrmrI" />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -901,7 +894,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -910,7 +903,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -923,12 +916,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={18}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -942,7 +935,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -950,7 +943,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -959,7 +952,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -972,12 +965,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={19}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -991,18 +984,18 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy entries={microcopy} id="9nvwXrGvDMQIMkRL5CCLi" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="HDPuj44gWWCMRnXZz2i75" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="nAXISeshVbycHdkLwX8mt" />
@@ -1012,12 +1005,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={20}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1031,7 +1024,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1039,7 +1032,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1048,7 +1041,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1061,12 +1054,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={21}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1080,7 +1073,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1088,7 +1081,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1097,7 +1090,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1110,12 +1103,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={22}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy entries={microcopy} id="biIoi5OTbyq4MfcmSWiEJ" />
                   </h3>
@@ -1126,18 +1119,18 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy entries={microcopy} id="NlYNsleRWHgiTn8zCjGbO" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="ukEXrQzDJ84gIEZphvvkg" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1150,12 +1143,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={23}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1169,7 +1162,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1177,7 +1170,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1186,7 +1179,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1199,12 +1192,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={24}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1218,7 +1211,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1226,13 +1219,13 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="vFhVOGb50A5t4qmifJ4sj" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1245,12 +1238,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={25}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1264,7 +1257,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1272,13 +1265,13 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="XQePSDmCRdOQ2vo3zwHsW" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1290,18 +1283,18 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Enterprise Applications */}
 
             <ParallaxLayer
               sticky={{ start: 26, end: 33 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="enterprise"
               offset={26}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   <Microcopy entries={microcopy} id="3U45RNRTZXsALSuGKPN6ml" />
                 </h3>
                 <p>
@@ -1311,13 +1304,13 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={26}
               // id='enterprise'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   <Microcopy entries={microcopy} id="2vZzW3U2OFbqJi8yldC7mG" />
                 </h3>
                 <p>
@@ -1327,12 +1320,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={27}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1346,7 +1339,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1354,7 +1347,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1363,7 +1356,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1376,12 +1369,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={28}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1395,7 +1388,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1403,7 +1396,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1412,7 +1405,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1425,12 +1418,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={29}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1444,7 +1437,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1452,7 +1445,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1461,7 +1454,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1474,12 +1467,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={30}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy entries={microcopy} id="wsUaDDFprCZjUvPoZjVNP" />
                   </h3>
@@ -1490,12 +1483,12 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy entries={microcopy} id="FIQzuFYCX9xd5voJuzqaD" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1504,7 +1497,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="XxxUsSAgsmGBzJ33ALfFW" />
@@ -1514,12 +1507,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={31}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1533,7 +1526,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1541,7 +1534,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1550,7 +1543,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1563,12 +1556,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={32}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1582,7 +1575,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1590,7 +1583,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1599,7 +1592,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1612,12 +1605,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={33}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy entries={microcopy} id="kg3uARNwHb3JduIE1vIc9" />
                   </h3>
@@ -1625,7 +1618,7 @@ const Solutions = ({
                     <Microcopy entries={microcopy} id="oCT880yH6RrZ7YjnMmexc" />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1633,7 +1626,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1642,7 +1635,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1654,18 +1647,18 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Open Source */}
 
             <ParallaxLayer
               sticky={{ start: 34, end: 39 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="openSource"
               offset={34}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   <Microcopy entries={microcopy} id="1ch1zoHhJh4B0xjMv9CHdx" />
                 </h3>
                 <p>
@@ -1675,13 +1668,13 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={34}
               // id='openSource'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-openSource"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleOpenSource)}>
                   <Microcopy entries={microcopy} id="2SmzNqnUOF4XXA4dLnq8ld" />
                 </h3>
                 <p>
@@ -1691,12 +1684,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={35}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1710,7 +1703,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1718,13 +1711,13 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="lmp1Zyvpv4SwJf00RxpEH" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1737,12 +1730,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={36}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1756,7 +1749,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1764,7 +1757,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1773,7 +1766,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1786,12 +1779,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={37}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy entries={microcopy} id="bdUnGusME8mFjk9Z2Xb7r" />
                   </h3>
@@ -1802,7 +1795,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1810,7 +1803,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1819,7 +1812,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -1832,12 +1825,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={38}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1851,7 +1844,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1859,7 +1852,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1868,7 +1861,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="kHWdOSZOZOgB0ICG91CnG" />
@@ -1878,12 +1871,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={39}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1897,7 +1890,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1905,7 +1898,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1914,7 +1907,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="M5nqa4xnPQMlaXbTvosZw" />
@@ -1923,18 +1916,18 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Data APIs */}
 
             <ParallaxLayer
               sticky={{ start: 40, end: 44 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="dataApis"
               offset={40}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   <Microcopy entries={microcopy} id="51pvjP3a4kQC2TjggUDWSO" />
                 </h3>
                 <p>
@@ -1944,13 +1937,13 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={40}
               // id='dataApis'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-openSource"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleOpenSource)}>
                   <Microcopy entries={microcopy} id="6qKIgEouYG7oNYiTKJj2hb" />
                 </h3>
                 <p>
@@ -1960,12 +1953,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={41}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -1979,7 +1972,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -1987,7 +1980,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -1996,7 +1989,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -2009,12 +2002,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={42}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -2028,7 +2021,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -2036,7 +2029,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy
@@ -2045,7 +2038,7 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -2058,12 +2051,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={43}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -2077,7 +2070,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -2085,13 +2078,13 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="9dzed0PFdC5pjdjkGXjKj" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy
@@ -2104,12 +2097,12 @@ const Solutions = ({
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={44}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     <Microcopy
                       entries={microcopy}
@@ -2123,7 +2116,7 @@ const Solutions = ({
                     />
                   </p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     <Microcopy
                       entries={microcopy}
@@ -2131,13 +2124,13 @@ const Solutions = ({
                     />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="cuPJ8tVkwY83FHMgpOiIv" />
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:&nbsp;
                     </span>
                     <Microcopy entries={microcopy} id="Dm6HLfYxG2TTsmF0CweB3" />
@@ -2146,7 +2139,7 @@ const Solutions = ({
               </div>
             </ParallaxLayer>
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={45.5}
               speed={0.5}
             >

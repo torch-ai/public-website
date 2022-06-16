@@ -1,7 +1,6 @@
 @use "/styles/breakpoints";
 @use "/styles/colors";
 @use "/styles/fonts";
-@use "/styles/pages/prism";
 
 :root {
   @include colors.colors;
@@ -54,29 +53,6 @@ html {
   text-rendering: optimizeSpeed;
   margin: 0;
   font-family: var(--font-copy);
-}
-
-.flow > * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
-.post {
-  width: clamp(16rem, 90vw, 70rem);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
-.section:not(footer) {
-  min-height: 100vh !important;
-  height: auto !important;
-}
-
-.container {
-  width: 400px;
-  margin-inline: auto;
-  max-width: 90%;
 }
 
 /* A elements that don't have a class get default styles */
@@ -135,49 +111,13 @@ div[class*="span_"] {
   padding: 1em;
 }
 
-.fullpage-wrapper {
-  display: inline-block;
-  overflow-x: hidden;
-}
-
-footer {
-  background-color: #1b1c1e;
-  height: auto !important;
-}
-
-footer h3,
-footer h4,
-footer p,
-footer ul li {
-  color: #ffffff;
-}
-
 video {
   max-width: 100%;
-}
-
-footer a {
-  color: var(--pri-clr-midnight);
-}
-
-footer .row {
-  align-items: center;
-}
-
-@media (min-width: breakpoints.$breakpoint-sm) {
-  .fullpage-wrapper {
-    display: block;
-  }
 }
 
 @media (min-width: breakpoints.$breakpoint-md) {
   :root {
     --type-scale: 1.25;
-  }
-  .container {
-    width: 600px;
-    max-width: 90%;
-    margin-inline: auto;
   }
 }
 
@@ -185,17 +125,9 @@ footer .row {
   :root {
     --type-scale: 1.33;
   }
-  .container {
-    width: 900px;
-    max-width: 90%;
-  }
 }
 @media (min-width: breakpoints.$breakpoint-xl) {
   :root {
     --type-scale: 1.414;
-  }
-  .container {
-    width: 1200px;
-    max-width: 90%;
   }
 }
