@@ -107,32 +107,29 @@ const Index = ({
                   />
                 </video>
               </FullpageSection>
-              <FullpageSection className={Style.enhance}>
-                <ContentOverImage
-                  imageProps={{
-                    src: enhanceBackground,
-                    objectPosition: "left bottom",
-                  }}
+              <ContentOverImage
+                imageProps={{
+                  src: enhanceBackground,
+                  objectPosition: "left bottom",
+                }}
+                className={Style.enhance}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                  >
-                    <Grid row className={Style.enhanceContent}>
-                      <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
-                        <h2>We build AI that makes data easier to use.</h2>
-                        <p>
-                          Torch.AI's Nexus&trade; software instantly unlocks
-                          value from data and provides information needed for
-                          humans and machines to be more productive.
-                        </p>
-                      </Grid>
+                  <Grid row className={Style.enhanceContent}>
+                    <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
+                      <h2>We build AI that makes data easier to use.</h2>
+                      <p>
+                        Torch.AI's Nexus&trade; software instantly unlocks value
+                        from data and provides information needed for humans and
+                        machines to be more productive.
+                      </p>
                     </Grid>
-                  </InView>
-                </ContentOverImage>
-              </FullpageSection>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
               <FullpageSection className={Style.nexus}>
                 <Grid container marginCenter className={Style.nexusContent}>
                   <Grid container marginCenter>
@@ -285,7 +282,11 @@ const Index = ({
                       </Grid>
                     </Grid>
                     <Grid row>
-                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
+                      <Grid
+                        marginCenter
+                        size={{ Xs: 10, Xl: 10 }}
+                        className={Style.statement2Button}
+                      >
                         <Link href={platformPageSettings.path}>
                           <a role="button">Learn More</a>
                         </Link>
