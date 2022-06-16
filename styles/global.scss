@@ -55,18 +55,6 @@ html {
   font-family: var(--font-copy);
 }
 
-.flow > * + * {
-  margin-top: var(--flow-space, 1em);
-}
-
-.post {
-  width: clamp(16rem, 90vw, 70rem);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
@@ -123,39 +111,8 @@ div[class*="span_"] {
   padding: 1em;
 }
 
-.fullpageWrapper {
-  display: inline-block;
-  overflow-x: hidden;
-}
-
-footer {
-  background-color: #1b1c1e;
-  height: auto !important;
-}
-
-footer h3,
-footer h4,
-footer p,
-footer ul li {
-  color: #ffffff;
-}
-
 video {
   max-width: 100%;
-}
-
-footer a {
-  color: var(--pri-clr-midnight);
-}
-
-footer .row {
-  align-items: center;
-}
-
-@media (min-width: breakpoints.$breakpoint-sm) {
-  .fullpageWrapper {
-    display: block;
-  }
 }
 
 @media (min-width: breakpoints.$breakpoint-md) {

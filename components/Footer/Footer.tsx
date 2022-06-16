@@ -26,7 +26,7 @@ const Footer: React.FunctionComponent = () => {
         row
         className={clsx(Style.gap, Style.footerContent)}
       >
-        <div className={clsx(Style.footerFormContainer, "flow")}>
+        <div className={clsx(Style.footerFormContainer, Style.flow)}>
           <div className={clsx(Style.footerText)}>
             <p>Find out how Nexus can unlock your productivity.</p>
           </div>
@@ -34,7 +34,7 @@ const Footer: React.FunctionComponent = () => {
           <form
             action="https://formspree.io/f/mvolablv"
             method="POST"
-            className={clsx(Style.footerForm, "flow")}
+            className={clsx(Style.footerForm, Style.flow)}
           >
             <Grid row nowrap>
               <input
@@ -66,7 +66,7 @@ const Footer: React.FunctionComponent = () => {
             </Grid>
             <Grid
               row
-              className={clsx(Style.footerFormSubmit, Style.gap, "flow")}
+              className={clsx(Style.footerFormSubmit, Style.gap, Style.flow)}
             >
               <button className={clsx(Style.footerFormButton)} type="submit">
                 Send

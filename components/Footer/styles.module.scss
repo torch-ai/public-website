@@ -1,11 +1,31 @@
 @use "/styles/colors";
 
-.footerSnap {
-  scroll-snap-align: start;
+.footer {
+  background-color: #1b1c1e;
+  height: auto !important;
+}
+
+.footer h3,
+.footer h4,
+.footer p,
+.footer ul li {
+  color: #ffffff;
+}
+
+.footer a {
+  color: var(--pri-clr-midnight);
+}
+
+.footer .row {
+  align-items: center;
 }
 
 .footer > * + * {
   padding: 2em 0;
+}
+
+.footerSnap {
+  scroll-snap-align: start;
 }
 
 .footerTitle h3,
@@ -102,4 +122,8 @@
 
 .gap {
   gap: 2em;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-space, 1em);
 }
