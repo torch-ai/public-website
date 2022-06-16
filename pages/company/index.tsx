@@ -47,6 +47,7 @@ import KevinMarcus from "../../img/dotArt/KevinMarcus.png";
 import forbes from "../../img/forbes.png";
 import logoBookshelf from "./assets/logo-bookshelf.png";
 import galleryBackground from "./assets/gallerypic.png";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -62,7 +63,7 @@ export const getStaticProps: GetStaticProps<{
     limit: 5,
   });
 
-  const content = await getCustomPageAndMicrocopy("7gw479ghJ6W9LGpvT1Txwl");
+  const content = await getCustomPageAndMicrocopy(pageIds.company);
 
   return {
     props: {

@@ -16,16 +16,10 @@ import Prose from "../../components/Prose/Prose";
 import clsx from "clsx";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
-import {
-  getNewsEntries,
-  getCustomPageAndMicrocopy,
-} from "../../contentful/client";
-import {
-  TypeNews,
-  TypeMicrocopy,
-  TypeCustomPage,
-} from "../../generated/contentful";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
 import Microcopy from "../../components/Microcopy/Microcopy";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/careers",
@@ -36,7 +30,7 @@ export const getStaticProps: GetStaticProps<{
   microcopy: TypeMicrocopy[];
   customPage?: TypeCustomPage;
 }> = async () => {
-  const content = await getCustomPageAndMicrocopy("acalTvHwciWsZovjVPPEL");
+  const content = await getCustomPageAndMicrocopy(pageIds.careers);
 
   return {
     props: {

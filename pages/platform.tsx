@@ -19,6 +19,7 @@ import datamodel3 from "../img/datamodel3.svg";
 import LayoutContext from "../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import pageIds from "../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/platform",
@@ -29,7 +30,7 @@ export const getStaticProps: GetStaticProps<{
   microcopy: TypeMicrocopy[];
   customPage?: TypeCustomPage;
 }> = async () => {
-  const content = await getCustomPageAndMicrocopy("2yr6rxUJNQz7QHpruI8VRw");
+  const content = await getCustomPageAndMicrocopy(pageIds.platform);
 
   return {
     props: {

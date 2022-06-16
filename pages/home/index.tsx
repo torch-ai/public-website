@@ -33,6 +33,7 @@ import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import enhanceBackground from "./assets/enhance-background.png";
 import nexusBackground from "./assets/nexus-background.png";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/",
@@ -48,7 +49,7 @@ export const getStaticProps: GetStaticProps<{
     limit: 5,
   });
 
-  const content = await getCustomPageAndMicrocopy("XuX8JuFnb3hir63GzCgGR");
+  const content = await getCustomPageAndMicrocopy(pageIds.home);
 
   return {
     props: {

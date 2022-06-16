@@ -23,6 +23,7 @@ import { getCustomPageAndMicrocopy } from "../../contentful/client";
 import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
 import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/impact",
@@ -33,7 +34,7 @@ export const getStaticProps: GetStaticProps<{
   microcopy: TypeMicrocopy[];
   customPage?: TypeCustomPage;
 }> = async () => {
-  const content = await getCustomPageAndMicrocopy("1yAKxqj5wWxlHOxR3CS5iO");
+  const content = await getCustomPageAndMicrocopy(pageIds.impact);
 
   return {
     props: {
