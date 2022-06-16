@@ -2,7 +2,7 @@
 
 import React, { useContext, useRef, useEffect, useState } from "react";
 import Head from "next/head";
-import Style from "./styles.module.css";
+import Style from "./styles.module.scss";
 import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
 import Footer from "../../components/Footer/Footer";
@@ -10,7 +10,7 @@ import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
-import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
