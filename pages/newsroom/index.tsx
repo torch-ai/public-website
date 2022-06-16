@@ -9,6 +9,7 @@ import NewsGrid from "../../components/News/NewsGrid";
 import Style from "./styles.module.scss";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { PageSettings } from "../../types/next";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/newsroom",
@@ -39,6 +40,7 @@ const Index = ({
       <Head>
         <title>{getHeadPageTitle(["Newsroom"])}</title>
       </Head>
+      <ScrollToTop scrollType="window" />
       <div className={Style.newsContent}>
         <NewsGrid news={news} title="Newsroom" className={Style.newsItems} />
         <Footer />
