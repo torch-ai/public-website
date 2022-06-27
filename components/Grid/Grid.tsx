@@ -9,7 +9,7 @@ export type Spacing = "around" | "between";
 export type Order = "first" | "last";
 
 export interface BreakpointValues<T> {
-  Xs?: T;
+  Xs?: T; // default
   Sm?: T;
   Md?: T;
   Lg?: T;

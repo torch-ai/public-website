@@ -37,7 +37,7 @@
   z-index: 1;
 }
 
-@media only screen and (min-width: breakpoints.$breakpoint-lg) {
+@media only screen and (min-width: breakpoints.$breakpoint-md) {
   .background::after {
     background: linear-gradient(
       to left,
