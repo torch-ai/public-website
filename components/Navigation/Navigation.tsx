@@ -111,7 +111,9 @@ const Navigation: FunctionComponent = () => {
           </Link>
         </div>
         <button
-          className={clsx(Style.mobileNavToggle)}
+          className={clsx(Style.mobileNavToggle, {
+            [Style.darkBackground]: color == "white",
+          })}
           aria-controls="primary_navigation"
           ref={buttonRef}
           onClick={toggle}
