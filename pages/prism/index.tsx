@@ -1,9 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, ReactElement } from "react";
+import React, { useContext, useRef, ReactElement } from "react";
 import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import ReactFullpage from "@fullpage/react-fullpage";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import LayoutContext from "../../components/layout/LayoutContext";
@@ -15,6 +15,7 @@ import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import pageIds from "../../contentful/pages";
 import FullpageSection from "../../components/FullpageSection/FullpageSection";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/prism",
@@ -41,6 +42,8 @@ const Index = ({
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
+  const fullpageApiRef = useRef<fullpageApi>();
+
   return (
     <>
       <Head>
@@ -50,11 +53,24 @@ const Index = ({
           )}
         </title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
