@@ -14,7 +14,7 @@
 .aside {
 }
 
-@media screen and (min-width: breakpoints.$breakpoint-lg) {
+@media screen and (min-width: breakpoints.$breakpoint-md) {
   .grid {
     flex-flow: row nowrap;
     justify-content: center;
