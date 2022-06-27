@@ -20,19 +20,20 @@
 }
 
 .searchResult {
-  height: 200px;
   display: flex;
   justify-content: flex-start;
-  gap: 1em;
-  margin: 1em 0;
+  margin-top: 1.5em;
   overflow: hidden;
 }
 
-.searchResult img {
-  height: 100%;
-  width: auto;
+.searchResult:last-of-type {
+  margin-bottom: 1.5em;
 }
 
 .searchResult h5 {
   cursor: pointer;
+}
+
+.meta {
+  font-size: 0.9em;
 }

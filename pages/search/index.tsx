@@ -1,19 +1,18 @@
 import { ReactElement } from "react";
+import Style from "./styles.module.scss";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
-import { getHeadPageTitle } from "../utils/meta";
-import { searchEntries } from "../contentful/client";
-import PageHeader from "../components/PageHeader/PageHeader";
-import Container from "../components/Container/Container";
-import PageTitle from "../components/PageTitle/PageTitle";
-import PageSubtitle from "../components/PageSubtitle/PageSubtitle";
-import Footer from "../components/Footer";
-import SearchResult from "../components/Search/SearchResult";
-import { TypeNews } from "../generated/contentful/TypeNews";
-import { TypePage } from "../generated/contentful/TypePage";
+import { getHeadPageTitle } from "../../utils/meta";
+import { searchEntries, SearchEntriesResult } from "../../contentful/client";
+import PageHeader from "../../components/PageHeader/PageHeader";
+import Container from "../../components/Container/Container";
+import PageTitle from "../../components/PageTitle/PageTitle";
+import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
+import Footer from "../../components/Footer/Footer";
+import SearchResult from "../../components/Search/SearchResult";
 
 export const getServerSideProps: GetServerSideProps<{
-  items: (TypeNews | TypePage)[];
+  items: SearchEntriesResult[];
   search: string;
 }> = async ({ query }) => {
   let search = query.q as string;
@@ -21,12 +20,7 @@ export const getServerSideProps: GetServerSideProps<{
 
   return {
     props: {
-      items: results.items.filter(
-        (result) =>
-          !!result.fields.slug &&
-          (result.sys.contentType.sys.id == "news" ||
-            result.sys.contentType.sys.id == "page")
-      ),
+      items: results.results,
       search,
     },
   };
@@ -53,9 +47,11 @@ const SearchResults = ({
         </PageSubtitle>
       </PageHeader>
       <Container>
-        {items.map((result) => {
-          return <SearchResult key={result.sys.id} item={result} />;
-        })}
+        <div className={Style.searchResultsContainer}>
+          {items.map((result) => {
+            return <SearchResult item={result} />;
+          })}
+        </div>
       </Container>
       <Footer />
     </>
