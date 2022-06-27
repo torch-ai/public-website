@@ -10,7 +10,7 @@ import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
 
 // Trying very hard not to expose the raw client to get good utility functions.
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 });
 

@@ -22,7 +22,7 @@ const Microcopy: FunctionComponent<MicrocopyProps> = ({ entries, id }) => {
         className={Style.editing}
         onClick={() => {
           window.open(
-            `https://app.contentful.com/spaces/dtb5w0ega2aw/entries/${id}`,
+            `https://app.contentful.com/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/entries/${id}`,
             "_blank"
           );
         }}
