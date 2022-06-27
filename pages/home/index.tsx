@@ -946,11 +946,12 @@ const Index = ({
                         </Link>
                       </div>
                     </Grid>
-                    <Grid size={{ Xl: 6 }}>
+                    <Grid size={{ Xs: 12, Sm: 12, Md: 12, Lg: 12, Xl: 6 }}>
                       <video
                         controls
                         poster="./bryanPreview.png"
                         id="background-video"
+                        className={Style.statement2Video}
                       >
                         <source
                           src="//videos.ctfassets.net/dtb5w0ega2aw/2vpabycT4RUW8S85iC0lml/4d65d40ca51931bdc5de5fea6d7bf0c8/bryan-weaver-torch-introduction.mp4"
