@@ -1,6 +1,6 @@
 @use "/styles/colors";
 
-.content-center {
+.contentCenter {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -11,7 +11,7 @@
   z-index: 1;
 }
 
-// .circle-icon {
+// .circleIcon {
 //   padding: 15em 0;
 // }
 
@@ -47,7 +47,7 @@
   max-width: 50ch;
 }
 
-.background-video {
+.backgroundVideo {
   position: absolute;
   top: 0;
   left: 0;
@@ -73,18 +73,18 @@
   text-align: center;
 }
 
-.engines__models {
+.enginesModels {
   justify-content: space-between;
   margin: 0.5em 0;
   padding: 1em 0;
   text-align: center;
 }
-.engines__models h4 {
+.enginesModels h4 {
   padding: 0.3em 0;
   text-align: center;
 }
 
-.engines__models p {
+.enginesModels p {
   max-width: 100%;
   font-size: 1em;
   padding: 2em 0;
@@ -99,7 +99,7 @@
   background-size: cover;
 }
 
-.datalake__content {
+.datalakeContent {
   table {
     margin: 4em 0;
     color: white;
@@ -113,22 +113,22 @@
   }
 }
 
-.datalake__content h3 {
+.datalakeContent h3 {
   padding: 1em 0;
   color: white;
   text-align: center;
 }
 
-.datalake__content p {
+.datalakeContent p {
   color: #ffffff;
   text-align: center;
 }
 
-.datalake__title {
+.datalakeTitle {
   display: none;
 }
 
-.datalake__bold {
+.datalakeBold {
   font-weight: bolder;
   font-family: "DINPro-Bold", sans-serif;
 }
@@ -145,7 +145,7 @@
   text-align: center;
 }
 
-.code__subtitle {
+.codeSubtitle {
   font-weight: bold;
 }
 
@@ -231,7 +231,7 @@
 }
 
 @media only screen and (min-width: 100em) {
-  .engines__models h4::after {
+  .enginesModels h4::after {
     content: "";
     border-bottom: 3px solid #131313;
     padding-bottom: 0.5em;
@@ -242,19 +242,19 @@
     height: 10px;
   }
 
-  .engines__models {
+  .enginesModels {
     text-align: left;
   }
-  .engines__models h4 {
+  .enginesModels h4 {
     text-align: left;
   }
 
-  .engines__models p {
+  .enginesModels p {
     text-align: left;
     max-width: 80%;
   }
 
-  .datalake__title {
+  .datalakeTitle {
     padding: 2em 0;
     color: white;
     display: block;
@@ -265,14 +265,14 @@
     }
   }
 
-  .datalake__content {
+  .datalakeContent {
     table {
       margin: 0;
     }
   }
 
-  .datalake__content h3,
-  .datalake__content p {
+  .datalakeContent h3,
+  .datalakeContent p {
     text-align: left;
   }
 
@@ -285,7 +285,7 @@
     text-align: left;
   }
 
-  .code__subtitle::after {
+  .codeSubtitle::after {
     content: "";
     border-bottom: 5px solid #000;
     padding-bottom: 1em;

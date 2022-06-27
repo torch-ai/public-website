@@ -1,8 +1,9 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { ReactElement, useEffect } from "react";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import forbes from "../../img/forbes.png";
 import PageHeader from "../../components/PageHeader/PageHeader";
@@ -15,13 +16,35 @@ import Prose from "../../components/Prose/Prose";
 import clsx from "clsx";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
+import pageIds from "../../contentful/pages";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/careers",
   linkContent: <>Careers</>,
 };
 
-const Index = (): ReactElement => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy(pageIds.careers);
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Index = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   useEffect(() => {
     // @ts-expect-error Meh
     window.ht_settings = window.ht_settings || {};
@@ -46,22 +69,20 @@ const Index = (): ReactElement => {
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "AI and machine learning jobs",
-            "Current openings",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
+      <ScrollToTop scrollType="window" />
       <PageHeader>
         <div className={Styles.headerGrid}>
           <div className={Styles.headerGridTitle}>
-            <PageTitle>Careers</PageTitle>
+            <PageTitle>
+              <Microcopy entries={microcopy} id="6UgTfOgThFEd1bFdMx5O0j" />
+            </PageTitle>
             <PageSubtitle>
-              At Torch.AI, we are passionate about building software that solves
-              some of the world's most challenging problems. On the leading edge
-              for AI for National Security clients and beyond, we partner with
-              some of the most influential organizations to transform how they
-              define success using data and technology.
+              <Microcopy entries={microcopy} id="7GsjbmnHfaSdx2souw3HNi" />
             </PageSubtitle>
           </div>
           <div className={Styles.headerGridImage}>

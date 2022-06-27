@@ -1,4 +1,4 @@
-.content-center {
+.contentCenter {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@
   z-index: 1;
 }
 
-.circle-icon {
+.circleIcon {
   padding: 5em 0;
 }
 
@@ -39,7 +39,7 @@
   padding-bottom: 1em;
 }
 
-.background-video {
+.backgroundVideo {
   position: absolute;
   top: 0;
   left: 0;
@@ -58,7 +58,7 @@
   text-align: center;
   padding: 5em 0;
 
-  .statement__image {
+  .statementImage {
     display: none;
   }
 
@@ -76,7 +76,7 @@
     margin: 1em 0;
   }
 
-  .statement-item {
+  .statementItem {
     padding: 0.5em 0;
 
     p {
@@ -127,7 +127,7 @@
   z-index: 1;
 }
 
-.nexus__stats {
+.nexusStats {
   justify-content: space-between;
 
   .large {
@@ -135,12 +135,12 @@
   }
 }
 
-.nexus__stats h2 {
+.nexusStats h2 {
   padding: 0.2em 0;
   color: #ffffff;
 }
 
-.nexus__stats p {
+.nexusStats p {
   color: #ffffff;
 }
 
@@ -150,13 +150,13 @@
   border-style: solid;
 }
 
-.nexus__points,
+.nexusPoints,
 .nexus p {
   color: #ffffff;
   padding: 1em 0;
 }
 
-.nexus__points svg {
+.nexusPoints svg {
   display: none;
 }
 
@@ -174,17 +174,17 @@
   padding-bottom: 1em;
 }
 
-.enhance__content {
+.enhanceContent {
   justify-content: flex-end;
 }
 
-.enhance__content a[role="button"] {
+.enhanceContent a[role="button"] {
   color: #131313;
   border: 1px solid black;
   margin: 1em 0;
 }
 
-.enhance__content a[role="button"]:hover {
+.enhanceContent a[role="button"]:hover {
   background-color: black;
   color: white;
 }
@@ -206,25 +206,25 @@
   color: #ffffff;
 }
 
-.impact__title {
+.impactTitle {
   display: flex;
   justify-content: center;
   padding: 3em 0;
 }
 
-.impact__container {
+.impactContainer {
   display: flex;
   justify-content: space-evenly;
 }
 
-.impact__container-item {
+.impactContainerItem {
   position: relative;
   padding: 5em;
   margin: 1em 0;
   color: #ffffff;
 }
 
-.impact__container-content {
+.impactContainerContent {
   position: absolute;
   left: 0;
   bottom: 0;
@@ -238,22 +238,22 @@
   }
 }
 
-.impact__microsoft {
+.impactMicrosoft {
   background-image: url(../../img/companies/microsoft.png);
   background-position: center center;
 }
 
-.impact__hr {
+.impactHr {
   background-image: url(../../img/companies/hr.png);
   background-position: center center;
 }
 
-.impact__raytheon {
+.impactRaytheon {
   background-image: url(../../img/companies/raytheon.png);
   background-position: center center;
 }
 
-.impact__navy {
+.impactNavy {
   background-image: url(../../img/companies/navy.png);
   background-position: center center;
 }
@@ -276,17 +276,17 @@
   max-width: 40ch;
 }
 
-.statement2__content {
+.statement2Content {
   display: flex;
   flex-direction: column;
 }
 
-.statement2__button {
+.statement2Button {
   padding: 3em 0;
   display: flex;
 }
 
-.statement2__button:hover {
+.statement2Button:hover {
   color: black;
 }
 
@@ -299,64 +299,6 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-}
-
-.news__title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1em 0;
-}
-
-.news__container {
-  align-items: center;
-  justify-content: center;
-}
-
-.news__layout {
-}
-
-.news__layout-featured {
-  justify-content: space-between;
-}
-
-.news__layout-item {
-  padding: 8em;
-  margin: 0.5em 0;
-  background-color: #232730;
-  position: relative;
-}
-
-.news__layout-item::after {
-  content: "";
-  position: absolute;
-  background-color: #232730;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  width: 100%;
-  opacity: 0.8;
-}
-
-.news__layout-item-content {
-  position: absolute;
-  z-index: 999;
-  left: 0;
-  bottom: 0;
-  padding: 1em;
-}
-
-.news__layout-item-content h5 {
-  color: white;
-  max-width: 30ch;
-  font-size: 1em;
-  padding: 1em 0;
-}
-
-.news__layout-item-content a,
-.news__layout-item-content p {
-  color: white;
 }
 
 @keyframes zoomies {
@@ -388,7 +330,7 @@
 @media only screen and (min-width: 76em) {
 }
 @media only screen and (min-width: 100em) {
-  .background-video {
+  .backgroundVideo {
     position: absolute;
     top: 0;
     left: 0;
@@ -418,7 +360,7 @@
     }
   }
 
-  .circle-icon {
+  .circleIcon {
     padding: 5em 0;
     animation-duration: 2s;
     animation-delay: 39s;
@@ -453,7 +395,7 @@
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
   }
-  .impact__container-item {
+  .impactContainerItem {
     padding: 10em;
   }
 
@@ -482,7 +424,7 @@
     left: 0;
     height: 30px;
   }
-  .nexus__points svg {
+  .nexusPoints svg {
     margin: 1em 0;
     display: block;
   }
@@ -511,7 +453,7 @@
     left: 0;
     height: 30px;
   }
-  .nexus__points svg {
+  .nexusPoints svg {
     margin: 1em 0;
     display: block;
   }
@@ -519,11 +461,11 @@
   .statement {
     text-align: left;
 
-    .statement__image {
+    .statementImage {
       display: block;
     }
 
-    .statement-item {
+    .statementItem {
       text-align: left;
     }
 

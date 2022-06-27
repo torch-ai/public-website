@@ -1,32 +1,36 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { useContext, useEffect, useRef } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Image from "next/image";
-import Style from "../styles/modules/platform.module.scss";
+import Style from "./styles.module.scss";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
-
-import datamodel1 from "../img/datamodel1.svg";
-import datamodel2 from "../img/datamodel2.svg";
-import datamodel3 from "../img/datamodel3.svg";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
+import clsx from "clsx";
+import datamodel1 from "../../img/datamodel1.svg";
+import datamodel2 from "../../img/datamodel2.svg";
+import datamodel3 from "../../img/datamodel3.svg";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/platform",
   linkContent: <>Platform</>,
 };
 
-const Platform: React.FunctionComponent = () => {
+const Index: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const arrowRef = useRef<HTMLDivElement>(null);
+
+  const fullpageApiRef = useRef<fullpageApi>();
 
   useEffect(() => {
     let delay = 1;
@@ -55,26 +59,35 @@ const Platform: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
-              <div className={` ${Style["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Style["content-center"]}`}
-                  >
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                     <h2 ref={titleRef}>
                       Nexus<sup>&trade;</sup>. The highest-performance data
                       processing platform ever built.
                     </h2>
-                    <div ref={arrowRef} className={`${Style["circle-icon"]}`}>
+                    <div ref={arrowRef} className={clsx(Style.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -90,34 +103,26 @@ const Platform: React.FunctionComponent = () => {
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["engines"]} section`}>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.engines}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]} ${Grid["margin_center"]}`}
-                      >
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Lg: 12, Xs: 12 }}>
                         <h3>
                           Nexus<sup>&trade;</sup> is a transparent and
                           composable software platform bridging three powerful
                           capabilities:
                         </h3>
-                      </div>
-                    </div>
-                    <div
-                      className={`${Grid["row"]} ${Style["engines__models"]}`}
-                    >
-                      <div
-                        className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                    </Grid>
+                    <Grid row className={Style.enginesModels}>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel1} alt={""} />
                         </div>
@@ -131,10 +136,8 @@ const Platform: React.FunctionComponent = () => {
                             stored anywhere.
                           </p>
                         </div>
-                      </div>
-                      <div
-                        className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel2} alt={""} />
                         </div>
@@ -148,10 +151,8 @@ const Platform: React.FunctionComponent = () => {
                             social media and geography.
                           </p>
                         </div>
-                      </div>
-                      <div
-                        className={`${Grid["col-lg-4"]} ${Grid["col-xs-12"]}`}
-                      >
+                      </Grid>
+                      <Grid size={{ Lg: 4, Xs: 12 }}>
                         <div>
                           <Image src={datamodel3} alt={""} />
                         </div>
@@ -164,19 +165,15 @@ const Platform: React.FunctionComponent = () => {
                             data.
                           </p>
                         </div>
-                      </div>
-                    </div>
-                  </div>
+                      </Grid>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div className={`${Style["datalake"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["row"]} ${Style["datalake__content"]}`}
-                  >
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+              </FullpageSection>
+              <FullpageSection className={Style.datalake}>
+                <Grid container marginCenter>
+                  <Grid row className={Style.datalakeContent}>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h3>
                         Your large scale data processor just became obsolete.
                       </h3>
@@ -186,9 +183,9 @@ const Platform: React.FunctionComponent = () => {
                         enables your organization to interact directly with the
                         entirety of your authoritative data.
                       </p>
-                    </div>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
-                      <div className={`${Style["datalake__title"]}`}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
+                      <div className={clsx(Style.datalakeTitle)}>
                         <h1>10.7x</h1>
                         <h4>Faster compute performance.</h4>
                       </div>
@@ -209,22 +206,20 @@ const Platform: React.FunctionComponent = () => {
                           </tbody>
                         </table>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Style["code"]} section`}>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.code}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div className={`${Grid["col-lg-1"]}${Grid["col-xs-8"]}`}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <div>
                         <h2>As Code</h2>
-                        <p className={`${Style["code__subtitle"]}`}>
+                        <p className={clsx(Style.codeSubtitle)}>
                           The engineer-friendly approach
                         </p>
                         <p>
@@ -240,31 +235,27 @@ const Platform: React.FunctionComponent = () => {
                           a matter of hours.
                         </p>
                       </div>
-                    </div>
-                  </div>
+                    </Grid>
+                  </Grid>
                 </InView>
-              </div>
-              <div className={`${Style["benefits"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-lg-12"]} ${Grid["col-xs-12"]}`}
-                    >
+              </FullpageSection>
+              <FullpageSection className={Style.benefits}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Lg: 12, Xs: 12 }}>
                       <h2>Features and benefits</h2>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Real-Time Data Transformation</h5>
                       <ul>
                         <li>Analyze data in flight in real time.</li>
                         <li>Does not replicate authoritative data.</li>
                         <li>Reduces infrastructure costs.</li>
                       </ul>
-                    </div>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Unstructured Data Processing and Fusion</h5>
                       <ul>
                         <li>
@@ -280,10 +271,10 @@ const Platform: React.FunctionComponent = () => {
                           continuously improve ML performance and accuracy.
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                  <div className={`${Grid["row"]}`}>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                  </Grid>
+                  <Grid row>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Semantic Stitching</h5>
                       <ul>
                         <li>
@@ -293,8 +284,8 @@ const Platform: React.FunctionComponent = () => {
                           wealth of enterprise data.
                         </li>
                       </ul>
-                    </div>
-                    <div className={`${Grid["col-lg-6"]} ${Grid["col-xs-12"]}`}>
+                    </Grid>
+                    <Grid size={{ Lg: 6, Xs: 12 }}>
                       <h5>Composability</h5>
                       <ul>
                         <li>Engages easily within existing architecture.</li>
@@ -307,10 +298,10 @@ const Platform: React.FunctionComponent = () => {
                           support for Bring Your Own Model (BYOM).
                         </li>
                       </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );
@@ -320,4 +311,4 @@ const Platform: React.FunctionComponent = () => {
   );
 };
 
-export default Platform;
+export default Index;

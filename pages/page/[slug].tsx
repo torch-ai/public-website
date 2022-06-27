@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import Head from "next/head";
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
 import React, { ReactElement } from "react";
@@ -8,6 +8,7 @@ import { getAllPageEntries, getPageEntries } from "../../contentful/client";
 import { TypePage } from "../../generated/contentful";
 import ContentfulPage from "../../components/ContentfulPage/ContentfulPage";
 import { getHeadPageTitle } from "../../utils/meta";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const items = await getAllPageEntries({
@@ -44,6 +45,7 @@ const Slug = ({
       <Head>
         <title>{getHeadPageTitle([page.fields.title])}</title>
       </Head>
+      <ScrollToTop scrollType="window" />
       <ContentfulPage page={page} />
       <Footer />
     </>

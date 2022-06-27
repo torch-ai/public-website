@@ -1,7 +1,7 @@
 // noinspection JSUnusedGlobalSymbols
 
 import React, { ReactElement, useEffect } from "react";
-import Footer from "../components/Footer";
+import Footer from "../components/Footer/Footer";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { TypePage } from "../generated/contentful";
 import { getPage } from "../contentful/client";
@@ -9,6 +9,7 @@ import Head from "next/head";
 import ContentfulPage from "../components/ContentfulPage/ContentfulPage";
 import { getHeadPageTitle } from "../utils/meta";
 import { PageSettings } from "../types/next";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/privacypolicy",
@@ -47,6 +48,7 @@ const PrivacyPolicy = ({
       <Head>
         <title>{getHeadPageTitle([title])}</title>
       </Head>
+      <ScrollToTop scrollType="window" />
       <ContentfulPage page={page} />
       <Footer />
     </>

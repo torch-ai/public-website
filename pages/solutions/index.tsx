@@ -1,14 +1,16 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import Head from "next/head";
-import Style from "../styles/modules/solution.module.scss";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import Style from "./styles.module.scss";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
-import Footer from "../components/Footer";
-import LayoutContext from "../components/layout/LayoutContext";
-import { getHeadPageTitle } from "../utils/meta";
-import { PageSettings } from "../types/next";
+import Footer from "../../components/Footer/Footer";
+import LayoutContext from "../../components/layout/LayoutContext";
+import { getHeadPageTitle } from "../../utils/meta";
+import { PageSettings } from "../../types/next";
+import clsx from "clsx";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
@@ -17,6 +19,19 @@ export const pageSettings: PageSettings = {
 
 const Solutions: React.FunctionComponent = () => {
   const { setNavColor } = useContext(LayoutContext);
+  const scrollingElement = useRef<IParallax>();
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    scrollingElement.current.container.current.addEventListener(
+      "scroll",
+      () => {
+        setIsScrolledDown(
+          scrollingElement.current.current >= window.innerHeight / 2
+        );
+      }
+    );
+  }, [scrollingElement]);
 
   return (
     <>
@@ -27,64 +42,64 @@ const Solutions: React.FunctionComponent = () => {
           ])}
         </title>
       </Head>
-      <section className={`${Style["wrap"]}`}>
+      {scrollingElement.current && (
+        <ScrollToTop
+          scrollType="overrides"
+          overrideIsBeyondFirstPage={isScrolledDown}
+          overrideScrollToTopFunc={() => {
+            scrollingElement.current.scrollTo(0);
+          }}
+        />
+      )}
+      <section className={clsx(Style.wrap)}>
         <InView
           as="span"
           onChange={(inView) => setNavColor(inView ? "white" : "white")}
         >
-          <Parallax pages={46} className={`${Style["wrapper"]}`}>
+          <Parallax pages={46} className={Style.wrapper} ref={scrollingElement}>
             <ParallaxLayer
-              className={`${Style["sol-title"]}`}
+              className={clsx(Style.solTitle)}
               offset={0}
               speed={2.5}
             >
-              <div className={`${Style["container"]}`}>
+              <div className={clsx(Style.container)}>
                 <h2>A system of intelligence across your organization. </h2>
                 <p>
                   Drive value from data across all enterprise functions using
                   Nexus' microservices.
                 </p>
 
-                <div className={`${Style["index"]}`}>
-                  <div className={`${Style["index-item"]}`}>
+                <div className={clsx(Style.index)}>
+                  <div className={clsx(Style.indexItem)}>
                     <a
                       href="#infrastructure"
-                      className={`${Style["index-content"]}`}
+                      className={clsx(Style.indexContent)}
                     >
                       <h5>Infrastructure</h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a
-                      href="#analytics"
-                      className={`${Style["index-content"]}`}
-                    >
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#analytics" className={clsx(Style.indexContent)}>
                       <h5>Analytics</h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a href="#machine" className={`${Style["index-content"]}`}>
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#machine" className={clsx(Style.indexContent)}>
                       <h5>Machine learning & AI</h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a
-                      href="#enterprise"
-                      className={`${Style["index-content"]}`}
-                    >
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#enterprise" className={clsx(Style.indexContent)}>
                       <h5>Enterprise Applications</h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a
-                      href="#openSource"
-                      className={`${Style["index-content"]}`}
-                    >
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#openSource" className={clsx(Style.indexContent)}>
                       <h5>Open Source</h5>
                     </a>
                   </div>
-                  <div className={`${Style["index-item"]}`}>
-                    <a href="#dataApis" className={`${Style["index-content"]}`}>
+                  <div className={clsx(Style.indexItem)}>
+                    <a href="#dataApis" className={clsx(Style.indexContent)}>
                       <h5>Data APIs</h5>
                     </a>
                   </div>
@@ -92,19 +107,19 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={1} speed={0.9} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={1} speed={0.9} className={clsx(Style['sol-background'])} /> */}
 
             {/* Section Infrastructure */}
 
             <ParallaxLayer
               sticky={{ start: 1, end: 9 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="infrastructure"
               offset={1}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-infra"]}`}>Infrastructure</h3>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleInfra)}>Infrastructure</h3>
                 <p>
                   Data infrastructure is the entire backend computing support
                   system required to process, store, transfer, and safeguard
@@ -116,13 +131,13 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]}`}
+              className={clsx(Style.solSubtitle)}
               offset={1}
               // id='infrastructure'
               speed={0.5}
             >
-              <div className={`${Style["container"]} ${Style["mobile-only"]}`}>
-                <h3 className={`${Style["title-infra"]}`}>Infrastructure</h3>
+              <div className={clsx(Style.container, Style.mobileOnly)}>
+                <h3 className={clsx(Style.titleInfra)}>Infrastructure</h3>
                 <p>
                   Data infrastructure is the entire backend computing support
                   system required to process, store, transfer, and safeguard
@@ -134,23 +149,23 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={2}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]} `}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle, "")}>
                   <h3>Data lake</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     A storage repository that holds a vast amount of raw data in
                     its native format until it is needed for analytics
                     applications.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Does not resemble the highly structured relational
@@ -161,7 +176,7 @@ const Solutions: React.FunctionComponent = () => {
                     of data outside of its authoritative source.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus does not replicate authoritative data to enable
@@ -175,21 +190,21 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={3}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Streaming</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Data that is continuously generated by different sources.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Streaming data adds to the variety and velocity that
@@ -197,7 +212,7 @@ const Solutions: React.FunctionComponent = () => {
                     streaming data can be an insurmountable challenge.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus applies ML and statistic models to analyze data
@@ -209,29 +224,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={4}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Graph DB</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     A database that uses graph structures for semantic queries
                     with nodes, edges, and properties to represent and store
                     data
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Graph databases are expensive and complex to create.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides out-of-the-box features to generate
@@ -247,29 +262,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={5}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Data integration</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Connecting disparate, siloed data stores so that they can
                     share information.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Data integration can be a brittle, labor-intensive
                     process to build and maintain.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus' flexible, adaptive data mesh architecture
@@ -283,23 +298,23 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={6}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>ETL/ELT</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Extract, Transform, Load (ETL) and Extract, Load, Transform
                     (ELT) are data integration methods that transfer data from a
                     source to a data warehouse.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Data transformations are rule-based definitions that
@@ -312,7 +327,7 @@ const Solutions: React.FunctionComponent = () => {
                     requires a hefty amount of human labor.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; The Nexus Knowledge Layer frees the analyst from the
@@ -325,23 +340,23 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={7}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Privacy & Security</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Data lakes aggregate and replicate data, including
                     personally identifiable information (PII), to enable its
                     analysis
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Organizations inadvertently store PII on systems
@@ -349,7 +364,7 @@ const Solutions: React.FunctionComponent = () => {
                     privacy, security, and compliance risks.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus does not persist sensitive data, such as PII.
@@ -364,22 +379,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={8}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Data Observability</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Ability to understand the health and state of the data in
                     the eco-system.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Organizations are awash in an ocean of data, but they
@@ -387,7 +402,7 @@ const Solutions: React.FunctionComponent = () => {
                     be an insurmountable challenge.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus deploys machine learning to process data
@@ -401,22 +416,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={9}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Monitoring</h3>
                   <p>Infrastructure</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Ability to measure the fitness of data for use across the
                     eco-system.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Monitoring is typically a myopic process performed at
@@ -424,7 +439,7 @@ const Solutions: React.FunctionComponent = () => {
                     to provide a holistic, end-to-end view of the data.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; The Nexus Knowledge Layer accounts for all data
@@ -439,17 +454,17 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Analytics */}
 
             <ParallaxLayer
               sticky={{ start: 10, end: 15 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="analytics"
               offset={10}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
+              <div className={clsx(Style.container)}>
                 <h3>Analytics</h3>
                 <p>
                   Data analytics empowers organizations to derive insights and
@@ -463,13 +478,13 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={10}
               // id='analytics'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-analytics"]}`}>Analytics</h3>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleAnalytics)}>Analytics</h3>
                 <p>
                   Data analytics empowers organizations to derive insights and
                   make conclusions from their data. Many of the techniques have
@@ -482,29 +497,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={11}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Platform support</h3>
                   <p>Analytics</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Modern data ecosystems typically include a variety of
                     disparate platforms.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Platform integration can be a brittle,
                     labor-intensive process to build and maintain.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides out-of-the-box connectors for
@@ -520,22 +535,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={12}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Visualization support</h3>
                   <p>Analytics</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Visualization tools can convert business data into reports,
                     dashboards, and other visualizations.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Visualization tools are non-extensible, and their
@@ -543,7 +558,7 @@ const Solutions: React.FunctionComponent = () => {
                     complex data model.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; We have out-of-the-box connectors for virtually every
@@ -557,30 +572,30 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={13}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Data analysts and data science</h3>
                   <p>Analytics</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Data analytics focuses on viewing the historical data in
                     context while data science focuses on machine learning and
                     predictive modeling.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Labor intensive to process, cleanse, and verify the
                     integrity and quality of the data.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides cleansed, ready-to-use data for both
@@ -596,21 +611,21 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={14}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Data catalog and discovery</h3>
                   <p>Analytics</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     An organized inventory of data assets in the organization.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Unmanaged data lakes create a data swamp littered
@@ -621,7 +636,7 @@ const Solutions: React.FunctionComponent = () => {
                     engineers and consuming additional computing resources.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus enables organizations to semantically
@@ -636,22 +651,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={15}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Query engine</h3>
                   <p>Analytics</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that executes queries against data in various data
                     sources to provide answers for users or applications.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Current query engines are not data agnostic. They
@@ -660,7 +675,7 @@ const Solutions: React.FunctionComponent = () => {
                     sources.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides a proprietary "no code” data retrieval
@@ -673,18 +688,18 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Machine learning & AI */}
 
             <ParallaxLayer
               sticky={{ start: 16, end: 25 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="machine"
               offset={16}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   Machine learning & AI
                 </h3>
                 <p>
@@ -699,13 +714,13 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={16}
               // id='machine'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   Machine learning & AI
                 </h3>
                 <p>
@@ -720,22 +735,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={17}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Data science platforms</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Modern data science typically encompasses a variety of
                     unique platforms.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Data science projects fail frequently. Data is often
@@ -744,7 +759,7 @@ const Solutions: React.FunctionComponent = () => {
                     requirements.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus data mesh architecture seamless integrates with
@@ -757,29 +772,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={18}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>ML platform</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Supports the integration of ML models to facilitate data
                     analysis.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Building and deploying effective ML models requires
                     significant expertise and investment.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus’ holistic nature of data analysis enables ML
@@ -791,29 +806,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={19}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Data generation and labeling</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Large amounts of high quality, labeled data is required to
                     train effective machine learning models.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; High quality labeled data is expensive to produce and
                     may still contain errors.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus Dynamic Data Extraction (DDE) automates the
@@ -826,29 +841,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={20}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Model building</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Machine learning algorithms build models based on sample
                     data.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Building and deploying effective ML models requires
                     significant expertise and investment.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides best-in class, pre-built models for
@@ -862,22 +877,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={21}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Deployment and production</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Once trained and tested, machine learning models are
                     deployed into production workflows.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; The process of deploying machine learning models
@@ -885,7 +900,7 @@ const Solutions: React.FunctionComponent = () => {
                     the production workflow.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus fully manages the deployment of machine
@@ -897,22 +912,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={22}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Model monitoring</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Production models must be closely monitored in order to
                     evaluate their effectiveness.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; There is typically a delay or latency in gathering
@@ -920,7 +935,7 @@ const Solutions: React.FunctionComponent = () => {
                     notifications and other feedback.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus collects and analyzes data in real time and
@@ -931,33 +946,33 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={23}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>
                     Computer Vision, Speech Analysis, and Natural Language
                     Processing
                   </h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Modern machine learning models can perform tasks related to
                     computer vision (CV), speech analysis, and natural language
                     processing (NLP).
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Limited number of pre-trained models available for
                     use. No support for Bring Your Own Model (BYOM).
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides best-in class, pre-built models for
@@ -975,29 +990,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={24}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Synthetic media</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Artificial intelligence can create realistic synthetic media
                     or data objects.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Synthetic media is a state-of-the-art technology that
                     requires significant expertise and investment.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus has created and deployed industrial grade
@@ -1008,29 +1023,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={25}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>AI hardware optimization</h3>
                   <p>Machine learning & AI</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Machine learning models require computing resources to
                     train.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; The training process is computationally expensive and
                     requires GPUs.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus is optimized to train models using
@@ -1040,18 +1055,18 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Enterprise Applications */}
 
             <ParallaxLayer
               sticky={{ start: 26, end: 33 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="enterprise"
               offset={26}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   Enterprise Applications
                 </h3>
                 <p>
@@ -1065,13 +1080,13 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={26}
               // id='enterprise'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>
                   Enterprise Applications
                 </h3>
                 <p>
@@ -1085,29 +1100,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={27}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Decisioning platforms</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software with defined decision logic used to automate an
                     intelligent process.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Relies on humans to define and build workflows that
                     are often based on flawed legacy processes.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus automatically surfaces meaningful intelligence
@@ -1120,22 +1135,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={28}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Sales enablement</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that provides visibility across the sales
                     lifecycle.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Current sales enablement solutions are prone to
@@ -1143,7 +1158,7 @@ const Solutions: React.FunctionComponent = () => {
                     low-impact observations.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus automatically surfaces meaningful intelligence
@@ -1156,29 +1171,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={29}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Marketing</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that enables marketing organizations to centralize
                     and streamline their processes.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Marketing solutions have manually defined schemas and
                     rules which are bound by human expertise.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus automatically surfaces meaningful intelligence
@@ -1191,22 +1206,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={30}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Customer experience</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that helps companies establish their customer
                     interaction goals.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Customer experience solutions rely on direct
@@ -1214,7 +1229,7 @@ const Solutions: React.FunctionComponent = () => {
                     feedback from external sources.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus semantically understands unstructured feedback
@@ -1227,23 +1242,23 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={31}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Human capital management</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that attempts to transform the traditional
                     functions of human resources departments into opportunities
                     that drive engagement, productivity, and business value.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Human capital management systems are limited by the
@@ -1251,7 +1266,7 @@ const Solutions: React.FunctionComponent = () => {
                     human capital.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus assimilates first and third-party data sources,
@@ -1265,22 +1280,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={32}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Compliance</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that tracks, monitors, and audits business
                     processes to ensure they comply with policies and standards.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Compliance solutions can document governance rules,
@@ -1288,7 +1303,7 @@ const Solutions: React.FunctionComponent = () => {
                     environment without expensive customization.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus seamlessly pairs with compliance solutions to
@@ -1301,22 +1316,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={33}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Security</h3>
                   <p>Enterprise Applications</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that secures and protects a computer, network, or
                     computing-enabled device.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Current solutions cannot perform real-time data
@@ -1324,7 +1339,7 @@ const Solutions: React.FunctionComponent = () => {
                     narrow view of the context of events.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus processes, enriches, and analyzes logs in real
@@ -1337,18 +1352,18 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Open Source */}
 
             <ParallaxLayer
               sticky={{ start: 34, end: 39 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="openSource"
               offset={34}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>Open Source</h3>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>Open Source</h3>
                 <p>
                   Open source software is developed in a decentralized and
                   collaborative way, relying on peer review and community
@@ -1360,13 +1375,13 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={34}
               // id='openSource'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-openSource"]}`}>Open Source</h3>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleOpenSource)}>Open Source</h3>
                 <p>
                   Open source software is developed in a decentralized and
                   collaborative way, relying on peer review and community
@@ -1378,23 +1393,23 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={35}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Orchestration</h3>
                   <p>Open Source</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Orchestration software requires detailed knowledge of both
                     the software systems and the enablers that are being
                     aggregated.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Orchestration software requires detailed knowledge of
@@ -1402,7 +1417,7 @@ const Solutions: React.FunctionComponent = () => {
                     aggregated.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus natively implements workflow, security, ML/AI,
@@ -1414,19 +1429,19 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={36}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Query and data flow</h3>
                   <p>Open Source</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>Software that moves data along concurrent pipelines.</p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; The different products in this domain use specialized
@@ -1435,7 +1450,7 @@ const Solutions: React.FunctionComponent = () => {
                     data store.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus is a data-centric solution that aggregates the
@@ -1449,22 +1464,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={37}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>AI and ML</h3>
                   <p>Open Source</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that wraps the mathematics necessary to create
                     specialized ML models.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; AI/ML frameworks require data scientists and domain
@@ -1472,7 +1487,7 @@ const Solutions: React.FunctionComponent = () => {
                     scalability practices, and auditing.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus provides over fifty pre-built models that
@@ -1487,22 +1502,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={38}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Monitoring</h3>
                   <p>Open Source</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that provides insights into the operation of a
                     system.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Current monitoring solutions cannot perform real-time
@@ -1510,7 +1525,7 @@ const Solutions: React.FunctionComponent = () => {
                     of events.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; For appropriate event-generation accuracy and
@@ -1522,22 +1537,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={39}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Security</h3>
                   <p>Open Source</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that secures and protects a computer, network, or
                     computing-enabled device.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Current solutions cannot perform real-time data
@@ -1545,7 +1560,7 @@ const Solutions: React.FunctionComponent = () => {
                     narrow view on the context of events.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus processes, enriches, and analyzes logs in real
@@ -1558,18 +1573,18 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
 
-            {/* <ParallaxLayer offset={10} speed={2} className={`${Style['sol-background']}`} /> */}
+            {/* <ParallaxLayer offset={10} speed={2} className={clsx(Style['sol-background'])} /> */}
             {/* Section Data APIs */}
 
             <ParallaxLayer
               sticky={{ start: 40, end: 44 }}
-              className={`${Style["sol-subtitle"]} ${Style["desktop-only"]}`}
+              className={clsx(Style.solSubtitle, Style.desktopOnly)}
               id="dataApis"
               offset={40}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-machine"]}`}>Data APIs</h3>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleMachine)}>Data APIs</h3>
                 <p>
                   Application Programming Interface (API) is a software
                   intermediary that allows two applications to talk to each
@@ -1580,13 +1595,13 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-subtitle"]} ${Style["mobile-only"]}`}
+              className={clsx(Style.solSubtitle, Style.mobileOnly)}
               offset={40}
               // id='dataApis'
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <h3 className={`${Style["title-openSource"]}`}>Data APIs</h3>
+              <div className={clsx(Style.container)}>
+                <h3 className={clsx(Style.titleOpenSource)}>Data APIs</h3>
                 <p>
                   Application Programming Interface (API) is a software
                   intermediary that allows two applications to talk to each
@@ -1597,21 +1612,21 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={41}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>People & entities</h3>
                   <p>Data APIs</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that provides information on people and entities.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Rigid definitions of people do not take advantage of
@@ -1619,7 +1634,7 @@ const Solutions: React.FunctionComponent = () => {
                     ambiguities in aggregated data.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Torch.AI has pioneered an approach for acquiring and
@@ -1637,22 +1652,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={42}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Financial</h3>
                   <p>Data APIs</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that provides financial-related information on
                     organizations and entities.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Financial analysis requires countless manual
@@ -1660,7 +1675,7 @@ const Solutions: React.FunctionComponent = () => {
                     sources, both internal and external.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Torch.AI has pioneered an approach for acquiring and
@@ -1678,29 +1693,29 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={43}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Air-space and sea</h3>
                   <p>Data APIs</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that provides air-space and sea-related information
                     to organizations in any domain.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Limited processing power and connectivity leads to
                     challenges in creating actionable intelligence at the edge.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus Dynamic Data Extraction (DDE) categorizes data
@@ -1713,22 +1728,22 @@ const Solutions: React.FunctionComponent = () => {
             </ParallaxLayer>
 
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={44}
               speed={0.5}
             >
-              <div className={`${Style["container"]}`}>
-                <div className={`${Style["sub-content-title"]}`}>
+              <div className={clsx(Style.container)}>
+                <div className={clsx(Style.subContentTitle)}>
                   <h3>Location intelligence</h3>
                   <p>Data APIs</p>
                 </div>
-                <div className={`${Style["sub-content"]}`}>
+                <div className={clsx(Style.subContent)}>
                   <p>
                     Software that extracts information and derives insights from
                     geo-spatial data.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Challenge:
                     </span>
                     &nbsp; Geographical entities are subject to problems with
@@ -1736,7 +1751,7 @@ const Solutions: React.FunctionComponent = () => {
                     unstructured data.
                   </p>
                   <p>
-                    <span className={`${Style["sub-content-accent"]}`}>
+                    <span className={clsx(Style.subContentAccent)}>
                       Solution:
                     </span>{" "}
                     &nbsp; Nexus uses geographical data to resolve entity
@@ -1746,7 +1761,7 @@ const Solutions: React.FunctionComponent = () => {
               </div>
             </ParallaxLayer>
             <ParallaxLayer
-              className={`${Style["sol-content"]}`}
+              className={clsx(Style.solContent)}
               offset={45.5}
               speed={0.5}
             >

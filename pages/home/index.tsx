@@ -1,30 +1,44 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
-import ReactFullpage from "@fullpage/react-fullpage";
+import React, { ReactElement, useContext, useState, useRef } from "react";
+import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
-import Grid from "../../styles/modules/grid.module.scss";
+import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
-import Landing from "../../styles/modules/landing.module.scss";
-import News from "../../components/News";
+import Style from "./styles.module.scss";
+import NewsGrid from "../../components/News/NewsGrid";
+import Button from "../../components/Button/Button";
+import router from "next/router";
 import { InView } from "react-intersection-observer";
 import Image from "next/image";
-import Footer from "../../components/Footer";
+import Footer from "../../components/Footer/Footer";
 import imac from "../../img/iMac.gif";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getNewsEntries } from "../../contentful/client";
-import { TypeNews } from "../../generated/contentful";
+import {
+  getNewsEntries,
+  getCustomPageAndMicrocopy,
+} from "../../contentful/client";
+import {
+  TypeNews,
+  TypeMicrocopy,
+  TypeCustomPage,
+} from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as solutionsPageSettings } from "../solutions";
 import { pageSettings as platformPageSettings } from "../platform";
 import { pageSettings as impactPageSettings } from "../impact";
 import { pageSettings as contactPageSettings } from "../contact";
+import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
 import enhanceBackground from "./assets/enhance-background.png";
 import nexusBackground from "./assets/nexus-background.png";
+import FullpageSection from "../../components/FullpageSection/FullpageSection";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/",
@@ -33,50 +47,72 @@ export const pageSettings: PageSettings = {
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
 }> = async () => {
-  const res = await getNewsEntries({
+  const news = await getNewsEntries({
     limit: 5,
   });
 
+  const content = await getCustomPageAndMicrocopy(pageIds.home);
+
   return {
     props: {
-      news: res.items,
+      news: news.items,
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
     },
   };
 };
 
 const Index = ({
   news,
+  microcopy,
+  customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+  const fullpageApiRef = useRef<fullpageApi>();
 
   return (
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "World's most trusted AI platform",
-            "Unlock human potential",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
+      <ScrollToTop
+        scrollType="overrides"
+        overrideIsBeyondFirstPage={
+          fullpageApiRef.current &&
+          !fullpageApiRef.current.getActiveSection().isFirst
+        }
+        overrideScrollToTopFunc={() => {
+          fullpageApiRef.current.moveTo(1, 0);
+        }}
+      />
       <ReactFullpage
         licenseKey={"A33F98B7-1BF24B82-AB8933EF-A1EC533E"}
         navigation
         verticalCentered={false}
         responsiveWidth={1500}
-        render={() => {
+        render={({ fullpageApi }) => {
+          if (fullpageApi) {
+            fullpageApiRef.current = fullpageApi;
+          }
           return (
             <ReactFullpage.Wrapper>
-              <div className={`${Landing["hero"]} section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div
-                    className={`${Grid["col-xs-12"]} ${Landing["content-center"]}`}
-                  >
-                    <h1>Unlock Human Potential.</h1>
-                    <div className={`${Landing["circle-icon"]}`}>
+              <FullpageSection className={Style.hero}>
+                <Grid container marginCenter>
+                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
+                    <h1>
+                      <Microcopy
+                        entries={microcopy}
+                        id="4UBhAXFFTZVG1RzckmxQEl"
+                      />
+                    </h1>
+                    <div className={clsx(Style.circleIcon)}>
                       <svg
                         width="50"
                         height="50"
@@ -92,11 +128,11 @@ const Index = ({
                         />
                       </svg>
                     </div>
-                  </div>
-                </div>
+                  </Grid>
+                </Grid>
                 <video
                   data-keepplaying
-                  className={`${Landing["background-video"]}`}
+                  className={clsx(Style.backgroundVideo)}
                   id="background-video"
                   autoPlay
                   muted
@@ -106,90 +142,84 @@ const Index = ({
                     type="video/mp4"
                   />
                 </video>
-              </div>
-              <div className={clsx(Landing.enhance, "section")}>
-                <ContentOverImage
-                  imageProps={{
-                    src: enhanceBackground,
-                    objectPosition: "left bottom",
-                  }}
-                  contentProps={{
-                    className: clsx(Grid.container, Grid.margin_center),
-                  }}
+              </FullpageSection>
+              <ContentOverImage
+                imageProps={{
+                  src: enhanceBackground,
+                  objectPosition: "left bottom",
+                }}
+                className={Style.enhance}
+              >
+                <InView
+                  as="div"
+                  onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <InView
-                    as="div"
-                    onChange={(inView) =>
-                      setNavColor(inView ? "black" : "white")
-                    }
-                    className={clsx(Grid.row, Landing.enhance__content)}
-                  >
-                    <div
-                      className={clsx(
-                        Grid["col-xs-12"],
-                        Grid["col-sm-10"],
-                        Grid["col-md-10"],
-                        Grid["col-lg-10"],
-                        Grid["col-xl-5"]
-                      )}
-                    >
-                      <h2>We build AI that makes data easier to use.</h2>
+                  <Grid row className={Style.enhanceContent}>
+                    <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
+                      <h2>
+                        <Microcopy
+                          entries={microcopy}
+                          id="7GTHCwpLNZQv8quL8N3jFl"
+                        />
+                      </h2>
                       <p>
-                        Torch.AI's Nexus&trade; software instantly unlocks value
-                        from data and provides information needed for humans and
-                        machines to be more productive.
+                        <Microcopy
+                          entries={microcopy}
+                          id="6w3gCqWqZrMc7TYOM4YWpK"
+                        />
                       </p>
-                    </div>
-                  </InView>
-                </ContentOverImage>
-              </div>
-              <div className={clsx(Landing.nexus, "section")}>
-                <div
-                  className={clsx(
-                    Grid.container,
-                    Grid.margin_center,
-                    Landing.nexusContent
-                  )}
-                >
-                  <div
-                    className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                  >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-10"]} ${Grid["margin_center"]}`}
-                      >
-                        <div
-                          className={`${Grid["row"]} ${Landing["nexus__stats"]}`}
-                        >
-                          <div
-                            className={`${Grid["col-xl-8"]} ${Grid["col-xs-9"]}`}
-                          >
+                    </Grid>
+                  </Grid>
+                </InView>
+              </ContentOverImage>
+              <FullpageSection className={Style.nexus}>
+                <Grid container marginCenter className={Style.nexusContent}>
+                  <Grid container marginCenter>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10 }}>
+                        <Grid row className={Style.nexusStats}>
+                          <Grid size={{ Xl: 8, Xs: 9 }}>
                             <h2>
                               Introducing Nexus <sup>TM</sup>
                             </h2>
                             <p>
-                              Nexus instantly makes your data totally available,
-                              usable, and valuable.
+                              <Microcopy
+                                entries={microcopy}
+                                id="32NSJknoaoZxX7W4fE7UzL"
+                              />
                             </p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                          >
-                            <h2 className={`${Landing["large"]}`}>10.7x</h2>
-                            <p>Faster compute performance.</p>
-                          </div>
-                        </div>
+                          </Grid>
+                          <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <h2 className={clsx(Style.large)}>
+                              <Microcopy
+                                entries={microcopy}
+                                id="1zQtcMbxParMBzxeuAdaFz"
+                              />
+                            </h2>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="42Wblep1W2U5HK0rFTOHEW"
+                              />
+                            </p>
+                          </Grid>
+                        </Grid>
                         <hr />
-                        <div className={`${Grid["row"]}`}>
-                          <div className={`${Grid["col-xs-10"]}`}>
-                            <p>Simply put:</p>
-                          </div>
-                          <div
-                            className={`${Grid["row"]} ${Grid["between-xl"]} ${Landing["nexus__points"]}`}
+                        <Grid row>
+                          <Grid size={{ Xs: 10 }}>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="29ehqXL4bu9QGKR7YhUOM1"
+                              />
+                            </p>
+                          </Grid>
+                          <Grid
+                            row
+                            spacing={{ Xl: "between" }}
+                            className={Style.nexusPoints}
                           >
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -223,13 +253,13 @@ const Index = ({
                                 />
                               </svg>
                               <p>
-                                Highest performance data processing platform
-                                ever built.
+                                <Microcopy
+                                  entries={microcopy}
+                                  id="hv0esjOuPJFAkP3zOFpZX"
+                                />
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="48"
                                 height="55"
@@ -244,13 +274,13 @@ const Index = ({
                               </svg>
 
                               <p>
-                                Radically simplifies how companies extract value
-                                from data.
+                                <Microcopy
+                                  entries={microcopy}
+                                  id="3ODQ1NWWOSQlWQofpynsTB"
+                                />
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]}`}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="52"
@@ -265,13 +295,13 @@ const Index = ({
                               </svg>
 
                               <p>
-                                Accelerates processing times and reduces
-                                operational costs.
+                                <Microcopy
+                                  entries={microcopy}
+                                  id="rcjbSzupwPBZ2Uh68LayP"
+                                />
                               </p>
-                            </div>
-                            <div
-                              className={`${Grid["col-xl-2"]} ${Grid["col-xs-12"]} `}
-                            >
+                            </Grid>
+                            <Grid size={{ Xl: 2, Xs: 12 }}>
                               <svg
                                 width="52"
                                 height="54"
@@ -308,26 +338,31 @@ const Index = ({
                                 </defs>
                               </svg>
                               <p>
-                                AI/ML-enabled automation frees workers to
-                                perform high-value work.
+                                <Microcopy
+                                  entries={microcopy}
+                                  id="wywdEJ9vPYoIrqCVcUhEq"
+                                />
                               </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-10"]} ${Grid["col-xl-10"]} ${Grid["margin_center"]}`}
-                      >
+                            </Grid>
+                          </Grid>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid row>
+                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
                         <Link href={platformPageSettings.path}>
-                          <a role="button">Learn More</a>
+                          <a role="button">
+                            <Microcopy
+                              entries={microcopy}
+                              id="1VhDGzmiaNtk64clcbDt2i"
+                            />
+                          </a>
                         </Link>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className={Landing.nexusBackground}>
+                      </Grid>
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <div className={Style.nexusBackground}>
                   <Image
                     src={nexusBackground}
                     alt={""}
@@ -335,34 +370,36 @@ const Index = ({
                     objectFit={"cover"}
                   />
                 </div>
-              </div>
-
-              <div className={`${Landing["statement"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
+              </FullpageSection>
+              <FullpageSection className={Style.statement}>
+                <Grid container marginCenter>
                   <InView
                     as="span"
                     onChange={(inView) =>
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <div className={`${Grid["row"]}`}>
-                      <div
-                        className={`${Grid["col-xs-12"]} ${Grid["col-xl-5"]} ${Landing["statement__image"]}`}
+                    <Grid row>
+                      <Grid
+                        size={{ Xs: 12, Xl: 5 }}
+                        className={Style.statementImage}
                       >
                         <Image
                           src={imac}
                           alt={"Image of a force graph loading on a screen"}
                         />
-                      </div>
-                      <div
-                        className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]}`}
-                      >
-                        <h3>Make Data Work for You.</h3>
-                        <div className={`${Grid["row"]}`}>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                      </Grid>
+                      <Grid size={{ Xl: 6, Xs: 12 }}>
+                        <h3>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6BCma241qSzElB9jU5T4QB"
+                          />
+                        </h3>
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="58"
@@ -429,10 +466,16 @@ const Index = ({
                                 </clipPath>
                               </defs>
                             </svg>
-                            <p>Operationalize data faster and efficiently</p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="PAPIfa7H3WqYXOHdS29K0"
+                              />
+                            </p>
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="61"
@@ -493,12 +536,18 @@ const Index = ({
                                 </clipPath>
                               </defs>
                             </svg>
-                            <p>Connect to all your data sources</p>
-                          </div>
-                        </div>
-                        <div className={`${Grid["row"]}`}>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="2emcgj30J105TlICxnK7g0"
+                              />
+                            </p>
+                          </Grid>
+                        </Grid>
+                        <Grid row>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="125"
@@ -618,10 +667,16 @@ const Index = ({
                                 strokeLinejoin="round"
                               />
                             </svg>
-                            <p>Gain access to deep insights</p>
-                          </div>
-                          <div
-                            className={`${Grid["col-xl-6"]} ${Grid["col-xs-12"]} ${Landing["statement-item"]}`}
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="29omCw4jpoHYJd04X5nZ5s"
+                              />
+                            </p>
+                          </Grid>
+                          <Grid
+                            size={{ Xl: 6, Xs: 12 }}
+                            className={Style.statementItem}
                           >
                             <svg
                               width="99"
@@ -694,114 +749,204 @@ const Index = ({
                                 </clipPath>
                               </defs>
                             </svg>
-                            <p>Reduce costs in your technology stack</p>
-                          </div>
-                        </div>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="4FnKoifxYrdF50Az2jVFaH"
+                              />
+                            </p>
+                          </Grid>
+                        </Grid>
                         <Link href={solutionsPageSettings.path}>
-                          <a role="button">Learn More</a>
+                          <a role="button">
+                            <Microcopy
+                              entries={microcopy}
+                              id="Em8zsjgwbIgGNrU1IJHKX"
+                            />
+                          </a>
                         </Link>
-                      </div>
-                    </div>
+                      </Grid>
+                    </Grid>
                   </InView>
-                </div>
-              </div>
+                </Grid>
+              </FullpageSection>
 
-              <div className={`${Landing["impact"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]} `}>
-                    <div
-                      className={`${Grid["col-xs-12"]} ${Landing["impact__title"]}`}
+              <FullpageSection className={Style.impact}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xs: 12 }} className={Style.impactTitle}>
+                      <h2>
+                        <Microcopy
+                          entries={microcopy}
+                          id="7txC5Laq4aY36Nr8i28kRd"
+                        />
+                      </h2>
+                    </Grid>
+                  </Grid>
+                  <Grid row className={Style.impactContainer}>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactMicrosoft
+                      )}
                     >
-                      <h2>Impact Studies.</h2>
-                    </div>
-                  </div>
-                  <div
-                    className={`${Grid["row"]} ${Landing["impact__container"]}`}
-                  >
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__microsoft"]}`}
-                    >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
-                        <p>MARKETING</p>
-                        <h4>Microsoft</h4>
+                      <div className={clsx(Style.impactContainerContent)}>
+                        <p>
+                          <Microcopy
+                            entries={microcopy}
+                            id="7fttJ1e8o6x0yr3wHE7iv3"
+                          />
+                        </p>
+                        <h4>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6neA7Osviena5r1ifng4Rw"
+                          />
+                        </h4>
                         <Link href={impactPageSettings.path}>
-                          <a>Learn More</a>
+                          <a>
+                            <Microcopy
+                              entries={microcopy}
+                              id="5v0tD15zrFkuGwNHbwnwzw"
+                            />
+                          </a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__hr"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactHr
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
-                        <p>FINANCIAL SERVICES</p>
-                        <h4>H&R Block</h4>
+                      <div className={clsx(Style.impactContainerContent)}>
+                        <p>
+                          <Microcopy
+                            entries={microcopy}
+                            id="3WEGpqckHtrD1ubyIOP2Vl"
+                          />
+                        </p>
+                        <h4>
+                          <Microcopy
+                            entries={microcopy}
+                            id="2I7eWCNUU3Uw8cAhymROOa"
+                          />
+                        </h4>
                         <Link href={impactPageSettings.path}>
-                          <a>Learn More</a>
+                          <a>
+                            <Microcopy
+                              entries={microcopy}
+                              id="1V5bHrlVcgKZDn7uOlEgdg"
+                            />
+                          </a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__raytheon"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactRaytheon
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
-                        <p>LOGISTICS</p>
-                        <h4>Raytheon</h4>
+                      <div className={clsx(Style.impactContainerContent)}>
+                        <p>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6nNuJsBXO7uV2OBANLHhPB"
+                          />
+                        </p>
+                        <h4>
+                          <Microcopy
+                            entries={microcopy}
+                            id="4bVKZNF050y6RpdmFE5tMm"
+                          />
+                        </h4>
                         <Link href={impactPageSettings.path}>
-                          <a>Learn More</a>
+                          <a>
+                            <Microcopy
+                              entries={microcopy}
+                              id="45j3xJwUMtkusJwO4GIuoy"
+                            />
+                          </a>
                         </Link>
                       </div>
-                    </div>
-                    <div
-                      className={`${Grid["col-xl-3"]} ${Grid["col-xs-12"]} ${Landing["impact__container-item"]} ${Landing["impact__navy"]}`}
+                    </Grid>
+                    <Grid
+                      size={{ Xl: 3, Xs: 12 }}
+                      className={clsx(
+                        Style.impactContainerItem,
+                        Style.impactNavy
+                      )}
                     >
-                      <div
-                        className={`${Landing["impact__container-content"]}`}
-                      >
-                        <p>DEFENSE & INTELLIGENCE</p>
-                        <h4>U.S. Navy</h4>
+                      <div className={clsx(Style.impactContainerContent)}>
+                        <p>
+                          <Microcopy
+                            entries={microcopy}
+                            id="b37tfIMTyDFFjohZHfUcF"
+                          />
+                        </p>
+                        <h4>
+                          <Microcopy
+                            entries={microcopy}
+                            id="6qC9RKzXyIjJjLNJoiDwSa"
+                          />
+                        </h4>
                         <Link href={impactPageSettings.path}>
-                          <a>Learn More</a>
+                          <a>
+                            <Microcopy
+                              entries={microcopy}
+                              id="3uBhydFQbpkUAtrO1LJVER"
+                            />
+                          </a>
                         </Link>
                       </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className={`${Landing["news"]} section`}>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
+              <FullpageSection className={Style.news}>
                 <InView
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <News items={news} />
-                </InView>
-              </div>
-              <div className={`${Landing["statement2"]}  section`}>
-                <div
-                  className={`${Grid["container"]} ${Grid["margin_center"]}`}
-                >
-                  <div className={`${Grid["row"]}`}>
-                    <div
-                      className={`${Grid["col-xl-6"]} ${Landing["statement2__content"]}`}
+                  <Grid container marginCenter>
+                    <NewsGrid news={news} title="Latest News" />
+                    <Button
+                      style={{ display: "block" }}
+                      onClick={() => {
+                        router.push(newsroomPageSettings.path);
+                      }}
                     >
+                      View all
+                    </Button>
+                  </Grid>
+                </InView>
+              </FullpageSection>
+              <FullpageSection className={Style.statement2}>
+                <Grid container marginCenter>
+                  <Grid row>
+                    <Grid size={{ Xl: 6 }} className={Style.statement2Content}>
                       <h3>
-                        Human productivity is stifled by the ocean of data
-                        growing faster than our ability to process it.
+                        <Microcopy
+                          entries={microcopy}
+                          id="UCb8XhnaZSvr7gzUqVijo"
+                        />
                       </h3>
-                      <div className={`${Landing["statement2__button"]}`}>
+                      <div className={clsx(Style.statement2Button)}>
                         <Link href={contactPageSettings.path}>
-                          <a role="button">Learn More</a>
+                          <a role="button">
+                            <Microcopy
+                              entries={microcopy}
+                              id="4pSvX8yn76Ac5xCM0wY6uI"
+                            />
+                          </a>
                         </Link>
                       </div>
-                    </div>
-                    <div className={`${Grid["col-xl-6"]}`}>
+                    </Grid>
+                    <Grid size={{ Xl: 6 }}>
                       <video
                         controls
                         poster="./bryanPreview.png"
@@ -812,10 +957,10 @@ const Index = ({
                           type="video/mp4"
                         />
                       </video>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </FullpageSection>
               <Footer />
             </ReactFullpage.Wrapper>
           );
