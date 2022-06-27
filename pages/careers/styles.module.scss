@@ -46,11 +46,6 @@
 .main {
 }
 
-.aside {
-  width: clamp(30ch, 33%, 65em);
-  margin-top: 2em;
-}
-
 @media screen and (min-width: breakpoints.$breakpoint-md) {
   .contentGrid {
     flex-flow: row nowrap;
