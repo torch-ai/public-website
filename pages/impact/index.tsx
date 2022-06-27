@@ -294,7 +294,7 @@ const Index = ({
                 >
                   <Grid container marginCenter id="defense">
                     <Grid row className={Style.defensesContent}>
-                      <Grid size={{ Xs: 12, Lg: 5 }}>
+                      <Grid size={{ Xs: 12, Lg: 3 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -328,7 +328,7 @@ const Index = ({
               >
                 <Grid container marginCenter id="logistics">
                   <Grid row className={Style.logisticsContent}>
-                    <Grid size={{ Xs: 8, Lg: 5 }}>
+                    <Grid size={{ Xs: 8, Lg: 3 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -370,7 +370,7 @@ const Index = ({
                 >
                   <Grid container marginCenter id="insurance">
                     <Grid row className={Style.insuranceContent}>
-                      <Grid size={{ Xs: 12, Lg: 5 }}>
+                      <Grid size={{ Xs: 12, Lg: 3 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -404,7 +404,7 @@ const Index = ({
               >
                 <Grid container marginCenter id="marketing">
                   <Grid row className={Style.marketingContent}>
-                    <Grid size={{ Xs: 12, Lg: 5 }}>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -443,7 +443,7 @@ const Index = ({
                 >
                   <Grid container marginCenter id="financial">
                     <Grid row className={Style.financialContent}>
-                      <Grid size={{ Xs: 12, Lg: 5 }}>
+                      <Grid size={{ Xs: 12, Lg: 3 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -477,7 +477,7 @@ const Index = ({
               >
                 <Grid container marginCenter id="manufacturing">
                   <Grid row reverse className={Style.manufacturingContent}>
-                    <Grid size={{ Lg: 5, Xs: 12 }}>
+                    <Grid size={{ Lg: 3, Xs: 12 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -514,7 +514,7 @@ const Index = ({
                 >
                   <Grid container marginCenter id="healthcare">
                     <Grid row className={Style.healthcareContent}>
-                      <Grid size={{ Xs: 12, Lg: 5 }}>
+                      <Grid size={{ Xs: 12, Lg: 3 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -548,7 +548,7 @@ const Index = ({
               >
                 <Grid container marginCenter id="public">
                   <Grid row className={Style.publicSectorContent}>
-                    <Grid size={{ Xs: 12, Lg: 5 }}>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -593,7 +593,7 @@ const Index = ({
                 >
                   <Grid container marginCenter id="public">
                     <Grid row className={Style.ctaContent}>
-                      <Grid size={{ Xs: 12, Lg: 5 }} offset={{ Lg: 6 }}>
+                      <Grid size={{ Xs: 12, Lg: 3 }} offset={{ Lg: 6 }}>
                         <h3>
                           <Microcopy
                             entries={microcopy}
