@@ -102,7 +102,7 @@ const Index: React.FunctionComponent = () => {
                     }
                   >
                     <Grid row className={Style.valueContent}>
-                      <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
+                      <Grid size={{ Xs: 12, Lg: 5 }} offset={{ Lg: 3 }}>
                         <h3>
                           We value our friends. This is more than business for
                           us.
