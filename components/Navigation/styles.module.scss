@@ -125,6 +125,10 @@
     right: 1rem;
   }
 
+  .mobileNavToggle.darkBackground {
+    filter: invert(100%);
+  }
+
   .mobileNavToggle[aria-expanded="true"] {
     background: url("https://img.icons8.com/ios-glyphs/25/ffffff/multiply.png")
       no-repeat;
