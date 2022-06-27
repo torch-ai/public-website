@@ -20,7 +20,7 @@
   justify-self: center;
 }
 
-@media screen and (min-width: breakpoints.$breakpoint-md) {
+@media screen and (min-width: breakpoints.$breakpoint-lg) {
   .headerGridTitle {
     grid-column: 1 / 8;
     grid-row: 1 / 2;
@@ -51,7 +51,7 @@
   margin-top: 2em;
 }
 
-@media screen and (min-width: breakpoints.$breakpoint-md) {
+@media screen and (min-width: breakpoints.$breakpoint-lg) {
   .contentGrid {
     flex-flow: row nowrap;
     gap: 2em;

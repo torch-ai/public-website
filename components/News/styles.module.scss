@@ -30,7 +30,7 @@
   flex-basis: 66%;
 }
 
-@media screen and (max-width: breakpoints.$breakpoint-md) {
+@media screen and (max-width: breakpoints.$breakpoint-lg) {
   .newsLayout > .newsLayoutItem {
     flex-basis: 100% !important;
   }

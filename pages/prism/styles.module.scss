@@ -226,7 +226,7 @@
   }
 }
 
-@media (min-width: breakpoints.$breakpoint-sm) {
+@media (min-width: breakpoints.$breakpoint-md) {
   .container {
     width: 600px;
     max-width: 90%;
@@ -234,14 +234,14 @@
   }
 }
 
-@media (min-width: breakpoints.$breakpoint-md) {
+@media (min-width: breakpoints.$breakpoint-lg) {
   .container {
     width: 900px;
     max-width: 90%;
   }
 }
 
-@media (min-width: breakpoints.$breakpoint-lg) {
+@media (min-width: breakpoints.$breakpoint-xl) {
   .container {
     width: 1200px;
     max-width: 90%;
@@ -319,7 +319,7 @@
   }
 }
 
-@media (min-width: breakpoints.$breakpoint-xl) {
+@media (min-width: breakpoints.$breakpoint-xxl) {
   .professional {
     background-position: 0;
     .container {
