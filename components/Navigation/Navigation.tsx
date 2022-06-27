@@ -4,6 +4,7 @@ import { NextRouter, useRouter } from "next/router";
 import Style from "./styles.module.scss";
 import Grid from "../Grid/Grid";
 import LayoutContext from "../layout/LayoutContext";
+import SearchBar from "../Search/SearchBar";
 import { pageSettings as solutionsPageSettings } from "../../pages/solutions";
 import { pageSettings as platformPageSettings } from "../../pages/platform";
 import { pageSettings as partnersPageSettings } from "../../pages/partners";
