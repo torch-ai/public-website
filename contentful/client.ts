@@ -3,19 +3,21 @@ import {
   EntryCollectionWithLinkResolutionAndWithoutUnresolvableLinks,
   EntriesQueries,
   EntryWithLinkResolutionAndWithoutUnresolvableLinks,
+  Entry
 } from "contentful";
-import { TypeNewsFields, TypePageFields } from "../generated/contentful";
+import { TypeNewsFields, TypePageFields, TypeMicrocopyFields, TypeCustomPageFields } from "../generated/contentful";
 import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
 
 // Trying very hard not to expose the raw client to get good utility functions.
 const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID,
+  space: process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID,
   accessToken: process.env.CONTENTFUL_ACCESS_KEY,
 });
 
 enum ContentModels {
   News = "news",
   Page = "page",
+  Microcopy = "microcopy"
 }
 
 type GetEntries<Fields> = (
@@ -41,7 +43,9 @@ export const getNewsEntries: GetEntries<TypeNewsFields> = async (query = {}) =>
 
 export const getAllNewsEntries: GetAllEntries<TypeNewsFields> = async (
   query = {}
-) => getAllEntries<TypeNewsFields>(query, getNewsEntries);
+) => {
+  return (await getAllEntries<TypeNewsFields>(query, getNewsEntries)).items
+};
 
 export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypeNewsFields>(id, {
@@ -56,18 +60,40 @@ export const getPageEntries: GetEntries<TypePageFields> = async (query = {}) =>
 
 export const getAllPageEntries: GetAllEntries<TypePageFields> = async (
   query = {}
-) => getAllEntries<TypePageFields>(query, getPageEntries);
+) => {
+  return (await getAllEntries<TypePageFields>(query, getPageEntries)).items
+};
 
 export const getPage: GetEntry<TypePageFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypePageFields>(id, {
     ...query,
   });
 
+export const getCustomPageAndMicrocopy = async (pageId: string): Promise<{
+  customPage?: Entry<TypeCustomPageFields>,
+  microcopy: Entry<TypeMicrocopyFields>[],
+}> => {
+  const res = await getAllEntries({
+    "fields.containingPage.sys.id": pageId,
+    content_type: ContentModels.Microcopy,
+    limit: 1000,
+  }, client.withoutUnresolvableLinks.getEntries)
+
+  return {
+    customPage: (res.includesEntries as Entry<TypeCustomPageFields>[]).find(entry => entry.sys.id == pageId),
+    microcopy: res.items as Entry<TypeMicrocopyFields>[],
+  }
+}
+
 export const getAllEntries = async <Fields extends {}>(
   query: EntriesQueries<Fields> = {},
   callback: GetEntries<Fields>
-): Promise<EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[]> => {
+): Promise<{
+  items: EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[],
+  includesEntries: EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[]
+}> => {
   let items: EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[] = [];
+  let includesEntries: EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[] = [];
   let isDone = false;
   let skip: number | undefined = undefined;
   while (!isDone) {
@@ -77,10 +103,19 @@ export const getAllEntries = async <Fields extends {}>(
     });
     skip = res.skip + res.limit;
     items = items.concat(res.items);
+    if (res.includes && res.includes.Entry) {
+      let newIncludes = (res.includes.Entry as EntryWithLinkResolutionAndWithoutUnresolvableLinks<Fields>[]).filter((includedEntry) => {
+        return !includesEntries.find(existingInclude => existingInclude.sys.id == includedEntry.sys.id)
+      })
+      includesEntries = includesEntries.concat(newIncludes)
+    }
     if (res.skip + res.limit >= res.total) {
       isDone = true;
     }
   }
 
-  return items;
+  return {
+    items,
+    includesEntries
+  };
 };

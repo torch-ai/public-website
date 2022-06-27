@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext } from "react";
+import React, { useContext, ReactElement } from "react";
 import Grid from "../../components/Grid/Grid";
 import Style from "./styles.module.scss";
 import Footer from "../../components/Footer/Footer";
@@ -11,6 +11,11 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import pageIds from "../../contentful/pages";
 import clsx from "clsx";
 
 export const pageSettings: PageSettings = {
@@ -18,18 +23,33 @@ export const pageSettings: PageSettings = {
   linkContent: <>Contact</>,
 };
 
-const Index: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy(pageIds.contact);
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Index = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   return (
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "Contact us",
-            "Unlock your potential",
-            "Talk to us",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
       <section className={clsx(Style.contactContainer)}>
@@ -40,9 +60,11 @@ const Index: React.FunctionComponent = () => {
           <Grid container marginCenter>
             <Grid row>
               <Grid size={{ Xs: 12 }} className={Style.contactTitle}>
-                <PageTitle>Contact Us.</PageTitle>
+                <PageTitle>
+                  <Microcopy entries={microcopy} id="6xt33azGkVk0pVxwLYyLE4" />
+                </PageTitle>
                 <PageSubtitle>
-                  Find out how Nexus can unlock your productivity.
+                  <Microcopy entries={microcopy} id="4Cufep8wTzibupuz0UlH2p" />
                 </PageSubtitle>
               </Grid>
             </Grid>

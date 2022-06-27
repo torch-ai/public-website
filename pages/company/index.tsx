@@ -15,8 +15,16 @@ import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { getNewsEntries } from "../../contentful/client";
-import { TypeNews } from "../../generated/contentful";
+import {
+  getNewsEntries,
+  getCustomPageAndMicrocopy,
+} from "../../contentful/client";
+import {
+  TypeNews,
+  TypeMicrocopy,
+  TypeCustomPage,
+} from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as careersPageSettings } from "../careers";
 import { pageSettings as newsroomPageSettings } from "../newsroom";
@@ -43,6 +51,7 @@ import forbes from "../../img/forbes.png";
 import logoBookshelf from "./assets/logo-bookshelf.png";
 import galleryBackground from "./assets/gallerypic.png";
 import FullpageSection from "../../components/FullpageSection/FullpageSection";
+import pageIds from "../../contentful/pages";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -51,20 +60,28 @@ export const pageSettings: PageSettings = {
 
 export const getStaticProps: GetStaticProps<{
   news: TypeNews[];
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
 }> = async () => {
-  const res = await getNewsEntries({
+  const news = await getNewsEntries({
     limit: 5,
   });
 
+  const content = await getCustomPageAndMicrocopy(pageIds.company);
+
   return {
     props: {
-      news: res.items,
+      news: news.items,
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
     },
   };
 };
 
 const Index = ({
   news,
+  microcopy,
+  customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
@@ -94,10 +111,9 @@ const Index = ({
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "Kansas City's next great company",
-            "Unmatched environment for innovation",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
       <ScrollToTop
@@ -132,11 +148,16 @@ const Index = ({
                     <Grid row>
                       <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
                         <h2 ref={titleRef}>
-                          We're building Kansas City's next great company.
+                          <Microcopy
+                            entries={microcopy}
+                            id="1oRO3VvNiTI7o6XjTbl9HE"
+                          />
                         </h2>
                         <p ref={subtitleRef}>
-                          The world's hardest problems. The world's greatest
-                          minds. An unmatched environment for innovation.
+                          <Microcopy
+                            entries={microcopy}
+                            id="3P0Qo0eHKZlDFTfYh9o6z8"
+                          />
                         </p>
                         <div className={clsx(Style.forbes)}>
                           <Image
@@ -166,48 +187,71 @@ const Index = ({
                 >
                   <Grid row>
                     <Grid size={{ Xs: 12, Lg: 12 }}>
-                      <h3>Total badasses.</h3>
+                      <h3>
+                        <Microcopy
+                          entries={microcopy}
+                          id="3ygbPcVyaAM61oVIjWTK93"
+                        />
+                      </h3>
                     </Grid>
                   </Grid>
                   <Grid row>
                     <Grid size={{ Xs: 12, Lg: 3 }}>
-                      <h5>Mission-Focused</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="4ifgiXYI1Z7gWkseff1CXI"
+                        />
+                      </h5>
                       <p>
-                        We have the awesome privilege of sharing responsibility
-                        for the security of our country and the lives of
-                        warfighters protecting that security. From this starting
-                        point, we’ve developed a deep sense of duty to our
-                        clients, company, and each other. Our client’s mission
-                        is our mission.
+                        <Microcopy
+                          entries={microcopy}
+                          id="1EZp5AZAReREFTQQ46pNB9"
+                        />
                       </p>
                     </Grid>
                     <Grid size={{ Xs: 12, Lg: 8 }}>
-                      <h5>Curious & Innovative</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1csSg4cQiPXH6fdwHxyil0"
+                        />
+                      </h5>
                       <p>
-                        We are always interested in finding new and better ways
-                        to do things and never satisfied with what we have. We
-                        wonder constantly about "what could be” and how we might
-                        "solve the unsolvable.”
+                        <Microcopy
+                          entries={microcopy}
+                          id="5IqvM2y4XENoOidq9umX3z"
+                        />
                       </p>
                     </Grid>
                   </Grid>
                   <Grid row>
                     <Grid size={{ Xs: 12, Lg: 3 }}>
-                      <h5>Gumption</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="4AuB1mTnVNpWnLZLrrafMB"
+                        />
+                      </h5>
                       <p>
-                        We approach everything we do with a level of passion and
-                        intensity, consistent with the knowledge and
-                        understanding that our work is important and meaningful.
-                        We think and act like a start-up. Every day is Day 1.
+                        <Microcopy
+                          entries={microcopy}
+                          id="2jL4viZtSh0JrfxdQoSTKG"
+                        />
                       </p>
                     </Grid>
                     <Grid size={{ Xs: 12, Lg: 8 }}>
-                      <h5>Do What's Right</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="2kwofJ1BbHDb6SHTODZYEI"
+                        />
+                      </h5>
                       <p>
-                        We approach every decision, action, and interaction with
-                        an unwavering commitment to being ethical, considerate,
-                        transparent, and focused on achieving the best outcome
-                        for our clients and team, rather than ourselves.
+                        <Microcopy
+                          entries={microcopy}
+                          id="3GElBd2wnOO2DS8vhiT1KJ"
+                        />
                       </p>
                     </Grid>
                   </Grid>
@@ -232,8 +276,18 @@ const Index = ({
                               src={BrainWeaver}
                               alt={"Drawing of Brian Weaver"}
                             />
-                            <h5>Brian Weaver</h5>
-                            <p>Chief Executive Officer</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="7ovjEQqyvr2JPeG0dZlS5z"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="4u4aeTHWFKUgBdvDcOjmKR"
+                              />
+                            </p>
                           </div>
                         </Grid>
                         <Grid
@@ -245,8 +299,18 @@ const Index = ({
                               src={AmyBradshaw}
                               alt={"Drawing of Amy Bradshaw"}
                             />
-                            <h5>Amy Bradshaw</h5>
-                            <p>Chief Financial Officer</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="4LJP18PGKSKV6flvGtKpsh"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="3r8Qt2pd1iot0YGMrmXXx3"
+                              />
+                            </p>
                           </div>
                         </Grid>
                         <Grid
@@ -258,8 +322,18 @@ const Index = ({
                               src={JanetHanofee}
                               alt={"Drawing of Janet Hanofee"}
                             />
-                            <h5>Janet Hanofee</h5>
-                            <p>Chief People Officer</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="3AJpqcTe6eRXZbL8RhBUsQ"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="39TThX7reWTVNU66xRVXEk"
+                              />
+                            </p>
                           </div>
                         </Grid>
                         <Grid
@@ -271,8 +345,18 @@ const Index = ({
                               src={DavidKern}
                               alt={"Drawing of David Kervin"}
                             />
-                            <h5>David Kervin</h5>
-                            <p> Chief Solutions Officer</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="6jFMIdATTAQjshDen0fyrL"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="2SrJ3gRwjF7dsYknUIcbnu"
+                              />
+                            </p>
                           </div>
                         </Grid>
                       </Grid>
@@ -290,8 +374,18 @@ const Index = ({
                               src={AdamLurie}
                               alt={"Drawing of Adam Lurie"}
                             />
-                            <h5>Adam Lurie</h5>
-                            <p>Chief Strategy Officer</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="60JEwAIGK86rmUFtiitssR"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="4xaKTyYJR6VF96BesQjrso"
+                              />
+                            </p>
                           </div>
                         </Grid>
                         <Grid
@@ -303,8 +397,18 @@ const Index = ({
                               src={JasonDelker}
                               alt={"Drawing of Jason Delker"}
                             />
-                            <h5>Jason Delker</h5>
-                            <p>Chief of Product</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="48GZFDmehqy1C5cVJ8rVVM"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="2MJF4Gd4EmyNJs5Gz2QaqL"
+                              />
+                            </p>
                           </div>
                         </Grid>
                         <Grid
@@ -316,8 +420,18 @@ const Index = ({
                               src={JonKramer}
                               alt={"Drawing of Jon Kramer"}
                             />
-                            <h5>Jon Kramer</h5>
-                            <p>Chief Technology Officer</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="5Zgt3B5Mb3nvVmrviO7mhW"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="5IUCsd3Fzj4h13pKCIDPCP"
+                              />
+                            </p>
                           </div>
                         </Grid>
                         <Grid
@@ -329,8 +443,18 @@ const Index = ({
                               src={JenniferUtting}
                               alt={"Drawing of Jennifer Utting"}
                             />
-                            <h5>Jennifer Utting</h5>
-                            <p>General Counsel</p>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="5v04aX8A6yVEndfebQsY6F"
+                              />
+                            </h5>
+                            <p>
+                              <Microcopy
+                                entries={microcopy}
+                                id="7Mn0tBgi13E5HoKbICdqUe"
+                              />
+                            </p>
                           </div>
                         </Grid>
                       </Grid>
@@ -342,13 +466,17 @@ const Index = ({
                 <Grid container marginCenter>
                   <Grid row>
                     <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
-                      <h3>Board of Directors</h3>
+                      <h3>
+                        <Microcopy
+                          entries={microcopy}
+                          id="6U3y2YhaWmHBLXdVXSv31K"
+                        />
+                      </h3>
                       <p>
-                        Torch.AI's board members have vast domain, technology,
-                        product, and business experience, and are helping us
-                        create one of our country's great companies. We endeavor
-                        to make the world a better place by advancing the use of
-                        AI to change how data is put to use.
+                        <Microcopy
+                          entries={microcopy}
+                          id="3qc2rh6iLDmymMmRadozVX"
+                        />
                       </p>
                     </Grid>
                   </Grid>
@@ -364,7 +492,12 @@ const Index = ({
                               src={BrainWeaver}
                               alt={"Drawing of Brian Weaver"}
                             />
-                            <h5>Brian Weaver</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="Badahlu9e8ZOKblqkptjc"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                         <Grid
@@ -376,7 +509,12 @@ const Index = ({
                               src={LaurenceTosi}
                               alt={"Drawing of Laurence Tosi"}
                             />
-                            <h5>Laurence Tosi</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="2grXuzJafTTiAXPnxoHeT0"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                         <Grid
@@ -388,7 +526,12 @@ const Index = ({
                               src={ChristanSchnedler}
                               alt={"Drawing of Christian Schnedler"}
                             />
-                            <h5>Christian Schnedler</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="3KVmsXGyesPxWAY7p0rRB8"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                         <Grid
@@ -400,7 +543,12 @@ const Index = ({
                               src={WilliamBeyer}
                               alt={"Drawing of William Beyer"}
                             />
-                            <h5>William Beyer</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="424NYd6BFRReTJ1f9kiEEz"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                       </Grid>
@@ -412,14 +560,17 @@ const Index = ({
                 <Grid container marginCenter>
                   <Grid row>
                     <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
-                      <h3>Board of Advisors</h3>
+                      <h3>
+                        <Microcopy
+                          entries={microcopy}
+                          id="3FPtgeOMGtZqkvc7d3pLxN"
+                        />
+                      </h3>
                       <p>
-                        Torch.AI's board of advisors have vast domain,
-                        technology, product, and business experience, and are
-                        helping create one of our country's great companies.
-                        Their unique backgrounds and experience allow us to make
-                        the world a better place by advancing the use of AI to
-                        change how data is put to use.
+                        <Microcopy
+                          entries={microcopy}
+                          id="6QxA7qcoXysSRYR1ARTYaw"
+                        />
                       </p>
                     </Grid>
                   </Grid>
@@ -435,7 +586,12 @@ const Index = ({
                               src={KevinMarcus}
                               alt={"Drawing of Kevin Marcus"}
                             />
-                            <h5>Kevin Marcus</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="3JK4FIL7GTc5noF9v1MLas"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                         <Grid
@@ -447,7 +603,12 @@ const Index = ({
                               src={MarkPerrin}
                               alt={"Drawing of Mark W. Perrin"}
                             />
-                            <h5>Mark W. Perrin</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="5alFK4bykE1q4yr6Yzasf6"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                         <Grid
@@ -459,7 +620,12 @@ const Index = ({
                               src={HondoGeruts}
                               alt={'Drawing of James "Hondo" Geurts'}
                             />
-                            <h5>James "Hondo" Geurts</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="2VuKC17G7mOE3NKQCt23e7"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                         <Grid
@@ -471,7 +637,12 @@ const Index = ({
                               src={MikeDanda}
                               alt={"Drawing of LtGen Mike Dana"}
                             />
-                            <h5>LtGen Mike Dana</h5>
+                            <h5>
+                              <Microcopy
+                                entries={microcopy}
+                                id="7bxCMjlNK6uERXsYBSpzj4"
+                              />
+                            </h5>
                           </div>
                         </Grid>
                       </Grid>
@@ -493,19 +664,26 @@ const Index = ({
                   <Grid container marginCenter>
                     <Grid row className={Style.careersContent}>
                       <Grid size={{ Xs: 12, Lg: 6 }}>
-                        <h2>Careers.</h2>
+                        <h2>
+                          <Microcopy
+                            entries={microcopy}
+                            id="65hvS4h0kwdOieAKPSTM9f"
+                          />
+                        </h2>
                         <p>
-                          At Torch.AI, we are passionate about building software
-                          that solves some of the world's most challenging
-                          problems. Our work is hard. It is fun. It has meaning.
-                          We have built a team of exceptional people that build
-                          great products and provide the highest quality support
-                          and services. If you are a curious pioneer looking for
-                          a challenge, let's connect.
+                          <Microcopy
+                            entries={microcopy}
+                            id="6AcP8ezk701A5LGEao0wr3"
+                          />
                         </p>
                         <div>
                           <Link href={careersPageSettings.path}>
-                            <a role="button">Find your job</a>
+                            <a role="button">
+                              <Microcopy
+                                entries={microcopy}
+                                id="3sTrnyb7jga2Fey4XwLpAy"
+                              />
+                            </a>
                           </Link>
                         </div>
                       </Grid>
