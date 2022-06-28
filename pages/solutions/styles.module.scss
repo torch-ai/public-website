@@ -147,10 +147,6 @@
   height: 100%;
 }
 
-.desktopOnly {
-  display: none;
-}
-
 @-webkit-keyframes AnimationName {
   0% {
     background-position: 0 50%;
@@ -200,19 +196,6 @@
   }
   to {
     background-size: 150%;
-  }
-}
-
-@media only screen and (min-width: 64em) {
-}
-
-@media (min-width: 75em) {
-  .mobileOnly {
-    display: none;
-  }
-
-  .desktopOnly {
-    display: flex;
   }
 }
 
