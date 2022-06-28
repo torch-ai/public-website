@@ -1,6 +1,6 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { useContext, useEffect, useRef } from "react";
+import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../components/Grid/Grid";
@@ -15,7 +15,11 @@ import tools from "../../img/tools.png";
 import LayoutContext from "../../components/layout/LayoutContext";
 import { getHeadPageTitle } from "../../utils/meta";
 import { PageSettings } from "../../types/next";
-import clsx from "clsx";
+import { getCustomPageAndMicrocopy } from "../../contentful/client";
+import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
+import Microcopy from "../../components/Microcopy/Microcopy";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import pageIds from "../../contentful/pages";
 import FullpageSection from "../../components/FullpageSection/FullpageSection";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
@@ -24,7 +28,24 @@ export const pageSettings: PageSettings = {
   linkContent: <>Partners</>,
 };
 
-const Index: React.FunctionComponent = () => {
+export const getStaticProps: GetStaticProps<{
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
+}> = async () => {
+  const content = await getCustomPageAndMicrocopy(pageIds.partners);
+
+  return {
+    props: {
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
+    },
+  };
+};
+
+const Index = ({
+  microcopy,
+  customPage,
+}: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
 
   const titleRef = useRef<HTMLHeadingElement>(null);
@@ -35,13 +56,11 @@ const Index: React.FunctionComponent = () => {
   useEffect(() => {
     const titleDuration = 1;
     let delay = 1;
-
     gsap.fromTo(
       titleRef.current,
       { opacity: 0, y: "100%", ease: "power1" },
       { opacity: 1, y: 0, duration: titleDuration, delay }
     );
-
     delay += titleDuration / 2;
     gsap.fromTo(
       subtitleRef.current,
@@ -49,15 +68,13 @@ const Index: React.FunctionComponent = () => {
       { opacity: 1, y: 0, duration: titleDuration / 2, delay }
     );
   }, []);
-
   return (
     <>
       <Head>
         <title>
-          {getHeadPageTitle([
-            "Partnerships",
-            "Transforming the potential of data for good",
-          ])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
       <ScrollToTop
@@ -85,9 +102,17 @@ const Index: React.FunctionComponent = () => {
                 <Grid container marginCenter>
                   <Grid row>
                     <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
-                      <h1 ref={titleRef}>Be a hero for your customers.</h1>
+                      <h1 ref={titleRef}>
+                        <Microcopy
+                          entries={microcopy}
+                          id="7u1eC2J0ll8jYlNDuQGKF9"
+                        />
+                      </h1>
                       <p ref={subtitleRef}>
-                        Deploy Nexus to solve your customers problems.
+                        <Microcopy
+                          entries={microcopy}
+                          id="5wF0UGzt38cVthUz7K6HK6"
+                        />
                       </p>
                     </Grid>
                   </Grid>
@@ -104,16 +129,16 @@ const Index: React.FunctionComponent = () => {
                     <Grid row className={Style.valueContent}>
                       <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
                         <h3>
-                          We value our friends. This is more than business for
-                          us.
+                          <Microcopy
+                            entries={microcopy}
+                            id="2vdciL2PyJb2vuzEbipyhN"
+                          />
                         </h3>
                         <p>
-                          Torch.AI's strong partner ecosystem is foundational to
-                          our mission of "Transforming the potential of data for
-                          good.” Often, we co-invest in solutions alongside our
-                          more established partners, but we have also enjoyed
-                          great success providing support to new and emerging
-                          partners.
+                          <Microcopy
+                            entries={microcopy}
+                            id="1otFTfga7E2vw3fOVJXaZc"
+                          />
                         </p>
                       </Grid>
                     </Grid>
@@ -123,12 +148,17 @@ const Index: React.FunctionComponent = () => {
               <FullpageSection className={Style.benefitsPartners}>
                 <Grid container marginCenter>
                   <Grid row className={Style.benefitsPartnersTitle}>
-                    <h3>Benefits for our partners.</h3>
+                    <h3>
+                      <Microcopy
+                        entries={microcopy}
+                        id="4JT7mAUm2RnmPGydZcWwXQ"
+                      />
+                    </h3>
                   </Grid>
                   <Grid row className={Style.benefitsPartnersContent}>
                     <Grid
                       size={{ Xs: 12, Lg: 3 }}
-                      className={clsx(Style.benefitsPartnersItem)}
+                      className={Style.benefitsPartnersItem}
                     >
                       <div>
                         <Image
@@ -138,16 +168,22 @@ const Index: React.FunctionComponent = () => {
                           }
                         />
                       </div>
-                      <h5>Training.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="zWgdevmK6hRVFneNwQNbL"
+                        />
+                      </h5>
                       <p>
-                        Access a robust set of training and enablement content.
-                        Get friendly with our Solution Architects to guarantee
-                        success of your program.
+                        <Microcopy
+                          entries={microcopy}
+                          id="4f3LTeCb56qO1BMuKj6nqP"
+                        />
                       </p>
                     </Grid>
                     <Grid
                       size={{ Xs: 12, Lg: 3 }}
-                      className={clsx(Style.benefitsPartnersItem)}
+                      className={Style.benefitsPartnersItem}
                     >
                       <div>
                         <Image
@@ -155,15 +191,22 @@ const Index: React.FunctionComponent = () => {
                           alt={"Picture of people around a conference table"}
                         />
                       </div>
-                      <h5>Customer Opportunities.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="5eOcxVbdV4qTVx085ne9j0"
+                        />
+                      </h5>
                       <p>
-                        Our partners enjoy new sales opportunities, sourced by
-                        Torch.AI, and aligned to their core competencies.
+                        <Microcopy
+                          entries={microcopy}
+                          id="Jk3opaCKBH8T7XFa046ca"
+                        />
                       </p>
                     </Grid>
                     <Grid
                       size={{ Xs: 12, Lg: 3 }}
-                      className={clsx(Style.benefitsPartnersItem)}
+                      className={Style.benefitsPartnersItem}
                     >
                       <div>
                         <Image
@@ -173,10 +216,17 @@ const Index: React.FunctionComponent = () => {
                           }
                         />
                       </div>
-                      <h5>Tools.</h5>
+                      <h5>
+                        <Microcopy
+                          entries={microcopy}
+                          id="2NJWYnm7Xv3hT1aEmVbmyR"
+                        />
+                      </h5>
                       <p>
-                        Access a wide variety of sales, marketing, ML modeling,
-                        and other technical tools.
+                        <Microcopy
+                          entries={microcopy}
+                          id="3jsTS6MdCuSkVt8gFZYGbN"
+                        />
                       </p>
                     </Grid>
                   </Grid>
@@ -186,13 +236,25 @@ const Index: React.FunctionComponent = () => {
                 <Grid container marginCenter>
                   <Grid row>
                     <Grid size={{ Xs: 12 }} className={Style.changeTitle}>
-                      <h2>Help us change the world.</h2>
-                      <p>Interested in becoming a partner?</p>
+                      <h2>
+                        <Microcopy
+                          entries={microcopy}
+                          id="1NtGc7nTrPsBYzUFY1GCvy"
+                        />
+                      </h2>
+                      <p>
+                        <Microcopy
+                          entries={microcopy}
+                          id="6hgf0IzBfcbZyhUSqDSyn6"
+                        />
+                      </p>
                       <p>
                         Contact us for more information{" "}
                         <a href="mailto:partners@torch.ai">
-                          {" "}
-                          partners@torch.ai{" "}
+                          <Microcopy
+                            entries={microcopy}
+                            id="1YadSfD04VZrIGVswCPAJ0"
+                          />
                         </a>
                       </p>
                     </Grid>
@@ -207,5 +269,4 @@ const Index: React.FunctionComponent = () => {
     </>
   );
 };
-
 export default Index;
