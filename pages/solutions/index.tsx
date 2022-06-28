@@ -1,9 +1,15 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext } from "react";
+import React, {
+  ReactElement,
+  useContext,
+  useRef,
+  useEffect,
+  useState,
+} from "react";
 import Head from "next/head";
 import Style from "./styles.module.scss";
-import { Parallax, ParallaxLayer } from "@react-spring/parallax";
+import { Parallax, ParallaxLayer, IParallax } from "@react-spring/parallax";
 import { InView } from "react-intersection-observer";
 import Footer from "../../components/Footer/Footer";
 import LayoutContext from "../../components/layout/LayoutContext";
@@ -15,6 +21,7 @@ import { TypeMicrocopy, TypeCustomPage } from "../../generated/contentful";
 import Microcopy from "../../components/Microcopy/Microcopy";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import pageIds from "../../contentful/pages";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const pageSettings: PageSettings = {
   path: "/solutions",
@@ -40,6 +47,19 @@ const Solutions = ({
   customPage,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
   const { setNavColor } = useContext(LayoutContext);
+  const scrollingElement = useRef<IParallax>();
+  const [isScrolledDown, setIsScrolledDown] = useState(false);
+
+  useEffect(() => {
+    scrollingElement.current.container.current.addEventListener(
+      "scroll",
+      () => {
+        setIsScrolledDown(
+          scrollingElement.current.current >= window.innerHeight / 2
+        );
+      }
+    );
+  }, [scrollingElement]);
 
   return (
     <>
@@ -50,12 +70,25 @@ const Solutions = ({
           )}
         </title>
       </Head>
+      {scrollingElement.current && (
+        <ScrollToTop
+          scrollType="overrides"
+          overrideIsBeyondFirstPage={isScrolledDown}
+          overrideScrollToTopFunc={() => {
+            scrollingElement.current.scrollTo(0);
+          }}
+        />
+      )}
       <section className={clsx(Style.wrap)}>
         <InView
           as="span"
           onChange={(inView) => setNavColor(inView ? "white" : "white")}
         >
-          <Parallax pages={46} className={clsx(Style.wrapper)}>
+          <Parallax
+            pages={46}
+            className={clsx(Style.wrapper)}
+            ref={scrollingElement}
+          >
             <ParallaxLayer
               className={clsx(Style.solTitle)}
               offset={0}
