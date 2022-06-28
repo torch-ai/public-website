@@ -66,12 +66,39 @@ const Solutions = ({
     setIsMobile(window.screen.width <= 1200);
   };
 
+  const onHashChange = () => {
+    switch (location.hash) {
+      case "#infrastructure":
+        scrollingElement.current.scrollTo(1);
+        break;
+      case "#analytics":
+        scrollingElement.current.scrollTo(10);
+        break;
+      case "#machine":
+        scrollingElement.current.scrollTo(16);
+        break;
+      case "#enterprise":
+        scrollingElement.current.scrollTo(26);
+        break;
+      case "#openSource":
+        scrollingElement.current.scrollTo(34);
+        break;
+      case "#dataApis":
+        scrollingElement.current.scrollTo(40);
+        break;
+    }
+    location.hash = "";
+  };
+
   useEffect(() => {
     onResize();
     window.addEventListener("resize", onResize);
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
 
     return () => {
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("hashchange", onHashChange);
     };
   }, []);
 
@@ -192,7 +219,6 @@ const Solutions = ({
             <ParallaxLayer
               sticky={isMobile ? null : { start: 1, end: 9 }}
               className={clsx(Style.solSubtitle)}
-              id="infrastructure"
               offset={1}
               speed={0.5}
             >
@@ -592,7 +618,6 @@ const Solutions = ({
             <ParallaxLayer
               sticky={isMobile ? null : { start: 10, end: 15 }}
               className={clsx(Style.solSubtitle)}
-              id="analytics"
               offset={10}
               speed={0.5}
             >
@@ -854,7 +879,6 @@ const Solutions = ({
             <ParallaxLayer
               sticky={isMobile ? null : { start: 16, end: 25 }}
               className={clsx(Style.solSubtitle)}
-              id="machine"
               offset={16}
               speed={0.5}
             >
@@ -1288,7 +1312,6 @@ const Solutions = ({
             <ParallaxLayer
               sticky={isMobile ? null : { start: 26, end: 33 }}
               className={clsx(Style.solSubtitle)}
-              id="enterprise"
               offset={26}
               speed={0.5}
             >
@@ -1636,7 +1659,6 @@ const Solutions = ({
             <ParallaxLayer
               sticky={isMobile ? null : { start: 34, end: 39 }}
               className={clsx(Style.solSubtitle)}
-              id="openSource"
               offset={34}
               speed={0.5}
             >
@@ -1889,7 +1911,6 @@ const Solutions = ({
             <ParallaxLayer
               sticky={isMobile ? null : { start: 40, end: 44 }}
               className={clsx(Style.solSubtitle)}
-              id="dataApis"
               offset={40}
               speed={0.5}
             >
