@@ -88,7 +88,7 @@ export const searchEntries = async (searchQuery: string): Promise<{
         preview: firstMicrocopy ? firstMicrocopy.fields.content : null,
         link: page.fields.pagePath,
         id: page.sys.id,
-        type: "Article"
+        type: "Page"
       } as SearchEntriesResult
     })).sort((a, b) => a.title > b.title ? 1 : -1)
   }
