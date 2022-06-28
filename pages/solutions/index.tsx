@@ -67,7 +67,6 @@ const Solutions = ({
   };
 
   const onHashChange = () => {
-    console.log(location.hash);
     switch (location.hash) {
       case "":
         scrollingElement.current.scrollTo(0);
