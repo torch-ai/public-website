@@ -1,4 +1,5 @@
 @use "/styles/colors";
+@use "/styles/breakpoints";
 
 .container {
   width: min(90%, 1200px);
@@ -64,12 +65,15 @@
 }
 
 .solContent {
+  display: flex;
+  flex-direction: row-reverse;
+
   .container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    width: min(90%, 800px);
+    flex-basis: 40%;
     margin-left: auto;
     margin-right: 5%;
     padding: 2em 0;
@@ -213,6 +217,14 @@
 
   .desktopOnly {
     display: flex;
+  }
+}
+
+@media (max-width: breakpoints.$breakpoint-lg) {
+  .solContent {
+    .container {
+      flex-basis: 90%;
+    }
   }
 }
 
