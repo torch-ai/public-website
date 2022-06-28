@@ -591,7 +591,7 @@ const Index = ({
                   as="div"
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
-                  <Grid container marginCenter id="public">
+                  <Grid container marginCenter>
                     <Grid row className={Style.ctaContent}>
                       <Grid size={{ Xs: 12, Lg: 3 }} offset={{ Lg: 6 }}>
                         <h3>
