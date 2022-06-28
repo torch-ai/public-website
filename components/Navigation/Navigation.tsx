@@ -134,10 +134,18 @@ const Navigation: FunctionComponent = () => {
               />
             </li>
             <li className={clsx(Style.dropdown)}>
-              <PageSettingsLevelOneLink
-                pageSettings={solutionsPageSettings}
-                {...levelOneLinkProps}
-              />
+              <a
+                href={`${solutionsPageSettings.path}#`}
+                style={{ color: color }}
+                className={clsx({
+                  [Style.active]: router.pathname.startsWith(
+                    solutionsPageSettings.path
+                  ),
+                })}
+              >
+                {solutionsPageSettings.linkContent}
+              </a>
+
               <div className={clsx(Style.dropdownContent)}>
                 <a
                   style={{ color: color }}

@@ -67,7 +67,11 @@ const Solutions = ({
   };
 
   const onHashChange = () => {
+    console.log(location.hash);
     switch (location.hash) {
+      case "":
+        scrollingElement.current.scrollTo(0);
+        break;
       case "#infrastructure":
         scrollingElement.current.scrollTo(1);
         break;
@@ -87,7 +91,6 @@ const Solutions = ({
         scrollingElement.current.scrollTo(40);
         break;
     }
-    location.hash = "";
   };
 
   useEffect(() => {
