@@ -49,6 +49,7 @@ const Solutions = ({
   const { setNavColor } = useContext(LayoutContext);
   const scrollingElement = useRef<IParallax>();
   const [isScrolledDown, setIsScrolledDown] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     scrollingElement.current.container.current.addEventListener(
@@ -60,6 +61,48 @@ const Solutions = ({
       }
     );
   }, [scrollingElement]);
+
+  const onResize = () => {
+    setIsMobile(window.screen.width <= 1200);
+  };
+
+  const onHashChange = () => {
+    switch (location.hash) {
+      case "":
+        scrollingElement.current.scrollTo(0);
+        break;
+      case "#infrastructure":
+        scrollingElement.current.scrollTo(1);
+        break;
+      case "#analytics":
+        scrollingElement.current.scrollTo(10);
+        break;
+      case "#machine":
+        scrollingElement.current.scrollTo(16);
+        break;
+      case "#enterprise":
+        scrollingElement.current.scrollTo(26);
+        break;
+      case "#openSource":
+        scrollingElement.current.scrollTo(34);
+        break;
+      case "#dataApis":
+        scrollingElement.current.scrollTo(40);
+        break;
+    }
+  };
+
+  useEffect(() => {
+    onResize();
+    window.addEventListener("resize", onResize);
+    onHashChange();
+    window.addEventListener("hashchange", onHashChange);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+      window.removeEventListener("hashchange", onHashChange);
+    };
+  }, []);
 
   return (
     <>
@@ -176,9 +219,8 @@ const Solutions = ({
             {/* Section Infrastructure */}
 
             <ParallaxLayer
-              sticky={{ start: 1, end: 9 }}
-              className={clsx(Style.solSubtitle, Style.desktopOnly)}
-              id="infrastructure"
+              sticky={isMobile ? null : { start: 1, end: 9 }}
+              className={clsx(Style.solSubtitle)}
               offset={1}
               speed={0.5}
             >
@@ -188,22 +230,6 @@ const Solutions = ({
                 </h3>
                 <p>
                   <Microcopy entries={microcopy} id="5h1yxzu89hoJmwEbDeWNvm" />
-                </p>
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              className={clsx(Style.solSubtitle)}
-              offset={1}
-              // id='infrastructure'
-              speed={0.5}
-            >
-              <div className={clsx(Style.container, Style.mobileOnly)}>
-                <h3 className={clsx(Style.titleInfra)}>
-                  <Microcopy entries={microcopy} id="12zBPZUh0OLJzPFbbvdJT4" />
-                </h3>
-                <p>
-                  <Microcopy entries={microcopy} id="5ETVuZWGKqd1v7G2WSybTF" />
                 </p>
               </div>
             </ParallaxLayer>
@@ -592,9 +618,8 @@ const Solutions = ({
             {/* Section Analytics */}
 
             <ParallaxLayer
-              sticky={{ start: 10, end: 15 }}
-              className={clsx(Style.solSubtitle, Style.desktopOnly)}
-              id="analytics"
+              sticky={isMobile ? null : { start: 10, end: 15 }}
+              className={clsx(Style.solSubtitle)}
               offset={10}
               speed={0.5}
             >
@@ -604,22 +629,6 @@ const Solutions = ({
                 </h3>
                 <p>
                   <Microcopy entries={microcopy} id="2Nxk0xBXclwJtzt6gaypGR" />
-                </p>
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              className={clsx(Style.solSubtitle, Style.mobileOnly)}
-              offset={10}
-              // id='analytics'
-              speed={0.5}
-            >
-              <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleAnalytics)}>
-                  <Microcopy entries={microcopy} id="77b1ls9oYC8ZQ1B70lZUK0" />
-                </h3>
-                <p>
-                  <Microcopy entries={microcopy} id="7m75ybAiIFz4IRje3LWx35" />
                 </p>
               </div>
             </ParallaxLayer>
@@ -870,9 +879,8 @@ const Solutions = ({
             {/* Section Machine learning & AI */}
 
             <ParallaxLayer
-              sticky={{ start: 16, end: 25 }}
-              className={clsx(Style.solSubtitle, Style.desktopOnly)}
-              id="machine"
+              sticky={isMobile ? null : { start: 16, end: 25 }}
+              className={clsx(Style.solSubtitle)}
               offset={16}
               speed={0.5}
             >
@@ -882,22 +890,6 @@ const Solutions = ({
                 </h3>
                 <p>
                   <Microcopy entries={microcopy} id="3FdcBna3mjJBbQjzF00BSn" />
-                </p>
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              className={clsx(Style.solSubtitle, Style.mobileOnly)}
-              offset={16}
-              // id='machine'
-              speed={0.5}
-            >
-              <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="m6OzKVsIplGJvyH7ups2t" />
-                </h3>
-                <p>
-                  <Microcopy entries={microcopy} id="6WfoQsjq7BPcSe5zeoMryd" />
                 </p>
               </div>
             </ParallaxLayer>
@@ -1320,9 +1312,8 @@ const Solutions = ({
             {/* Section Enterprise Applications */}
 
             <ParallaxLayer
-              sticky={{ start: 26, end: 33 }}
-              className={clsx(Style.solSubtitle, Style.desktopOnly)}
-              id="enterprise"
+              sticky={isMobile ? null : { start: 26, end: 33 }}
+              className={clsx(Style.solSubtitle)}
               offset={26}
               speed={0.5}
             >
@@ -1332,22 +1323,6 @@ const Solutions = ({
                 </h3>
                 <p>
                   <Microcopy entries={microcopy} id="75rlNmNHcCkWwWZiYujmJ3" />
-                </p>
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              className={clsx(Style.solSubtitle, Style.mobileOnly)}
-              offset={26}
-              // id='enterprise'
-              speed={0.5}
-            >
-              <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleMachine)}>
-                  <Microcopy entries={microcopy} id="2vZzW3U2OFbqJi8yldC7mG" />
-                </h3>
-                <p>
-                  <Microcopy entries={microcopy} id="2aJFHtHkpLELi1eAmUpO17" />
                 </p>
               </div>
             </ParallaxLayer>
@@ -1684,9 +1659,8 @@ const Solutions = ({
             {/* Section Open Source */}
 
             <ParallaxLayer
-              sticky={{ start: 34, end: 39 }}
-              className={clsx(Style.solSubtitle, Style.desktopOnly)}
-              id="openSource"
+              sticky={isMobile ? null : { start: 34, end: 39 }}
+              className={clsx(Style.solSubtitle)}
               offset={34}
               speed={0.5}
             >
@@ -1696,22 +1670,6 @@ const Solutions = ({
                 </h3>
                 <p>
                   <Microcopy entries={microcopy} id="1MbCtwbqVrwAChkuXQcebx" />
-                </p>
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              className={clsx(Style.solSubtitle, Style.mobileOnly)}
-              offset={34}
-              // id='openSource'
-              speed={0.5}
-            >
-              <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleOpenSource)}>
-                  <Microcopy entries={microcopy} id="2SmzNqnUOF4XXA4dLnq8ld" />
-                </h3>
-                <p>
-                  <Microcopy entries={microcopy} id="1wgzweK3EM3K68sEFoBBdJ" />
                 </p>
               </div>
             </ParallaxLayer>
@@ -1953,9 +1911,8 @@ const Solutions = ({
             {/* Section Data APIs */}
 
             <ParallaxLayer
-              sticky={{ start: 40, end: 44 }}
-              className={clsx(Style.solSubtitle, Style.desktopOnly)}
-              id="dataApis"
+              sticky={isMobile ? null : { start: 40, end: 44 }}
+              className={clsx(Style.solSubtitle)}
               offset={40}
               speed={0.5}
             >
@@ -1965,22 +1922,6 @@ const Solutions = ({
                 </h3>
                 <p>
                   <Microcopy entries={microcopy} id="3K6DJKoDNzD4QxLrofzXlX" />
-                </p>
-              </div>
-            </ParallaxLayer>
-
-            <ParallaxLayer
-              className={clsx(Style.solSubtitle, Style.mobileOnly)}
-              offset={40}
-              // id='dataApis'
-              speed={0.5}
-            >
-              <div className={clsx(Style.container)}>
-                <h3 className={clsx(Style.titleOpenSource)}>
-                  <Microcopy entries={microcopy} id="6qKIgEouYG7oNYiTKJj2hb" />
-                </h3>
-                <p>
-                  <Microcopy entries={microcopy} id="3lolvTKiKBJzyZm6eVdY7M" />
                 </p>
               </div>
             </ParallaxLayer>
