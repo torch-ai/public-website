@@ -63,7 +63,7 @@ const Solutions = ({
   }, [scrollingElement]);
 
   const onResize = () => {
-    setIsMobile(window.screen.width <= 1200);
+    setIsMobile(window.innerWidth <= 1200);
   };
 
   const onHashChange = () => {
