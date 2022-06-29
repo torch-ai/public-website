@@ -1,3 +1,5 @@
+@use "/styles/breakpoints";
+
 .container {
   width: 22.438em;
 }
@@ -229,7 +231,7 @@
   order: 1;
 }
 
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: breakpoints.$breakpoint-sm) {
   .container {
     width: 49rem;
   }
@@ -445,7 +447,7 @@
   }
 }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: breakpoints.$breakpoint-md) {
   .container {
     width: 65rem;
   }
@@ -661,7 +663,7 @@
   }
 }
 
-@media only screen and (min-width: 76em) {
+@media only screen and (min-width: breakpoints.$breakpoint-lg) {
   .container {
     width: 75rem;
   }
@@ -863,7 +865,7 @@
   }
 }
 
-@media only screen and (min-width: 100em) {
+@media only screen and (min-width: breakpoints.$breakpoint-xl) {
   .container {
     width: 101rem;
   }

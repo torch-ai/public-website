@@ -114,18 +114,18 @@ video {
   max-width: 100%;
 }
 
-@media (min-width: breakpoints.$breakpoint-md) {
+@media (min-width: breakpoints.$breakpoint-sm) {
   :root {
     --type-scale: 1.25;
   }
 }
 
-@media (min-width: breakpoints.$breakpoint-lg) {
+@media (min-width: breakpoints.$breakpoint-md) {
   :root {
     --type-scale: 1.33;
   }
 }
-@media (min-width: breakpoints.$breakpoint-xl) {
+@media (min-width: breakpoints.$breakpoint-lg) {
   :root {
     --type-scale: 1.414;
   }

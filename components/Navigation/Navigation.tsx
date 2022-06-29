@@ -110,7 +110,9 @@ const Navigation: FunctionComponent = () => {
           </Link>
         </div>
         <button
-          className={clsx(Style.mobileNavToggle)}
+          className={clsx(Style.mobileNavToggle, {
+            [Style.darkBackground]: color == "white",
+          })}
           aria-controls="primary_navigation"
           ref={buttonRef}
           onClick={toggle}
@@ -132,47 +134,55 @@ const Navigation: FunctionComponent = () => {
               />
             </li>
             <li className={clsx(Style.dropdown)}>
-              <PageSettingsLevelOneLink
-                pageSettings={solutionsPageSettings}
-                {...levelOneLinkProps}
-              />
+              <a
+                href={`${solutionsPageSettings.path}#`}
+                style={{ color: color }}
+                className={clsx({
+                  [Style.active]: router.pathname.startsWith(
+                    solutionsPageSettings.path
+                  ),
+                })}
+              >
+                {solutionsPageSettings.linkContent}
+              </a>
+
               <div className={clsx(Style.dropdownContent)}>
-                <Link
+                <a
+                  style={{ color: color }}
                   href={`${solutionsPageSettings.path}#infrastructure`}
-                  scroll={false}
                 >
-                  <a style={{ color: color }}>Infrastructure</a>
-                </Link>
-                <Link
+                  Infrastructure
+                </a>
+                <a
+                  style={{ color: color }}
                   href={`${solutionsPageSettings.path}#analytics`}
-                  scroll={false}
                 >
-                  <a style={{ color: color }}>Analytics</a>
-                </Link>
-                <Link
+                  Analytics
+                </a>
+                <a
+                  style={{ color: color }}
                   href={`${solutionsPageSettings.path}#machine`}
-                  scroll={false}
                 >
-                  <a style={{ color: color }}>Machine learning</a>
-                </Link>
-                <Link
+                  Machine learning
+                </a>
+                <a
+                  style={{ color: color }}
                   href={`${solutionsPageSettings.path}#enterprise`}
-                  scroll={false}
                 >
-                  <a style={{ color: color }}>Enterprise</a>
-                </Link>
-                <Link
+                  Enterprise
+                </a>
+                <a
+                  style={{ color: color }}
                   href={`${solutionsPageSettings.path}#openSource`}
-                  scroll={false}
                 >
-                  <a style={{ color: color }}>Open Source</a>
-                </Link>
-                <Link
+                  Open Source
+                </a>
+                <a
+                  style={{ color: color }}
                   href={`${solutionsPageSettings.path}#dataApis`}
-                  scroll={false}
                 >
-                  <a style={{ color: color }}>Data APIs</a>
-                </Link>
+                  Data APIs
+                </a>
               </div>
             </li>
             <li>
