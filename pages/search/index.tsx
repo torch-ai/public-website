@@ -49,7 +49,7 @@ const SearchResults = ({
       <Container>
         <div className={Style.searchResultsContainer}>
           {items.map((result) => {
-            return <SearchResult item={result} />;
+            return <SearchResult key={result.id} item={result} />;
           })}
         </div>
       </Container>
