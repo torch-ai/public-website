@@ -26,11 +26,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
 
   if (searchOpen) {
     return (
-      <div
-        className={clsx(Styles.searchBar, {
-          [Styles.isLightColorScheme]: isLightColorScheme,
-        })}
-      >
+      <div className={clsx(Styles.searchBar)}>
         <input
           autoFocus
           placeholder="Search"

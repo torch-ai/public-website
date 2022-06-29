@@ -1,11 +1,8 @@
 .searchBar {
   background: white;
-  padding: 0.1em 0.4em;
-  margin-top: -0.1em;
-}
-
-.searchBar.isLightColorScheme {
-  border-bottom: 2px solid var(--color-dark);
+  padding: 0.2em 0.7em 0.2em 0.5em;
+  margin-top: -0.2em;
+  border-radius: 15px;
 }
 
 .searchBar input {
