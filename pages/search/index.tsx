@@ -17,6 +17,7 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import clsx from "clsx";
+import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
 
 export const getServerSideProps: GetServerSideProps<{
   items: SearchEntriesResult[];
@@ -69,6 +70,7 @@ const SearchResults = ({
           Showing {items.length} results for "{search}"
         </PageSubtitle>
       </PageHeader>
+      <ScrollToTop scrollType="window" />
       <Container>
         <div className={Style.searchBar}>
           <FontAwesomeIcon
