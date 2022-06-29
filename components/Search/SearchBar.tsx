@@ -1,6 +1,10 @@
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faX } from "@fortawesome/free-solid-svg-icons";
+import {
+  faMagnifyingGlass,
+  faX,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
 import { NextRouter } from "next/router";
 import Styles from "./styles.module.scss";
 import clsx from "clsx";
@@ -15,14 +19,22 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
 }) => {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchText, setSearchText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == "Enter") {
       router.push(`/search?q=${encodeURIComponent(searchText)}`);
-      setSearchOpen(false);
-      setSearchText("");
+      setIsLoading(true);
     }
   };
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", () => {
+      setSearchOpen(false);
+      setSearchText("");
+      setIsLoading(false);
+    });
+  }, []);
 
   if (searchOpen) {
     return (
@@ -34,11 +46,14 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
           onChange={(e) => {
             setSearchText(e.target.value);
           }}
+          disabled={isLoading}
           onKeyUp={onKeyUp}
         />
         <FontAwesomeIcon
-          icon={faX}
-          className={clsx(Styles.icon, Styles.closeBtn)}
+          icon={isLoading ? faSpinner : faX}
+          className={clsx(Styles.icon, Styles.closeBtn, {
+            [Styles.spinning]: isLoading,
+          })}
           onClick={() => setSearchOpen(false)}
         />
       </div>

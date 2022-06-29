@@ -25,6 +25,19 @@
   color: var(--color-dark);
 }
 
+.spinning {
+  animation: spinning 1s infinite linear;
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
 .searchResult {
   display: flex;
   justify-content: flex-start;
