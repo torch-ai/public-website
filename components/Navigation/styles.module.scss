@@ -3,13 +3,25 @@
   align-items: center;
 }
 
-.header {
-  z-index: 10;
+.headerContainer {
+  z-index: 200;
   position: fixed;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.NavContainer {
+.headerContainer.hovering {
+  height: 100vh;
+}
+
+.header.hovering {
+  background: white;
+}
+
+.focuser.visible {
+  flex-grow: 1;
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .event {
@@ -19,8 +31,8 @@
 .dropdownContent {
   display: none;
   position: absolute;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  background: #6d6b6b;
+  background: white;
+  padding-top: 12px;
   z-index: 1;
 }
 
