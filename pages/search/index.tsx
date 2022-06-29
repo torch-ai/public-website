@@ -1,4 +1,5 @@
-import { ReactElement } from "react";
+import { ReactElement, useState, useEffect } from "react";
+import router from "next/router";
 import Style from "./styles.module.scss";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
@@ -10,6 +11,12 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
 import Footer from "../../components/Footer/Footer";
 import SearchResult from "../../components/Search/SearchResult";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faMagnifyingGlass,
+  faSpinner,
+} from "@fortawesome/free-solid-svg-icons";
+import clsx from "clsx";
 
 export const getServerSideProps: GetServerSideProps<{
   items: SearchEntriesResult[];
@@ -21,7 +28,7 @@ export const getServerSideProps: GetServerSideProps<{
   return {
     props: {
       items: results.results,
-      search,
+      search: search ? search : null,
     },
   };
 };
@@ -30,6 +37,22 @@ const SearchResults = ({
   items,
   search,
 }: InferGetServerSidePropsType<typeof getServerSideProps>): ReactElement => {
+  const [searchText, setSearchText] = useState(search);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key == "Enter") {
+      router.push(`/search?q=${encodeURIComponent(searchText)}`);
+      setIsLoading(true);
+    }
+  };
+
+  useEffect(() => {
+    router.events.on("routeChangeComplete", () => {
+      setIsLoading(false);
+    });
+  }, []);
+
   return (
     <>
       <Head>
@@ -47,6 +70,23 @@ const SearchResults = ({
         </PageSubtitle>
       </PageHeader>
       <Container>
+        <div className={Style.searchBar}>
+          <FontAwesomeIcon
+            icon={isLoading ? faSpinner : faMagnifyingGlass}
+            className={clsx({
+              [Style.spinning]: isLoading,
+            })}
+          />
+          <input
+            placeholder="Search"
+            value={searchText}
+            onKeyUp={onKeyUp}
+            disabled={isLoading}
+            onChange={(e) => {
+              setSearchText(e.target.value);
+            }}
+          />
+        </div>
         <div className={Style.searchResultsContainer}>
           {items.map((result) => {
             return <SearchResult key={result.id} item={result} />;
