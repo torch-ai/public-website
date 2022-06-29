@@ -3,6 +3,8 @@
   padding: 0.2em 0.7em 0.2em 0.5em;
   margin-top: -0.2em;
   border-radius: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .searchBar input {
@@ -10,6 +12,8 @@
   outline: none;
   font-family: var(--font-copy);
   font-size: var(--base-size);
+  flex-grow: 1;
+  min-width: 0px;
 }
 
 .icon {
@@ -33,4 +37,9 @@
 
 .meta {
   font-size: 0.9em;
+}
+
+@media (max-width: 56.25em) {
+  .searchBar {
+  }
 }
