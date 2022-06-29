@@ -20,6 +20,11 @@
   cursor: pointer;
 }
 
+.closeBtn {
+  font-size: 0.8em;
+  color: var(--color-dark);
+}
+
 .searchResult {
   display: flex;
   justify-content: flex-start;

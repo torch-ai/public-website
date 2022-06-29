@@ -38,7 +38,7 @@ const SearchBar: FunctionComponent<SearchBarProps> = ({
         />
         <FontAwesomeIcon
           icon={faX}
-          className={Styles.icon}
+          className={clsx(Styles.icon, Styles.closeBtn)}
           onClick={() => setSearchOpen(false)}
         />
       </div>
