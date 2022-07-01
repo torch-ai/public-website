@@ -121,7 +121,12 @@ const Index = ({
               <FullpageSection className={Style.hero}>
                 <Grid container marginCenter>
                   <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryTitle}
+                    >
                       <h3 ref={titleRef}>
                         <Microcopy
                           entries={microcopy}
@@ -136,7 +141,10 @@ const Index = ({
                     className={Style.galleryContainer}
                   >
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryDefense
@@ -152,7 +160,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryLogistics
@@ -168,7 +179,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryInsurance
@@ -184,7 +198,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryMarketing
@@ -206,7 +223,10 @@ const Index = ({
                     className={Style.galleryContainer}
                   >
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryFinancial
@@ -222,7 +242,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryManufacture
@@ -238,7 +261,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryHealthcare
@@ -254,7 +280,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Lg: 2, Xs: 12 }}
+                      size={{
+                        Lg: 2,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.galleryContainerItem,
                         Style.galleryPublicSector
@@ -270,7 +299,12 @@ const Index = ({
                       </div>
                     </Grid>
                   </Grid>
-                  <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
+                  <Grid
+                    size={{
+                      Xs: 12,
+                    }}
+                    className={Style.galleryTitle}
+                  >
                     <p ref={subtitleRef}>
                       <Microcopy
                         entries={microcopy}
@@ -294,7 +328,13 @@ const Index = ({
                 >
                   <Grid container marginCenter id="defense">
                     <Grid row className={Style.defensesContent}>
-                      <Grid size={{ Xs: 12, Lg: 3 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 4,
+                          Xl: 3,
+                        }}
+                      >
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -308,7 +348,12 @@ const Index = ({
                           />
                         </p>
                       </Grid>
-                      <Grid size={{ Xs: 12, Lg: 12 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 12,
+                        }}
+                      >
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -328,7 +373,13 @@ const Index = ({
               >
                 <Grid container marginCenter id="logistics">
                   <Grid row className={Style.logisticsContent}>
-                    <Grid size={{ Xs: 8, Lg: 3 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 4,
+                        Xl: 3,
+                      }}
+                    >
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -345,7 +396,10 @@ const Index = ({
                   </Grid>
                   <Grid row>
                     <Grid
-                      size={{ Xs: 8, Lg: 8 }}
+                      size={{
+                        Xs: 8,
+                        Lg: 8,
+                      }}
                       className={Style.inspirationButton}
                     >
                       <Link href={contactPageSettings.path}>
@@ -370,7 +424,13 @@ const Index = ({
                 >
                   <Grid container marginCenter id="insurance">
                     <Grid row className={Style.insuranceContent}>
-                      <Grid size={{ Xs: 12, Lg: 3 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 4,
+                          Xl: 3,
+                        }}
+                      >
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -384,7 +444,12 @@ const Index = ({
                           />
                         </p>
                       </Grid>
-                      <Grid size={{ Xs: 12, Lg: 12 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 12,
+                        }}
+                      >
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -404,7 +469,13 @@ const Index = ({
               >
                 <Grid container marginCenter id="marketing">
                   <Grid row className={Style.marketingContent}>
-                    <Grid size={{ Xs: 12, Lg: 3 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 4,
+                        Xl: 3,
+                      }}
+                    >
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -420,7 +491,12 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row>
-                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 8,
+                      }}
+                    >
                       <Link href={contactPageSettings.path}>
                         <a role="button">
                           <Microcopy
@@ -443,7 +519,13 @@ const Index = ({
                 >
                   <Grid container marginCenter id="financial">
                     <Grid row className={Style.financialContent}>
-                      <Grid size={{ Xs: 12, Lg: 3 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 4,
+                          Xl: 3,
+                        }}
+                      >
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -457,7 +539,12 @@ const Index = ({
                           />
                         </p>
                       </Grid>
-                      <Grid size={{ Xs: 12, Lg: 12 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 12,
+                        }}
+                      >
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -477,7 +564,13 @@ const Index = ({
               >
                 <Grid container marginCenter id="manufacturing">
                   <Grid row reverse className={Style.manufacturingContent}>
-                    <Grid size={{ Lg: 3, Xs: 12 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 4,
+                        Xl: 3,
+                      }}
+                    >
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -490,7 +583,12 @@ const Index = ({
                           id="3tQ7G0ZXYUYxJXAA1FIRZa"
                         />
                       </p>
-                      <Grid size={{ Xs: 12, Lg: 12 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 12,
+                        }}
+                      >
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -514,7 +612,13 @@ const Index = ({
                 >
                   <Grid container marginCenter id="healthcare">
                     <Grid row className={Style.healthcareContent}>
-                      <Grid size={{ Xs: 12, Lg: 3 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 4,
+                          Xl: 3,
+                        }}
+                      >
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -528,7 +632,12 @@ const Index = ({
                           />
                         </p>
                       </Grid>
-                      <Grid size={{ Xs: 12, Lg: 12 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 12,
+                        }}
+                      >
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -548,7 +657,13 @@ const Index = ({
               >
                 <Grid container marginCenter id="public">
                   <Grid row className={Style.publicSectorContent}>
-                    <Grid size={{ Xs: 12, Lg: 3 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 4,
+                        Xl: 3,
+                      }}
+                    >
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -564,7 +679,12 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row>
-                    <Grid size={{ Xs: 12, Lg: 12 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 12,
+                      }}
+                    >
                       <Link href={contactPageSettings.path}>
                         <a role="button">
                           <Microcopy
@@ -593,7 +713,16 @@ const Index = ({
                 >
                   <Grid container marginCenter>
                     <Grid row className={Style.ctaContent}>
-                      <Grid size={{ Xs: 12, Lg: 3 }} offset={{ Lg: 6 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 4,
+                          Xl: 3,
+                        }}
+                        offset={{
+                          Lg: 6,
+                        }}
+                      >
                         <h3>
                           <Microcopy
                             entries={microcopy}
@@ -609,7 +738,14 @@ const Index = ({
                       </Grid>
                     </Grid>
                     <Grid row>
-                      <Grid size={{ Lg: 12 }} offset={{ Lg: 6 }}>
+                      <Grid
+                        size={{
+                          Lg: 12,
+                        }}
+                        offset={{
+                          Lg: 6,
+                        }}
+                      >
                         <Link href={contactPageSettings.path}>
                           <a role="button">
                             <Microcopy
