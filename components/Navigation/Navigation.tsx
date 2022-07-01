@@ -4,6 +4,7 @@ import { NextRouter, useRouter } from "next/router";
 import Style from "./styles.module.scss";
 import Grid from "../Grid/Grid";
 import LayoutContext from "../layout/LayoutContext";
+import SearchBar from "../Search/SearchBar";
 import { pageSettings as solutionsPageSettings } from "../../pages/solutions";
 import { pageSettings as platformPageSettings } from "../../pages/platform";
 import { pageSettings as partnersPageSettings } from "../../pages/partners";
@@ -244,6 +245,12 @@ const Navigation: FunctionComponent = () => {
                 {...levelOneLinkProps}
               />
             </li>
+            <li>
+              <SearchBar
+                isLightColorScheme={color == "black"}
+                router={router}
+              />
+            </li>
           </ul>
         </nav>
       </Grid>
@@ -255,7 +262,7 @@ export default Navigation;
 
 interface PageSettingsLevelOneLinkProps {
   pageSettings: PageSettings;
-  color: string;
+  color: "white" | "black";
   router: NextRouter;
 }
 const PageSettingsLevelOneLink: FunctionComponent<
