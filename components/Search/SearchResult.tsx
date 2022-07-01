@@ -8,6 +8,11 @@ interface SearchResultProps {
 }
 
 const SearchResult: FunctionComponent<SearchResultProps> = ({ item }) => {
+  let previewText = item.preview;
+  if (item.preview && item.preview.split(" ").length > 32) {
+    previewText = item.preview.split(" ").splice(0, 32).join(" ") + "...";
+  }
+
   return (
     <div className={Styles.searchResult}>
       <div className={Styles.resultPreview}>
@@ -25,7 +30,7 @@ const SearchResult: FunctionComponent<SearchResultProps> = ({ item }) => {
         <Link href={item.link}>
           <h5>{item.title}</h5>
         </Link>
-        {item.preview && <p>{item.preview}</p>}
+        {previewText && <p>{previewText}</p>}
       </div>
     </div>
   );

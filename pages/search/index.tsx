@@ -1,14 +1,12 @@
-import { ReactElement, useState, useEffect } from "react";
+import { ReactElement, useState, useEffect, useContext } from "react";
 import router from "next/router";
 import Style from "./styles.module.scss";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import Head from "next/head";
 import { getHeadPageTitle } from "../../utils/meta";
 import { searchEntries, SearchEntriesResult } from "../../contentful/client";
-import PageHeader from "../../components/PageHeader/PageHeader";
 import Container from "../../components/Container/Container";
-import PageTitle from "../../components/PageTitle/PageTitle";
-import PageSubtitle from "../../components/PageSubtitle/PageSubtitle";
+import LayoutContext from "../../components/layout/LayoutContext";
 import Footer from "../../components/Footer/Footer";
 import SearchResult from "../../components/Search/SearchResult";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -40,6 +38,7 @@ const SearchResults = ({
 }: InferGetServerSidePropsType<typeof getServerSideProps>): ReactElement => {
   const [searchText, setSearchText] = useState(search);
   const [isLoading, setIsLoading] = useState(false);
+  const { setNavColor } = useContext(LayoutContext);
 
   const onKeyUp = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key == "Enter") {
@@ -49,6 +48,7 @@ const SearchResults = ({
   };
 
   useEffect(() => {
+    setNavColor("black");
     router.events.on("routeChangeComplete", () => {
       setIsLoading(false);
     });
@@ -64,14 +64,8 @@ const SearchResults = ({
           ])}
         </title>
       </Head>
-      <PageHeader>
-        <PageTitle>Search Results</PageTitle>
-        <PageSubtitle>
-          Showing {items.length} results for "{search}"
-        </PageSubtitle>
-      </PageHeader>
       <ScrollToTop scrollType="window" />
-      <Container>
+      <Container className={Style.serp}>
         <div className={Style.searchBar}>
           <FontAwesomeIcon
             icon={isLoading ? faSpinner : faMagnifyingGlass}
