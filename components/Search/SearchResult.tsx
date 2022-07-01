@@ -20,7 +20,7 @@ const SearchResult: FunctionComponent<SearchResultProps> = ({ item }) => {
           {item.type}{" "}
           {item.date && (
             <span>
-              &#8226;{" "}
+              -{" "}
               {new Date(item.date).toLocaleString("en-US", {
                 dateStyle: "long",
               })}
