@@ -1,14 +1,12 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement, useContext, useState, useRef } from "react";
+import React, { ReactElement, useContext, useRef } from "react";
 import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Grid from "../../components/Grid/Grid";
 import Link from "next/link";
 import Style from "./styles.module.scss";
 import NewsGrid from "../../components/News/NewsGrid";
-import Button from "../../components/Button/Button";
-import router from "next/router";
 import { InView } from "react-intersection-observer";
 import Image from "next/image";
 import Footer from "../../components/Footer/Footer";
@@ -30,7 +28,6 @@ import { pageSettings as solutionsPageSettings } from "../solutions";
 import { pageSettings as platformPageSettings } from "../platform";
 import { pageSettings as impactPageSettings } from "../impact";
 import { pageSettings as contactPageSettings } from "../contact";
-import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ContentOverImage from "../../components/ContentOverImage/ContentOverImage";
@@ -105,7 +102,12 @@ const Index = ({
             <ReactFullpage.Wrapper>
               <FullpageSection className={Style.hero}>
                 <Grid container marginCenter>
-                  <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
+                  <Grid
+                    size={{
+                      Xs: 12,
+                    }}
+                    className={Style.contentCenter}
+                  >
                     <h1>
                       <Microcopy
                         entries={microcopy}
@@ -155,7 +157,15 @@ const Index = ({
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <Grid row className={Style.enhanceContent}>
-                    <Grid size={{ Xs: 12, Sm: 10, Md: 10, Lg: 10, Xl: 5 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Sm: 10,
+                        Md: 10,
+                        Lg: 10,
+                        Xl: 5,
+                      }}
+                    >
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -176,9 +186,19 @@ const Index = ({
                 <Grid container marginCenter className={Style.nexusContent}>
                   <Grid container marginCenter>
                     <Grid row>
-                      <Grid marginCenter size={{ Xs: 10 }}>
+                      <Grid
+                        marginCenter
+                        size={{
+                          Xs: 10,
+                        }}
+                      >
                         <Grid row className={Style.nexusStats}>
-                          <Grid size={{ Xl: 8, Xs: 9 }}>
+                          <Grid
+                            size={{
+                              Xl: 8,
+                              Xs: 9,
+                            }}
+                          >
                             <h2>
                               Introducing Nexus <sup>TM</sup>
                             </h2>
@@ -189,7 +209,12 @@ const Index = ({
                               />
                             </p>
                           </Grid>
-                          <Grid size={{ Xl: 2, Xs: 12 }}>
+                          <Grid
+                            size={{
+                              Xl: 2,
+                              Xs: 12,
+                            }}
+                          >
                             <h2 className={clsx(Style.large)}>
                               <Microcopy
                                 entries={microcopy}
@@ -206,7 +231,11 @@ const Index = ({
                         </Grid>
                         <hr />
                         <Grid row>
-                          <Grid size={{ Xs: 10 }}>
+                          <Grid
+                            size={{
+                              Xs: 10,
+                            }}
+                          >
                             <p>
                               <Microcopy
                                 entries={microcopy}
@@ -216,10 +245,17 @@ const Index = ({
                           </Grid>
                           <Grid
                             row
-                            spacing={{ Xl: "between" }}
+                            spacing={{
+                              Xl: "between",
+                            }}
                             className={Style.nexusPoints}
                           >
-                            <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <Grid
+                              size={{
+                                Xl: 2,
+                                Xs: 12,
+                              }}
+                            >
                               <svg
                                 width="52"
                                 height="52"
@@ -259,7 +295,12 @@ const Index = ({
                                 />
                               </p>
                             </Grid>
-                            <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <Grid
+                              size={{
+                                Xl: 2,
+                                Xs: 12,
+                              }}
+                            >
                               <svg
                                 width="48"
                                 height="55"
@@ -280,7 +321,12 @@ const Index = ({
                                 />
                               </p>
                             </Grid>
-                            <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <Grid
+                              size={{
+                                Xl: 2,
+                                Xs: 12,
+                              }}
+                            >
                               <svg
                                 width="52"
                                 height="52"
@@ -301,7 +347,12 @@ const Index = ({
                                 />
                               </p>
                             </Grid>
-                            <Grid size={{ Xl: 2, Xs: 12 }}>
+                            <Grid
+                              size={{
+                                Xl: 2,
+                                Xs: 12,
+                              }}
+                            >
                               <svg
                                 width="52"
                                 height="54"
@@ -349,7 +400,13 @@ const Index = ({
                       </Grid>
                     </Grid>
                     <Grid row>
-                      <Grid marginCenter size={{ Xs: 10, Xl: 10 }}>
+                      <Grid
+                        marginCenter
+                        size={{
+                          Xs: 10,
+                          Xl: 10,
+                        }}
+                      >
                         <Link href={platformPageSettings.path}>
                           <a role="button">
                             <Microcopy
@@ -381,7 +438,10 @@ const Index = ({
                   >
                     <Grid row>
                       <Grid
-                        size={{ Xs: 12, Xl: 5 }}
+                        size={{
+                          Xs: 12,
+                          Xl: 5,
+                        }}
                         className={Style.statementImage}
                       >
                         <Image
@@ -389,7 +449,12 @@ const Index = ({
                           alt={"Image of a force graph loading on a screen"}
                         />
                       </Grid>
-                      <Grid size={{ Xl: 6, Xs: 12 }}>
+                      <Grid
+                        size={{
+                          Xl: 6,
+                          Xs: 12,
+                        }}
+                      >
                         <h3>
                           <Microcopy
                             entries={microcopy}
@@ -398,7 +463,10 @@ const Index = ({
                         </h3>
                         <Grid row>
                           <Grid
-                            size={{ Xl: 6, Xs: 12 }}
+                            size={{
+                              Xl: 6,
+                              Xs: 12,
+                            }}
                             className={Style.statementItem}
                           >
                             <svg
@@ -474,7 +542,10 @@ const Index = ({
                             </p>
                           </Grid>
                           <Grid
-                            size={{ Xl: 6, Xs: 12 }}
+                            size={{
+                              Xl: 6,
+                              Xs: 12,
+                            }}
                             className={Style.statementItem}
                           >
                             <svg
@@ -546,7 +617,10 @@ const Index = ({
                         </Grid>
                         <Grid row>
                           <Grid
-                            size={{ Xl: 6, Xs: 12 }}
+                            size={{
+                              Xl: 6,
+                              Xs: 12,
+                            }}
                             className={Style.statementItem}
                           >
                             <svg
@@ -675,7 +749,10 @@ const Index = ({
                             </p>
                           </Grid>
                           <Grid
-                            size={{ Xl: 6, Xs: 12 }}
+                            size={{
+                              Xl: 6,
+                              Xs: 12,
+                            }}
                             className={Style.statementItem}
                           >
                             <svg
@@ -774,7 +851,12 @@ const Index = ({
               <FullpageSection className={Style.impact}>
                 <Grid container marginCenter>
                   <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.impactTitle}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.impactTitle}
+                    >
                       <h2>
                         <Microcopy
                           entries={microcopy}
@@ -785,7 +867,10 @@ const Index = ({
                   </Grid>
                   <Grid row className={Style.impactContainer}>
                     <Grid
-                      size={{ Xl: 3, Xs: 12 }}
+                      size={{
+                        Xl: 3,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.impactContainerItem,
                         Style.impactMicrosoft
@@ -815,7 +900,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Xl: 3, Xs: 12 }}
+                      size={{
+                        Xl: 3,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.impactContainerItem,
                         Style.impactHr
@@ -845,7 +933,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Xl: 3, Xs: 12 }}
+                      size={{
+                        Xl: 3,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.impactContainerItem,
                         Style.impactRaytheon
@@ -875,7 +966,10 @@ const Index = ({
                       </div>
                     </Grid>
                     <Grid
-                      size={{ Xl: 3, Xs: 12 }}
+                      size={{
+                        Xl: 3,
+                        Xs: 12,
+                      }}
                       className={clsx(
                         Style.impactContainerItem,
                         Style.impactNavy
@@ -913,22 +1007,23 @@ const Index = ({
                   onChange={(inView) => setNavColor(inView ? "black" : "white")}
                 >
                   <Grid container marginCenter>
-                    <NewsGrid news={news} title="Latest News" />
-                    <Button
-                      style={{ display: "block" }}
-                      onClick={() => {
-                        router.push(newsroomPageSettings.path);
-                      }}
-                    >
-                      View all
-                    </Button>
+                    <NewsGrid
+                      news={news}
+                      title="Latest News"
+                      showViewAllButton
+                    />
                   </Grid>
                 </InView>
               </FullpageSection>
               <FullpageSection className={Style.statement2}>
                 <Grid container marginCenter>
                   <Grid row>
-                    <Grid size={{ Xl: 6 }} className={Style.statement2Content}>
+                    <Grid
+                      size={{
+                        Xl: 6,
+                      }}
+                      className={Style.statement2Content}
+                    >
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -946,7 +1041,15 @@ const Index = ({
                         </Link>
                       </div>
                     </Grid>
-                    <Grid size={{ Xs: 12, Sm: 12, Md: 12, Lg: 12, Xl: 6 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Sm: 12,
+                        Md: 12,
+                        Lg: 12,
+                        Xl: 6,
+                      }}
+                    >
                       <video
                         controls
                         poster="./bryanPreview.png"
