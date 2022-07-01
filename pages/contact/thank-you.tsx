@@ -72,15 +72,7 @@ const ThankYou = ({
           <h4>
             <Microcopy entries={microcopy} id="2zT9DC2jbq5prP54s0u8FS" />
           </h4>
-          <NewsGrid news={news} />
-          <Button
-            style={{ display: "block" }}
-            onClick={() => {
-              router.push(newsroomPageSettings.path);
-            }}
-          >
-            View all
-          </Button>
+          <NewsGrid news={news} showViewAllButton />
         </div>
       </div>
       <Footer />

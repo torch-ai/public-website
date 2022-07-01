@@ -2,14 +2,12 @@
 
 import React, { ReactElement, useContext, useEffect, useRef } from "react";
 import Link from "next/link";
-import router from "next/router";
 import ReactFullpage, { fullpageApi } from "@fullpage/react-fullpage";
 import Head from "next/head";
 import Image from "next/image";
 import Style from "./styles.module.scss";
 import Grid from "../../components/Grid/Grid";
 import NewsGrid from "../../components/News/NewsGrid";
-import Button from "../../components/Button/Button";
 import Footer from "../../components/Footer/Footer";
 import { gsap } from "gsap";
 import { InView } from "react-intersection-observer";
@@ -27,7 +25,6 @@ import {
 import Microcopy from "../../components/Microcopy/Microcopy";
 import { getHeadPageTitle } from "../../utils/meta";
 import { pageSettings as careersPageSettings } from "../careers";
-import { pageSettings as newsroomPageSettings } from "../newsroom";
 import { PageSettings } from "../../types/next";
 import clsx from "clsx";
 import ScrollToTop from "../../components/ScrollToTop/ScrollToTop";
@@ -146,7 +143,12 @@ const Index = ({
                     }
                   >
                     <Grid row>
-                      <Grid size={{ Xs: 12 }} className={Style.contentCenter}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                        }}
+                        className={Style.contentCenter}
+                      >
                         <h2 ref={titleRef}>
                           <Microcopy
                             entries={microcopy}
@@ -186,7 +188,12 @@ const Index = ({
                   }}
                 >
                   <Grid row>
-                    <Grid size={{ Xs: 12, Lg: 12 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 12,
+                      }}
+                    >
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -196,7 +203,12 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row>
-                    <Grid size={{ Xs: 12, Lg: 3 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 3,
+                      }}
+                    >
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -210,7 +222,12 @@ const Index = ({
                         />
                       </p>
                     </Grid>
-                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 8,
+                      }}
+                    >
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -226,7 +243,12 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row>
-                    <Grid size={{ Xs: 12, Lg: 3 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 3,
+                      }}
+                    >
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -240,7 +262,12 @@ const Index = ({
                         />
                       </p>
                     </Grid>
-                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                        Lg: 8,
+                      }}
+                    >
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -260,15 +287,28 @@ const Index = ({
               <FullpageSection className={Style.gallery}>
                 <Grid container marginCenter>
                   <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryTitle}
+                    >
                       <h3>Leadership.</h3>
                     </Grid>
                   </Grid>
                   <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryLayout}
+                    >
                       <Grid row className={Style.galleryLayoutFeatured}>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -291,7 +331,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -314,7 +357,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -337,7 +383,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -363,10 +412,18 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryLayout}
+                    >
                       <Grid row className={Style.galleryLayoutList}>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -389,7 +446,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -412,7 +472,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -435,7 +498,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -465,7 +531,12 @@ const Index = ({
               <FullpageSection className={Style.gallery}>
                 <Grid container marginCenter>
                   <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryTitle}
+                    >
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -481,10 +552,18 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryLayout}
+                    >
                       <Grid row className={Style.galleryLayoutList}>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -501,7 +580,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -518,7 +600,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -535,7 +620,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -559,7 +647,12 @@ const Index = ({
               <FullpageSection className={Style.gallery}>
                 <Grid container marginCenter>
                   <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryTitle}
+                    >
                       <h3>
                         <Microcopy
                           entries={microcopy}
@@ -575,10 +668,18 @@ const Index = ({
                     </Grid>
                   </Grid>
                   <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
+                    <Grid
+                      size={{
+                        Xs: 12,
+                      }}
+                      className={Style.galleryLayout}
+                    >
                       <Grid row className={Style.galleryLayoutList}>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -595,7 +696,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -612,7 +716,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -629,7 +736,10 @@ const Index = ({
                           </div>
                         </Grid>
                         <Grid
-                          size={{ Lg: 3, Xs: 12 }}
+                          size={{
+                            Lg: 3,
+                            Xs: 12,
+                          }}
                           className={Style.galleryLayoutItem}
                         >
                           <div className={clsx(Style.galleryLayoutItemContent)}>
@@ -663,7 +773,12 @@ const Index = ({
                 >
                   <Grid container marginCenter>
                     <Grid row className={Style.careersContent}>
-                      <Grid size={{ Xs: 12, Lg: 6 }}>
+                      <Grid
+                        size={{
+                          Xs: 12,
+                          Lg: 6,
+                        }}
+                      >
                         <h2>
                           <Microcopy
                             entries={microcopy}
@@ -693,15 +808,7 @@ const Index = ({
               </FullpageSection>
               <FullpageSection className={Style.news}>
                 <Grid container marginCenter>
-                  <NewsGrid news={news} title="Latest News" />
-                  <Button
-                    style={{ display: "block" }}
-                    onClick={() => {
-                      router.push(newsroomPageSettings.path);
-                    }}
-                  >
-                    View all
-                  </Button>
+                  <NewsGrid news={news} title="Latest News" showViewAllButton />
                 </Grid>
               </FullpageSection>
               <Footer />
