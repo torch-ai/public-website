@@ -1,41 +1,88 @@
 // noinspection JSUnusedGlobalSymbols
 
-import React, { ReactElement } from "react";
+import React, { ReactElement, useContext } from "react";
 import Footer from "../../components/Footer/Footer";
+import Style from "./styles.module.scss";
 import Head from "next/head";
+import router from "next/router";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
-import { TypePage } from "../../generated/contentful";
-import { getPage } from "../../contentful/client";
-import ContentfulPage from "../../components/ContentfulPage/ContentfulPage";
+import {
+  getCustomPageAndMicrocopy,
+  getNewsEntries,
+} from "../../contentful/client";
+import pageIds from "../../contentful/pages";
 import { getHeadPageTitle } from "../../utils/meta";
+import Microcopy from "../../components/Microcopy/Microcopy";
+import {
+  TypeNews,
+  TypeMicrocopy,
+  TypeCustomPage,
+} from "../../generated/contentful";
+import Button from "../../components/Button/Button";
+import NewsGrid from "../../components/News/NewsGrid";
+import { pageSettings as newsroomPageSettings } from "../newsroom";
+import LayoutContext from "../../components/layout/LayoutContext";
 
 export const getStaticProps: GetStaticProps<{
-  page: TypePage;
+  news: TypeNews[];
+  microcopy: TypeMicrocopy[];
+  customPage?: TypeCustomPage;
 }> = async () => {
-  // See: https://app.contentful.com/spaces/dtb5w0ega2aw/entries/7iwdVdgUAl4bzvQMzWl3Ww
-  const page = await getPage("7iwdVdgUAl4bzvQMzWl3Ww");
+  const news = await getNewsEntries({
+    limit: 2,
+  });
+
+  const content = await getCustomPageAndMicrocopy(pageIds.contactCompleted);
 
   return {
     props: {
-      page,
+      news: news.items,
+      microcopy: content.microcopy,
+      customPage: content.customPage || null,
     },
   };
 };
 
 const ThankYou = ({
-  page,
+  customPage,
+  microcopy,
+  news,
 }: InferGetStaticPropsType<typeof getStaticProps>): ReactElement => {
-  const {
-    fields: { title },
-  } = page;
+  const { setNavColor } = useContext(LayoutContext);
+
+  setNavColor("black");
+
   return (
     <>
       <Head>
         <title>
-          {getHeadPageTitle([title, "Unlock your potential", "Talk to us"])}
+          {getHeadPageTitle(
+            !!customPage ? customPage.fields.pageHeadTitle : []
+          )}
         </title>
       </Head>
-      <ContentfulPage page={page} />
+      <div className={Style.thankyouContainer}>
+        <h2>
+          <Microcopy entries={microcopy} id="6zfV64GBqiJ03ucaMJpbP9" />
+        </h2>
+        <p>
+          <Microcopy entries={microcopy} id="6t5vqERmlnhnW4qyMI77ZR" />
+        </p>
+        <div className={Style.newsContainer}>
+          <h4>
+            <Microcopy entries={microcopy} id="2zT9DC2jbq5prP54s0u8FS" />
+          </h4>
+          <NewsGrid news={news} />
+          <Button
+            style={{ display: "block" }}
+            onClick={() => {
+              router.push(newsroomPageSettings.path);
+            }}
+          >
+            View all
+          </Button>
+        </div>
+      </div>
       <Footer />
     </>
   );

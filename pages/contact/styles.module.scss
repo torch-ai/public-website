@@ -68,3 +68,24 @@
 .contactInformation {
   background: black;
 }
+
+.thankyouContainer {
+  padding: 15em 2em 1em 2em;
+  background-color: #ffffff;
+  background-image: url(../../img/backgrounds/mesh.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.thankyouContainer > h2,
+.thankyouContainer > p {
+  text-align: center;
+}
+
+.newsContainer {
+  margin-top: 3em;
+}
+
+.newsContainer > h4 {
+  text-align: center;
+}
