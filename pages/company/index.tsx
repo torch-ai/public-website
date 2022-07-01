@@ -202,7 +202,12 @@ const Index = ({
                       </h3>
                     </Grid>
                   </Grid>
-                  <Grid row>
+                  <Grid
+                    row
+                    xPos={{
+                      Xs: "start",
+                    }}
+                  >
                     <Grid
                       size={{
                         Xs: 12,
@@ -225,7 +230,7 @@ const Index = ({
                     <Grid
                       size={{
                         Xs: 12,
-                        Lg: 8,
+                        Lg: 3,
                       }}
                     >
                       <h5>
@@ -242,7 +247,12 @@ const Index = ({
                       </p>
                     </Grid>
                   </Grid>
-                  <Grid row>
+                  <Grid
+                    row
+                    xPos={{
+                      Xs: "start",
+                    }}
+                  >
                     <Grid
                       size={{
                         Xs: 12,
@@ -265,7 +275,7 @@ const Index = ({
                     <Grid
                       size={{
                         Xs: 12,
-                        Lg: 8,
+                        Lg: 3,
                       }}
                     >
                       <h5>
@@ -772,11 +782,11 @@ const Index = ({
                   }}
                 >
                   <Grid container marginCenter>
-                    <Grid row className={Style.careersContent}>
+                    <Grid row reverse>
                       <Grid
                         size={{
                           Xs: 12,
-                          Lg: 6,
+                          Lg: 5,
                         }}
                       >
                         <h2>
