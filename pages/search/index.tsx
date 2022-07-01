@@ -83,10 +83,14 @@ const SearchResults = ({
             }}
           />
         </div>
-        <div className={Style.searchResultsContainer}>
-          {items.map((result) => {
-            return <SearchResult key={result.id} item={result} />;
-          })}
+        <div>
+          {items.length > 0 ? (
+            items.map((result) => {
+              return <SearchResult key={result.id} item={result} />;
+            })
+          ) : (
+            <p className={Style.noResultFound}>No results found.</p>
+          )}
         </div>
       </Container>
       <Footer />

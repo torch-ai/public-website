@@ -22,6 +22,10 @@
   flex-grow: 1;
 }
 
+.noResultFound {
+  margin: 1em 0;
+}
+
 .spinning {
   animation: spinning 1s infinite linear;
 }
