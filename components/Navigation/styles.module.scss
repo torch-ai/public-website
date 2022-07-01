@@ -9,7 +9,10 @@
   width: 100%;
 }
 
-.NavContainer {
+.navContainer {
+  padding: 0 2em;
+  width: 100vw;
+  max-width: 105em;
 }
 
 .event {
@@ -122,7 +125,7 @@
     color: white;
     aspect-ratio: 1;
     top: 3rem;
-    right: 1rem;
+    right: 2rem;
   }
 
   .mobileNavToggle.darkBackground {

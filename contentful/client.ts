@@ -5,7 +5,7 @@ import {
   EntryWithLinkResolutionAndWithoutUnresolvableLinks,
   Entry
 } from "contentful";
-import { TypeNewsFields, TypePageFields, TypeMicrocopyFields, TypeCustomPageFields } from "../generated/contentful";
+import { TypeNewsFields, TypeNews, TypePageFields, TypeMicrocopyFields, TypeMicrocopy, TypeCustomPageFields, TypeCustomPage } from "../generated/contentful";
 import { EntryWithoutLinkResolution } from "contentful/lib/types/entry";
 
 // Trying very hard not to expose the raw client to get good utility functions.
@@ -46,6 +46,53 @@ export const getAllNewsEntries: GetAllEntries<TypeNewsFields> = async (
 ) => {
   return (await getAllEntries<TypeNewsFields>(query, getNewsEntries)).items
 };
+
+export interface SearchEntriesResult {
+  date?: string
+  title: string
+  preview?: string
+  link: string
+  id: string
+  type: string
+}
+
+export const searchEntries = async (searchQuery: string): Promise<{
+  results: SearchEntriesResult[]
+}> => {
+  const news = await getAllEntries<TypeNewsFields>({
+    content_type: ContentModels.News,
+    query: searchQuery,
+  }, client.withoutUnresolvableLinks.getEntries)
+
+  const microcopy = await getAllEntries({
+    content_type: ContentModels.Microcopy,
+    "fields.searchable": true,
+    query: searchQuery,
+  }, client.withoutUnresolvableLinks.getEntries)
+
+  return {
+    results: news.items.map((n) => {
+      return {
+        date: n.fields.publishDate,
+        title: n.fields.title,
+        preview: n.fields.summary,
+        link: `/post/${n.fields.slug}`,
+        id: n.sys.id,
+        type: "News"
+      } as SearchEntriesResult
+    }).concat(microcopy.includesEntries.map((page: TypeCustomPage) => {
+      let firstMicrocopy = (microcopy.items as TypeMicrocopy[]).find((m: TypeMicrocopy) => m.fields.containingPage.sys.id == page.sys.id)
+
+      return {
+        title: page.fields.title,
+        preview: firstMicrocopy ? firstMicrocopy.fields.content : null,
+        link: page.fields.pagePath,
+        id: page.sys.id,
+        type: "Page"
+      } as SearchEntriesResult
+    })).sort((a, b) => a.title > b.title ? 1 : -1)
+  }
+}
 
 export const getNewsEntry: GetEntry<TypeNewsFields> = async (id, query = {}) =>
   client.withoutUnresolvableLinks.getEntry<TypeNewsFields>(id, {

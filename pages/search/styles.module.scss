@@ -1,0 +1,36 @@
+.serp {
+  max-width: 50em;
+  display: flex;
+  flex-direction: column;
+  padding-top: 10em;
+}
+
+.searchBar {
+  border: 1px solid var(--color-dark);
+  border-radius: 8em;
+  padding: 0.5em 0.8em;
+  display: flex;
+  align-items: center;
+}
+
+.searchBar input {
+  border: none;
+  outline: none;
+  font-size: 1.2em;
+  padding: 0px;
+  margin-left: 0.5em;
+  flex-grow: 1;
+}
+
+.spinning {
+  animation: spinning 1s infinite linear;
+}
+
+@keyframes spinning {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
