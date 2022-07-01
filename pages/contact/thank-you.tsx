@@ -4,7 +4,6 @@ import React, { ReactElement, useContext } from "react";
 import Footer from "../../components/Footer/Footer";
 import Style from "./styles.module.scss";
 import Head from "next/head";
-import router from "next/router";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import {
   getCustomPageAndMicrocopy,
@@ -18,9 +17,7 @@ import {
   TypeMicrocopy,
   TypeCustomPage,
 } from "../../generated/contentful";
-import Button from "../../components/Button/Button";
 import NewsGrid from "../../components/News/NewsGrid";
-import { pageSettings as newsroomPageSettings } from "../newsroom";
 import LayoutContext from "../../components/layout/LayoutContext";
 
 export const getStaticProps: GetStaticProps<{
