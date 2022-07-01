@@ -126,8 +126,8 @@ const Index = ({
                       setNavColor(inView ? "black" : "white")
                     }
                   >
-                    <Grid row className={Style.valueContent}>
-                      <Grid size={{ Xs: 12 }} offset={{ Lg: 3 }}>
+                    <Grid row xPos={{ Xs: "center" }}>
+                      <Grid size={{ Xs: 12, Lg: 5 }}>
                         <h3>
                           <Microcopy
                             entries={microcopy}

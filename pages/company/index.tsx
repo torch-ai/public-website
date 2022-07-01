@@ -195,7 +195,7 @@ const Index = ({
                       </h3>
                     </Grid>
                   </Grid>
-                  <Grid row>
+                  <Grid row xPos={{ Xs: "start" }}>
                     <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h5>
                         <Microcopy
@@ -210,7 +210,7 @@ const Index = ({
                         />
                       </p>
                     </Grid>
-                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -225,7 +225,7 @@ const Index = ({
                       </p>
                     </Grid>
                   </Grid>
-                  <Grid row>
+                  <Grid row xPos={{ Xs: "start" }}>
                     <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h5>
                         <Microcopy
@@ -240,7 +240,7 @@ const Index = ({
                         />
                       </p>
                     </Grid>
-                    <Grid size={{ Xs: 12, Lg: 8 }}>
+                    <Grid size={{ Xs: 12, Lg: 3 }}>
                       <h5>
                         <Microcopy
                           entries={microcopy}
@@ -662,8 +662,8 @@ const Index = ({
                   }}
                 >
                   <Grid container marginCenter>
-                    <Grid row className={Style.careersContent}>
-                      <Grid size={{ Xs: 12, Lg: 6 }}>
+                    <Grid row reverse>
+                      <Grid size={{ Xs: 12, Lg: 5 }}>
                         <h2>
                           <Microcopy
                             entries={microcopy}
