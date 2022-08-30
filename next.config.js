@@ -13,10 +13,10 @@ module.exports = {
           "/post/dataedge-seelcts-torch-ai-for-ai-enabled-data-rediness-solutions",
         permanent: true,
       },
-      // 2022-08-23
+      // 2022-08-29
       {
         source: "/legal/services-terms-conditions",
-        destination: "/terms/MSA-Services-Agreement-8-23-2022.pdf",
+        destination: "/terms/MSA_Services Agreement-8_29_2022.pdf",
         permanent: false,
       },
       // 2022-04-26
