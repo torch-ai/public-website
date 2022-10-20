@@ -1,0 +1,67 @@
+@use "/styles/breakpoints";
+
+$gap: 1em;
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 0;
+  background-color: #ffffff;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em 0;
+}
+
+.headerDescription {
+  text-align: center;
+  padding: 0.5em 0;
+}
+
+.people {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: $gap;
+  padding: 1em 0;
+  justify-content: space-evenly;
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2em 0;
+  width: 100%;
+}
+
+.personName {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding-top: 1em;
+}
+
+@media only screen and (min-width: breakpoints.$breakpoint-sm) {
+  .person {
+    width: calc(50% - $gap);
+  }
+}
+
+@media only screen and (min-width: breakpoints.$breakpoint-md) {
+  .person {
+    width: calc(33% - $gap);
+  }
+}
+
+@media only screen and (min-width: breakpoints.$breakpoint-lg) {
+  .person {
+    width: calc(25% - $gap);
+  }
+}

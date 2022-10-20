@@ -35,7 +35,6 @@ import ContentOverImage from "../../components/ContentOverImage/ContentOverImage
 import BrainWeaver from "../../img/dotArt/BrainWeaver.png";
 import AdamLurie from "../../img/dotArt/AdamLurie.png";
 import AmyBradshaw from "../../img/dotArt/AmyBradshaw.png";
-import DavidKern from "../../img/dotArt/DavidKern.png";
 import HondoGeruts from "../../img/dotArt/HondoGeruts.png";
 import JanetHanofee from "../../img/dotArt/JanetHanofee.png";
 import JasonDelker from "../../img/dotArt/JasonDelker.png";
@@ -52,6 +51,7 @@ import logoBookshelf from "./assets/logo-bookshelf.png";
 import galleryBackground from "./assets/gallerypic.png";
 import FullpageSection from "../../components/FullpageSection/FullpageSection";
 import pageIds from "../../contentful/pages";
+import PersonGallery from "../../components/PersonGallery/PersonGallery";
 
 export const pageSettings: PageSettings = {
   path: "/company",
@@ -89,6 +89,11 @@ const Index = ({
   const subtitleRef = useRef<HTMLParagraphElement>();
 
   const fullpageApiRef = useRef<fullpageApi>();
+
+  const brianWeaver = {
+    image: { src: BrainWeaver, alt: "Drawing of Brian Weaver" },
+    name: <Microcopy entries={microcopy} id="7ovjEQqyvr2JPeG0dZlS5z" />,
+  };
 
   useEffect(() => {
     let delay = 1;
@@ -257,399 +262,234 @@ const Index = ({
                   </Grid>
                 </ContentOverImage>
               </FullpageSection>
-              <FullpageSection className={Style.gallery}>
-                <Grid container marginCenter>
-                  <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
-                      <h3>Leadership.</h3>
-                    </Grid>
-                  </Grid>
-                  <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
-                      <Grid row className={Style.galleryLayoutFeatured}>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={BrainWeaver}
-                              alt={"Drawing of Brian Weaver"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="7ovjEQqyvr2JPeG0dZlS5z"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="4u4aeTHWFKUgBdvDcOjmKR"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={AmyBradshaw}
-                              alt={"Drawing of Amy Bradshaw"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="4LJP18PGKSKV6flvGtKpsh"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="3r8Qt2pd1iot0YGMrmXXx3"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={JanetHanofee}
-                              alt={"Drawing of Janet Hanofee"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="3AJpqcTe6eRXZbL8RhBUsQ"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="39TThX7reWTVNU66xRVXEk"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={DavidKern}
-                              alt={"Drawing of David Kervin"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="6jFMIdATTAQjshDen0fyrL"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="2SrJ3gRwjF7dsYknUIcbnu"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                  <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
-                      <Grid row className={Style.galleryLayoutList}>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={AdamLurie}
-                              alt={"Drawing of Adam Lurie"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="60JEwAIGK86rmUFtiitssR"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="4xaKTyYJR6VF96BesQjrso"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={JasonDelker}
-                              alt={"Drawing of Jason Delker"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="48GZFDmehqy1C5cVJ8rVVM"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="2MJF4Gd4EmyNJs5Gz2QaqL"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={JonKramer}
-                              alt={"Drawing of Jon Kramer"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="5Zgt3B5Mb3nvVmrviO7mhW"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="5IUCsd3Fzj4h13pKCIDPCP"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={JenniferUtting}
-                              alt={"Drawing of Jennifer Utting"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="5v04aX8A6yVEndfebQsY6F"
-                              />
-                            </h5>
-                            <p>
-                              <Microcopy
-                                entries={microcopy}
-                                id="7Mn0tBgi13E5HoKbICdqUe"
-                              />
-                            </p>
-                          </div>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </FullpageSection>
-              <FullpageSection className={Style.gallery}>
-                <Grid container marginCenter>
-                  <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
-                      <h3>
-                        <Microcopy
-                          entries={microcopy}
-                          id="6U3y2YhaWmHBLXdVXSv31K"
-                        />
-                      </h3>
-                      <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="3qc2rh6iLDmymMmRadozVX"
-                        />
-                      </p>
-                    </Grid>
-                  </Grid>
-                  <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
-                      <Grid row className={Style.galleryLayoutList}>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={BrainWeaver}
-                              alt={"Drawing of Brian Weaver"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="Badahlu9e8ZOKblqkptjc"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={LaurenceTosi}
-                              alt={"Drawing of Laurence Tosi"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="2grXuzJafTTiAXPnxoHeT0"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={ChristanSchnedler}
-                              alt={"Drawing of Christian Schnedler"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="3KVmsXGyesPxWAY7p0rRB8"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={WilliamBeyer}
-                              alt={"Drawing of William Beyer"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="424NYd6BFRReTJ1f9kiEEz"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </FullpageSection>
-              <FullpageSection className={Style.gallery}>
-                <Grid container marginCenter>
-                  <Grid row>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryTitle}>
-                      <h3>
-                        <Microcopy
-                          entries={microcopy}
-                          id="3FPtgeOMGtZqkvc7d3pLxN"
-                        />
-                      </h3>
-                      <p>
-                        <Microcopy
-                          entries={microcopy}
-                          id="6QxA7qcoXysSRYR1ARTYaw"
-                        />
-                      </p>
-                    </Grid>
-                  </Grid>
-                  <Grid row className={Style.galleryContainer}>
-                    <Grid size={{ Xs: 12 }} className={Style.galleryLayout}>
-                      <Grid row className={Style.galleryLayoutList}>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={KevinMarcus}
-                              alt={"Drawing of Kevin Marcus"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="3JK4FIL7GTc5noF9v1MLas"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={MarkPerrin}
-                              alt={"Drawing of Mark W. Perrin"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="5alFK4bykE1q4yr6Yzasf6"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={HondoGeruts}
-                              alt={'Drawing of James "Hondo" Geurts'}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="2VuKC17G7mOE3NKQCt23e7"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                        <Grid
-                          size={{ Lg: 3, Xs: 12 }}
-                          className={Style.galleryLayoutItem}
-                        >
-                          <div className={clsx(Style.galleryLayoutItemContent)}>
-                            <Image
-                              src={MikeDanda}
-                              alt={"Drawing of LtGen Mike Dana"}
-                            />
-                            <h5>
-                              <Microcopy
-                                entries={microcopy}
-                                id="7bxCMjlNK6uERXsYBSpzj4"
-                              />
-                            </h5>
-                          </div>
-                        </Grid>
-                      </Grid>
-                    </Grid>
-                  </Grid>
-                </Grid>
-              </FullpageSection>
+
+              <PersonGallery
+                title={"Leadership"}
+                people={[
+                  {
+                    ...brianWeaver,
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="4u4aeTHWFKUgBdvDcOjmKR"
+                      />
+                    ),
+                  },
+                  {
+                    image: { src: AmyBradshaw, alt: "Drawing of Amy Bradshaw" },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="4LJP18PGKSKV6flvGtKpsh"
+                      />
+                    ),
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="3r8Qt2pd1iot0YGMrmXXx3"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: JanetHanofee,
+                      alt: "Drawing of Janet Hanofee",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="3AJpqcTe6eRXZbL8RhBUsQ"
+                      />
+                    ),
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="39TThX7reWTVNU66xRVXEk"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: AdamLurie,
+                      alt: "Drawing of Adam Lurie",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="60JEwAIGK86rmUFtiitssR"
+                      />
+                    ),
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="4xaKTyYJR6VF96BesQjrso"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: JasonDelker,
+                      alt: "Drawing of Jason Delker",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="48GZFDmehqy1C5cVJ8rVVM"
+                      />
+                    ),
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="2MJF4Gd4EmyNJs5Gz2QaqL"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: JonKramer,
+                      alt: "Drawing of Jon Kramer",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="5Zgt3B5Mb3nvVmrviO7mhW"
+                      />
+                    ),
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="5IUCsd3Fzj4h13pKCIDPCP"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: JenniferUtting,
+                      alt: "Drawing of Jennifer Utting",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="5v04aX8A6yVEndfebQsY6F"
+                      />
+                    ),
+                    description: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="7Mn0tBgi13E5HoKbICdqUe"
+                      />
+                    ),
+                  },
+                ]}
+              />
+
+              <PersonGallery
+                title={
+                  <Microcopy entries={microcopy} id="6U3y2YhaWmHBLXdVXSv31K" />
+                }
+                description={
+                  <Microcopy entries={microcopy} id="3qc2rh6iLDmymMmRadozVX" />
+                }
+                people={[
+                  brianWeaver,
+                  {
+                    image: {
+                      src: LaurenceTosi,
+                      alt: "Drawing of Laurence Tosi",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="2grXuzJafTTiAXPnxoHeT0"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: ChristanSchnedler,
+                      alt: "Drawing of Christan Schnedler",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="3KVmsXGyesPxWAY7p0rRB8"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: WilliamBeyer,
+                      alt: "Drawing of Christan William Beyer",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="424NYd6BFRReTJ1f9kiEEz"
+                      />
+                    ),
+                  },
+                ]}
+              />
+
+              <PersonGallery
+                title={
+                  <Microcopy entries={microcopy} id="3FPtgeOMGtZqkvc7d3pLxN" />
+                }
+                description={
+                  <Microcopy entries={microcopy} id="6QxA7qcoXysSRYR1ARTYaw" />
+                }
+                people={[
+                  {
+                    image: {
+                      src: KevinMarcus,
+                      alt: "Drawing of Kevin Marcus",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="3JK4FIL7GTc5noF9v1MLas"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: MarkPerrin,
+                      alt: "Drawing of Mark Perrin",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="5alFK4bykE1q4yr6Yzasf6"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: HondoGeruts,
+                      alt: "Drawing of Hondo Geruts",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="2VuKC17G7mOE3NKQCt23e7"
+                      />
+                    ),
+                  },
+                  {
+                    image: {
+                      src: MikeDanda,
+                      alt: "Drawing of LtGen Mike Danda",
+                    },
+                    name: (
+                      <Microcopy
+                        entries={microcopy}
+                        id="7bxCMjlNK6uERXsYBSpzj4"
+                      />
+                    ),
+                  },
+                ]}
+              />
+
               <FullpageSection>
                 <ContentOverImage
                   className={clsx(Style.careers, "section")}
