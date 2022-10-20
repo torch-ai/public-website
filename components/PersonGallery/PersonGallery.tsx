@@ -34,8 +34,8 @@ const PersonGallery: React.FunctionComponent<PersonGalleryProps> = ({
           )}
         </header>
         <div className={Styles.people}>
-          {people.map((person) => (
-            <div className={Styles.person}>
+          {people.map((person, index) => (
+            <div className={Styles.person} key={index}>
               <Image src={person.image.src} alt={person.image.alt || ""} />
               <h5 className={Styles.personName}>{person.name}</h5>
               {person.description && <p>{person.description}</p>}
