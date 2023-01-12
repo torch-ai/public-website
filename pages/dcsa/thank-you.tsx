@@ -73,7 +73,7 @@ const ThankYou = ({
                 title="DCSA.mp4"
               ></iframe>
             </div>
-            <script src="https://player.vimeo.com/api/player.js"></script>
+            <script src="https://player.vimeo.com/api/player.js" defer></script>
           </>
         }
       />
